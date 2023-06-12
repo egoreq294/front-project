@@ -1,10 +1,10 @@
 import React, { FC, Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import "./styles/index.scss";
-import { AboutLazy } from "./pages/About/About.lazy";
-import { MainLazy } from "./pages/Main/Main.lazy";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers";
+import { About } from "@pages/About";
+import { Main } from "@pages/Main";
+import { classNames } from "@shared/lib/classNames";
+import { useTheme } from "./providers/ThemeProvider";
 
 export const App: FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -18,8 +18,8 @@ export const App: FC = () => {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/about" element={<AboutLazy />} />
-          <Route path="/" element={<MainLazy />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Main />} />
         </Routes>
       </Suspense>
     </div>

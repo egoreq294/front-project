@@ -6,10 +6,20 @@ export interface BuildPaths {
   html: string;
 }
 
+export type AliasOptions = {
+  "@app": string;
+  "@entities": string;
+  "@features": string;
+  "@shared": string;
+  "@pages": string;
+  "@widgets": string;
+};
+
 export interface BuildOptions {
   mode: BuildMode;
   paths: BuildPaths;
   isDev: boolean;
+  alias: AliasOptions;
 }
 
 export interface BuildEnv {
