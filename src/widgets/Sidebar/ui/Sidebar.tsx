@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import React, { FC, useState } from 'react';
 import cn from 'classnames';
 import { ThemeSwitcher } from '@widgets/ThemeSwitcher';

@@ -5,8 +5,15 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'plugin:i18next/recommended',
   ],
-  plugins: ['import', '@typescript-eslint', 'prettier', 'react-hooks'],
+  plugins: [
+    'import',
+    '@typescript-eslint',
+    'prettier',
+    'react-hooks',
+    'i18next',
+  ],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
