@@ -11,14 +11,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
+    "@svgr/webpack": "8.0.1",
     "@types/node": "20.2.5",
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
     "@types/webpack": "5.28.1",
     "@types/webpack-dev-server": "4.7.2",
     "css-loader": "6.8.1",
-    "file-loader": "^6.2.0",
+    "file-loader": "6.2.0",
     "html-webpack-plugin": "5.5.1",
     "mini-css-extract-plugin": "2.7.6",
     "sass": "1.63.3",
@@ -32,13 +32,14 @@
     "webpack-dev-server": "4.15.1"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "i18next": "^23.0.1",
-    "i18next-browser-languagedetector": "^7.0.2",
-    "i18next-http-backend": "^2.2.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
+    "classnames": "2.3.2",
+    "i18next": "23.0.1",
+    "i18next-browser-languagedetector": "7.0.2",
+    "i18next-http-backend": "2.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-i18next": "^13.0.0",
-    "react-router-dom": "^6.12.1"
+    "react-i18next": "13.0.0",
+    "react-router-dom": "6.12.1"
   }
 }
