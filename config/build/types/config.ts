@@ -1,4 +1,4 @@
-export type BuildMode = "production" | "development";
+export type BuildMode = 'production' | 'development';
 
 export interface BuildPaths {
   entry: string;
@@ -7,12 +7,12 @@ export interface BuildPaths {
 }
 
 export type AliasOptions = {
-  "@app": string;
-  "@entities": string;
-  "@features": string;
-  "@shared": string;
-  "@pages": string;
-  "@widgets": string;
+  '@app': string;
+  '@entities': string;
+  '@features': string;
+  '@shared': string;
+  '@pages': string;
+  '@widgets': string;
 };
 
 export interface BuildOptions {
