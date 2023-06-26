@@ -33,7 +33,6 @@ class ErrorBoundary extends React.Component<
     const { children } = this.props;
 
     if (hasError) {
-      // eslint-disable-next-line i18next/no-literal-string
       return (
         <Suspense fallback="">
           <PageError />
