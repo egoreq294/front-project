@@ -6,6 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
   ],
   plugins: [
     'import',
