@@ -55,7 +55,14 @@ module.exports = {
       },
     ],
     '@typescript-eslint/object-curly-spacing': 'off',
-    'import/no-extraneous-dependencies': 'warn',
+    'import/no-extraneous-dependencies': [
+      'warn',
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
   },
   settings: {
     react: {

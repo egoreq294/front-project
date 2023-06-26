@@ -1,12 +1,19 @@
 .Button {
-    cursor: pointer;
-    color: var(--inverted-primary-color);
+  cursor: pointer;
+  color: var(--inverted-primary-color);
 }
 
 .Clear {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: none;
-    outline: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  outline: none;
+}
+
+.Outline {
+  padding: 10px 16px;
+  border: 1px solid var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
+  background: none;
 }
