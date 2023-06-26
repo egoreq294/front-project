@@ -1,27 +1,27 @@
 {
+  "compilerOptions": {
+    "outDir": "./build/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"],
+      "@pages/*": ["src/pages/*"],
+      "@widgets/*": ["src/widgets/*"]
+    }
+  },
+  "ts-node": {
     "compilerOptions": {
-      "outDir": "./dist/",
-      "noImplicitAny": true,
-      "module": "ESNext",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true,
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": "./",
-      "paths": {      
-        "@app/*": ["src/app/*"],
-        "@entities/*": ["src/entities/*"],
-        "@features/*": ["src/features/*"],
-        "@shared/*": ["src/shared/*"],
-        "@pages/*": ["src/pages/*"],
-        "@widgets/*": ["src/widgets/*"],       
-      }
-    },
-    "ts-node": {
-        "compilerOptions": {
-          "module": "CommonJS"
-        }
-      }
+      "module": "CommonJS"
+    }
   }
+}
