@@ -14,6 +14,32 @@ exports[`Sidebar test suite should render correctly 1`] = `
       &lt;
     </button>
     <div
+      class="Items"
+    >
+      <a
+        class="AppLink Secondary"
+        href="/"
+      >
+        <div
+          class="Item"
+        >
+          <div />
+          home-link
+        </div>
+      </a>
+      <a
+        class="AppLink Secondary"
+        href="/about"
+      >
+        <div
+          class="Item"
+        >
+          <div />
+          about-link
+        </div>
+      </a>
+    </div>
+    <div
       class="Switchers"
     >
       <button

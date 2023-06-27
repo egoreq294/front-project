@@ -1,18 +1,18 @@
 import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from '../Sidebar';
 import React from 'react';
-import { renderWithTranslation } from '@shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
 
 describe('Sidebar test suite', () => {
   test('should render correctly', () => {
-    const { container } = renderWithTranslation(<Sidebar />);
+    const { container } = componentRender(<Sidebar />);
 
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
   test('should toggle sidebar', () => {
-    renderWithTranslation(<Sidebar />);
+    componentRender(<Sidebar />);
     const sidebar = screen.getByTestId('sidebar');
     const toggleButton = screen.getByTestId('sidebar_toggle');
 
