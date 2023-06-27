@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ThemeButton } from './Button';
-import { Theme } from '@app/providers';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
   title: 'shared/Button',
@@ -18,24 +16,37 @@ export const Primary: Story = {
   },
 };
 
-export const Clear: Story = {
+export const PrimaryInverted: Story = {
   args: {
-    theme: ThemeButton.CLEAR,
+    children: 'Button',
+    variant: 'PrimaryInverted',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'Secondary',
     children: 'Button',
   },
 };
 
-export const Outline: Story = {
+export const SecondaryInverted: Story = {
   args: {
-    theme: ThemeButton.OUTLINE,
+    variant: 'SecondaryInverted',
     children: 'Button',
   },
 };
 
-export const OutlineDark: Story = {
+export const Ghost: Story = {
   args: {
-    theme: ThemeButton.OUTLINE,
+    variant: 'Ghost',
     children: 'Button',
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const GhostInverted: Story = {
+  args: {
+    variant: 'GhostInverted',
+    children: 'Button',
+  },
 };

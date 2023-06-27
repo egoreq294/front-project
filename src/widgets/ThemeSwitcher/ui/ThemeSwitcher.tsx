@@ -5,7 +5,7 @@ import { useTheme } from '@app/providers';
 import DarkIcon from '@shared/assets/icons/moon.svg';
 import LightIcon from '@shared/assets/icons/sun.svg';
 import { Theme } from '@app/providers/ThemeProvider';
-import { Button, ThemeButton } from '@shared/ui/Button/Button';
+import { Button } from '@shared/ui/Button/Button';
 import styles from './styles.module.scss';
 
 interface ThemeSwitcherProps {
@@ -17,7 +17,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      variant="GhostInverted"
       className={cn(styles.ThemeSwitcher, className)}
       onClick={toggleTheme}
     >

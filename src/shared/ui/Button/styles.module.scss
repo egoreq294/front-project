@@ -1,18 +1,59 @@
 .Button {
   cursor: pointer;
+  color: var(--primary-color);
+  border: none;
+}
+
+.S {
+  padding: 4px 12px;
+  font: var(--font-s);
+}
+
+.M {
+  padding: 10px 14px;
+  font: var(--font-m);
+}
+
+.L {
+  padding: 16px 20px;
+  font: var(--font-l);
+}
+
+.Primary {
+  background: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.PrimaryInverted {
+  background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
 }
 
-.Clear {
+.Ghost {
   padding: 0;
   margin: 0;
   border: 0;
   background: none;
   outline: none;
+  color: var(--primary-color);
 }
 
-.Outline {
-  padding: 10px 16px;
+.GhostInverted {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  color: var(--inverted-primary-color);
+}
+
+.Secondary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: none;
+}
+
+.SecondaryInverted {
   border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);
   background: none;

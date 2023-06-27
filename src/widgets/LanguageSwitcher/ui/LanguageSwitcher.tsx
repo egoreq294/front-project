@@ -1,12 +1,16 @@
-import { Button, ThemeButton } from '@shared/ui/Button/Button';
+import { Button } from '@shared/ui/Button/Button';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface LanguageSwitcherProps {
   className?: string;
+  isShort?: boolean;
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
+  className,
+  isShort,
+}) => {
   const {
     t,
     i18n: { changeLanguage, language },
@@ -17,8 +21,8 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
   };
 
   return (
-    <Button className={className} theme={ThemeButton.CLEAR} onClick={toggle}>
-      {t('language')}
+    <Button className={className} variant="GhostInverted" onClick={toggle}>
+      {isShort ? t('short-language') : t('language')}
     </Button>
   );
 };

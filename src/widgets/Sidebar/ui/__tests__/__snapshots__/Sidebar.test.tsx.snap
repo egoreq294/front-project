@@ -7,16 +7,17 @@ exports[`Sidebar test suite should render correctly 1`] = `
     data-testid="sidebar"
   >
     <button
+      class="Button PrimaryInverted S CollapseButton"
       data-testid="sidebar_toggle"
       type="button"
     >
-      toggle
+      &lt;
     </button>
     <div
       class="Switchers"
     >
       <button
-        class="Button Clear ThemeSwitcher"
+        class="Button GhostInverted S ThemeSwitcher"
         type="button"
       >
         <div
@@ -26,7 +27,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
         </div>
       </button>
       <button
-        class="Button Clear"
+        class="Button GhostInverted S"
         type="button"
       >
         language

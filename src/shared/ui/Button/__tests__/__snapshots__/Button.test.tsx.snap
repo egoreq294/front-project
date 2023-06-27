@@ -3,7 +3,7 @@
 exports[`Button test suite should render correctly 1`] = `
 <div>
   <button
-    class="Button undefined"
+    class="Button Primary S"
     type="button"
   >
     TEST
