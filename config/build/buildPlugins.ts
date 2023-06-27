@@ -8,18 +8,25 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 export const buildPlugins = ({
   paths,
   isDev,
-}: BuildOptions): WebpackPluginInstance[] => [
-  new HTMLWebpackPlugin({
-    template: paths.html,
-  }),
-  new ProgressPlugin(),
-  new MiniCssExtractPlugin({
-    filename: 'css/[name].[contenthash:8].css',
-    chunkFilename: 'css/[name].[contenthash:8].css',
-  }),
-  new DefinePlugin({
-    __IS_DEV__: JSON.stringify(isDev),
-  }),
-  new ReactRefreshWebpackPlugin(),
-  new BundleAnalyzerPlugin({ openAnalyzer: false }),
-];
+}: BuildOptions): WebpackPluginInstance[] => {
+  const plugins = [
+    new HTMLWebpackPlugin({
+      template: paths.html,
+    }),
+    new ProgressPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
+    }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+    }),
+    new ReactRefreshWebpackPlugin(),
+  ];
+
+  if (isDev) {
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  }
+
+  return plugins;
+};
