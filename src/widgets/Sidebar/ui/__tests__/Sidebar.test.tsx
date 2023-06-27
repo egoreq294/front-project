@@ -5,9 +5,10 @@ import { renderWithTranslation } from '@shared/lib/tests/renderWithTranslation/r
 
 describe('Sidebar test suite', () => {
   test('should render correctly', () => {
-    renderWithTranslation(<Sidebar />);
+    const { container } = renderWithTranslation(<Sidebar />);
 
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   test('should toggle sidebar', () => {

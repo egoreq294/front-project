@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar test suite should render correctly 1`] = `
+<div>
+  <div
+    class="Sidebar"
+    data-testid="sidebar"
+  >
+    <button
+      data-testid="sidebar_toggle"
+      type="button"
+    >
+      toggle
+    </button>
+    <div
+      class="Switchers"
+    >
+      <button
+        class="Button Clear ThemeSwitcher"
+        type="button"
+      >
+        <div
+          class="IconContainer"
+        >
+          <div />
+        </div>
+      </button>
+      <button
+        class="Button Clear"
+        type="button"
+      >
+        language
+      </button>
+    </div>
+  </div>
+</div>
+`;
