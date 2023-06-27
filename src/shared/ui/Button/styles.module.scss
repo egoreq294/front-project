@@ -29,7 +29,8 @@
   color: var(--inverted-primary-color);
 }
 
-.Ghost {
+.Ghost,
+.GhostInverted {
   padding: 0;
   margin: 0;
   border: 0;
@@ -39,15 +40,11 @@
 }
 
 .GhostInverted {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: none;
-  outline: none;
   color: var(--inverted-primary-color);
 }
 
-.Secondary {
+.Secondary,
+.SecondaryInverted {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
@@ -56,5 +53,4 @@
 .SecondaryInverted {
   border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);
-  background: none;
 }

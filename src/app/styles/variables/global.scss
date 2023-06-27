@@ -1,4 +1,5 @@
 :root {
+  // Шрифты
   --font-family-main: consolas, 'Times New Roman', serif;
   --font-size-s: 16px;
   --font-line-s: 24px;
@@ -9,7 +10,15 @@
   --font-size-l: 32px;
   --font-line-l: 40px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  // Размеры
   --navbar-height: 70px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
+
+  // z - Индескы
+  --modal-z-index: 10;
+
+  // Цвета
+  --overlay-color: rgba(0 0 0 / 60%);
 }

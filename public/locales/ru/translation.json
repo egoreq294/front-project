@@ -3,5 +3,6 @@
   "not-found": "Страница не найдена",
   "something-went-wrong": "Произошла непредвиденная ошибка",
   "reload-page": "Обновить страницу",
-  "short-language": "Рус"
+  "short-language": "Рус",
+  "auth": "Войти"
 }

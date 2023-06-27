@@ -3,5 +3,6 @@
   "not-found": "Page not found",
   "something-went-wrong": "Something went wrong",
   "reload-page": "Update page",
-  "short-language": "En"
+  "short-language": "En",
+  "auth": "Auth"
 }
