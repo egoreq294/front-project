@@ -1,3 +1,8 @@
 @import 'variables/global';
 @import 'themes/dark';
 @import 'themes/light';
+
+body {
+  color: var(--primary-color);
+  font: var(--font-s);
+}

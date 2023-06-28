@@ -9,7 +9,6 @@ import React, {
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { Portal } from '../Portal/Portal';
-import { useTheme } from '@app/providers';
 
 interface ModalProps {
   children: ReactNode;
@@ -26,8 +25,6 @@ export const Modal: FC<ModalProps> = ({
   onClose,
   children,
 }) => {
-  const { theme } = useTheme();
-
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -76,7 +73,7 @@ export const Modal: FC<ModalProps> = ({
         className={cn(
           styles.Modal,
           { [styles.Opened]: isOpen, [styles.IsClosing]: isClosing },
-          theme,
+
           className,
         )}
       >

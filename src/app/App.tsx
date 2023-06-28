@@ -5,13 +5,10 @@ import cn from 'classnames';
 import { Sidebar } from '@widgets/Sidebar';
 import styles from './styles.module.scss';
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
 
 export const App: FC = () => {
-  const { theme } = useTheme();
-
   return (
-    <div className={cn(styles.App, theme)}>
+    <div className={cn(styles.App)}>
       <Suspense fallback="">
         <Navbar />
         <div className={styles.Content}>
