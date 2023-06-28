@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter test suite should render correctly 1`] = `
+<div>
+  <div
+    data-testid="counter"
+  >
+    <h1
+      data-testid="counter-value"
+    >
+      0
+    </h1>
+    <button
+      class="Button Primary S"
+      data-testid="increment-button"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="Button Primary S"
+      data-testid="decrement-button"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+</div>
+`;

@@ -28,4 +28,7 @@ export default {
     '^@pages(.*)$': '<rootDir>src/pages$1',
     '^@widgets(.*)$': '<rootDir>src/widgets$1',
   },
+  globals: {
+    __IS_DEV__: 'true',
+  },
 };
