@@ -33,6 +33,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/require-default-props': 'off',
+    'react/display-name': 'off',
     '@typescript-eslint/naming-convention': [
       'warn',
       {

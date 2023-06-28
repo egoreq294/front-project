@@ -15,6 +15,7 @@ interface ModalProps {
   className?: string;
   isOpen?: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 200;
@@ -23,9 +24,11 @@ export const Modal: FC<ModalProps> = ({
   className,
   isOpen,
   onClose,
+  lazy,
   children,
 }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const onContentClick = (
@@ -58,14 +61,19 @@ export const Modal: FC<ModalProps> = ({
 
     return () => {
       window.removeEventListener('keydown', closeHandler);
+      clearTimeout(timerRef.current);
     };
   }, [isOpen, onKeyDown, closeHandler]);
 
   useEffect(() => {
-    return () => {
-      clearTimeout(timerRef.current);
-    };
-  }, []);
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

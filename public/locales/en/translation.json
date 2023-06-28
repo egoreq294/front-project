@@ -4,5 +4,7 @@
   "something-went-wrong": "Something went wrong",
   "reload-page": "Update page",
   "short-language": "En",
-  "auth": "Auth"
+  "auth": "Auth",
+  "enter-username": "Enter username",
+  "enter-password": "Enter password"
 }
