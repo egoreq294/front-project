@@ -82,7 +82,7 @@
     "webpack-bundle-analyzer": "4.9.0",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1",
-    "husky": "8.0.0"
+    "husky": "4.3.8"
   },
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
