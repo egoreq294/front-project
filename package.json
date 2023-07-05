@@ -13,17 +13,12 @@
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"  
+    "build-storybook": "storybook build -c ./config/storybook",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test",
-      "pre-push": "npm run test"
-    }
-  },
   "devDependencies": {
     "@babel/core": "7.22.5",
     "@babel/preset-env": "7.22.5",
@@ -82,7 +77,7 @@
     "webpack-bundle-analyzer": "4.9.0",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1",
-    "husky": "4.3.8"
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
