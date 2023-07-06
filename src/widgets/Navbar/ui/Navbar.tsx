@@ -49,7 +49,9 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           {t('auth')}
         </Button>
       </div>
-      <LoginModal isOpen={isLoginModalOpen} onClose={onCloseModal} />
+      {isLoginModalOpen && (
+        <LoginModal isOpen={isLoginModalOpen} onClose={onCloseModal} />
+      )}
     </>
   );
 };
