@@ -6,5 +6,8 @@
   "short-language": "En",
   "auth": "Auth",
   "enter-username": "Enter username",
-  "enter-password": "Enter password"
+  "enter-password": "Enter password",
+  "login-form": "Auth form",
+  "incorrect-login-or-password": "Incorrect login or password",
+  "logout": "Logout"
 }

@@ -50,3 +50,10 @@ export const GhostInverted: Story = {
     children: 'Button',
   },
 };
+
+export const PrimaryDisabled: Story = {
+  args: {
+    children: 'Button',
+    disabled: true,
+  },
+};

@@ -6,5 +6,8 @@
   "short-language": "Рус",
   "auth": "Войти",
   "enter-username": "Введите username",
-  "enter-password": "Введите пароль"
+  "enter-password": "Введите пароль",
+  "login-form": "Форма авторизации",
+  "incorrect-login-or-password": "Неверный логин или пароль",
+  "logout": "Выйти"
 }

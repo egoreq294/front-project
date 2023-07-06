@@ -1,7 +1,6 @@
 .Button {
   cursor: pointer;
   color: var(--primary-color);
-  border: none;
 }
 
 .S {
@@ -22,20 +21,22 @@
 .Primary {
   background: var(--bg-color);
   color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .PrimaryInverted {
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
+  border: 1px solid var(--inverted-primary-color);
 }
 
 .Ghost,
 .GhostInverted {
   padding: 0;
   margin: 0;
-  border: 0;
   background: none;
   outline: none;
+  border: none;
   color: var(--primary-color);
 }
 
@@ -53,4 +54,9 @@
 .SecondaryInverted {
   border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);
+}
+
+.Disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

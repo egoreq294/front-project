@@ -17,6 +17,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   size?: Size;
   variant?: ButtonVariant;
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -24,11 +25,19 @@ export const Button: FC<ButtonProps> = ({
   variant = 'Primary',
   size = 'S',
   children,
+  disabled,
   ...props
 }) => (
   <button
     type="button"
-    className={cn(styles.Button, styles[variant], styles[size], className)}
+    className={cn(
+      styles.Button,
+      styles[variant],
+      styles[size],
+      { [styles.Disabled]: disabled },
+      className,
+    )}
+    disabled={disabled}
     {...props}
   >
     {children}

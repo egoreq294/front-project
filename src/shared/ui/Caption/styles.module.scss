@@ -1,0 +1,19 @@
+.Label {
+  font: var(--font-m);
+  color: var(--primary-color);
+}
+
+.Value {
+  font: var(--font-s);
+  color: var(--secondary-color);
+}
+
+.Error {
+  .Label {
+    color: var(--red-light);
+  }
+
+  .Value {
+    color: var(--red-dark);
+  }
+}
