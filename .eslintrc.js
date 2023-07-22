@@ -23,6 +23,10 @@ module.exports = {
     },
     project: './tsconfig.json',
   },
+  globals: {
+    __IS_DEV__: 'true',
+    __API__: '',
+  },
   rules: {
     'import/order': 'off',
     'linebreak-style': 'off',

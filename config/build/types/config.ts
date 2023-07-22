@@ -20,8 +20,10 @@ export interface BuildOptions {
   paths: BuildPaths;
   isDev: boolean;
   alias: AliasOptions;
+  apiUrl: string;
 }
 
 export interface BuildEnv {
   mode: BuildMode;
+  apiUrl: string;
 }
