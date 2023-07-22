@@ -9,5 +9,8 @@
   "enter-password": "Enter password",
   "login-form": "Auth form",
   "incorrect-login-or-password": "Incorrect login or password",
+  "home-link": "Home",
+  "about-link": "About us",
+  "profile-link": "Profile",
   "logout": "Logout"
 }

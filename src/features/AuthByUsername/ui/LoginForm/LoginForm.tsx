@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button/Button';
 import { Input } from '@shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { Caption } from '@shared/ui/Caption/Caption';
@@ -14,17 +14,19 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 
 interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const INITIAL_REDUCERS: ReducerList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
-  const dispatch = useDispatch();
+const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
@@ -46,9 +48,12 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     [dispatch],
   );
 
-  const onLoginClick = useCallback((): void => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async (): Promise<void> => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, password, username, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={INITIAL_REDUCERS}>

@@ -5,11 +5,11 @@ import cn from 'classnames';
 import { Sidebar } from '@widgets/Sidebar';
 import styles from './styles.module.scss';
 import { AppRouter } from './providers/router';
-import { useDispatch } from 'react-redux';
 import { userActions } from '@entities/User';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 
 export const App: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

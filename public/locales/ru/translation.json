@@ -9,5 +9,8 @@
   "enter-password": "Введите пароль",
   "login-form": "Форма авторизации",
   "incorrect-login-or-password": "Неверный логин или пароль",
+  "home-link": "Главная",
+  "about-link": "О сайте",
+  "profile-link": "Профиль",
   "logout": "Выйти"
 }

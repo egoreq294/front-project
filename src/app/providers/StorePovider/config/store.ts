@@ -1,14 +1,14 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from '@entities/Counter';
 import { userReducer } from '@entities/User';
 import { createReducerManager } from './reducerManager';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-): ToolkitStore => {
+) => {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -29,3 +29,5 @@ export const createReduxStore = (
 
   return store;
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

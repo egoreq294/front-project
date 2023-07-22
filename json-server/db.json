@@ -25,6 +25,15 @@
         "password": "123"
       }
     ],
-    "profile": { "name": "typicode" }
+    "profile": {
+      "firstName": "Николай",
+      "lastName": "Михайлович",
+      "age": "58",
+      "country": "Russia",
+      "city": "New York",
+      "username": "admin",
+      "currency": "RUB",
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+    }
   }
   

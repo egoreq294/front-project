@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,7 @@ interface PageErrorProps {
   className?: string;
 }
 
-export const PageError: FC<PageErrorProps> = ({ className }) => {
+export const PageError: FC<PageErrorProps> = memo(({ className }) => {
   const { t } = useTranslation();
 
   const onReloadClick = (): void => {
@@ -21,4 +21,4 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
       <Button onClick={onReloadClick}>{t('reload-page')}</Button>
     </div>
   );
-};
+});
