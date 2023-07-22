@@ -7,7 +7,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
     data-testid="sidebar"
   >
     <button
-      class="Button PrimaryInverted S CollapseButton"
+      class="Button Ghost S CollapseButton"
       data-testid="sidebar_toggle"
       type="button"
     >
@@ -36,6 +36,17 @@ exports[`Sidebar test suite should render correctly 1`] = `
         >
           <div />
           about-link
+        </div>
+      </a>
+      <a
+        class="AppLink Secondary"
+        href="/profile"
+      >
+        <div
+          class="Item"
+        >
+          <div />
+          profile-link
         </div>
       </a>
     </div>
