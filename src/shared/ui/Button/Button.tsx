@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
+import ProfileIcon from '@shared/assets/icons/profile.svg';
 
 type ButtonVariant =
   | 'Primary'
@@ -28,18 +29,22 @@ export const Button: FC<ButtonProps> = ({
   disabled,
   ...props
 }) => (
-  <button
-    type="button"
-    className={cn(
-      styles.Button,
-      styles[variant],
-      styles[size],
-      { [styles.Disabled]: disabled },
-      className,
-    )}
-    disabled={disabled}
-    {...props}
-  >
-    {children}
-  </button>
+  <>
+    <ProfileIcon />
+
+    <button
+      type="button"
+      className={cn(
+        styles.Button,
+        styles[variant],
+        styles[size],
+        { [styles.Disabled]: disabled },
+        className,
+      )}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
+    </button>
+  </>
 );

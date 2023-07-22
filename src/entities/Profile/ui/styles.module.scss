@@ -1,0 +1,18 @@
+.ProfileCard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  border: 2px solid var(--inverted-bg-color);
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

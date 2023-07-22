@@ -12,30 +12,45 @@ const alias: AliasOptions = {
   '@widgets': path.resolve(__dirname, '../../src/widgets/'),
 };
 
+function isRuleSetRule(rule: RuleSetRule | '...'): rule is RuleSetRule {
+  return (rule as RuleSetRule).test !== undefined;
+}
+
 export default ({ config }: { config: Configuration }) => {
-  config.resolve.alias = { ...config.resolve?.alias, ...alias };
-  config.resolve.extensions.push('.ts', '.tsx');
+  if (config?.resolve) {
+    config.resolve.alias = { ...config.resolve?.alias, ...alias };
+  }
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
+  if (config?.resolve?.extensions) {
+    config.resolve.extensions.push('.ts', '.tsx');
+  }
 
-    return rule;
-  });
+  if (config?.module?.rules) {
+    config.module.rules = config.module.rules.map(
+      (rule: RuleSetRule | '...') => {
+        if (isRuleSetRule(rule) && /svg/.test(rule.test as string)) {
+          return { ...rule, exclude: /\.svg$/i };
+        }
 
-  config.module.rules.push({
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  });
-  config.module.rules.push(buildCssLoaders(true));
+        return rule;
+      },
+    );
 
-  config.plugins.push(
-    new DefinePlugin({
-      __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify(''),
-    }),
-  );
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+    config.module.rules.push(buildCssLoaders(true));
+  }
+
+  if (config?.plugins) {
+    config.plugins.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(''),
+      }),
+    );
+  }
 
   return config;
 };

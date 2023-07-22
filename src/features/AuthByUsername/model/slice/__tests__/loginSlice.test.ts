@@ -1,6 +1,5 @@
 import { loginActions, loginReducer } from '../loginSlice';
 import { LoginSchema } from '../../types/loginSchema';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 describe('counterSlice test suite', () => {
   test('should return login state with username', () => {

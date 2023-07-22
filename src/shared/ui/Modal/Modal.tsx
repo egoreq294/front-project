@@ -29,7 +29,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onContentClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -61,7 +61,10 @@ export const Modal: FC<ModalProps> = ({
 
     return () => {
       window.removeEventListener('keydown', closeHandler);
-      clearTimeout(timerRef.current);
+
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
     };
   }, [isOpen, onKeyDown, closeHandler]);
 
