@@ -1,0 +1,18 @@
+.Wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.Select {
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  padding: 2px 18px 2px 2px;
+  border: 1px solid var(--primary-color);
+}
+
+.Option {
+  color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
+}

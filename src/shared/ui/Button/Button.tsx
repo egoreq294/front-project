@@ -8,7 +8,8 @@ type ButtonVariant =
   | 'Secondary'
   | 'SecondaryInverted'
   | 'Ghost'
-  | 'GhostInverted';
+  | 'GhostInverted'
+  | 'Danger';
 
 type Size = 'S' | 'M' | 'L';
 

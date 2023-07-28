@@ -11,13 +11,14 @@ import styles from './styles.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
+  'value' | 'onChange' | 'readOnly'
 >;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
+  readOnly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo(
@@ -28,6 +29,7 @@ export const Input: FC<InputProps> = memo(
     type = 'text',
     placeholder,
     autoFocus,
+    readOnly,
     ...props
   }) => {
     const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -59,6 +61,8 @@ export const Input: FC<InputProps> = memo(
       setCaretPosition(e?.target?.selectionStart || 0);
     };
 
+    const isCaretVisible = isFocused && !readOnly;
+
     return (
       <div className={cn(styles.InputWrapper, className)}>
         {placeholder && (
@@ -70,13 +74,14 @@ export const Input: FC<InputProps> = memo(
             type={type}
             value={value}
             onChange={onChangeHandler}
-            className={styles.Input}
+            className={cn(styles.Input, { [styles.Readonly]: readOnly })}
             onFocus={onFocus}
             onBlur={onBlur}
             onSelect={onSelect}
+            readOnly={readOnly}
             {...props}
           />
-          {isFocused && (
+          {isCaretVisible && (
             <span
               className={styles.Caret}
               style={{ left: `${caretPosition * 9}px` }}

@@ -12,5 +12,9 @@
   "home-link": "Home",
   "about-link": "About us",
   "profile-link": "Profile",
-  "logout": "Logout"
+  "logout": "Logout",
+  "currency": "Currency",
+  "Country": "Country",
+  "russia": "Russia",
+  "usa": "USA"
 }

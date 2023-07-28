@@ -1,39 +1,38 @@
 {
-    "posts": [
-      {
-        "id": "1",
-        "title": "json-server",
-        "userId": "1"
-      },
-      {
-        "id": "2",
-        "title": "json-server",
-        "userId": "2"
-      }
-    ],
-    "comments": [
-      {
-        "id": "1",
-        "body": "some comment",
-        "postId": "1"
-      }
-    ],
-    "users": [
-      {
-        "id": "1",
-        "username": "admin",
-        "password": "123"
-      }
-    ],
-    "profile": {
-      "firstName": "Николай",
-      "lastName": "Михайлович",
-      "age": "58",
-      "country": "Russia",
-      "city": "New York",
-      "username": "admin",
-      "currency": "RUB",
-      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstName": "Игорь",
+    "lastName": "Михайлович",
+    "age": "58",
+    "country": "Russia",
+    "city": "Томск",
+    "username": "admin",
+    "currency": "RUB",
+    "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
   }
-  
+}

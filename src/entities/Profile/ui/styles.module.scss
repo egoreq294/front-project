@@ -6,13 +6,25 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.Header {
+.Loader,
+.Error {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
 }
 
 .Content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.Avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.Editing {
+  border: 2px solid var(--inverted-primary-color);
 }

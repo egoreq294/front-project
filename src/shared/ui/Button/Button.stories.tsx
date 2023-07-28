@@ -51,6 +51,13 @@ export const GhostInverted: Story = {
   },
 };
 
+export const Danger: Story = {
+  args: {
+    variant: 'Danger',
+    children: 'Button',
+  },
+};
+
 export const PrimaryDisabled: Story = {
   args: {
     children: 'Button',

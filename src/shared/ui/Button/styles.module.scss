@@ -51,6 +51,12 @@
   background: none;
 }
 
+.Danger {
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
+  background: none;
+}
+
 .SecondaryInverted {
   border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);

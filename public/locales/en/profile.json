@@ -2,5 +2,13 @@
   "profile": "Profile",
   "edit": "Edit",
   "first-name": "First name",
-  "last-name": "Last Name"
+  "last-name": "Last Name",
+  "technical-error": "There was a technical error, please try again later",
+  "cancel": "Cancel",
+  "save": "Save",
+  "age": "Age",
+  "city": "City",
+  "username": "Username",
+  "avatar": "Avatar",
+  "currency": "Currency"
 }
