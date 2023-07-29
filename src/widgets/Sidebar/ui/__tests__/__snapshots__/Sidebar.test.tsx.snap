@@ -38,17 +38,6 @@ exports[`Sidebar test suite should render correctly 1`] = `
           about-link
         </div>
       </a>
-      <a
-        class="AppLink Secondary"
-        href="/profile"
-      >
-        <div
-          class="Item"
-        >
-          <div />
-          profile-link
-        </div>
-      </a>
     </div>
     <div
       class="Switchers"
