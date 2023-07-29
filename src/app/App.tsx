@@ -5,15 +5,17 @@ import cn from 'classnames';
 import { Sidebar } from '@widgets/Sidebar';
 import styles from './styles.module.scss';
 import { AppRouter } from './providers/router';
-import { userActions } from '@entities/User';
+import { getUserInited, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
 
 export const App: FC = () => {
   const dispatch = useAppDispatch();
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={cn(styles.App)}>
@@ -21,9 +23,7 @@ export const App: FC = () => {
         <Navbar />
         <div className={styles.Content}>
           <Sidebar />
-          <div className={styles.PageWrapper}>
-            <AppRouter />
-          </div>
+          <div className={styles.PageWrapper}>{inited && <AppRouter />}</div>
         </div>
       </Suspense>
     </div>
