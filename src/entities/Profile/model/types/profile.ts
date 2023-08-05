@@ -1,6 +1,14 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 
+export enum ValidateProfileErrorEnum {
+  NO_DATA = 'NO_DATA',
+  SERVER_ERROR = 'SERVER_ERROR',
+  INCORRECT_FIO = 'INCORRECT_FIO',
+  INCORRECT_AGE = 'INCORRECT_AGE',
+  INCORRECT_USERNAME = 'INCORRECT_USERNAME',
+}
+
 export interface Profile {
   firstName?: string;
   lastName?: string;
@@ -18,4 +26,5 @@ export interface ProfileSchema {
   loading: boolean;
   error?: string;
   readonly: boolean;
+  validationErrors?: ValidateProfileErrorEnum[];
 }

@@ -7,3 +7,4 @@ export { getProfileReadonly } from './model/selectors/getProfileReadonly';
 export { getProfileData } from './model/selectors/getProfileData';
 export { getProfileError } from './model/selectors/getProfileError';
 export { getProfileLoading } from './model/selectors/getProfileLoading';
+export { getProfileValidationErrors } from './model/selectors/getProfileValidationErrors';

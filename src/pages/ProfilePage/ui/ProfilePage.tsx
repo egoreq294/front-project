@@ -4,6 +4,7 @@ import {
   ProfileCard,
   fetchProfileData,
   getProfileReadonly,
+  getProfileValidationErrors,
   profileActions,
   profileReducer,
 } from '@entities/Profile';
@@ -16,6 +17,9 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '@entities/Profile/model/selectors/getProfileForm';
 import { CurrencyEnum } from '@entities/Currency';
 import { CountryEnum } from '@entities/Country';
+import { Caption } from '@shared/ui/Caption/Caption';
+import { ValidateProfileErrorEnum } from '@entities/Profile/model/types/profile';
+import { useTranslation } from 'react-i18next';
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -23,11 +27,21 @@ const reducers: ReducerList = {
 
 const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile');
 
   const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const loading = useSelector(getProfileLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validationErrors = useSelector(getProfileValidationErrors);
+
+  const validationErrorTranslates = {
+    [ValidateProfileErrorEnum.INCORRECT_AGE]: t('incorrect-age-error'),
+    [ValidateProfileErrorEnum.INCORRECT_USERNAME]: t('username-error'),
+    [ValidateProfileErrorEnum.INCORRECT_FIO]: t('fio-error'),
+    [ValidateProfileErrorEnum.NO_DATA]: t('no-data-error'),
+    [ValidateProfileErrorEnum.SERVER_ERROR]: t('server-error'),
+  };
 
   const onChangeFirstName = useCallback(
     (value: string) => {
@@ -85,6 +99,14 @@ const ProfilePage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ProfilePageHeader />
+      {!!validationErrors.length &&
+        validationErrors.map((validationError) => (
+          <Caption
+            key={validationError}
+            value={validationErrorTranslates[validationError]}
+            variant="Error"
+          />
+        ))}
       <ProfileCard
         formData={formData}
         error={error}

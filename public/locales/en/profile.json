@@ -10,5 +10,10 @@
   "city": "City",
   "username": "Username",
   "avatar": "Avatar",
-  "currency": "Currency"
+  "currency": "Currency",
+  "incorrect-age-error": "Incorrect age",
+  "no-data-error": "Fill all required fields",
+  "server-error": "Server error",
+  "username-error": "Fill username",
+  "fio-error": "Fill firstname and lastname"
 }
