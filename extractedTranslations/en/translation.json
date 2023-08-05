@@ -1,8 +1,10 @@
 {
+  "ArticleDetails": "ArticleDetails",
   "Country": "Country",
   "about-us": "about-us",
   "age": "age",
   "article-details-page": "article-details-page",
+  "article-not-found": "article-not-found",
   "articles-page": "articles-page",
   "auth": "auth",
   "avatar": "avatar",

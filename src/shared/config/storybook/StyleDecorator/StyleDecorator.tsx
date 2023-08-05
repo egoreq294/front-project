@@ -5,7 +5,7 @@ import React from 'react';
 export const StyleDecorator = (StoryComponent: StoryFn): JSX.Element => (
   <div
     style={{
-      background: 'gray',
+      background: '#dedbd5',
       height: '90vh',
       display: 'flex',
       alignItems: 'center',

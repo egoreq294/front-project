@@ -1,4 +1,7 @@
 {
   "articles-page": "Articles page",
-  "article-details-page": "Article details page"
+  "article-details-page": "Article details page",
+  "article-not-found": "Article not found",
+  "translation.technical-error": "There was a technical error, please try again later",
+  "technical-error": "There was a technical error, please try again later"
 }
