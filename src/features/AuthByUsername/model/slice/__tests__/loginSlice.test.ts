@@ -1,7 +1,7 @@
 import { loginActions, loginReducer } from '../loginSlice';
 import { LoginSchema } from '../../types/loginSchema';
 
-describe('counterSlice test suite', () => {
+describe('loginSlice test suite', () => {
   test('should return login state with username', () => {
     const state: DeepPartial<LoginSchema> = {
       username: '',

@@ -39,7 +39,7 @@ const profileSlice = createSlice({
       state.error = payload;
     });
     builder.addCase(updateProfileData.pending, (state) => {
-      state.error = undefined;
+      state.validationErrors = undefined;
       state.loading = true;
     });
     builder.addCase(updateProfileData.fulfilled, (state, { payload }) => {
@@ -47,6 +47,7 @@ const profileSlice = createSlice({
       state.data = payload;
       state.form = payload;
       state.readonly = true;
+      state.validationErrors = undefined;
     });
     builder.addCase(updateProfileData.rejected, (state, { payload }) => {
       state.loading = false;
