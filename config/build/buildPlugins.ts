@@ -23,11 +23,11 @@ export const buildPlugins = ({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
     }),
-    new ReactRefreshWebpackPlugin(),
   ];
 
   if (isDev) {
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(new ReactRefreshWebpackPlugin());
   }
 
   return plugins;
