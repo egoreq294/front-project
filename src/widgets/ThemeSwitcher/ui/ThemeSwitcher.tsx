@@ -4,6 +4,7 @@ import { useTheme } from '@app/providers';
 
 import DarkIcon from '@shared/assets/icons/moon.svg';
 import LightIcon from '@shared/assets/icons/sun.svg';
+import OrangeIcon from '@shared/assets/icons/orange.svg';
 import { Theme } from '@app/providers/ThemeProvider';
 import { Button } from '@shared/ui/Button/Button';
 import styles from './styles.module.scss';
@@ -22,7 +23,9 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       onClick={toggleTheme}
     >
       <div className={styles.IconContainer}>
-        {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
+        {theme === Theme.LIGHT && <LightIcon />}
+        {theme === Theme.DARK && <DarkIcon />}
+        {theme === Theme.ORANGE && <OrangeIcon />}
       </div>
     </Button>
   );
