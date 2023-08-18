@@ -1,58 +1,71 @@
-import React, { FC, memo, useEffect } from 'react';
-import cn from 'classnames';
+import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
-import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '../model/slice/articleDetailsSlice';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { fetchArticleById } from '../model/services/fetchArticleById';
-import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from '../model/selectors/getArticleDetailsData';
-import { getArticleDetailsError } from '../model/selectors/getArticleDetailsError';
-import { getArticleDetailsLoading } from '../model/selectors/getArticleDetailsLoading';
 import { Caption } from '@shared/ui/Caption/Caption';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
+import EyeIcon from '@shared/assets/icons/eye.svg';
+import CalendarIcon from '@shared/assets/icons/calendar.svg';
+import { Article, ArticleBlockTypeEnum } from '../model/types/article';
+import { ArticleCodeBlock } from './ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleImageBlock } from './ArticleImageBlock/ArticleImageBlock';
+import { ArticleTextBlock } from './ArticleTextBlock/ArticleTextBlock';
 
 interface ArticleDetailsProps {
-  articleId: string;
-  className?: string;
+  article: Article | null;
+  loading: boolean;
+  error: string | null;
 }
 
-const reducers: ReducerList = {
-  articleDetails: articleDetailsReducer,
-};
-
 export const ArticleDetails: FC<ArticleDetailsProps> = memo(
-  ({ className, articleId }) => {
+  ({ article, loading, error }) => {
     const { t } = useTranslation('article');
-    const dispatch = useAppDispatch();
 
-    const article = useSelector(getArticleDetailsData);
-    // const loading = useSelector(getArticleDetailsLoading);
-    const loading = true;
-    const error = useSelector(getArticleDetailsError);
+    if (loading) {
+      return <ArticleDetailsSkeleton />;
+    }
 
-    useEffect(() => {
-      dispatch(fetchArticleById(articleId));
-    }, [dispatch, articleId]);
+    if (error) {
+      return (
+        <Caption align="Center" variant="Error" label={t('technical-error')} />
+      );
+    }
 
     return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <div className={cn(styles.ArticleDetails, className)}>
-          {loading ? (
-            <ArticleDetailsSkeleton />
-          ) : error ? (
-            <Caption
-              align="Center"
-              variant="Error"
-              label={t('technical-error')}
-            />
-          ) : (
-            <>{t('ArticleDetails')}</>
-          )}
+      <>
+        <div className={styles.AvatarWrapper}>
+          <Avatar size={200} src={article?.img} className={styles.Avatar} />
         </div>
-      </DynamicModuleLoader>
+        <Caption
+          className={styles.Title}
+          label={article?.title}
+          value={article?.subtitle}
+          size="M"
+        />
+        <div className={styles.ArticleInfo}>
+          <EyeIcon />
+          <Caption value={String(article?.views)} />
+        </div>
+        <div className={styles.ArticleInfo}>
+          <CalendarIcon />
+          <Caption value={article?.createdAt} />
+        </div>
+        <div className={styles.Blocks}>
+          {article?.blocks.map((block) => (
+            <div key={block.id}>
+              {block.type === ArticleBlockTypeEnum.CODE && (
+                <ArticleCodeBlock block={block} />
+              )}
+              {block.type === ArticleBlockTypeEnum.IMAGE && (
+                <ArticleImageBlock block={block} />
+              )}
+              {block.type === ArticleBlockTypeEnum.TEXT && (
+                <ArticleTextBlock block={block} />
+              )}
+            </div>
+          ))}
+        </div>
+      </>
     );
   },
 );

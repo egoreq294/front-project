@@ -1,20 +1,20 @@
-import React, { FC } from 'react';
-import cn from 'classnames';
+import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
-import { useTranslation } from 'react-i18next';
+import { ArticleImageBlock as ArticleImageBlockType } from '@entities/Article/model/types/article';
+import { Caption } from '@shared/ui/Caption/Caption';
 
 interface ArticleImageBlockProps {
   className?: string;
+  block: ArticleImageBlockType;
 }
 
-export const ArticleImageBlock: FC<ArticleImageBlockProps> = ({
-  className,
-}) => {
-  const { t } = useTranslation();
-
-  return (
-    <div className={cn(styles.ArticleImageBlock, className)}>
-      {t('ArticleImageBlock')}
-    </div>
-  );
-};
+export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo(
+  ({ className, block }) => {
+    return (
+      <div className={className}>
+        <img src={block.src} alt={block.title} className={styles.Image} />
+        {block.title && <Caption value={block.title} align="Center" />}
+      </div>
+    );
+  },
+);

@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 
 type CaptionVariant = 'Default' | 'Error';
 type CaptionTextAlign = 'Right' | 'Left' | 'Center';
+type CaptionSize = 'S' | 'M';
 
 interface CaptionProps {
   className?: string;
@@ -11,16 +12,25 @@ interface CaptionProps {
   value?: string;
   variant?: CaptionVariant;
   align?: CaptionTextAlign;
+  size?: CaptionSize;
 }
 
 export const Caption: FC<CaptionProps> = memo(
-  ({ className, label, value, variant = 'Default', align = 'Left' }) => {
+  ({
+    className,
+    label,
+    value,
+    variant = 'Default',
+    align = 'Left',
+    size = 'S',
+  }) => {
     return (
       <div
         className={cn(
           styles.Caption,
           styles[variant],
           styles[align],
+          styles[size],
           className,
         )}
       >

@@ -1,18 +1,18 @@
-import React, { FC } from 'react';
-import cn from 'classnames';
-import styles from './styles.module.scss';
-import { useTranslation } from 'react-i18next';
+import React, { FC, memo } from 'react';
+import { ArticleCodeBlock as ArticleCodeBlockType } from '@entities/Article/model/types/article';
+import { Code } from '@shared/ui/Code/Code';
 
 interface ArticleCodeBlockProps {
   className?: string;
+  block: ArticleCodeBlockType;
 }
 
-export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = ({ className }) => {
-  const { t } = useTranslation();
-
-  return (
-    <div className={cn(styles.ArticleCodeBlock, className)}>
-      {t('ArticleCodeBlock')}
-    </div>
-  );
-};
+export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo(
+  ({ className, block }) => {
+    return (
+      <div className={className}>
+        <Code text={block.code} />
+      </div>
+    );
+  },
+);

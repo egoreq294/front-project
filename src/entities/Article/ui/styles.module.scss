@@ -13,3 +13,21 @@
 .Skeleton {
   margin-top: 14px;
 }
+
+.ArticleInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.AvatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.Blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

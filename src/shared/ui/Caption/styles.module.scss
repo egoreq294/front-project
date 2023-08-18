@@ -1,5 +1,4 @@
 .Label {
-  font: var(--font-m);
   color: var(--primary-color);
 }
 
@@ -28,4 +27,24 @@
 
 .Center {
   text-align: center;
+}
+
+.S {
+  .Label {
+    font: var(--font-m);
+  }
+
+  .Value {
+    font: var(--font-s);
+  }
+}
+
+.M {
+  .Label {
+    font: var(--font-l);
+  }
+
+  .Value {
+    font: var(--font-m);
+  }
 }
