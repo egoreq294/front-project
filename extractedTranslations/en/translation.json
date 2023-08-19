@@ -1,5 +1,7 @@
 {
   "ArticleDetails": "ArticleDetails",
+  "Comment": "Comment",
+  "CommentList": "CommentList",
   "Country": "Country",
   "about-us": "about-us",
   "age": "age",
@@ -10,8 +12,10 @@
   "avatar": "avatar",
   "cancel": "cancel",
   "city": "city",
+  "comments": "comments",
   "currency": "currency",
   "edit": "edit",
+  "empty-comments": "empty-comments",
   "enter-password": "enter-password",
   "enter-username": "enter-username",
   "fio-error": "fio-error",

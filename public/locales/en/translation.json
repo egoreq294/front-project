@@ -17,5 +17,6 @@
   "currency": "Currency",
   "Country": "Country",
   "russia": "Russia",
-  "usa": "USA"
+  "usa": "USA",
+  "empty-comments": "Сomments are empty"
 }

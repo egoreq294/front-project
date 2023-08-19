@@ -36,13 +36,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
     }
   ],
   "profile": {

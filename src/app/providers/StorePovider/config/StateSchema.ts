@@ -3,6 +3,7 @@ import { CounterSchema } from '@entities/Counter';
 import { ProfileSchema } from '@entities/Profile';
 import { UserSchema } from '@entities/User';
 import { LoginSchema } from '@features/AuthByUsername';
+import { ArticleDetailsCommentSchema } from '@pages/ArticleDetailsPage';
 import {
   AnyAction,
   CombinedState,
@@ -19,6 +20,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailsComment?: ArticleDetailsCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
