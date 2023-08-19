@@ -1,32 +1,31 @@
-import { routePath } from '@shared/config/routeConfig/routeConfig';
-import { SidebarItemType } from './types';
-
+import { getUserAuthData } from '@entities/User';
+import { createSelector } from '@reduxjs/toolkit';
 import HomeIcon from '@shared/assets/icons/home.svg';
 import AboutIcon from '@shared/assets/icons/about.svg';
 import ProfileIcon from '@shared/assets/icons/profile.svg';
 import ArticleIcon from '@shared/assets/icons/article.svg';
 
-export const SIDEBAR_ITEMS_LIST: SidebarItemType[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
   {
-    path: routePath.main,
+    path: '/',
     text: 'home-link',
     Icon: HomeIcon,
   },
   {
-    path: routePath.about,
+    path: '/about',
     text: 'about-link',
     Icon: AboutIcon,
   },
   {
-    path: routePath.profile,
+    path: `/profile/${userData?.id}`,
     text: 'profile-link',
     Icon: ProfileIcon,
     authOnly: true,
   },
   {
-    path: routePath.articles,
+    path: '/articles',
     text: 'article-link',
     Icon: ArticleIcon,
     authOnly: true,
   },
-];
+]);

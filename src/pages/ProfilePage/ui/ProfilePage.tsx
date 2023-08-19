@@ -20,6 +20,7 @@ import { CountryEnum } from '@entities/Country';
 import { Caption } from '@shared/ui/Caption/Caption';
 import { ValidateProfileErrorEnum } from '@entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -27,6 +28,7 @@ const reducers: ReducerList = {
 
 const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
   const { t } = useTranslation('profile');
 
   const formData = useSelector(getProfileForm);
@@ -93,11 +95,14 @@ const ProfilePage: FC = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (!id) {
+      return;
+    }
+    dispatch(fetchProfileData(id));
+  }, [dispatch, id]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <ProfilePageHeader />
       {!!validationErrors.length &&
         validationErrors.map((validationError) => (

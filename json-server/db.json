@@ -29,6 +29,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "text": "test comment",
+      "userId": "1",
+      "id": "IowyAbG"
+    },
+    {
+      "articleId": "1",
+      "text": "test comment 2",
+      "userId": "2",
+      "id": "80xtUOP"
+    },
+    {
+      "articleId": "1",
+      "text": "test comment 3",
+      "userId": "1",
+      "id": "aTpMKYf"
+    },
+    {
+      "articleId": "1",
+      "text": "test comment 4",
+      "userId": "1",
+      "id": "hxIOrpC"
     }
   ],
   "users": [
@@ -37,7 +61,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
     },
     {
       "id": "2",
@@ -47,16 +71,30 @@
       "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
     }
   ],
-  "profile": {
-    "firstName": "Игорь",
-    "lastName": "Михайлович",
-    "age": "58",
-    "country": "Russia",
-    "city": "Томск",
-    "username": "admin",
-    "currency": "RUB",
-    "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Петр",
+      "lastName": "Михайлович",
+      "age": "58",
+      "country": "Russia",
+      "city": "Томск",
+      "username": "admin",
+      "currency": "RUB",
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "Кирилл",
+      "lastName": "Петрович",
+      "age": "58",
+      "country": "UnitedStates",
+      "city": "Томск",
+      "username": "user",
+      "currency": "USD",
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -65,7 +103,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

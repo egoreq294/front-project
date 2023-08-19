@@ -3,9 +3,9 @@ import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from '@shared/ui/AppLink/AppLink';
-import { SidebarItemType } from '@widgets/Sidebar/model/types';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@entities/User';
+import { SidebarItemType } from '@widgets/Sidebar/model/types/sidebar';
 
 interface SidebarItemProps {
   item: SidebarItemType;

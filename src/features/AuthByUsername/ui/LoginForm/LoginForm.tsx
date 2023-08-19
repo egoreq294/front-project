@@ -21,7 +21,7 @@ interface LoginFormProps {
   onSuccess: () => void;
 }
 
-const INITIAL_REDUCERS: ReducerList = {
+const reducers: ReducerList = {
   loginForm: loginReducer,
 };
 
@@ -56,7 +56,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   }, [dispatch, password, username, onSuccess]);
 
   return (
-    <DynamicModuleLoader reducers={INITIAL_REDUCERS}>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={cn(styles.LoginForm, className)}>
         <Caption label={t('login-form')} />
         <Input

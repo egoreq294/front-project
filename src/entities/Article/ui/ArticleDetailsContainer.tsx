@@ -33,7 +33,7 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = memo(
     }, [dispatch, articleId]);
 
     return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducers}>
         <div className={styles.ArticleDetails}>
           <ArticleDetails article={article} loading={loading} error={error} />
         </div>

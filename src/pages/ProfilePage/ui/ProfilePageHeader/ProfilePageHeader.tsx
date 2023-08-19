@@ -6,11 +6,13 @@ import { Button } from '@shared/ui/Button/Button';
 import { Caption } from '@shared/ui/Caption/Caption';
 import { useSelector } from 'react-redux';
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData,
 } from '@entities/Profile';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { getUserAuthData } from '@entities/User';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -22,6 +24,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+
+  const canEdit = authData?.id === profileData?.id;
 
   const onEdit = useCallback((): void => {
     dispatch(profileActions.setReadonly(false));
@@ -39,18 +45,22 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
     <header className={cn(styles.Header, className)}>
       <Caption label={t('profile')} />
       <div className={styles.ButtonsContainer}>
-        {readonly ? (
-          <Button variant="Secondary" onClick={onEdit}>
-            {t('edit')}
-          </Button>
-        ) : (
+        {canEdit && (
           <>
-            <Button variant="Danger" onClick={onCancelEdit}>
-              {t('cancel')}
-            </Button>
-            <Button variant="Secondary" onClick={onSaveEdit}>
-              {t('save')}
-            </Button>
+            {readonly ? (
+              <Button variant="Secondary" onClick={onEdit}>
+                {t('edit')}
+              </Button>
+            ) : (
+              <>
+                <Button variant="Danger" onClick={onCancelEdit}>
+                  {t('cancel')}
+                </Button>
+                <Button variant="Secondary" onClick={onSaveEdit}>
+                  {t('save')}
+                </Button>
+              </>
+            )}
           </>
         )}
       </div>

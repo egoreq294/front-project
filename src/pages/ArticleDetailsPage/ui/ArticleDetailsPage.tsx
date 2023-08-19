@@ -1,7 +1,7 @@
 import { ArticleDetails } from '@entities/Article';
 import { CommentList } from '@entities/Comment';
 import { Caption } from '@shared/ui/Caption/Caption';
-import React, { FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import styles from './styles.module.scss';
@@ -15,7 +15,8 @@ import { useSelector } from 'react-redux';
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/commentsSelectors';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
-import { log } from 'console';
+import { AddCommentForm } from '@features/AddCommentForm';
+import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 const reducers: ReducerList = {
   articleDetailsComment: articleDetailsCommentsReducer,
@@ -30,7 +31,12 @@ const ArticleDetailsPage: FC = () => {
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
 
-  console.log(isLoading);
+  const onSendComment = useCallback(
+    (value: string) => {
+      dispatch(addCommentForArticle(value));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     if (!id) {
@@ -45,11 +51,14 @@ const ArticleDetailsPage: FC = () => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div>
         <ArticleDetails articleId={id} />
-        <Caption label={t('comments')} className={styles.CommentTitle} />
-        <CommentList comments={comments} isLoading={isLoading} />
+        <div className={styles.CommentsWrapper}>
+          <Caption label={t('comments')} />
+          <AddCommentForm onSendComment={onSendComment} />
+          <CommentList comments={comments} isLoading={isLoading} />
+        </div>
       </div>
     </DynamicModuleLoader>
   );

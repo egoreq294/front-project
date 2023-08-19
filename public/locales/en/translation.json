@@ -18,5 +18,7 @@
   "Country": "Country",
   "russia": "Russia",
   "usa": "USA",
-  "empty-comments": "Сomments are empty"
+  "empty-comments": "Сomments are empty",
+  "enter-comment-text": "Enter comment text",
+  "send": "Send"
 }
