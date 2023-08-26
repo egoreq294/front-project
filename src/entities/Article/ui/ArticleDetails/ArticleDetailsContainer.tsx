@@ -1,13 +1,13 @@
 import React, { FC, memo, useEffect } from 'react';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '../model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { fetchArticleById } from '../model/services/fetchArticleById';
+import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from '../model/selectors/getArticleDetailsData';
-import { getArticleDetailsError } from '../model/selectors/getArticleDetailsError';
-import { getArticleDetailsLoading } from '../model/selectors/getArticleDetailsLoading';
+import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData';
+import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError';
+import { getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsLoading';
 import { ArticleDetails } from './ArticleDetails';
 import styles from './styles.module.scss';
 

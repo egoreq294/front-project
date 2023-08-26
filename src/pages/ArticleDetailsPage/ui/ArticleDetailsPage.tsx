@@ -3,7 +3,7 @@ import { CommentList } from '@entities/Comment';
 import { Caption } from '@shared/ui/Caption/Caption';
 import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -17,6 +17,7 @@ import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { AddCommentForm } from '@features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
+import { Button } from '@shared/ui/Button/Button';
 
 const reducers: ReducerList = {
   articleDetailsComment: articleDetailsCommentsReducer,
@@ -27,6 +28,7 @@ const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation('article');
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
@@ -37,6 +39,10 @@ const ArticleDetailsPage: FC = () => {
     },
     [dispatch],
   );
+
+  const onBackToList = useCallback(() => {
+    navigate('/articles');
+  }, [navigate]);
 
   useEffect(() => {
     if (!id) {
@@ -53,6 +59,9 @@ const ArticleDetailsPage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div>
+        <Button variant="Secondary" onClick={onBackToList}>
+          {t('back-to-list')}
+        </Button>
         <ArticleDetails articleId={id} />
         <div className={styles.CommentsWrapper}>
           <Caption label={t('comments')} />

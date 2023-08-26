@@ -1,5 +1,6 @@
-export { ArticleDetailsContainer as ArticleDetails } from './ui/ArticleDetailsContainer';
-export type { Article } from './model/types/article';
+export { ArticleDetailsContainer as ArticleDetails } from './ui/ArticleDetails/ArticleDetailsContainer';
+export { ArticleList } from './ui/ArticleList/ArticleList';
+export type { Article, ArticleViewMode } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export {
   articleDetailsActions,

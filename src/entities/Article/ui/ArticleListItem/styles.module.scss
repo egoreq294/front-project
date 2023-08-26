@@ -1,0 +1,106 @@
+.List {
+  width: 100%;
+
+  .Header {
+    display: flex;
+    align-items: center;
+  }
+
+  .Username {
+    margin-left: 8px;
+  }
+
+  .Date {
+    margin-left: auto;
+  }
+
+  .Title {
+    margin-top: 8px;
+  }
+
+  .Image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
+
+  .Footer {
+    display: flex;
+    align-items: center;
+  }
+
+  .Views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .TextBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 16px;
+  }
+}
+
+.Plate {
+  width: 232px;
+  transition: 0.2s;
+  cursor: pointer;
+
+  .ImageWrapper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .Image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .Date {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+
+    .Date {
+      display: block;
+    }
+  }
+
+  .InfoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .Types > p {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .Views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .Title {
+    margin-top: 8px;
+  }
+
+  .Title > p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

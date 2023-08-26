@@ -4,5 +4,8 @@
   "article-not-found": "Article not found",
   "translation.technical-error": "There was a technical error, please try again later",
   "technical-error": "There was a technical error, please try again later",
-  "comments": "Comments"
+  "comments": "Comments",
+  "empty-articles": "Articles are empty",
+  "read-more": "Read more",
+  "back-to-list": "Back to list"
 }

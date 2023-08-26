@@ -3,5 +3,8 @@
   "article-details-page": "Страница сведений о статье",
   "article-not-found": "Статья не найдена",
   "technical-error": "Произошла техническая ошибка, повторите попытку позже",
-  "comments": "Комментарии"
+  "comments": "Комментарии",
+  "empty-articles": "Статьи пусты",
+  "read-more": "Читать далее",
+  "back-to-list": "Обратно к списку"
 }
