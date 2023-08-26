@@ -90,11 +90,10 @@ const ArticlesPage: FC = () => {
   return (
     <div>
       <ArticleList
-        isLoading
         viewMode="Plate"
         articles={new Array(16)
           .fill(0)
-          .map((item, idx) => ({ ...ARTICLE, id: String(idx) }))}
+          .map((_, idx) => ({ ...ARTICLE, id: String(idx) }))}
       />
     </div>
   );

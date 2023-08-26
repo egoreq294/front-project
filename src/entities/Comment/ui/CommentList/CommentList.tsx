@@ -3,9 +3,9 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { CommentType } from '../../model/types/comment';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentListSkeleton } from './CommentListSkeleton/CommentListSkeleton';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface CommentListProps {
   className?: string;
@@ -31,7 +31,7 @@ export const CommentList: FC<CommentListProps> = ({
           <CommentItem key={comment.id} comment={comment} />
         ))
       ) : (
-        <Caption value={t('empty-comments')} />
+        <Typography>{t('empty-comments')}</Typography>
       )}
     </div>
   );

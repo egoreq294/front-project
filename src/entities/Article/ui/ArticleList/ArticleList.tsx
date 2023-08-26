@@ -3,9 +3,9 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Article, ArticleViewMode } from '../../model/types/article';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListSkeleton } from './ArticleListSkeleton';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleListProps {
   className?: string;
@@ -31,7 +31,7 @@ export const ArticleList: FC<ArticleListProps> = ({
   }
 
   if (!articles.length) {
-    return <Caption label={t('empty-articles')} />;
+    return <Typography variant="M">{t('empty-articles')}</Typography>;
   }
 
   return (

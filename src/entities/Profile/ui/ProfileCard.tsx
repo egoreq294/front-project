@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { Input } from '@shared/ui/Input/Input';
 import { Profile } from '../model/types/profile';
 import { Loader } from '@shared/ui/Loader/Loader';
 import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { CountryEnum, CountrySelect } from '@entities/Country';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ProfileCardProps {
   className?: string;
@@ -54,7 +54,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   if (error) {
     return (
       <div className={cn(styles.ProfileCard, styles.Error, className)}>
-        <Caption variant="Error" label={t('technical-error')} />
+        <Typography variant="M">{t('technical-error')}</Typography>
       </div>
     );
   }

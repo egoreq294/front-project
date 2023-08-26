@@ -3,7 +3,6 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button/Button';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { useSelector } from 'react-redux';
 import {
   getProfileData,
@@ -13,6 +12,7 @@ import {
 } from '@entities/Profile';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { getUserAuthData } from '@entities/User';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -43,7 +43,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
 
   return (
     <header className={cn(styles.Header, className)}>
-      <Caption label={t('profile')} />
+      <Typography variant="M">{t('profile')}</Typography>
       <div className={styles.ButtonsContainer}>
         {canEdit && (
           <>

@@ -1,6 +1,5 @@
 import { ArticleDetails } from '@entities/Article';
 import { CommentList } from '@entities/Comment';
-import { Caption } from '@shared/ui/Caption/Caption';
 import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -18,6 +17,7 @@ import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArtic
 import { AddCommentForm } from '@features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from '@shared/ui/Button/Button';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 const reducers: ReducerList = {
   articleDetailsComment: articleDetailsCommentsReducer,
@@ -64,7 +64,7 @@ const ArticleDetailsPage: FC = () => {
         </Button>
         <ArticleDetails articleId={id} />
         <div className={styles.CommentsWrapper}>
-          <Caption label={t('comments')} />
+          <Typography variant="M">{t('comments')}</Typography>
           <AddCommentForm onSendComment={onSendComment} />
           <CommentList comments={comments} isLoading={isLoading} />
         </div>

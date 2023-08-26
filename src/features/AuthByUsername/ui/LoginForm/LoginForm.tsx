@@ -7,7 +7,6 @@ import { Input } from '@shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
@@ -15,6 +14,7 @@ import { getLoginError } from '../../model/selectors/getLoginError';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface LoginFormProps {
   className?: string;
@@ -58,7 +58,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={cn(styles.LoginForm, className)}>
-        <Caption label={t('login-form')} />
+        <Typography variant="M">{t('login-form')}</Typography>
         <Input
           value={username}
           onChange={onChangeUsername}
@@ -71,7 +71,9 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
           placeholder={t('enter-password')}
         />
         {error && (
-          <Caption value={t('incorrect-login-or-password')} variant="Error" />
+          <div className={styles.Error}>
+            <Typography>{t('incorrect-login-or-password')}</Typography>
+          </div>
         )}
         <Button
           variant="Primary"

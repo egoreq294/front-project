@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
 import { ArticleTextBlock as ArticleTextBlockType } from '@entities/Article/model/types/article';
-import { Caption } from '@shared/ui/Caption/Caption';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleTextBlockProps {
   className?: string;
@@ -13,10 +13,14 @@ export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo(
     return (
       <div className={className}>
         {block.title && (
-          <Caption label={block.title} className={styles.Title} />
+          <Typography variant="M" className={styles.Title}>
+            {block.title}
+          </Typography>
         )}
         {block.paragraphs.map((paragraph, index) => (
-          <Caption key={index} value={paragraph} className={styles.Paragraph} />
+          <Typography key={index} className={styles.Paragraph}>
+            {paragraph}
+          </Typography>
         ))}
       </div>
     );

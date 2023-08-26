@@ -10,6 +10,7 @@ import { Article, ArticleBlockTypeEnum } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleDetailsProps {
   article: Article | null;
@@ -27,7 +28,9 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
 
     if (error) {
       return (
-        <Caption align="Center" variant="Error" label={t('technical-error')} />
+        <div className={styles.Error}>
+          <Typography variant="M">{t('technical-error')}</Typography>
+        </div>
       );
     }
 
@@ -44,11 +47,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
         />
         <div className={styles.ArticleInfo}>
           <EyeIcon />
-          <Caption value={String(article?.views)} />
+          <Typography>{String(article?.views)}</Typography>
         </div>
         <div className={styles.ArticleInfo}>
           <CalendarIcon />
-          <Caption value={article?.createdAt} />
+          <Typography>{article?.createdAt}</Typography>
         </div>
         <div className={styles.Blocks}>
           {article?.blocks.map((block) => (

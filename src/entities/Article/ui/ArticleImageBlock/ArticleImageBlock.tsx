@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
 import { ArticleImageBlock as ArticleImageBlockType } from '@entities/Article/model/types/article';
-import { Caption } from '@shared/ui/Caption/Caption';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleImageBlockProps {
   className?: string;
@@ -13,7 +13,7 @@ export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo(
     return (
       <div className={className}>
         <img src={block.src} alt={block.title} className={styles.Image} />
-        {block.title && <Caption value={block.title} align="Center" />}
+        {block.title && <Typography>{block.title}</Typography>}
       </div>
     );
   },

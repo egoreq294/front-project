@@ -3,8 +3,8 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 import { CommentType } from '../../model/types/comment';
 import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Caption } from '@shared/ui/Caption/Caption';
 import { AppLink } from '@shared/ui/AppLink/AppLink';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface CommentItemProps {
   comment: CommentType;
@@ -16,9 +16,9 @@ export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
     <div className={cn(styles.CommentItem, className)}>
       <AppLink to={`/profile/${comment.user.id}`} className={styles.UserInfo}>
         {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
-        <Caption label={comment.user.username} />
+        <Typography variant="M">{comment.user.username}</Typography>
       </AppLink>
-      <Caption value={comment.text} />
+      <Typography>{comment.text} </Typography>
     </div>
   );
 };

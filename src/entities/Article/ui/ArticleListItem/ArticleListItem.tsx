@@ -8,13 +8,13 @@ import {
   ArticleViewMode,
   ArticleTextBlock as ArticleTextBlockType,
 } from '../../model/types/article';
-import { Caption } from '@shared/ui/Caption/Caption';
 import EyeIcon from '@shared/assets/icons/eye.svg';
 import { Card } from '@shared/ui/Card/Card';
 import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { Button } from '@shared/ui/Button/Button';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleListItemProps {
   className?: string;
@@ -44,14 +44,15 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         <Card>
           <div className={styles.Header}>
             <Avatar size={30} src={article.user.avatar} />
-            <Caption
-              value={article.user.username}
-              className={styles.Username}
-            />
-            <Caption value={article.createdAt} className={styles.Date} />
+            <Typography className={styles.Username}>
+              {article.user.username}
+            </Typography>
+            <Typography className={styles.Date}>{article.createdAt}</Typography>
           </div>
-          <Caption value={article.title} className={styles.Title} />
-          <Caption value={article.type.join(', ')} className={styles.Types} />
+          <Typography className={styles.Title}>{article.title}</Typography>
+          <Typography className={styles.Types}>
+            {article.type.join(', ')}
+          </Typography>
           <img src={article.img} className={styles.Image} alt={article.title} />
           {textBlock && (
             <ArticleTextBlock block={textBlock} className={styles.TextBlock} />
@@ -60,7 +61,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <Button variant="Secondary" onClick={onOpenArticle}>
               {t('read-more')}
             </Button>
-            <Caption value={String(article.views)} className={styles.Views} />
+            <Typography className={styles.Views}>
+              {String(article.views)}
+            </Typography>
             <EyeIcon />
           </div>
         </Card>
@@ -73,14 +76,18 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       <Card onClick={onOpenArticle}>
         <div className={styles.ImageWrapper}>
           <img src={article.img} className={styles.Image} alt={article.title} />
-          <Caption value={article.createdAt} className={styles.Date} />
+          <Typography className={styles.Date}>{article.createdAt}</Typography>
         </div>
         <div className={styles.InfoWrapper}>
-          <Caption value={article.type.join(', ')} className={styles.Types} />
-          <Caption value={String(article.views)} className={styles.Views} />
+          <Typography className={styles.Types}>
+            {article.type.join(', ')}
+          </Typography>
+          <Typography className={styles.Views}>
+            {String(article.views)}
+          </Typography>
           <EyeIcon />
         </div>
-        <Caption value={article.title} className={styles.Title} />
+        <Typography className={styles.Title}>{article.title}</Typography>
       </Card>
     </div>
   );
