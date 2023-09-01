@@ -22,15 +22,7 @@ export const ArticleList: FC<ArticleListProps> = ({
 }) => {
   const { t } = useTranslation('article');
 
-  if (isLoading) {
-    return (
-      <div className={cn(styles.ArticleList, className)}>
-        <ArticleListSkeleton viewMode={viewMode} />
-      </div>
-    );
-  }
-
-  if (!articles.length) {
+  if (!isLoading && !articles.length) {
     return <Typography variant="M">{t('empty-articles')}</Typography>;
   }
 
@@ -43,6 +35,7 @@ export const ArticleList: FC<ArticleListProps> = ({
           viewMode={viewMode}
         />
       ))}
+      {isLoading && <ArticleListSkeleton viewMode={viewMode} />}
     </div>
   );
 };

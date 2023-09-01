@@ -23,7 +23,7 @@ export const App: FC = () => {
         <Navbar />
         <div className={styles.Content}>
           <Sidebar />
-          <div className={styles.PageWrapper}>{inited && <AppRouter />}</div>
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>

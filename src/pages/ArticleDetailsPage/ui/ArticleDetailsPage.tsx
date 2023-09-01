@@ -18,6 +18,7 @@ import { AddCommentForm } from '@features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from '@shared/ui/Button/Button';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { Page } from '@shared/ui/Page/Page';
 
 const reducers: ReducerList = {
   articleDetailsComment: articleDetailsCommentsReducer,
@@ -58,7 +59,7 @@ const ArticleDetailsPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
+      <Page>
         <Button variant="Secondary" onClick={onBackToList}>
           {t('back-to-list')}
         </Button>
@@ -68,7 +69,7 @@ const ArticleDetailsPage: FC = () => {
           <AddCommentForm onSendComment={onSendComment} />
           <CommentList comments={comments} isLoading={isLoading} />
         </div>
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

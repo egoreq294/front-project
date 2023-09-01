@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Typography } from '@shared/ui/Typography/Typography';
 import styles from './styles.module.scss';
+import { Page } from '@shared/ui/Page/Page';
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -104,29 +105,31 @@ const ProfilePage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <ProfilePageHeader />
-      {!!validationErrors.length &&
-        validationErrors.map((validationError) => (
-          <div key={validationError} className={styles.Error}>
-            <Typography>
-              {validationErrorTranslates[validationError]}
-            </Typography>
-          </div>
-        ))}
-      <ProfileCard
-        formData={formData}
-        error={error}
-        loading={loading}
-        readonly={readonly}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <Page>
+        <ProfilePageHeader />
+        {!!validationErrors.length &&
+          validationErrors.map((validationError) => (
+            <div key={validationError} className={styles.Error}>
+              <Typography>
+                {validationErrorTranslates[validationError]}
+              </Typography>
+            </div>
+          ))}
+        <ProfileCard
+          formData={formData}
+          error={error}
+          loading={loading}
+          readonly={readonly}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };

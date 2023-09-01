@@ -17,13 +17,15 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
   (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-const articlePageSlice = createSlice({
-  name: 'articlePageSlice',
+const articlesPageSlice = createSlice({
+  name: 'articlesPageSlice',
   initialState: articlesAdapter.getInitialState<ArticlePageSchema>({
     isLoading: false,
     view: 'List',
     ids: [],
     entities: {},
+    page: 1,
+    hasMore: true,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewMode>) => {
@@ -33,10 +35,16 @@ const articlePageSlice = createSlice({
         action.payload,
       );
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
     initState: (state) => {
-      state.view = localStorage.getItem(
+      const view = localStorage.getItem(
         ATRTICLES_VIEW_MODE_LOCALSTORAGE_KEY,
       ) as ArticleViewMode;
+
+      state.view = view;
+      state.limit = view === 'List' ? 4 : 10;
     },
   },
   extraReducers: (builder) => {
@@ -46,7 +54,8 @@ const articlePageSlice = createSlice({
     });
     builder.addCase(fetchArticles.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      articlesAdapter.setAll(state, payload);
+      articlesAdapter.addMany(state, payload);
+      state.hasMore = payload.length > 0;
     });
     builder.addCase(fetchArticles.rejected, (state, { payload }) => {
       state.isLoading = false;
@@ -55,5 +64,5 @@ const articlePageSlice = createSlice({
   },
 });
 
-export const { reducer: articlePageReducer } = articlePageSlice;
-export const { actions: articlePageActions } = articlePageSlice;
+export const { reducer: articlesPageReducer } = articlesPageSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
