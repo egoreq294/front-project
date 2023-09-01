@@ -7,3 +7,4 @@ export {
   articleDetailsReducer,
 } from './model/slice/articleDetailsSlice';
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';

@@ -1,10 +1,29 @@
-import { ArticleList } from '@entities/Article';
+import { ArticleList, ArticleViewSelector } from '@entities/Article';
 import {
   Article,
   ArticleBlockTypeEnum,
   ArticleTypeEnum,
+  ArticleViewMode,
 } from '@entities/Article/model/types/article';
-import React, { FC } from 'react';
+import { ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  DynamicModuleLoader,
+  ReducerList,
+} from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import React, { FC, useCallback, useEffect } from 'react';
+import {
+  articlePageActions,
+  articlePageReducer,
+  getArticles,
+} from '../model/slices/articlePageSclice';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { fetchArticles } from '../model/services/fetchArticles';
+import { useSelector } from 'react-redux';
+import {
+  getArticlePageError,
+  getArticlePageIsLoading,
+  getArticlePageView,
+} from '../model/selectors/articlesPageSelectors';
 
 const ARTICLE = {
   id: '1',
@@ -86,16 +105,46 @@ const ARTICLE = {
   ],
 } as Article;
 
+const reducers: ReducerList = {
+  articlesPage: articlePageReducer,
+};
+
 const ArticlesPage: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const articles = useSelector(getArticles.selectAll);
+  const viewMode = useSelector(getArticlePageView);
+  const error = useSelector(getArticlePageError);
+  const isLoading = useSelector(getArticlePageIsLoading);
+
+  console.log(viewMode);
+
+  const onChangeView = useCallback(
+    (view: ArticleViewMode): void => {
+      dispatch(articlePageActions.setView(view));
+    },
+    [dispatch],
+  );
+
+  useEffect(() => {
+    dispatch(fetchArticles());
+    dispatch(articlePageActions.initState());
+  }, [dispatch]);
+
   return (
-    <div>
-      <ArticleList
-        viewMode="Plate"
-        articles={new Array(16)
-          .fill(0)
-          .map((_, idx) => ({ ...ARTICLE, id: String(idx) }))}
-      />
-    </div>
+    <DynamicModuleLoader reducers={reducers}>
+      <div>
+        <ArticleViewSelector
+          selectedViewMode={viewMode}
+          onViewModeClick={onChangeView}
+        />
+        <ArticleList
+          viewMode={viewMode}
+          articles={articles}
+          isLoading={isLoading}
+        />
+      </div>
+    </DynamicModuleLoader>
   );
 };
 

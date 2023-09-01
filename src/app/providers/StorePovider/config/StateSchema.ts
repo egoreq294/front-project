@@ -5,6 +5,7 @@ import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { LoginSchema } from '@features/AuthByUsername';
 import { ArticleDetailsCommentSchema } from '@pages/ArticleDetailsPage';
+import { ArticlePageSchema } from '@pages/ArticlesPage';
 import {
   AnyAction,
   CombinedState,
@@ -23,6 +24,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComment?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
