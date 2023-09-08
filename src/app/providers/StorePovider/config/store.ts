@@ -9,6 +9,7 @@ import { counterReducer } from '@entities/Counter';
 import { userReducer } from '@entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from '@shared/api/api';
+import { scrollReducer } from '@features/Scroll';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createReduxStore = (
@@ -19,6 +20,7 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scroll: scrollReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

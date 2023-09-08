@@ -4,6 +4,7 @@ import { ProfileSchema } from '@entities/Profile';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { LoginSchema } from '@features/AuthByUsername';
+import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsCommentSchema } from '@pages/ArticleDetailsPage';
 import { ArticlePageSchema } from '@pages/ArticlesPage';
 import {
@@ -18,6 +19,7 @@ import { AxiosInstance } from 'axios';
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scroll: ScrollSchema;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;

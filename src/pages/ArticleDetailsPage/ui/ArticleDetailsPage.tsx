@@ -18,7 +18,7 @@ import { AddCommentForm } from '@features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from '@shared/ui/Button/Button';
 import { Typography } from '@shared/ui/Typography/Typography';
-import { Page } from '@shared/ui/Page/Page';
+import { Page } from '@widgets/Page/Page';
 
 const reducers: ReducerList = {
   articleDetailsComment: articleDetailsCommentsReducer,

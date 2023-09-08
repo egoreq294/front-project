@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Typography } from '@shared/ui/Typography/Typography';
 import styles from './styles.module.scss';
-import { Page } from '@shared/ui/Page/Page';
+import { Page } from '@widgets/Page/Page';
 
 const reducers: ReducerList = {
   profile: profileReducer,
