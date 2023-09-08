@@ -11,7 +11,6 @@ import {
   getArticles,
 } from '../model/slices/articlePageSclice';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { fetchArticles } from '../model/services/fetchArticles';
 import { useSelector } from 'react-redux';
 import {
   getArticlesPageIsLoading,
@@ -19,6 +18,7 @@ import {
 } from '../model/selectors/articlesPageSelectors';
 import { Page } from '@shared/ui/Page/Page';
 import { fetchNextArticles } from '../model/services/fetchNextArticles';
+import { initArticlesPage } from '../model/services/initArticlesPage';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer,
@@ -43,12 +43,11 @@ const ArticlesPage: FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticles({ page: 1 }));
+    dispatch(initArticlesPage());
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
         <ArticleViewSelector
           selectedViewMode={viewMode}

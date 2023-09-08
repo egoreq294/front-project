@@ -1,7 +1,6 @@
 import { StateSchema } from '@app/providers/StorePovider';
 import { AsyncThunkAction, Dispatch } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
-import { NavigateFunction } from 'react-router-dom';
 
 type ActionCreator<Return, Arg, RejectValue> = (
   arg: Arg,
@@ -20,8 +19,6 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
 
   api: jest.MockedFunctionDeep<AxiosStatic>;
 
-  navigate: NavigateFunction;
-
   constructor(
     actionCreator: ActionCreator<Return, Arg, RejectValue>,
     state?: DeepPartial<StateSchema>,
@@ -29,7 +26,6 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn();
     this.getState = jest.fn(() => state as StateSchema);
-    this.navigate = jest.fn();
     this.api = mockedAxios;
   }
 
@@ -38,7 +34,6 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
     const action = this.actionCreator(arg);
     const result = await action(this.dispatch, this.getState, {
       api: this.api,
-      navigate: this.navigate,
     });
 
     return result;
