@@ -88,9 +88,9 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = ({
     (newTab: TabItem<ArticleTypeEnum>): void => {
       dispatch(articlesPageActions.setType(newTab.value));
       dispatch(articlesPageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
-    [dispatch, debouncedFetchData],
+    [dispatch, fetchData],
   );
 
   return (
