@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback } from 'react';
 import {
   ArticleSortField,
   ArticleSortSelect,
@@ -24,7 +24,7 @@ import { SortOrder } from '@shared/types';
 import { fetchArticles } from '../model/services/fetchArticles';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
 import { EMPTY_STRING } from '@shared/constants/common';
-import { TabItem, Tabs } from '@shared/ui/Tabs/Tabs';
+import { TabItem } from '@shared/ui/Tabs/Tabs';
 import { ArticleTypeEnum } from '@entities/Article/model/types/article';
 import cn from 'classnames';
 

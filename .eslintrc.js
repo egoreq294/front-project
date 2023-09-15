@@ -38,7 +38,14 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/require-default-props': 'off',
     'react/display-name': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     '@typescript-eslint/naming-convention': [
       'warn',
       {

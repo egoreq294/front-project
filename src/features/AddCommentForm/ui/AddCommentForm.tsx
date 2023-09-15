@@ -5,10 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@shared/ui/Input/Input';
 import { Button } from '@shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-  getCommentFormError,
-  getCommentFormText,
-} from '../model/selectors/addCommentFormSelectors';
+import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import {
   addCommentFormActions,
@@ -36,7 +33,6 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
   const dispatch = useAppDispatch();
 
   const text = useSelector(getCommentFormText);
-  const error = useSelector(getCommentFormError);
 
   const onTextChange = useCallback(
     (value: string): void => {
