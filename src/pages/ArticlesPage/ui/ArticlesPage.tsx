@@ -1,15 +1,13 @@
-import { ArticleList, ArticleViewSelector } from '@entities/Article';
-import { ArticleViewMode } from '@entities/Article/model/types/article';
+import { ArticleList } from '@entities/Article';
 import {
   DynamicModuleLoader,
   ReducerList,
 } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import React, { FC, useCallback, useEffect } from 'react';
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles,
-} from '../model/slices/articlePageSclice';
+} from '../model/slices/articlesPageSlice';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -19,6 +17,8 @@ import {
 import { Page } from '@widgets/Page/Page';
 import { fetchNextArticles } from '../model/services/fetchNextArticles';
 import { initArticlesPage } from '../model/services/initArticlesPage';
+import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer,
@@ -31,28 +31,20 @@ const ArticlesPage: FC = () => {
   const viewMode = useSelector(getArticlesPageView);
   const isLoading = useSelector(getArticlesPageIsLoading);
 
-  const onChangeView = useCallback(
-    (view: ArticleViewMode): void => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch],
-  );
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticles());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticlesPage());
-  }, [dispatch]);
+    dispatch(initArticlesPage(searchParams));
+  }, [dispatch, searchParams]);
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
-        <ArticleViewSelector
-          selectedViewMode={viewMode}
-          onViewModeClick={onChangeView}
-        />
+        <ArticlesPageFilters />
         <ArticleList
           viewMode={viewMode}
           articles={articles}

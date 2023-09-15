@@ -36,8 +36,6 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
   useInfiniteScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>): void => {
-    console.log('scrol');
-
     dispatch(
       scrollActions.setScrollPosition({
         position: e.currentTarget.scrollTop,
@@ -57,7 +55,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {!!onScrollEnd && <div className={styles.Trigger} ref={triggerRef} />}
     </section>
   );
 };

@@ -12,8 +12,15 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
+    children: <Caption value="Some content here" />,
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'Secondary',
     children: <Caption value="Some content here" />,
   },
 };

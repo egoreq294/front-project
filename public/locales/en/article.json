@@ -7,5 +7,16 @@
   "comments": "Comments",
   "empty-articles": "Articles are empty",
   "read-more": "Read more",
-  "back-to-list": "Back to list"
+  "back-to-list": "Back to list",
+  "sort-by": "Sort by",
+  "search": "Search",
+  "asc": "Asc",
+  "desc": "Desc",
+  "created-at": "Created at",
+  "title": "Title",
+  "views": "Views",
+  "it": "IT",
+  "economics": "Ecomonics",
+  "all": "All",
+  "science": "Science"
 }

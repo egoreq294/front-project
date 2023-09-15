@@ -1,32 +1,32 @@
-import React, { ChangeEvent, FC, useCallback } from 'react';
+import React, { ChangeEvent, ReactElement, useCallback } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-type Option = {
+export type Option<T extends string> = {
   value: string;
-  label: string;
+  label: T;
 };
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options: Option[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options: Option<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readOnly?: boolean;
 }
 
-export const Select: FC<SelectProps> = ({
+export const Select = <T extends string>({
   label,
   options,
   value,
   onChange,
   className,
   readOnly,
-}) => {
+}: SelectProps<T>): ReactElement => {
   const onChangeHandler = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      onChange?.(e.target.value);
+      onChange?.(e.target.value as T);
     },
     [onChange],
   );

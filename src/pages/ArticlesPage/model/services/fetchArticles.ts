@@ -1,10 +1,19 @@
 import { ThunkConfig } from '@app/providers/StorePovider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Article } from '@entities/Article';
-import { getArticlesPageLimit } from '../selectors/articlesPageSelectors';
+import {
+  getArticlesPageLimit,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+} from '../selectors/articlesPageSelectors';
+import { addQueryParams } from '@shared/lib/url/addQueryParams';
+import { ArticleTypeEnum } from '@entities/Article/model/types/article';
 
 interface FetchArticlesArgs {
   page?: number;
+  replace?: boolean;
 }
 
 export const fetchArticles = createAsyncThunk<
@@ -15,12 +24,22 @@ export const fetchArticles = createAsyncThunk<
   'articlesPage/fetchArticles',
   async ({ page = 1 }, { extra, rejectWithValue, getState }) => {
     const limit = getArticlesPageLimit(getState());
+    const order = getArticlesPageOrder(getState());
+    const sort = getArticlesPageSort(getState());
+    const search = getArticlesPageSearch(getState());
+    const type = getArticlesPageType(getState());
+
     try {
+      addQueryParams({ order, sort, search, type });
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
           _limit: limit,
           _page: page,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: type === ArticleTypeEnum.ALL ? undefined : type,
         },
       });
 

@@ -6,7 +6,7 @@ import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { LoginSchema } from '@features/AuthByUsername';
 import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsCommentSchema } from '@pages/ArticleDetailsPage';
-import { ArticlePageSchema } from '@pages/ArticlesPage';
+import { ArticlesPageSchema } from '@pages/ArticlesPage';
 import {
   AnyAction,
   CombinedState,
@@ -25,7 +25,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComment?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
-  articlesPage?: ArticlePageSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

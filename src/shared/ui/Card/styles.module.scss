@@ -1,5 +1,12 @@
 .Card {
   padding: 16px;
   border-radius: 12px;
+}
+
+.Primary {
   background-color: var(--card-bg);
+}
+
+.Secondary {
+  border: 1px solid var(--primary-color);
 }
