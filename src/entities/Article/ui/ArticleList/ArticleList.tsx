@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   viewMode?: ArticleViewMode;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList: FC<ArticleListProps> = ({
@@ -19,6 +20,7 @@ export const ArticleList: FC<ArticleListProps> = ({
   viewMode = 'Plate',
   articles,
   isLoading,
+  target,
 }) => {
   const { t } = useTranslation('article');
 
@@ -33,6 +35,7 @@ export const ArticleList: FC<ArticleListProps> = ({
           key={article.id}
           article={article}
           viewMode={viewMode}
+          target={target}
         />
       ))}
       {isLoading && <ArticleListSkeleton viewMode={viewMode} />}

@@ -16,3 +16,22 @@ select {
   padding: 0;
   font: inherit;
 }
+
+a {
+  text-decoration: none;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--card-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+}

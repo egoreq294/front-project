@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -13,26 +13,23 @@ import { Card } from '@shared/ui/Card/Card';
 import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { Button } from '@shared/ui/Button/Button';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { useNavigate } from 'react-router-dom';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { AppLink } from '@shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   viewMode: ArticleViewMode;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = ({
   article,
   viewMode,
   className,
+  target,
 }) => {
   const { t } = useTranslation('article');
-  const navigate = useNavigate();
-
-  const onOpenArticle = useCallback(() => {
-    navigate(`/articles/${article.id}`);
-  }, [navigate, article.id]);
 
   if (viewMode === 'List') {
     const textBlock = article.blocks.find(
@@ -58,9 +55,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <ArticleTextBlock block={textBlock} className={styles.TextBlock} />
           )}
           <div className={styles.Footer}>
-            <Button variant="Secondary" onClick={onOpenArticle}>
-              {t('read-more')}
-            </Button>
+            <AppLink to={`/articles/${article.id}`}>
+              <Button variant="Secondary">{t('read-more')}</Button>
+            </AppLink>
             <Typography className={styles.Views}>
               {String(article.views)}
             </Typography>
@@ -72,8 +69,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   }
 
   return (
-    <div className={cn(styles.ArticleListItem, styles.Plate, className)}>
-      <Card onClick={onOpenArticle}>
+    <AppLink
+      target={target}
+      to={`/articles/${article.id}`}
+      className={cn(styles.ArticleListItem, styles.Plate, className)}
+    >
+      <Card>
         <div className={styles.ImageWrapper}>
           <img src={article.img} className={styles.Image} alt={article.title} />
           <Typography className={styles.Date}>{article.createdAt}</Typography>
@@ -89,6 +90,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         </div>
         <Typography className={styles.Title}>{article.title}</Typography>
       </Card>
-    </div>
+    </AppLink>
   );
 };

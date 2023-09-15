@@ -1,5 +1,6 @@
 import {
   ReduxStoreWithManager,
+  StateSchema,
   StateSchemaKey,
 } from '@app/providers/StorePovider';
 import { Reducer } from '@reduxjs/toolkit';
@@ -9,7 +10,7 @@ import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
 
 export type ReducerList = {
-  [name in StateSchemaKey]?: Reducer;
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
 export interface DynamicModuleLoaderProps {

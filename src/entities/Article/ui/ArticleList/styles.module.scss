@@ -4,3 +4,11 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.PlateSkeleton {
+  display: flex;
+  flex-shrink: 0;
+  width: 232px;
+  height: 300px;
+  border-radius: 12px;
+}

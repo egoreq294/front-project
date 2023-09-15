@@ -2,8 +2,8 @@ import { StateSchema } from '@app/providers/StorePovider';
 
 export const getArticleDetailsCommentsIsLoading = (
   state: StateSchema,
-): boolean => !!state.articleDetailsComment?.isLoading;
+): boolean => !!state.articleDetailsPage?.comments?.isLoading;
 
 export const getArticleDetailsCommentsError = (
   state: StateSchema,
-): string | null => state.articleDetailsComment?.error || null;
+): string | null => state.articleDetailsPage?.comments?.error || null;

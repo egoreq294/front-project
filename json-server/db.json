@@ -53,6 +53,12 @@
       "text": "test comment 4",
       "userId": "1",
       "id": "hxIOrpC"
+    },
+    {
+      "articleId": "4",
+      "text": "новый комменатрий",
+      "userId": "1",
+      "id": "W58ykE_"
     }
   ],
   "users": [
@@ -600,5 +606,5 @@
         }
       ]
     }
-  ]  
+  ]
 }

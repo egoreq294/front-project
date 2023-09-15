@@ -5,7 +5,7 @@ import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { LoginSchema } from '@features/AuthByUsername';
 import { ScrollSchema } from '@features/Scroll';
-import { ArticleDetailsCommentSchema } from '@pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@pages/ArticlesPage';
 import {
   AnyAction,
@@ -23,9 +23,9 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComment?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

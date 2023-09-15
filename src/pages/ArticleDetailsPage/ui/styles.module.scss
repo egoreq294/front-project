@@ -1,6 +1,14 @@
-.CommentsWrapper {
+.CommentsWrapper,
+.RecommendationsWrapper {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.Recommendations {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
