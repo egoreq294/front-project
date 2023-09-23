@@ -22,7 +22,7 @@ export const AppRouter: FC = () => {
                   <>{wrappedElement}</>
                 </RequireAuth>
               ) : (
-                element
+                wrappedElement
               )
             }
           />
