@@ -7,7 +7,7 @@
     "start": "webpack serve --env mode=development",
     "start:dev": "concurrently \"npm start \" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index.js",
-    "build": "webpack --env mode=production apiUrl=https://front-project-server-5u6e9brhi-egoreqs-projects.vercel.app",
+    "build": "webpack --env mode=production",
     "eslint": "eslint \"**/*.{ts,tsx}\"",
     "eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "stylelint": "npx stylelint \"**/*.scss\"",
