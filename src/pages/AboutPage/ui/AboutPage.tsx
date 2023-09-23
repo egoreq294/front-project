@@ -5,7 +5,12 @@ import { useTranslation } from 'react-i18next';
 const AboutPage: FC = () => {
   const { t } = useTranslation('about');
 
-  return <Page>{t('about-us')}</Page>;
+  return (
+    <Page>
+      {t('about-us')}
+      {t('about-us')}
+    </Page>
+  );
 };
 
 export default AboutPage;
