@@ -6,24 +6,28 @@ import { RequireAuth } from './RequireAuth';
 
 export const AppRouter: FC = () => {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {routeConfig.map(({ path, element, authOnly }) => (
+    <Routes>
+      {routeConfig.map(({ path, element, authOnly }) => {
+        const wrappedElement = (
+          <Suspense fallback={<PageLoader />}> {element}</Suspense>
+        );
+
+        return (
           <Route
             key={path}
             path={path}
             element={
               authOnly ? (
                 <RequireAuth>
-                  <>{element}</>
+                  <>{wrappedElement}</>
                 </RequireAuth>
               ) : (
                 element
               )
             }
           />
-        ))}
-      </Routes>
-    </Suspense>
+        );
+      })}
+    </Routes>
   );
 };
