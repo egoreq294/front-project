@@ -3,15 +3,21 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 type TypograptyVariant = 'S' | 'M' | 'L';
+type ThemeVariant = 'Primary' | 'Inverted';
 
 interface TypographyProps {
   className?: string;
   children: ReactNode;
   variant?: TypograptyVariant;
+  theme?: ThemeVariant;
 }
 
 export const Typography: FC<TypographyProps> = memo(
-  ({ className, variant = 'S', children }) => {
-    return <p className={cn(styles[variant], className)}>{children}</p>;
+  ({ className, variant = 'S', children, theme = 'Primary' }) => {
+    return (
+      <p className={cn(styles[variant], styles[theme], className)}>
+        {children}
+      </p>
+    );
   },
 );

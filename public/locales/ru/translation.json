@@ -20,5 +20,7 @@
   "usa": "США",
   "empty-comments": "Комментарии отсутствуют",
   "enter-comment-text": "Введите текст комментария",
-  "send": "Отправить"
+  "send": "Отправить",
+  "project-name": "Front Project",
+  "create-article": "Создать статью"
 }

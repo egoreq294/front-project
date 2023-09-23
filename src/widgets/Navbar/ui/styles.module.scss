@@ -5,11 +5,18 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  justify-content: flex-end;
 }
 
 .Icon {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.AuthButton {
+  margin-left: auto;
+}
+
+.ProjectName {
+  width: var(--sidebar-width);
 }

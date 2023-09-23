@@ -20,5 +20,7 @@
   "usa": "USA",
   "empty-comments": "Сomments are empty",
   "enter-comment-text": "Enter comment text",
-  "send": "Send"
+  "send": "Send",
+  "project-name": "Front Project",
+  "create-article": "Create Article"
 }

@@ -30,3 +30,11 @@ export const L: Story = {
     variant: 'L',
   },
 };
+
+export const Inverted: Story = {
+  args: {
+    children: 'lorem ipsum',
+    variant: 'M',
+    theme: 'Inverted',
+  },
+};

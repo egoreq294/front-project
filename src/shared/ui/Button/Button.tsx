@@ -35,7 +35,9 @@ export const Button: FC<ButtonProps> = ({
       styles.Button,
       styles[variant],
       styles[size],
-      { [styles.Disabled]: disabled },
+      {
+        [styles.Disabled]: disabled,
+      },
       className,
     )}
     disabled={disabled}

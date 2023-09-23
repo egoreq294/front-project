@@ -17,7 +17,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
       class="Items"
     >
       <a
-        class="AppLink Secondary"
+        class="AppLink Inverted"
         href="/"
       >
         <div
@@ -28,7 +28,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
         </div>
       </a>
       <a
-        class="AppLink Secondary"
+        class="AppLink Inverted"
         href="/about"
       >
         <div

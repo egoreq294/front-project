@@ -7,6 +7,8 @@ import { LoginModal } from '@features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Typography } from '@shared/ui/Typography/Typography';
+import { AppLink } from '@shared/ui/AppLink/AppLink';
 
 interface NavbarProps {
   className?: string;
@@ -31,25 +33,27 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
-  if (authData) {
-    return (
-      <>
-        <div className={cn(styles.Navbar, className)}>
-          <Button variant="GhostInverted" onClick={onLogout}>
-            {t('logout')}
-          </Button>
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
-      <div className={cn(styles.Navbar, className)}>
-        <Button variant="GhostInverted" onClick={onOpenModal}>
-          {t('auth')}
+      <header className={cn(styles.Navbar, className)}>
+        <Typography variant="M" theme="Inverted" className={styles.ProjectName}>
+          {t('project-name')}
+        </Typography>
+
+        {authData && (
+          <AppLink theme="Inverted" to={'/articles/create'}>
+            {t('create-article')}
+          </AppLink>
+        )}
+
+        <Button
+          variant="GhostInverted"
+          onClick={authData ? onLogout : onOpenModal}
+          className={styles.AuthButton}
+        >
+          {authData ? t('logout') : t('auth')}
         </Button>
-      </div>
+      </header>
       {isLoginModalOpen && (
         <LoginModal isOpen={isLoginModalOpen} onClose={onCloseModal} />
       )}

@@ -2,7 +2,7 @@ import { ArticleDetails, ArticleList } from '@entities/Article';
 import { CommentList } from '@entities/Comment';
 import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -13,13 +13,13 @@ import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { AddCommentForm } from '@features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
-import { Button } from '@shared/ui/Button/Button';
 import { Typography } from '@shared/ui/Typography/Typography';
 import { Page } from '@widgets/Page/Page';
 import { getArticleRecommendation } from '../model/slices/articleDetailsRecommendationsSlice';
 import { getArticleRecommendationIsLoading } from '../model/selectors/recommendationsSelectors';
 import { fetchArticleRecommendaions } from '../model/services/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../model/slices';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducers: ReducerList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -30,7 +30,6 @@ const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation('article');
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const comments = useSelector(getArticleComments.selectAll);
   const isCommentsLoading = useSelector(getArticleDetailsCommentsIsLoading);
@@ -46,10 +45,6 @@ const ArticleDetailsPage: FC = () => {
     },
     [dispatch],
   );
-
-  const onBackToList = useCallback(() => {
-    navigate('/articles');
-  }, [navigate]);
 
   useEffect(() => {
     if (!id) {
@@ -70,9 +65,7 @@ const ArticleDetailsPage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
-        <Button variant="Secondary" onClick={onBackToList}>
-          {t('back-to-list')}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
         <div className={styles.RecommendationsWrapper}>
           <Typography variant="M">{t('recommendations')}</Typography>
