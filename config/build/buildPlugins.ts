@@ -25,7 +25,10 @@ export const buildPlugins = ({
       __API__: JSON.stringify(apiUrl),
     }),
     new CopyPlugin({
-      patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales },
+        { from: paths.redirects, to: paths.buildRedirects },
+      ],
     }),
   ];
 
