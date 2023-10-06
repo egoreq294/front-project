@@ -1,32 +1,15 @@
 .ProfileCard {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
   padding: 20px;
   border: 2px solid var(--inverted-bg-color);
 }
 
 .Loader,
 .Error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 300px;
 }
 
 .Error {
   color: var(--red-light);
-}
-
-.Content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.Avatar {
-  display: flex;
-  justify-content: center;
 }
 
 .Editing {

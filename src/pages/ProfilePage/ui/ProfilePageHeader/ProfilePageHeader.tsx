@@ -1,6 +1,4 @@
 import React, { FC, useCallback } from 'react';
-import cn from 'classnames';
-import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
@@ -13,6 +11,7 @@ import {
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { getUserAuthData } from '@entities/User';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { HStack } from '@shared/ui/Stack/HStack/HStack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -42,9 +41,9 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <header className={cn(styles.Header, className)}>
+    <HStack fullWidth justify="spaceBetween" className={className}>
       <Typography variant="M">{t('profile')}</Typography>
-      <div className={styles.ButtonsContainer}>
+      <HStack gap="16">
         {canEdit && (
           <>
             {readonly ? (
@@ -63,7 +62,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
             )}
           </>
         )}
-      </div>
-    </header>
+      </HStack>
+    </HStack>
   );
 };

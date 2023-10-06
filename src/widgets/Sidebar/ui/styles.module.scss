@@ -19,9 +19,6 @@
 
 .Items {
   padding: 20px;
-  gap: 16px;
-  display: flex;
-  flex-direction: column;
 }
 
 .Collapsed {
@@ -29,10 +26,6 @@
 
   .Switchers {
     flex-direction: column;
-  }
-
-  .Items {
-    align-items: center;
   }
 }
 

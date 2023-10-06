@@ -9,6 +9,7 @@ import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { CountryEnum, CountrySelect } from '@entities/Country';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { HStack, VStack } from '@shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string;
@@ -45,81 +46,89 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   if (loading) {
     return (
-      <div className={cn(styles.ProfileCard, styles.Loader, className)}>
+      <HStack
+        fullWidth
+        justify="center"
+        className={cn(styles.ProfileCard, styles.Loader, className)}
+      >
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={cn(styles.ProfileCard, styles.Error, className)}>
+      <HStack
+        fullWidth
+        justify="center"
+        className={cn(styles.ProfileCard, styles.Error, className)}
+      >
         <Typography variant="M">{t('technical-error')}</Typography>
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div
+    <VStack
+      fullWidth
+      gap="8"
       className={cn(
         styles.ProfileCard,
         { [styles.Editing]: !readonly },
         className,
       )}
     >
-      <div className={styles.Content}>
-        {formData?.avatar && (
-          <div className={styles.Avatar}>
-            <Avatar src={formData?.avatar} alt="Avatar" size={150} />
-          </div>
-        )}
-        <Input
-          value={formData?.firstName}
-          placeholder={t('first-name')}
-          onChange={onChangeFirstName}
-          readOnly={readonly}
-        />
-        <Input
-          value={formData?.lastName}
-          placeholder={t('last-name')}
-          onChange={onChangeLastName}
-          readOnly={readonly}
-        />
-        <Input
-          value={formData?.age}
-          placeholder={t('age')}
-          onChange={onChangeAge}
-          readOnly={readonly}
-        />
-        <Input
-          value={formData?.city}
-          placeholder={t('city')}
-          onChange={onChangeCity}
-          readOnly={readonly}
-        />
-        <Input
-          value={formData?.username}
-          placeholder={t('username')}
-          onChange={onChangeUsername}
-          readOnly={readonly}
-        />
-        <Input
-          value={formData?.avatar}
-          placeholder={t('avatar')}
-          onChange={onChangeAvatar}
-          readOnly={readonly}
-        />
-        <CurrencySelect
-          value={formData?.currency}
-          onChange={onChangeCurrency}
-          readOnly={readonly}
-        />
-        <CountrySelect
-          value={formData?.country}
-          onChange={onChangeCountry}
-          readOnly={readonly}
-        />
-      </div>
-    </div>
+      {formData?.avatar && (
+        <HStack fullWidth justify="center">
+          <Avatar src={formData?.avatar} alt="Avatar" size={150} />
+        </HStack>
+      )}
+      <Input
+        value={formData?.firstName}
+        placeholder={t('first-name')}
+        onChange={onChangeFirstName}
+        readOnly={readonly}
+      />
+      <Input
+        value={formData?.lastName}
+        placeholder={t('last-name')}
+        onChange={onChangeLastName}
+        readOnly={readonly}
+      />
+      <Input
+        value={formData?.age}
+        placeholder={t('age')}
+        onChange={onChangeAge}
+        readOnly={readonly}
+      />
+      <Input
+        value={formData?.city}
+        placeholder={t('city')}
+        onChange={onChangeCity}
+        readOnly={readonly}
+      />
+      <Input
+        value={formData?.username}
+        placeholder={t('username')}
+        onChange={onChangeUsername}
+        readOnly={readonly}
+      />
+      <Input
+        value={formData?.avatar}
+        placeholder={t('avatar')}
+        onChange={onChangeAvatar}
+        readOnly={readonly}
+      />
+      <CurrencySelect
+        value={formData?.currency}
+        onChange={onChangeCurrency}
+        readOnly={readonly}
+      />
+      <CountrySelect
+        value={formData?.country}
+        onChange={onChangeCountry}
+        readOnly={readonly}
+      />
+    </VStack>
   );
 };
