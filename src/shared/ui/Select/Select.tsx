@@ -33,7 +33,7 @@ export const Select = <T extends string>({
 
   return (
     <div className={cn(styles.Wrapper, className)}>
-      {label && <span className={styles.Label}>{`${label}>`}</span>}
+      {label && <span>{`${label}>`}</span>}
       <select
         className={styles.Select}
         value={value}

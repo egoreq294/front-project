@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from '@shared/ui/Select/Select';
 import { CountryEnum } from '../model/types/country';
+import { ListBox } from '@shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
   value?: CountryEnum;
@@ -20,19 +20,19 @@ export const CountrySelect: FC<CountrySelectProps> = memo(
 
     const options = useMemo(
       () => [
-        { value: CountryEnum.Russia, label: t('russia') },
-        { value: CountryEnum.UnitedStates, label: t('usa') },
+        { value: CountryEnum.Russia, content: t('russia') },
+        { value: CountryEnum.UnitedStates, content: t('usa') },
       ],
       [t],
     );
 
     return (
-      <Select
+      <ListBox
         className={className}
         label={t('Country')}
         value={value}
         onChange={onChangeHandler}
-        options={options}
+        items={options}
         readOnly={readOnly}
       />
     );

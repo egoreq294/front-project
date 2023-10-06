@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from '@shared/ui/Select/Select';
 import { CurrencyEnum } from '../model/types/currency';
+import { ListBox } from '@shared/ui/ListBox/ListBox';
 
 interface CurrencySelectProps {
   value?: CurrencyEnum;
@@ -11,9 +11,9 @@ interface CurrencySelectProps {
 }
 
 const CURRENCY_OPTIONS = [
-  { value: CurrencyEnum.RUB, label: CurrencyEnum.RUB },
-  { value: CurrencyEnum.USD, label: CurrencyEnum.USD },
-  { value: CurrencyEnum.EUR, label: CurrencyEnum.EUR },
+  { value: CurrencyEnum.RUB, content: CurrencyEnum.RUB },
+  { value: CurrencyEnum.USD, content: CurrencyEnum.USD },
+  { value: CurrencyEnum.EUR, content: CurrencyEnum.EUR },
 ];
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo(
@@ -25,12 +25,12 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(
     }, []);
 
     return (
-      <Select
+      <ListBox
         className={className}
         label={t('currency')}
         value={value}
         onChange={onChangeHandler}
-        options={CURRENCY_OPTIONS}
+        items={CURRENCY_OPTIONS}
         readOnly={readOnly}
       />
     );
