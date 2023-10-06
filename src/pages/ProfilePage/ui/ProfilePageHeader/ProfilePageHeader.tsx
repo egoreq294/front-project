@@ -41,7 +41,12 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <HStack fullWidth justify="spaceBetween" className={className}>
+    <HStack
+      role="heading"
+      fullWidth
+      justify="spaceBetween"
+      className={className}
+    >
       <Typography variant="M">{t('profile')}</Typography>
       <HStack gap="16">
         {canEdit && (

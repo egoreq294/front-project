@@ -2,7 +2,7 @@ import React, { FC, ReactNode, memo } from 'react';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-type TypograptyVariant = 'S' | 'M' | 'L';
+type TypograptyVariant = 'XS' | 'S' | 'M' | 'L';
 type ThemeVariant = 'Primary' | 'Inverted';
 
 interface TypographyProps {

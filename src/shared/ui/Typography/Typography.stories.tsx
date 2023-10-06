@@ -10,6 +10,13 @@ const meta: Meta<typeof Typography> = {
 export default meta;
 type Story = StoryObj<typeof Typography>;
 
+export const XS: Story = {
+  args: {
+    children: 'lorem ipsum',
+    variant: 'XS',
+  },
+};
+
 export const S: Story = {
   args: {
     children: 'lorem ipsum',

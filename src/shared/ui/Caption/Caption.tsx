@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 type CaptionVariant = 'Default' | 'Error';
 type CaptionTextAlign = 'Right' | 'Left' | 'Center';
-type CaptionSize = 'S' | 'M';
+type CaptionSize = 'XS' | 'S' | 'M';
 
 interface CaptionProps {
   className?: string;
@@ -15,6 +15,14 @@ interface CaptionProps {
   size?: CaptionSize;
 }
 
+type HeaderTagType = 'h2' | 'h3' | 'h4';
+
+const LABEL_COMPONENT_MAP: Record<CaptionSize, HeaderTagType> = {
+  XS: 'h4',
+  S: 'h3',
+  M: 'h2',
+};
+
 export const Caption: FC<CaptionProps> = memo(
   ({
     className,
@@ -24,6 +32,8 @@ export const Caption: FC<CaptionProps> = memo(
     align = 'Left',
     size = 'S',
   }) => {
+    const HeaderTag = LABEL_COMPONENT_MAP[size];
+
     return (
       <div
         className={cn(
@@ -34,7 +44,7 @@ export const Caption: FC<CaptionProps> = memo(
           className,
         )}
       >
-        {label && <p className={styles.Label}>{label}</p>}
+        {label && <HeaderTag className={styles.Label}>{label}</HeaderTag>}
         {value && <p className={styles.Value}>{value}</p>}
       </div>
     );

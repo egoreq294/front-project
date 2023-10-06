@@ -12,8 +12,25 @@ const meta: Meta<typeof Caption> = {
 export default meta;
 type Story = StoryObj<typeof Caption>;
 
-export const Default: Story = {
+export const SizeXS: Story = {
   args: {
+    size: 'XS',
+    label: 'Label',
+    value: 'Value',
+  },
+};
+
+export const SizeS: Story = {
+  args: {
+    size: 'S',
+    label: 'Label',
+    value: 'Value',
+  },
+};
+
+export const SizeM: Story = {
+  args: {
+    size: 'M',
     label: 'Label',
     value: 'Value',
   },

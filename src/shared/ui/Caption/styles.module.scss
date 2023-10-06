@@ -29,6 +29,16 @@
   text-align: center;
 }
 
+.XS {
+  .Label {
+    font: var(--font-s);
+  }
+
+  .Value {
+    font: var(--font-xs);
+  }
+}
+
 .S {
   .Label {
     font: var(--font-m);

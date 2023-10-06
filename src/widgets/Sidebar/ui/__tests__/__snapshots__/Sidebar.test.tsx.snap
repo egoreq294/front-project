@@ -2,7 +2,7 @@
 
 exports[`Sidebar test suite should render correctly 1`] = `
 <div>
-  <div
+  <aside
     class="Sidebar"
     data-testid="sidebar"
   >
@@ -14,7 +14,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
       &lt;
     </button>
     <div
-      class="Items"
+      class="Flex JustifyStart AlignStart DirectionColumn Gap16 Items"
     >
       <a
         class="AppLink Inverted"
@@ -59,6 +59,6 @@ exports[`Sidebar test suite should render correctly 1`] = `
         language
       </button>
     </div>
-  </div>
+  </aside>
 </div>
 `;
