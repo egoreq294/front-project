@@ -7,9 +7,9 @@ import { Avatar } from '@shared/ui/Avatar/Avatar';
 import EyeIcon from '@shared/assets/icons/eye.svg';
 import CalendarIcon from '@shared/assets/icons/calendar.svg';
 import { Article, ArticleBlockTypeEnum } from '../../model/types/article';
-import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleDetailsProps {

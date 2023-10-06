@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
-import { ArticleImageBlock as ArticleImageBlockType } from '@entities/Article/model/types/article';
+import { ArticleImageBlock as ArticleImageBlockType } from '../../model/types/article';
 import { Typography } from '@shared/ui/Typography/Typography';
 
 interface ArticleImageBlockProps {

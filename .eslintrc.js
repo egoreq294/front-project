@@ -14,6 +14,7 @@ module.exports = {
     'prettier',
     'react-hooks',
     'i18next',
+    'egoreq-plugin',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -38,6 +39,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/require-default-props': 'off',
     'react/display-name': 'off',
+    'egoreq-plugin/path-checker': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

@@ -4,7 +4,7 @@ import {
   StateSchemaKey,
 } from '@app/providers/StorePovider';
 import { Reducer } from '@reduxjs/toolkit';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import React from 'react';
 import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { canEditArticle } from '@pages/ArticleDetailsPage/model/selectors/articleSelectors';
+import { canEditArticle } from '../../model/selectors/articleSelectors';
 import { getArticleDetailsData } from '@entities/Article';
 
 interface ArticleDetailsPageHeaderProps {
