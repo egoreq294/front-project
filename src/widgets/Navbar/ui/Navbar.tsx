@@ -9,6 +9,8 @@ import { getUserAuthData, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Typography } from '@shared/ui/Typography/Typography';
 import { AppLink } from '@shared/ui/AppLink/AppLink';
+import { Dropdown } from '@shared/ui/Dropdown/Dropdown';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
   className?: string;
@@ -41,18 +43,41 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
         </Typography>
 
         {authData && (
-          <AppLink theme="Inverted" to={'/articles/create'}>
-            {t('create-article')}
-          </AppLink>
+          <>
+            <AppLink theme="Inverted" to={'/articles/create'}>
+              {t('create-article')}
+            </AppLink>
+            <Dropdown
+              direction="bottom-left"
+              className={styles.Dropdown}
+              items={[
+                {
+                  id: '1',
+                  content: t('my-profile'),
+                  href: `/profile/${authData.id}`,
+                },
+                { id: '2', content: t('logout'), onClick: onLogout },
+              ]}
+              trigger={
+                <Avatar
+                  className={styles.Avatar}
+                  size={50}
+                  src={authData.avatar}
+                />
+              }
+            />
+          </>
         )}
 
-        <Button
-          variant="GhostInverted"
-          onClick={authData ? onLogout : onOpenModal}
-          className={styles.AuthButton}
-        >
-          {authData ? t('logout') : t('auth')}
-        </Button>
+        {!authData && (
+          <Button
+            variant="GhostInverted"
+            onClick={onOpenModal}
+            className={styles.AuthButton}
+          >
+            {t('auth')}
+          </Button>
+        )}
       </header>
       {isLoginModalOpen && (
         <LoginModal isOpen={isLoginModalOpen} onClose={onCloseModal} />

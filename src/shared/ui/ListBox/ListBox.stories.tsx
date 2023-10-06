@@ -14,6 +14,7 @@ export const Primary: Story = {
   args: {
     defaultValue: 'Выберите значение',
     onChange: () => {},
+    direction: 'bottom-right',
     items: [
       { content: 'Яблоко', value: 'apple' },
       { content: 'Апельсин', value: 'orange' },

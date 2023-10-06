@@ -4,14 +4,13 @@ import styles from './styles.module.scss';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
+import { DropdownDirection } from '@shared/types/ui';
 
 export interface ListBoxItem {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropdownDirection = 'Top' | 'Bottom';
 
 interface ListBoxProps {
   className?: string;
@@ -24,6 +23,13 @@ interface ListBoxProps {
   direction?: DropdownDirection;
 }
 
+const DROPDOWN_DIRECTION_MAP: Record<DropdownDirection, string> = {
+  'bottom-right': styles.BottomRight,
+  'bottom-left': styles.BottomLeft,
+  'top-right': styles.TopRight,
+  'top-left': styles.TopLeft,
+};
+
 export const ListBox: FC<ListBoxProps> = ({
   className,
   items,
@@ -32,7 +38,7 @@ export const ListBox: FC<ListBoxProps> = ({
   defaultValue,
   onChange,
   readOnly,
-  direction = 'Bottom',
+  direction = 'bottom-right',
 }) => {
   const selectedContent = items.find((item) => item.value === value)?.content;
 
@@ -53,7 +59,9 @@ export const ListBox: FC<ListBoxProps> = ({
         <ListBoxImpl.Button className={styles.TriggerButton} as="div">
           <Button variant="Secondary">{selectedContent || defaultValue}</Button>
         </ListBoxImpl.Button>
-        <ListBoxImpl.Options className={cn(styles.Options, styles[direction])}>
+        <ListBoxImpl.Options
+          className={cn(styles.Options, DROPDOWN_DIRECTION_MAP[direction])}
+        >
           {items.map((item) => (
             <ListBoxImpl.Option
               as={Fragment}

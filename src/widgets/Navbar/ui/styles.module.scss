@@ -13,10 +13,15 @@
   justify-content: center;
 }
 
-.AuthButton {
+.AuthButton,
+.Dropdown {
   margin-left: auto;
 }
 
 .ProjectName {
   width: var(--sidebar-width);
+}
+
+.Avatar {
+  display: flex;
 }
