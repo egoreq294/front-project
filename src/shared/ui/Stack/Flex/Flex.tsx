@@ -55,6 +55,7 @@ export const Flex: FC<FlexProps> = ({
   direction = 'row',
   fullWidth,
   gap,
+  ...props
 }) => {
   return (
     <div
@@ -67,6 +68,7 @@ export const Flex: FC<FlexProps> = ({
         { [styles.FullWidth]: fullWidth },
         className,
       )}
+      {...props}
     >
       {children}
     </div>

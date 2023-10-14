@@ -15,6 +15,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
     </button>
     <div
       class="Flex JustifyStart AlignStart DirectionColumn Gap16 Items"
+      role="navigation"
     >
       <a
         class="AppLink Inverted"

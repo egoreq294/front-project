@@ -51,15 +51,15 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
         {canEdit && (
           <>
             {readonly ? (
-              <Button variant="Secondary" onClick={onEdit}>
+              <Button variant="Secondary" onClick={onEdit} testId="Edit">
                 {t('edit')}
               </Button>
             ) : (
               <>
-                <Button variant="Danger" onClick={onCancelEdit}>
+                <Button variant="Danger" onClick={onCancelEdit} testId="Cancel">
                   {t('cancel')}
                 </Button>
-                <Button variant="Secondary" onClick={onSaveEdit}>
+                <Button variant="Secondary" onClick={onSaveEdit} testId="Save">
                   {t('save')}
                 </Button>
               </>

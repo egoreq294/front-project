@@ -19,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: Size;
   variant?: ButtonVariant;
   disabled?: boolean;
+  testId?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -27,10 +28,12 @@ export const Button: FC<ButtonProps> = ({
   size = 'S',
   children,
   disabled,
+  testId,
   ...props
 }) => (
   <button
     type="button"
+    data-testid={testId ? `Button_${testId}` : undefined}
     className={cn(
       styles.Button,
       styles[variant],

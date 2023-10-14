@@ -51,7 +51,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         justify="center"
         className={cn(styles.ProfileCard, styles.Loader, className)}
       >
-        <Loader />
+        <Loader testId="Dgt38bx1" />
       </HStack>
     );
   }
@@ -70,6 +70,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <VStack
+      data-testid="ProfileCardContent"
       fullWidth
       gap="8"
       className={cn(
@@ -88,36 +89,42 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         placeholder={t('first-name')}
         onChange={onChangeFirstName}
         readOnly={readonly}
+        testId="FirstName"
       />
       <Input
         value={formData?.lastName}
         placeholder={t('last-name')}
         onChange={onChangeLastName}
         readOnly={readonly}
+        testId="LastName"
       />
       <Input
         value={formData?.age}
         placeholder={t('age')}
         onChange={onChangeAge}
         readOnly={readonly}
+        testId="Age"
       />
       <Input
         value={formData?.city}
         placeholder={t('city')}
         onChange={onChangeCity}
         readOnly={readonly}
+        testId="City"
       />
       <Input
         value={formData?.username}
         placeholder={t('username')}
         onChange={onChangeUsername}
         readOnly={readonly}
+        testId="Username"
       />
       <Input
         value={formData?.avatar}
         placeholder={t('avatar')}
         onChange={onChangeAvatar}
         readOnly={readonly}
+        testId="Avatar"
       />
       <CurrencySelect
         value={formData?.currency}

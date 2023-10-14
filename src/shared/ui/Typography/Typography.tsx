@@ -10,12 +10,16 @@ interface TypographyProps {
   children: ReactNode;
   variant?: TypograptyVariant;
   theme?: ThemeVariant;
+  testId?: string;
 }
 
 export const Typography: FC<TypographyProps> = memo(
-  ({ className, variant = 'S', children, theme = 'Primary' }) => {
+  ({ className, variant = 'S', children, theme = 'Primary', testId }) => {
     return (
-      <p className={cn(styles[variant], styles[theme], className)}>
+      <p
+        className={cn(styles[variant], styles[theme], className)}
+        data-testid={testId ? `Typography_${testId}` : undefined}
+      >
         {children}
       </p>
     );

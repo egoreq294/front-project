@@ -110,7 +110,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({
         {!!validationErrors.length &&
           validationErrors.map((validationError) => (
             <div key={validationError} className={styles.Error}>
-              <Typography>
+              <Typography testId="Error">
                 {validationErrorTranslates[validationError]}
               </Typography>
             </div>
