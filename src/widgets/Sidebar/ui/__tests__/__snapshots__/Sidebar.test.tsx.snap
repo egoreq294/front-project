@@ -7,7 +7,7 @@ exports[`Sidebar test suite should render correctly 1`] = `
     data-testid="sidebar"
   >
     <button
-      class="Button Ghost S CollapseButton"
+      class="Button PrimaryInverted S CollapseButton"
       data-testid="sidebar_toggle"
       type="button"
     >
