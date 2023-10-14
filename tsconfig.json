@@ -20,6 +20,7 @@
       "@widgets/*": ["src/widgets/*"]
     }
   },
+  "exclude": ["scripts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

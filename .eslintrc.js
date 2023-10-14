@@ -84,5 +84,6 @@ module.exports = {
     'webpack.config.ts',
     '/typings',
     '/build',
+    '/scripts',
   ],
 };
