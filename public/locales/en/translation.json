@@ -23,5 +23,8 @@
   "send": "Send",
   "project-name": "Front Project",
   "create-article": "Create Article",
-  "my-profile": "My profile"
+  "my-profile": "My profile",
+  "admin-panel-page": "Admin panel",
+  "admin-panel": "Admin panel",
+  "forbidden-page": "You do not have rights to visit this page"
 }

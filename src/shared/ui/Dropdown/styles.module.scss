@@ -20,9 +20,11 @@
   overflow: hidden;
   color: var(--primary-color);
   margin-top: 4px;
+  border: 1px solid var(--primary-color);
 }
 
 .Item {
+  width: 100%;
   padding: 12px 20px;
   cursor: pointer;
   background: none;
@@ -30,6 +32,11 @@
   outline: none;
   margin: 0;
   white-space: nowrap;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .ActiveItem {

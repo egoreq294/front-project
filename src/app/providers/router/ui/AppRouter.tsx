@@ -3,11 +3,12 @@ import { PageLoader } from '@widgets/PageLoader';
 import React, { FC, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { RequireAuth } from './RequireAuth';
+import { RequireRole } from './RequireRole';
 
 export const AppRouter: FC = () => {
   return (
     <Routes>
-      {routeConfig.map(({ path, element, authOnly }) => {
+      {routeConfig.map(({ path, element, authOnly, roles }) => {
         const wrappedElement = (
           <Suspense fallback={<PageLoader />}> {element}</Suspense>
         );
@@ -17,13 +18,17 @@ export const AppRouter: FC = () => {
             key={path}
             path={path}
             element={
-              authOnly ? (
-                <RequireAuth>
-                  <>{wrappedElement}</>
-                </RequireAuth>
-              ) : (
-                wrappedElement
-              )
+              <RequireRole roles={roles}>
+                <>
+                  {authOnly ? (
+                    <RequireAuth>
+                      <>{wrappedElement}</>
+                    </RequireAuth>
+                  ) : (
+                    wrappedElement
+                  )}
+                </>
+              </RequireRole>
             }
           />
         );

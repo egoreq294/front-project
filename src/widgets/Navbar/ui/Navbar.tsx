@@ -5,7 +5,7 @@ import { Button } from '@shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from '@features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from '@entities/User';
+import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Typography } from '@shared/ui/Typography/Typography';
 import { AppLink } from '@shared/ui/AppLink/AppLink';
@@ -18,6 +18,8 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isAdminRole);
+
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
@@ -56,7 +58,16 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
                   content: t('my-profile'),
                   href: `/profile/${authData.id}`,
                 },
-                { id: '2', content: t('logout'), onClick: onLogout },
+                ...(isAdmin
+                  ? [
+                      {
+                        id: '2',
+                        content: t('admin-panel'),
+                        href: '/admin',
+                      },
+                    ]
+                  : []),
+                { id: '3', content: t('logout'), onClick: onLogout },
               ]}
               trigger={
                 <Avatar

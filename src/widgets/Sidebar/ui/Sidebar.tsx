@@ -35,7 +35,7 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
         data-testid="sidebar_toggle"
         className={styles.CollapseButton}
         onClick={onToggle}
-        variant="Ghost"
+        variant="PrimaryInverted"
       >
         {collapsed ? '>' : '<'}
       </Button>

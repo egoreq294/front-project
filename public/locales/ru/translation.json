@@ -23,5 +23,8 @@
   "send": "Отправить",
   "project-name": "Front Project",
   "create-article": "Создать статью",
-  "my-profile": "Мой профиль"
+  "my-profile": "Мой профиль",
+  "admin-panel-page": "Панель администратора",
+  "admin-panel": "Панель администратора",
+  "forbidden-page": "У вас нет прав для посещения этой страницы"
 }
