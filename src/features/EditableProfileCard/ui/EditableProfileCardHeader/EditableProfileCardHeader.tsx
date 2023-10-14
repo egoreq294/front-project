@@ -2,22 +2,21 @@ import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-  getProfileData,
-  getProfileReadonly,
-  profileActions,
-  updateProfileData,
-} from '@entities/Profile';
+
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { getUserAuthData } from '@entities/User';
 import { Typography } from '@shared/ui/Typography/Typography';
 import { HStack } from '@shared/ui/Stack/HStack/HStack';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
+import { getProfileData } from '../../model/selectors/getProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
   className,
 }) => {
   const { t } = useTranslation('profile');

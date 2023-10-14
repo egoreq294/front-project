@@ -9,7 +9,6 @@ import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsDa
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError';
 import { getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsLoading';
 import { ArticleDetails } from './ArticleDetails';
-import styles from './styles.module.scss';
 
 interface ArticleDetailsContainerProps {
   articleId: string;
@@ -34,9 +33,7 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = memo(
 
     return (
       <DynamicModuleLoader reducers={reducers}>
-        <div className={styles.ArticleDetails}>
-          <ArticleDetails article={article} loading={loading} error={error} />
-        </div>
+        <ArticleDetails article={article} loading={loading} error={error} />
       </DynamicModuleLoader>
     );
   },

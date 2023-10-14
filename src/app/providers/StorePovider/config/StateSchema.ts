@@ -1,6 +1,6 @@
 import { ArticleDetailsSchema } from '@entities/Article';
 import { CounterSchema } from '@entities/Counter';
-import { ProfileSchema } from '@entities/Profile';
+import { ProfileSchema } from '@features/EditableProfileCard';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { LoginSchema } from '@features/AuthByUsername';
@@ -14,9 +14,11 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { rtkApi } from '@shared/api/rtkApi';
 import { AxiosInstance } from 'axios';
 
 export interface StateSchema {
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollSchema;

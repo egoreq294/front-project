@@ -5,7 +5,7 @@ import {
   StoreProvider,
 } from '../../../../app/providers/StorePovider';
 import { loginReducer } from '@features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@entities/Profile';
+import { profileReducer } from '@features/EditableProfileCard';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const DEFAULT_ASYNC_REDUCERS: ReducerList = {

@@ -2,8 +2,9 @@ import { CountryEnum } from '@entities/Country';
 import { updateProfileData } from '../updateProfileData';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { CurrencyEnum } from '@entities/Currency';
-import { ValidateProfileErrorEnum } from '../../types/profile';
+
 import { EMPTY_STRING } from '@shared/constants/common';
+import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
 
 const USER_DATA = {
   username: 'admin',

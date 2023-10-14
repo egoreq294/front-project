@@ -1,9 +1,13 @@
 import { CountryEnum } from '@entities/Country';
-import { ProfileSchema, ValidateProfileErrorEnum } from '../../types/profile';
+
 import { profileActions, profileReducer } from '../profileSlice';
 import { CurrencyEnum } from '@entities/Currency';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { updateProfileData } from '../../services/updateProfileData';
+import {
+  ProfileSchema,
+  ValidateProfileErrorEnum,
+} from '../../types/editableProfileCardSchema';
 
 const USER_DATA = {
   username: 'admin',

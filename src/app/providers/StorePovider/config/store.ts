@@ -10,6 +10,7 @@ import { userReducer } from '@entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from '@shared/api/api';
 import { scrollReducer } from '@features/Scroll';
+import { rtkApi } from '@shared/api/rtkApi';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createReduxStore = (
@@ -21,6 +22,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scroll: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -38,7 +40,7 @@ export const createReduxStore = (
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

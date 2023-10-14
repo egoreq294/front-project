@@ -15,5 +15,6 @@
   "no-data-error": "Fill all required fields",
   "server-error": "Server error",
   "username-error": "Fill username",
-  "fio-error": "Fill firstname and lastname"
+  "fio-error": "Fill firstname and lastname",
+  "profile-not-found": "Profile not found"
 }

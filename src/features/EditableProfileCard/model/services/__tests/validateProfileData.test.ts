@@ -1,8 +1,9 @@
 import { validateProfileData } from '../validateProfileData';
-import { ValidateProfileErrorEnum } from '../../types/profile';
+
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { EMPTY_STRING } from '@shared/constants/common';
+import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
 
 const data = {
   username: 'admin',
