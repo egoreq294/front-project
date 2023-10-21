@@ -4,8 +4,7 @@ import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 import { CurrencyEnum } from '@entities/Currency';
 
 import { EMPTY_STRING } from '@shared/constants/common';
-import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
-
+import { ValidateProfileErrorEnum } from '../../constants/constants';
 const USER_DATA = {
   username: 'admin',
   age: '22',

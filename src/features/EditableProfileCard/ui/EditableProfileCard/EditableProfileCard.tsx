@@ -7,7 +7,7 @@ import { getProfileError } from '../../model/selectors/getProfileError';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { getProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
-import { ValidateProfileErrorEnum } from '../../model/types/editableProfileCardSchema';
+import { ValidateProfileErrorEnum } from '../../model/constants/constants';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { CurrencyEnum } from '@entities/Currency';
 import { CountryEnum } from '@entities/Country';
@@ -42,7 +42,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({
   const readonly = useSelector(getProfileReadonly);
   const validationErrors = useSelector(getProfileValidationErrors);
 
-  const validationErrorTranslates = {
+  const validationErrorTranslates: Record<ValidateProfileErrorEnum, string> = {
     [ValidateProfileErrorEnum.INCORRECT_AGE]: t('incorrect-age-error'),
     [ValidateProfileErrorEnum.INCORRECT_USERNAME]: t('username-error'),
     [ValidateProfileErrorEnum.INCORRECT_FIO]: t('fio-error'),

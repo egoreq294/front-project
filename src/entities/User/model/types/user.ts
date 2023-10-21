@@ -1,7 +1,4 @@
-export enum UserRoleEnum {
-  ADMIN = 'ADMIN',
-  USER = 'USER',
-}
+import { UserRoleEnum } from '../constants/constants';
 
 export interface User {
   id: string;

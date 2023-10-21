@@ -1,6 +1,6 @@
 import { StateSchema } from '@app/providers/StorePovider';
 import { getProfileValidationErrors } from '../getProfileValidationErrors';
-import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
+import { ValidateProfileErrorEnum } from '../../constants/constants';
 
 describe('getProfileValidationErrors test suite', () => {
   test('should return profile validation errors', () => {

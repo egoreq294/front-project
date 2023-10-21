@@ -4,10 +4,8 @@ import { profileActions, profileReducer } from '../profileSlice';
 import { CurrencyEnum } from '@entities/Currency';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { updateProfileData } from '../../services/updateProfileData';
-import {
-  ProfileSchema,
-  ValidateProfileErrorEnum,
-} from '../../types/editableProfileCardSchema';
+import { ValidateProfileErrorEnum } from '../../constants/constants';
+import { ProfileSchema } from '../../types/editableProfileCardSchema';
 
 const USER_DATA = {
   username: 'admin',

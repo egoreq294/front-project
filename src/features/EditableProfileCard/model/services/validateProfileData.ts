@@ -1,5 +1,5 @@
 import { Profile } from '@entities/Profile';
-import { ValidateProfileErrorEnum } from '../types/editableProfileCardSchema';
+import { ValidateProfileErrorEnum } from '../constants/constants';
 
 const NUMBER_REGEX = /^\d+$/;
 
