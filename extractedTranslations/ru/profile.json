@@ -1,0 +1,19 @@
+{
+  "age": "age",
+  "avatar": "avatar",
+  "cancel": "cancel",
+  "city": "city",
+  "edit": "edit",
+  "fio-error": "fio-error",
+  "first-name": "first-name",
+  "incorrect-age-error": "incorrect-age-error",
+  "last-name": "last-name",
+  "no-data-error": "no-data-error",
+  "profile": "profile",
+  "profile-not-found": "profile-not-found",
+  "save": "save",
+  "server-error": "server-error",
+  "technical-error": "technical-error",
+  "username": "username",
+  "username-error": "username-error"
+}

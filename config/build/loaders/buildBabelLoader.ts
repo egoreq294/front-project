@@ -1,8 +1,17 @@
 import { RuleSetRule } from 'webpack';
+import { BuildOptions } from '../types/config';
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 
-export const buildBabelLoader = (isDev: boolean): RuleSetRule => {
+type BuildBabelLoaderArgs = BuildOptions & {
+  isTsx: boolean;
+};
+
+export const buildBabelLoader = ({
+  isDev,
+  isTsx,
+}: BuildBabelLoaderArgs): RuleSetRule => {
   return {
-    test: /\.(js|jsx|tsx)$/,
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -14,6 +23,19 @@ export const buildBabelLoader = (isDev: boolean): RuleSetRule => {
             {
               locales: ['ru', 'en'],
               keyAsDefaultValue: true,
+            },
+          ],
+          [
+            '@babel/plugin-transform-typescript',
+            {
+              isTsx,
+            },
+          ],
+          '@babel/plugin-transform-runtime',
+          isTsx && [
+            babelRemovePropsPlugin,
+            {
+              props: ['data-testid'],
             },
           ],
           isDev && require.resolve('react-refresh/babel'),
