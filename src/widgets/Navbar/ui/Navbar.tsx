@@ -5,12 +5,13 @@ import { Button } from '@shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from '@features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { getUserAuthData } from '@entities/User';
 import { Typography } from '@shared/ui/Typography/Typography';
 import { AppLink } from '@shared/ui/AppLink/AppLink';
-import { Dropdown } from '@shared/ui/Dropdown/Dropdown';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
+
+import { HStack } from '@shared/ui/Stack';
+import { NotificationButton } from '@features/NotificationButton';
+import { AvatarDropdown } from '@features/AvatarDropdown';
 
 interface NavbarProps {
   className?: string;
@@ -18,9 +19,6 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(isAdminRole);
-
-  const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
@@ -32,10 +30,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const onOpenModal = useCallback((): void => {
     setIsLoginModalOpen(true);
   }, []);
-
-  const onLogout = useCallback((): void => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
 
   return (
     <>
@@ -49,34 +43,10 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
             <AppLink theme="Inverted" to={'/articles/create'}>
               {t('create-article')}
             </AppLink>
-            <Dropdown
-              direction="bottom-left"
-              className={styles.Dropdown}
-              items={[
-                {
-                  id: '1',
-                  content: t('my-profile'),
-                  href: `/profile/${authData.id}`,
-                },
-                ...(isAdmin
-                  ? [
-                      {
-                        id: '2',
-                        content: t('admin-panel'),
-                        href: '/admin',
-                      },
-                    ]
-                  : []),
-                { id: '3', content: t('logout'), onClick: onLogout },
-              ]}
-              trigger={
-                <Avatar
-                  className={styles.Avatar}
-                  size={50}
-                  src={authData.avatar}
-                />
-              }
-            />
+            <HStack gap="16" className={styles.Actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
           </>
         )}
 
