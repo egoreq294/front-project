@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import styles from './styles.module.scss';
@@ -32,12 +33,6 @@ export const Modal: FC<ModalProps> = ({
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const onContentClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ): void => {
-    e.stopPropagation();
-  };
 
   const closeHandler = useCallback((): void => {
     setIsClosing(true);
@@ -90,11 +85,8 @@ export const Modal: FC<ModalProps> = ({
           className,
         )}
       >
-        <div className={styles.Overlay} onClick={closeHandler}>
-          <div className={styles.Content} onClick={onContentClick}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={closeHandler} />
+        <div className={styles.Content}>{children}</div>
       </div>
     </Portal>
   );
