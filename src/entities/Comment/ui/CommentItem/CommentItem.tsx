@@ -1,10 +1,12 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
-import { CommentType } from '../../model/types/comment';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
+import React, { FC } from 'react';
+
 import { AppLink } from '@shared/ui/AppLink/AppLink';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { CommentType } from '../../model/types/comment';
+
+import styles from './styles.module.scss';
 
 interface CommentItemProps {
   comment: CommentType;

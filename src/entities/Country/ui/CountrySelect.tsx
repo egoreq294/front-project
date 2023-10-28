@@ -1,7 +1,8 @@
 import React, { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CountryEnum } from '../model/types/country';
+
 import { ListBox } from '@shared/ui/ListBox/ListBox';
+import { CountryEnum } from '../model/types/country';
 
 interface CountrySelectProps {
   value?: CountryEnum;

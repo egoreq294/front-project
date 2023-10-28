@@ -1,8 +1,10 @@
-import React, { FC, memo } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Button } from '@shared/ui/Button/Button';
+
+import styles from './styles.module.scss';
 
 interface PageErrorProps {
   className?: string;

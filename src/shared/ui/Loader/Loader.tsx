@@ -1,5 +1,6 @@
-import React, { FC, memo } from 'react';
 import cn from 'classnames';
+import React, { FC, memo } from 'react';
+
 import styles from './styles.module.scss';
 
 interface LoaderProps {

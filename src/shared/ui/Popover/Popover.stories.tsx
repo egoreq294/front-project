@@ -1,8 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Popover } from './Popover';
-import { Button } from '../Button/Button';
 import React from 'react';
+
+import { Button } from '../Button/Button';
+import { Popover } from './Popover';
 
 const meta: Meta<typeof Popover> = {
   title: 'shared/Popover',

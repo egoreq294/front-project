@@ -1,24 +1,26 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getProfileForm } from '../../model/selectors/getProfileForm';
+
+import { CountryEnum } from '@entities/Country';
+import { CurrencyEnum } from '@entities/Currency';
+import { ProfileCard } from '@entities/Profile';
+import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
+import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography/Typography';
+import { ValidateProfileErrorEnum } from '../../model/constants/constants';
 import { getProfileError } from '../../model/selectors/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { getProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
-import { ValidateProfileErrorEnum } from '../../model/constants/constants';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { CurrencyEnum } from '@entities/Currency';
-import { CountryEnum } from '@entities/Country';
 import { fetchProfileData } from '../../model/services/fetchProfileData';
-import { Typography } from '@shared/ui/Typography/Typography';
-import { ProfileCard } from '@entities/Profile';
-import styles from './styles.module.scss';
-import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
-import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@shared/ui/Stack';
+
+import styles from './styles.module.scss';
 
 const reducers: ReducerList = {
   profile: profileReducer,

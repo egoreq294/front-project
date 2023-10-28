@@ -1,5 +1,6 @@
-import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
+import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 type FlexJusify = 'start' | 'center' | 'end' | 'spaceBetween';

@@ -1,16 +1,17 @@
 import {
   CombinedState,
+  configureStore,
   Reducer,
   ReducersMapObject,
-  configureStore,
 } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+
 import { counterReducer } from '@entities/Counter';
 import { userReducer } from '@entities/User';
-import { createReducerManager } from './reducerManager';
-import { $api } from '@shared/api/api';
 import { scrollReducer } from '@features/Scroll';
+import { $api } from '@shared/api/api';
 import { rtkApi } from '@shared/api/rtkApi';
+import { createReducerManager } from './reducerManager';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createReduxStore = (

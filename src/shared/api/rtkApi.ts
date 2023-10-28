@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { EMPTY_STRING } from '@shared/constants/common';
 import { USER_LOCALSTORAGE_KEY } from '@shared/constants/localstorage';
 

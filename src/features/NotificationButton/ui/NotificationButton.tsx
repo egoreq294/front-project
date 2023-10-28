@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
-import { Popover } from '@shared/ui/Popover/Popover';
-import { Button } from '@shared/ui/Button/Button';
-import NotificationIcon from '@shared/assets/icons/notification.svg';
+
 import { NotificationList } from '@entities/Notification';
+import NotificationIcon from '@shared/assets/icons/notification.svg';
+import { Button } from '@shared/ui/Button/Button';
+import { Popover } from '@shared/ui/Popover/Popover';
+
+import styles from './styles.module.scss';
 
 interface NotificationButtonProps {
   className?: string;

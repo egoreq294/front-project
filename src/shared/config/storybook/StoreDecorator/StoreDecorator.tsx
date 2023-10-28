@@ -1,12 +1,13 @@
-import React from 'react';
 import { StoryFn } from '@storybook/react';
+import React from 'react';
+
+import { loginReducer } from '@features/AuthByUsername/model/slice/loginSlice';
+import { profileReducer } from '@features/EditableProfileCard';
+import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   StateSchema,
   StoreProvider,
 } from '../../../../app/providers/StorePovider';
-import { loginReducer } from '@features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@features/EditableProfileCard';
-import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const DEFAULT_ASYNC_REDUCERS: ReducerList = {
   loginForm: loginReducer,

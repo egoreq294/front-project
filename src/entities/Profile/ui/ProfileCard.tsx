@@ -1,15 +1,17 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@shared/ui/Input/Input';
-import { Profile } from '../model/types/profile';
-import { Loader } from '@shared/ui/Loader/Loader';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
+
 import { CountryEnum, CountrySelect } from '@entities/Country';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
+import { Input } from '@shared/ui/Input/Input';
+import { Loader } from '@shared/ui/Loader/Loader';
 import { HStack, VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography/Typography';
+import { Profile } from '../model/types/profile';
+
+import styles from './styles.module.scss';
 
 interface ProfileCardProps {
   className?: string;

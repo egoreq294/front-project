@@ -1,7 +1,7 @@
 import { CountryEnum } from '@entities/Country';
-import { fetchProfileData } from '../fetchProfileData';
-import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { CurrencyEnum } from '@entities/Currency';
+import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchProfileData } from '../fetchProfileData';
 
 describe('fetchProfileData test suite', () => {
   test('should fetch data with success', async () => {

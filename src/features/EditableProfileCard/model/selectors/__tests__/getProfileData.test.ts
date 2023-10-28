@@ -1,7 +1,7 @@
 import { StateSchema } from '@app/providers/StorePovider';
-import { getProfileData } from '../getProfileData';
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
+import { getProfileData } from '../getProfileData';
 
 describe('getProfileData test suite', () => {
   test('should return profile data', () => {

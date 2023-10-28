@@ -1,5 +1,5 @@
 import { StateSchema } from '@app/providers/StorePovider';
-import { ArticleViewMode, ArticleSortField } from '@entities/Article';
+import { ArticleSortField,ArticleViewMode } from '@entities/Article';
 import { ArticleTypeEnum } from '@entities/Article/model/types/article';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { SortOrder } from '@shared/types';

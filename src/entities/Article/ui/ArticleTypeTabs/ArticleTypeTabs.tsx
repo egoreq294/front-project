@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { TabItem, Tabs } from '@shared/ui/Tabs/Tabs';
 import { ArticleTypeEnum } from '../../model/types/article';
-import { useTranslation } from 'react-i18next';
 
 interface ArticleTypeTabsProps {
   className?: string;

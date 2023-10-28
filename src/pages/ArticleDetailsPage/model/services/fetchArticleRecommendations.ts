@@ -1,5 +1,6 @@
-import { ThunkConfig } from '@app/providers/StorePovider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { ThunkConfig } from '@app/providers/StorePovider';
 import { Article } from '@entities/Article';
 
 export const fetchArticleRecommendaions = createAsyncThunk<

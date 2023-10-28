@@ -15,6 +15,7 @@ module.exports = {
     'react-hooks',
     'i18next',
     'egoreq-plugin',
+    'simple-import-sort',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -40,6 +41,19 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/display-name': 'off',
     'egoreq-plugin/path-checker': 'error',
+    'simple-import-sort/imports': [
+      'warn',
+      {
+        groups: [
+          ['^/?'],
+          ['^(@app|@shared|@entities|@features|@pages|@widgets)+', '^\\.\\.?'],
+          [
+            '^(@app|@shared|@entities|@features|@pages|@widgets|.).+\\s?css$',
+            '^\\.s?css?',
+          ],
+        ],
+      },
+    ],
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, {
   FC,
   MutableRefObject,
@@ -6,15 +7,16 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import cn from 'classnames';
-import styles from './styles.module.scss';
-import { useInfiniteScroll } from '@shared/lib/hooks/useInfiniteScroll';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { getScrollByPath, scrollActions } from '@features/Scroll';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
 import { StateSchema } from '@app/providers/StorePovider';
+import { getScrollByPath, scrollActions } from '@features/Scroll';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@shared/lib/hooks/useInfiniteScroll';
 import { useThrottle } from '@shared/lib/hooks/useThrottle';
+
+import styles from './styles.module.scss';
 
 interface PageProps {
   className?: string;

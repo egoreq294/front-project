@@ -1,7 +1,9 @@
-import React, { FC, memo } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC, memo } from 'react';
+
 import { Loader } from '@shared/ui/Loader/Loader';
+
+import styles from './styles.module.scss';
 
 interface PageLoaderProps {
   className?: string;

@@ -1,7 +1,8 @@
 import { RuleSetRule } from 'webpack';
-import { BuildOptions } from './types/config';
-import { buildCssLoaders } from './loaders/buildCssLoaders';
+
 import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { BuildOptions } from './types/config';
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
   const { isDev } = options;

@@ -1,7 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice,PayloadAction } from '@reduxjs/toolkit';
 
-import { AddCommentFormSchema } from '../types/addCommentForm';
 import { EMPTY_STRING } from '@shared/constants/common';
+import { AddCommentFormSchema } from '../types/addCommentForm';
 
 const initialState: AddCommentFormSchema = {
   text: EMPTY_STRING,

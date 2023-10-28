@@ -1,6 +1,7 @@
+import { createSelector } from '@reduxjs/toolkit';
+
 import { StateSchema } from '@app/providers/StorePovider';
 import { UserRoleEnum } from '../constants/constants';
-import { createSelector } from '@reduxjs/toolkit';
 
 export const getUserRoles = (state: StateSchema): UserRoleEnum[] =>
   state?.user?.authData?.roles || [];

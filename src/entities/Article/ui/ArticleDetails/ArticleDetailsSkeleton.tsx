@@ -1,5 +1,7 @@
-import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
 import React, { FC } from 'react';
+
+import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
+
 import styles from './styles.module.scss';
 
 export const ArticleDetailsSkeleton: FC = () => {

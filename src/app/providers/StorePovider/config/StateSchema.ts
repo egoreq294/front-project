@@ -1,12 +1,3 @@
-import { ArticleDetailsSchema } from '@entities/Article';
-import { CounterSchema } from '@entities/Counter';
-import { ProfileSchema } from '@features/EditableProfileCard';
-import { UserSchema } from '@entities/User';
-import { AddCommentFormSchema } from '@features/AddCommentForm';
-import { LoginSchema } from '@features/AuthByUsername';
-import { ScrollSchema } from '@features/Scroll';
-import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from '@pages/ArticlesPage';
 import {
   AnyAction,
   CombinedState,
@@ -14,8 +5,18 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { rtkApi } from '@shared/api/rtkApi';
 import { AxiosInstance } from 'axios';
+
+import { ArticleDetailsSchema } from '@entities/Article';
+import { CounterSchema } from '@entities/Counter';
+import { UserSchema } from '@entities/User';
+import { AddCommentFormSchema } from '@features/AddCommentForm';
+import { LoginSchema } from '@features/AuthByUsername';
+import { ProfileSchema } from '@features/EditableProfileCard';
+import { ScrollSchema } from '@features/Scroll';
+import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@pages/ArticlesPage';
+import { rtkApi } from '@shared/api/rtkApi';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;

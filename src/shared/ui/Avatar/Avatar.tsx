@@ -1,5 +1,6 @@
-import React, { CSSProperties, FC, useMemo } from 'react';
 import cn from 'classnames';
+import React, { CSSProperties, FC, useMemo } from 'react';
+
 import styles from './styles.module.scss';
 
 interface AvatarProps {

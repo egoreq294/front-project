@@ -1,9 +1,11 @@
 import { Menu } from '@headlessui/react';
-import React, { FC, Fragment, ReactNode } from 'react';
-import styles from './styles.module.scss';
 import cn from 'classnames';
+import React, { FC, Fragment, ReactNode } from 'react';
+
 import { DropdownDirection } from '@shared/types/ui';
 import { AppLink } from '../AppLink/AppLink';
+
+import styles from './styles.module.scss';
 
 export interface DropdownItem {
   id: string;

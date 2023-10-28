@@ -1,14 +1,15 @@
-import { EditableProfileCard } from '../EditableProfileCard';
 import { screen, waitFor } from '@testing-library/react';
-import React from 'react';
-import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
-import { Profile } from '@entities/Profile';
-import { CurrencyEnum } from '@entities/Currency';
-import { CountryEnum } from '@entities/Country';
-import { profileReducer } from '../../../model/slice/profileSlice';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import React from 'react';
+
+import { CountryEnum } from '@entities/Country';
+import { CurrencyEnum } from '@entities/Currency';
+import { Profile } from '@entities/Profile';
+import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
+import { profileReducer } from '../../../model/slice/profileSlice';
+import { EditableProfileCard } from '../EditableProfileCard';
 
 const profile: Profile = {
   id: '1',

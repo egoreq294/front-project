@@ -1,9 +1,10 @@
-import { StateSchema } from '@app/providers/StorePovider';
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { ArticleDetailsRecommendationsSchema } from '../types/articleDetailsRecommendationsSchema';
+
+import { StateSchema } from '@app/providers/StorePovider';
 // import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
 import { Article } from '@entities/Article';
 import { fetchArticleRecommendaions } from '../services/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationsSchema } from '../types/articleDetailsRecommendationsSchema';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
   selectId: (comment) => comment.id,

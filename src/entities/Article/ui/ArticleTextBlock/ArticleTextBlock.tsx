@@ -1,7 +1,9 @@
 import React, { FC, memo } from 'react';
-import styles from './styles.module.scss';
-import { ArticleTextBlock as ArticleTextBlockType } from '../../model/types/article';
+
 import { Typography } from '@shared/ui/Typography/Typography';
+import { ArticleTextBlock as ArticleTextBlockType } from '../../model/types/article';
+
+import styles from './styles.module.scss';
 
 interface ArticleTextBlockProps {
   className?: string;

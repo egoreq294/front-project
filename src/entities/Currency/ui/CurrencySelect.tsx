@@ -1,7 +1,8 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CurrencyEnum } from '../model/types/currency';
+
 import { ListBox } from '@shared/ui/ListBox/ListBox';
+import { CurrencyEnum } from '../model/types/currency';
 
 interface CurrencySelectProps {
   value?: CurrencyEnum;

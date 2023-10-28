@@ -1,19 +1,21 @@
-import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@shared/ui/Input/Input';
-import { Button } from '@shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
+
+import { EMPTY_STRING } from '@shared/constants/common';
+import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
+import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Button } from '@shared/ui/Button/Button';
+import { Input } from '@shared/ui/Input/Input';
+import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../model/slices/addCommentFormSlice';
-import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
-import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { EMPTY_STRING } from '@shared/constants/common';
+
+import styles from './styles.module.scss';
 
 interface AddCommentFormProps {
   className?: string;

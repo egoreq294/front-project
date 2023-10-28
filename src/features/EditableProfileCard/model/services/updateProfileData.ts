@@ -1,9 +1,10 @@
-import { ThunkConfig } from '@app/providers/StorePovider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { ThunkConfig } from '@app/providers/StorePovider';
 import { Profile } from '@entities/Profile';
+import { ValidateProfileErrorEnum } from '../constants/constants';
 import { getProfileForm } from '../selectors/getProfileForm';
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileErrorEnum } from '../constants/constants';
 
 export const updateProfileData = createAsyncThunk<
   Profile,

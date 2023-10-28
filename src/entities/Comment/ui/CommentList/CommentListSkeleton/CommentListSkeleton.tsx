@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
+
 import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
+
+import styles from './styles.module.scss';
 
 export const CommentListSkeleton: FC = () => {
   return (

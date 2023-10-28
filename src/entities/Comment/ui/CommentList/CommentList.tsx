@@ -1,11 +1,13 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Typography } from '@shared/ui/Typography/Typography';
 import { CommentType } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentListSkeleton } from './CommentListSkeleton/CommentListSkeleton';
-import { Typography } from '@shared/ui/Typography/Typography';
+
+import styles from './styles.module.scss';
 
 interface CommentListProps {
   className?: string;

@@ -1,20 +1,22 @@
-import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import EyeIcon from '@shared/assets/icons/eye.svg';
+import { AppLink } from '@shared/ui/AppLink/AppLink';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
+import { Button } from '@shared/ui/Button/Button';
+import { Card } from '@shared/ui/Card/Card';
+import { Typography } from '@shared/ui/Typography/Typography';
 import {
   Article,
   ArticleBlockTypeEnum,
-  ArticleViewMode,
   ArticleTextBlock as ArticleTextBlockType,
+  ArticleViewMode,
 } from '../../model/types/article';
-import EyeIcon from '@shared/assets/icons/eye.svg';
-import { Card } from '@shared/ui/Card/Card';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Button } from '@shared/ui/Button/Button';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { Typography } from '@shared/ui/Typography/Typography';
-import { AppLink } from '@shared/ui/AppLink/AppLink';
+
+import styles from './styles.module.scss';
 
 interface ArticleListItemProps {
   className?: string;

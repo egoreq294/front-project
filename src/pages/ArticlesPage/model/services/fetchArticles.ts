@@ -1,6 +1,9 @@
-import { ThunkConfig } from '@app/providers/StorePovider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { ThunkConfig } from '@app/providers/StorePovider';
 import { Article } from '@entities/Article';
+import { ArticleTypeEnum } from '@entities/Article/model/types/article';
+import { addQueryParams } from '@shared/lib/url/addQueryParams';
 import {
   getArticlesPageLimit,
   getArticlesPageOrder,
@@ -8,8 +11,6 @@ import {
   getArticlesPageSort,
   getArticlesPageType,
 } from '../selectors/articlesPageSelectors';
-import { addQueryParams } from '@shared/lib/url/addQueryParams';
-import { ArticleTypeEnum } from '@entities/Article/model/types/article';
 
 interface FetchArticlesArgs {
   page?: number;

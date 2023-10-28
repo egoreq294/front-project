@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './styles.module.scss';
+
 import { Page } from '@widgets/Page/Page';
+
+import styles from './styles.module.scss';
 
 export const NotFoundPage: FC = () => {
   const { t } = useTranslation();

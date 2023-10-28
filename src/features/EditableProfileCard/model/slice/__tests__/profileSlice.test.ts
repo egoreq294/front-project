@@ -1,11 +1,10 @@
 import { CountryEnum } from '@entities/Country';
-
-import { profileActions, profileReducer } from '../profileSlice';
 import { CurrencyEnum } from '@entities/Currency';
 import { EMPTY_STRING } from '@shared/constants/common';
-import { updateProfileData } from '../../services/updateProfileData';
 import { ValidateProfileErrorEnum } from '../../constants/constants';
+import { updateProfileData } from '../../services/updateProfileData';
 import { ProfileSchema } from '../../types/editableProfileCardSchema';
+import { profileActions, profileReducer } from '../profileSlice';
 
 const USER_DATA = {
   username: 'admin',

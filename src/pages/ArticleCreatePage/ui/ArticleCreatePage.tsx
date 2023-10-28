@@ -1,5 +1,6 @@
-import { Page } from '@widgets/Page/Page';
 import React, { FC } from 'react';
+
+import { Page } from '@widgets/Page/Page';
 
 const ArticleCreatePage: FC = () => {
   // eslint-disable-next-line i18next/no-literal-string

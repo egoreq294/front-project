@@ -1,5 +1,6 @@
-import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import cn from 'classnames';
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 type ButtonVariant =

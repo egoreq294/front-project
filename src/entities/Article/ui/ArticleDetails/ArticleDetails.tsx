@@ -1,16 +1,18 @@
 import React, { FC, memo } from 'react';
-import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Caption } from '@shared/ui/Caption/Caption';
-import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import EyeIcon from '@shared/assets/icons/eye.svg';
+
 import CalendarIcon from '@shared/assets/icons/calendar.svg';
+import EyeIcon from '@shared/assets/icons/eye.svg';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
+import { Caption } from '@shared/ui/Caption/Caption';
+import { Typography } from '@shared/ui/Typography/Typography';
 import { Article, ArticleBlockTypeEnum } from '../../model/types/article';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
+
+import styles from './styles.module.scss';
 
 interface ArticleDetailsProps {
   article: Article | null;

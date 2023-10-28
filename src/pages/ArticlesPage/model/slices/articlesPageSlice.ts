@@ -1,19 +1,20 @@
-import { StateSchema } from '@app/providers/StorePovider';
 import {
-  PayloadAction,
   createEntityAdapter,
   createSlice,
+  PayloadAction,
 } from '@reduxjs/toolkit';
+
+import { StateSchema } from '@app/providers/StorePovider';
 import { Article, ArticleViewMode } from '@entities/Article';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { fetchArticles } from '../services/fetchArticles';
-import { ATRTICLES_VIEW_MODE_LOCALSTORAGE_KEY } from '@shared/constants/localstorage';
 import {
   ArticleSortField,
   ArticleTypeEnum,
 } from '@entities/Article/model/types/article';
 import { EMPTY_STRING } from '@shared/constants/common';
+import { ATRTICLES_VIEW_MODE_LOCALSTORAGE_KEY } from '@shared/constants/localstorage';
 import { SortOrder } from '@shared/types';
+import { fetchArticles } from '../services/fetchArticles';
+import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,

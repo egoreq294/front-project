@@ -1,5 +1,6 @@
-import React, { FC, ReactNode, memo } from 'react';
 import cn from 'classnames';
+import React, { FC, memo,ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 type TypograptyVariant = 'XS' | 'S' | 'M' | 'L';

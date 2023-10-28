@@ -1,12 +1,13 @@
-import React, { FC, memo } from 'react';
 import cn from 'classnames';
-import { useTheme } from '@app/providers';
+import React, { FC, memo } from 'react';
 
-import DarkIcon from '@shared/assets/icons/moon.svg';
-import LightIcon from '@shared/assets/icons/sun.svg';
-import OrangeIcon from '@shared/assets/icons/orange.svg';
+import { useTheme } from '@app/providers';
 import { Theme } from '@app/providers/ThemeProvider';
+import DarkIcon from '@shared/assets/icons/moon.svg';
+import OrangeIcon from '@shared/assets/icons/orange.svg';
+import LightIcon from '@shared/assets/icons/sun.svg';
 import { Button } from '@shared/ui/Button/Button';
+
 import styles from './styles.module.scss';
 
 interface ThemeSwitcherProps {

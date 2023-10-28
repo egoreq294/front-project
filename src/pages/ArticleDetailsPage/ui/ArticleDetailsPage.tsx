@@ -1,16 +1,17 @@
-import { ArticleDetails } from '@entities/Article';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import styles from './styles.module.scss';
+
+import { ArticleDetails } from '@entities/Article';
+import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
 import { Page } from '@widgets/Page/Page';
 import { articleDetailsPageReducer } from '../model/slices';
-import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
+import styles from './styles.module.scss';
 
 const reducers: ReducerList = {
   articleDetailsPage: articleDetailsPageReducer,

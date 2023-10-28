@@ -1,11 +1,13 @@
-import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Typography } from '@shared/ui/Typography/Typography';
 import { Article, ArticleViewMode } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListSkeleton } from './ArticleListSkeleton';
-import { Typography } from '@shared/ui/Typography/Typography';
+
+import styles from './styles.module.scss';
 
 interface ArticleListProps {
   className?: string;

@@ -1,10 +1,9 @@
 import { CountryEnum } from '@entities/Country';
-import { updateProfileData } from '../updateProfileData';
-import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { CurrencyEnum } from '@entities/Currency';
-
 import { EMPTY_STRING } from '@shared/constants/common';
+import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ValidateProfileErrorEnum } from '../../constants/constants';
+import { updateProfileData } from '../updateProfileData';
 const USER_DATA = {
   username: 'admin',
   age: '22',

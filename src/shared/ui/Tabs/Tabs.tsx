@@ -1,7 +1,9 @@
-import React, { ReactElement, ReactNode } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import React, { ReactElement, ReactNode } from 'react';
+
 import { Card } from '../Card/Card';
+
+import styles from './styles.module.scss';
 
 export interface TabItem<T extends string> {
   value: T;

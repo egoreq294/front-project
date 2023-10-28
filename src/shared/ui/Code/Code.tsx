@@ -1,8 +1,10 @@
-import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
-import { Button } from '../Button/Button';
+import React, { FC, useCallback } from 'react';
+
 import CopyIcon from '@shared/assets/icons/copy.svg';
+import { Button } from '../Button/Button';
+
+import styles from './styles.module.scss';
 
 interface CodeProps {
   className?: string;

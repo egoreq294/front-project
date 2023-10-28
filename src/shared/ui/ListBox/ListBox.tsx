@@ -1,10 +1,12 @@
-import React, { FC, Fragment, ReactNode } from 'react';
 import { Listbox as ListBoxImpl } from '@headlessui/react';
-import styles from './styles.module.scss';
 import cn from 'classnames';
+import React, { FC, Fragment, ReactNode } from 'react';
+
+import { DropdownDirection } from '@shared/types/ui';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
-import { DropdownDirection } from '@shared/types/ui';
+
+import styles from './styles.module.scss';
 
 export interface ListBoxItem {
   value: string;

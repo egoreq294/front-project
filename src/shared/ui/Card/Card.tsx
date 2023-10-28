@@ -1,5 +1,6 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
+import React, { FC, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 type CardVariant = 'Primary' | 'Secondary';

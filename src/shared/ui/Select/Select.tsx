@@ -1,5 +1,6 @@
-import React, { ChangeEvent, ReactElement, useCallback } from 'react';
 import cn from 'classnames';
+import React, { ChangeEvent, ReactElement, useCallback } from 'react';
+
 import styles from './styles.module.scss';
 
 export type Option<T extends string> = {

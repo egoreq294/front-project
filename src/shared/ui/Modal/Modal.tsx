@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, {
   FC,
   ReactNode,
@@ -6,9 +7,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import cn from 'classnames';
-import styles from './styles.module.scss';
+
 import { Portal } from '../Portal/Portal';
+
+import styles from './styles.module.scss';
 
 interface ModalProps {
   children: ReactNode;

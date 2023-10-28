@@ -1,7 +1,8 @@
-import { UserRoleEnum, getUserRoles } from '@entities/User';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+
+import { getUserRoles,UserRoleEnum } from '@entities/User';
 
 export const RequireRole = ({
   children,

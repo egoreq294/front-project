@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
-import { Notification as NotificationType } from '../model/types/notification';
-import { Card } from '@shared/ui/Card/Card';
+import React, { FC } from 'react';
+
 import { Caption } from '@shared/ui/Caption/Caption';
+import { Card } from '@shared/ui/Card/Card';
+import { Notification as NotificationType } from '../model/types/notification';
+
+import styles from './styles.module.scss';
 
 interface NotificationProps {
   notification: NotificationType;

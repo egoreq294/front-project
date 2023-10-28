@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Typography } from '@shared/ui/Typography/Typography';
 import { ArticleList } from '@entities/Article';
 import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography/Typography';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+
 import styles from './styles.module.scss';
 
 interface ArticleRecommendationsListProps {

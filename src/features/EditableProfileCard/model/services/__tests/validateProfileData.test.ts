@@ -1,9 +1,8 @@
-import { validateProfileData } from '../validateProfileData';
-
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { ValidateProfileErrorEnum } from '../../constants/constants';
+import { validateProfileData } from '../validateProfileData';
 
 const data = {
   username: 'admin',

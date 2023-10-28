@@ -1,6 +1,7 @@
 import React, { FC, memo } from 'react';
-import { ArticleCodeBlock as ArticleCodeBlockType } from '../../model/types/article';
+
 import { Code } from '@shared/ui/Code/Code';
+import { ArticleCodeBlock as ArticleCodeBlockType } from '../../model/types/article';
 
 interface ArticleCodeBlockProps {
   className?: string;

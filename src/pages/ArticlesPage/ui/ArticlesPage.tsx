@@ -1,17 +1,15 @@
+import React, { FC, useCallback } from 'react';
+
 import {
   DynamicModuleLoader,
   ReducerList,
 } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import React, { FC, useCallback } from 'react';
-import { articlesPageReducer } from '../model/slices/articlesPageSlice';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-
 import { Page } from '@widgets/Page/Page';
 import { fetchNextArticles } from '../model/services/fetchNextArticles';
-
-import { ArticlesPageFilters } from './ArticlesPageFilters';
-
+import { articlesPageReducer } from '../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
+import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer,

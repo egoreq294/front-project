@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, {
   FC,
   InputHTMLAttributes,
@@ -6,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import cn from 'classnames';
+
 import styles from './styles.module.scss';
 
 type HTMLInputProps = Omit<

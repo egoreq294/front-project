@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
+
 import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
 import { ArticleViewMode } from '../../model/types/article';
+
 import styles from './styles.module.scss';
 
 interface ArticleListItemProps {

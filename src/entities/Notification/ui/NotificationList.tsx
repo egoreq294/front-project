@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
-import { useNotifications } from '../api/notificationApi';
-import { VStack } from '@shared/ui/Stack';
-import { Notification } from './Notification';
-import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
-import { Typography } from '@shared/ui/Typography/Typography';
 import { useTranslation } from 'react-i18next';
+
 import { Card } from '@shared/ui/Card/Card';
+import { Skeleton } from '@shared/ui/Skeleton/Skeleton';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography/Typography';
+import { useNotifications } from '../api/notificationApi';
+import { Notification } from './Notification';
+
+import styles from './styles.module.scss';
 
 interface NotificationListProps {
   className?: string;

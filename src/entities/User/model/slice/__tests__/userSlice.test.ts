@@ -1,5 +1,5 @@
-import { userActions, userReducer } from '../userSlice';
 import { UserSchema } from '../../types/user';
+import { userActions, userReducer } from '../userSlice';
 
 describe('counterSlice test suite', () => {
   test('setAuthData should return auth data', () => {

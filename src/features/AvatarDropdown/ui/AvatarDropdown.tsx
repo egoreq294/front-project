@@ -1,12 +1,13 @@
 import React, { FC, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Avatar } from '@shared/ui/Avatar/Avatar';
+import { Dropdown } from '@shared/ui/Dropdown/Dropdown';
 
 import styles from './styles.module.scss';
-import { useTranslation } from 'react-i18next';
-import { Dropdown } from '@shared/ui/Dropdown/Dropdown';
-import { useSelector } from 'react-redux';
-import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 
 interface AvatarDropdownProps {
   className?: string;

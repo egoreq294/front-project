@@ -1,7 +1,8 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Counter } from '../Counter';
 import React from 'react';
+
 import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
+import { Counter } from '../Counter';
 
 describe('Counter test suite', () => {
   test('should render correctly', () => {

@@ -1,8 +1,10 @@
-import React, { FC, ReactNode } from 'react';
-import cn from 'classnames';
-import styles from './styles.module.scss';
-import { DropdownDirection } from '@shared/types/ui';
 import { Popover as PopoverImpl } from '@headlessui/react';
+import cn from 'classnames';
+import React, { FC, ReactNode } from 'react';
+
+import { DropdownDirection } from '@shared/types/ui';
+
+import styles from './styles.module.scss';
 
 interface PopoverProps {
   className?: string;

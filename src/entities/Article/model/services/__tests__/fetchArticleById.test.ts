@@ -1,5 +1,5 @@
-import { fetchArticleById } from '../fetchArticleById';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchArticleById } from '../fetchArticleById';
 
 describe('fetchArticleById test suite', () => {
   test('should fetch data with success', async () => {
