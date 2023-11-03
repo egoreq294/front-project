@@ -19,6 +19,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (startsCount: number) => void;
   onAccept?: (startsCount: number, feedback?: string) => void;
+  selectedStars?: number;
 }
 
 export const RatingCard: FC<RatingCardProps> = ({
@@ -28,11 +29,12 @@ export const RatingCard: FC<RatingCardProps> = ({
   hasFeedback,
   onAccept,
   onCancel,
+  selectedStars,
 }) => {
   const { t } = useTranslation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState<number>(selectedStars ?? 0);
   const [feedback, setFeedback] = useState(EMPTY_STRING);
 
   const onSelectStars = (selectedStarCount: number): void => {
@@ -73,8 +75,12 @@ export const RatingCard: FC<RatingCardProps> = ({
   return (
     <Card className={className}>
       <VStack align="center" gap="8">
-        {title && <Typography variant="M">{title}</Typography>}
-        <StarRating onSelect={onSelectStars} />
+        {title && (
+          <Typography variant="M">
+            {starsCount ? t('thank-you-for-rating') : title}
+          </Typography>
+        )}
+        <StarRating onSelect={onSelectStars} selectedStars={starsCount} />
       </VStack>
       <MobileView>
         <Drawer isOpen={isModalOpen} onClose={onCancelModal}>

@@ -20,5 +20,7 @@
   "all": "All",
   "science": "Science",
   "recommendations": "Recommendations",
-  "edit": "Edit"
+  "edit": "Edit",
+  "rate-the-article": "Rate the article",
+  "feedback-article": "Leave your feedback on the article, this will help improve the quality"
 }

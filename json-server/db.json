@@ -66,14 +66,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
     }
   ],
@@ -639,6 +643,34 @@
           ]
         }
       ]
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 3,
+      "id": "qIX2XIo"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 3,
+      "id": "WWRetqs"
     }
   ]
 }

@@ -19,7 +19,7 @@ export const StarRating: FC<StarRatingProps> = ({
   onSelect,
   selectedStars = 0,
 }) => {
-  const [currentStarCount, setCurrentStarCount] = useState(0);
+  const [currentStarCount, setCurrentStarCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const onHover = (starCount: number) => () => {

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@entities/Article';
+import { ArticleRating } from '@features/ArticleRating';
 import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -30,6 +31,7 @@ const ArticleDetailsPage: FC = () => {
       <Page>
         <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
+        <ArticleRating articleId={id} className={styles.Rating} />
         <ArticleRecommendationsList className={styles.Recommendations} />
         <ArticleDetailsComments id={id} className={styles.Comments} />
       </Page>
