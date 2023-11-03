@@ -1,7 +1,10 @@
 import cn from 'classnames';
 import React, { FC, ReactNode, useCallback, useEffect } from 'react';
 
-import { useAnimationModules } from '@shared/lib/components/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationModules,
+} from '@shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
@@ -95,7 +98,7 @@ const DrawerContent: FC<DrawerProps> = ({
   );
 };
 
-export const Drawer: FC<DrawerProps> = (props) => {
+const DrawerAsync: FC<DrawerProps> = (props) => {
   const { isLoaded } = useAnimationModules();
 
   if (!isLoaded) {
@@ -103,4 +106,12 @@ export const Drawer: FC<DrawerProps> = (props) => {
   }
 
   return <DrawerContent {...props} />;
+};
+
+export const Drawer: FC<DrawerProps> = (props) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
 };
