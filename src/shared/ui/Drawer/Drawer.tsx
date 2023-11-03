@@ -1,16 +1,18 @@
 import cn from 'classnames';
 import React, { FC, ReactNode } from 'react';
 
+import { useModal } from '@shared/lib/hooks/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import styles from './styles.module.scss';
 
 interface DrawerProps {
-  className?: string;
   children: ReactNode;
   isOpen: boolean;
-  onClose?: () => void;
+  onClose: () => void;
+  className?: string;
+  lazy?: boolean;
 }
 
 export const Drawer: FC<DrawerProps> = ({
@@ -18,13 +20,28 @@ export const Drawer: FC<DrawerProps> = ({
   isOpen,
   onClose,
   children,
+  lazy,
 }) => {
+  const { isClosing, isMounted, closeHandler } = useModal({
+    isOpen,
+    onClose,
+    animationDelay: 200,
+  });
+
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
       <div
-        className={cn(styles.Drawer, { [styles.Opened]: isOpen }, className)}
+        className={cn(
+          styles.Drawer,
+          { [styles.Opened]: isOpen, [styles.IsClosing]: isClosing },
+          className,
+        )}
       >
-        <Overlay onClick={onClose} />
+        <Overlay onClick={closeHandler} />
         <div className={styles.Content}>{children}</div>
       </div>
     </Portal>
