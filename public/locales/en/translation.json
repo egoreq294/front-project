@@ -27,5 +27,7 @@
   "admin-panel-page": "Admin panel",
   "admin-panel": "Admin panel",
   "forbidden-page": "You do not have rights to visit this page",
-  "empty-notofications": "No notifications"
+  "empty-notofications": "No notifications",
+  "your-feedback": "Your feedback",
+  "cancel": "Cancel"
 }

@@ -27,5 +27,7 @@
   "admin-panel-page": "Панель администратора",
   "admin-panel": "Панель администратора",
   "forbidden-page": "У вас нет прав для посещения этой страницы",
-  "empty-notofications": "Нет уведомлений"
+  "empty-notofications": "Нет уведомлений",
+  "your-feedback": "Ваш отзыв",
+  "cancel": "Отменить"
 }

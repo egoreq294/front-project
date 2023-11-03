@@ -28,7 +28,7 @@ export const Popover: FC<PopoverProps> = ({
 }) => {
   return (
     <PopoverImpl className={cn(styles.Popover, className)}>
-      <PopoverImpl.Button className={styles.TriggerButton}>
+      <PopoverImpl.Button as="div" className={styles.TriggerButton}>
         {trigger}
       </PopoverImpl.Button>
 
