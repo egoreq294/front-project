@@ -15,7 +15,7 @@
   flex-direction: column;
   background-color: var(--card-bg);
   position: absolute;
-  z-index: 999;
+  z-index: var(--popup-z-index);
   border-radius: 8px;
   overflow: hidden;
   color: var(--primary-color);
