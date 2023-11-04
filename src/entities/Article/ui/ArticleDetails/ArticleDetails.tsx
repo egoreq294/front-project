@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import CalendarIcon from '@shared/assets/icons/calendar.svg';
 import EyeIcon from '@shared/assets/icons/eye.svg';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Caption } from '@shared/ui/Caption/Caption';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Avatar } from '@shared/ui/Avatar';
+import { Caption } from '@shared/ui/Caption';
+import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import { Article } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';

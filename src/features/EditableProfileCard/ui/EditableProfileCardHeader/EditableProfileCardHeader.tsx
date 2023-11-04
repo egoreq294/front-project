@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button } from '@shared/ui/Button/Button';
-import { HStack } from '@shared/ui/Stack/HStack/HStack';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Button } from '@shared/ui/Button';
+import { HStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData';

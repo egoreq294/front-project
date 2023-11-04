@@ -7,7 +7,7 @@ import { CommentList } from '@entities/Comment';
 import { AddCommentForm } from '@features/AddCommentForm';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { VStack } from '@shared/ui/Stack';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Typography } from '@shared/ui/Typography';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/commentsSelectors';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';

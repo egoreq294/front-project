@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button } from '@shared/ui/Button/Button';
+import { Button } from '@shared/ui/Button';
 import { getCounterValue } from '../model/selectors/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 

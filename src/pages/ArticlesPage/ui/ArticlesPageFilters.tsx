@@ -15,9 +15,9 @@ import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
 import { SortOrder } from '@shared/types';
-import { Card } from '@shared/ui/Card/Card';
-import { Input } from '@shared/ui/Input/Input';
-import { TabItem } from '@shared/ui/Tabs/Tabs';
+import { Card } from '@shared/ui/Card';
+import { Input } from '@shared/ui/Input';
+import { TabItem } from '@shared/ui/Tabs';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,

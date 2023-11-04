@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 
-import { AppLink } from '@shared/ui/AppLink/AppLink';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { AppLink } from '@shared/ui/AppLink';
+import { Avatar } from '@shared/ui/Avatar';
+import { Typography } from '@shared/ui/Typography';
 import { CommentType } from '../../model/types/comment';
 
 import styles from './styles.module.scss';

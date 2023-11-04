@@ -6,7 +6,7 @@ import OrangeIcon from '@shared/assets/icons/orange.svg';
 import LightIcon from '@shared/assets/icons/sun.svg';
 import { Theme } from '@shared/lib/constants/theme';
 import { useTheme } from '@shared/lib/hooks/useTheme';
-import { Button } from '@shared/ui/Button/Button';
+import { Button } from '@shared/ui/Button';
 
 import styles from './styles.module.scss';
 

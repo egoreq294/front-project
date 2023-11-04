@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@entities/Article';
-import { Button } from '@shared/ui/Button/Button';
+import { Button } from '@shared/ui/Button';
 import { canEditArticle } from '../../model/selectors/articleSelectors';
 
 import styles from './styles.module.scss';

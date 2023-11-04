@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { FC, memo } from 'react';
 
-import { Loader } from '@shared/ui/Loader/Loader';
+import { Loader } from '@shared/ui/Loader';
 
 import styles from './styles.module.scss';
 

@@ -9,7 +9,7 @@ import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader'
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { VStack } from '@shared/ui/Stack';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Typography } from '@shared/ui/Typography';
 import { ValidateProfileErrorEnum } from '../../model/constants/constants';
 import { getProfileError } from '../../model/selectors/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm';

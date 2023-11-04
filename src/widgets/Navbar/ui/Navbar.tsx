@@ -7,10 +7,10 @@ import { getUserAuthData } from '@entities/User';
 import { LoginModal } from '@features/AuthByUsername';
 import { AvatarDropdown } from '@features/AvatarDropdown';
 import { NotificationButton } from '@features/NotificationButton';
-import { AppLink } from '@shared/ui/AppLink/AppLink';
-import { Button } from '@shared/ui/Button/Button';
+import { AppLink } from '@shared/ui/AppLink';
+import { Button } from '@shared/ui/Button';
 import { HStack } from '@shared/ui/Stack';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Typography } from '@shared/ui/Typography';
 
 import styles from './styles.module.scss';
 

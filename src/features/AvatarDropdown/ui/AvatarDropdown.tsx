@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Dropdown } from '@shared/ui/Dropdown/Dropdown';
+import { Avatar } from '@shared/ui/Avatar';
+import { Dropdown } from '@shared/ui/Dropdown';
 
 import styles from './styles.module.scss';
 

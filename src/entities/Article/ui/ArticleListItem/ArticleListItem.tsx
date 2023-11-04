@@ -3,11 +3,11 @@ import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@shared/assets/icons/eye.svg';
-import { AppLink } from '@shared/ui/AppLink/AppLink';
-import { Avatar } from '@shared/ui/Avatar/Avatar';
-import { Button } from '@shared/ui/Button/Button';
-import { Card } from '@shared/ui/Card/Card';
-import { Typography } from '@shared/ui/Typography/Typography';
+import { AppLink } from '@shared/ui/AppLink';
+import { Avatar } from '@shared/ui/Avatar';
+import { Button } from '@shared/ui/Button';
+import { Card } from '@shared/ui/Card';
+import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import {
   Article,

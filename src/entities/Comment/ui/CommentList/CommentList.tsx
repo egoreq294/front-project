@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Typography } from '@shared/ui/Typography/Typography';
+import { Typography } from '@shared/ui/Typography';
 import { CommentType } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentListSkeleton } from './CommentListSkeleton/CommentListSkeleton';

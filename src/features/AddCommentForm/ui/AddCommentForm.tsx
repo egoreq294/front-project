@@ -7,8 +7,8 @@ import { EMPTY_STRING } from '@shared/constants/common';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button } from '@shared/ui/Button/Button';
-import { Input } from '@shared/ui/Input/Input';
+import { Button } from '@shared/ui/Button';
+import { Input } from '@shared/ui/Input';
 import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
