@@ -7,7 +7,7 @@ import { ArticleRating } from '@features/ArticleRating';
 import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from '@widgets/Page/Page';
+import { Page } from '@widgets/Page';
 import { articleDetailsPageReducer } from '../model/slices';
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';

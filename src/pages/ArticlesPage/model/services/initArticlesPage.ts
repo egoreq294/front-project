@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@app/providers/StorePovider';
 import { ArticleSortField } from '@entities/Article';
-import { ArticleTypeEnum } from '@entities/Article/model/types/article';
+import { ArticleTypeEnum } from '@entities/Article';
 import { SortOrder } from '@shared/types';
 import { getArticlesPageInited } from '../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../slices/articlesPageSlice';

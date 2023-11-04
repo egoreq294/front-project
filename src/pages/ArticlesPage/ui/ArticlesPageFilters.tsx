@@ -10,7 +10,7 @@ import {
   ArticleViewMode,
   ArticleViewSelector,
 } from '@entities/Article';
-import { ArticleTypeEnum } from '@entities/Article/model/types/article';
+import { ArticleTypeEnum } from '@entities/Article';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';

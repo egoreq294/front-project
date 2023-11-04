@@ -1,7 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { loginReducer } from '@features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer } from '@features/AuthByUsername';
 import { profileReducer } from '@features/EditableProfileCard';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {

@@ -6,10 +6,7 @@ import {
 
 import { StateSchema } from '@app/providers/StorePovider';
 import { Article, ArticleViewMode } from '@entities/Article';
-import {
-  ArticleSortField,
-  ArticleTypeEnum,
-} from '@entities/Article/model/types/article';
+import { ArticleSortField, ArticleTypeEnum } from '@entities/Article';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { ATRTICLES_VIEW_MODE_LOCALSTORAGE_KEY } from '@shared/constants/localstorage';
 import { SortOrder } from '@shared/types';

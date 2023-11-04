@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TabItem, Tabs } from '@shared/ui/Tabs/Tabs';
-import { ArticleTypeEnum } from '../../model/types/article';
+import { ArticleTypeEnum } from '../../model/constants/article';
 
 interface ArticleTypeTabsProps {
   className?: string;

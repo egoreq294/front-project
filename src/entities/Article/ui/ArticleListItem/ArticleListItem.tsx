@@ -8,9 +8,9 @@ import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { Button } from '@shared/ui/Button/Button';
 import { Card } from '@shared/ui/Card/Card';
 import { Typography } from '@shared/ui/Typography/Typography';
+import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import {
   Article,
-  ArticleBlockTypeEnum,
   ArticleTextBlock as ArticleTextBlockType,
   ArticleViewMode,
 } from '../../model/types/article';

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@app/providers/StorePovider';
 import { Article } from '@entities/Article';
-import { ArticleTypeEnum } from '@entities/Article/model/types/article';
+import { ArticleTypeEnum } from '@entities/Article';
 import { addQueryParams } from '@shared/lib/url/addQueryParams';
 import {
   getArticlesPageLimit,

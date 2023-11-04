@@ -41,6 +41,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/display-name': 'off',
     'egoreq-plugin/path-checker': 'error',
+    'egoreq-plugin/public-api-imports': 'error',
     'simple-import-sort/imports': [
       'warn',
       {

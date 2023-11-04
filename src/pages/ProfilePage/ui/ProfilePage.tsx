@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from '@features/EditableProfileCard';
 import { Typography } from '@shared/ui/Typography/Typography';
-import { Page } from '@widgets/Page/Page';
+import { Page } from '@widgets/Page';
 
 const ProfilePage: FC = () => {
   const { id } = useParams<{ id: string }>();
