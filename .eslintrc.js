@@ -42,6 +42,12 @@ module.exports = {
     'react/display-name': 'off',
     'egoreq-plugin/path-checker': 'error',
     'egoreq-plugin/public-api-imports': 'error',
+    'egoreq-plugin/layer-imports': [
+      'error',
+      {
+        ignoreImportPatterns: ['**/StoreProvider'],
+      },
+    ],
     'simple-import-sort/imports': [
       'warn',
       {

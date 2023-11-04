@@ -1,4 +1,4 @@
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { ArticleSortField, ArticleViewMode } from '@entities/Article';
 import { ArticleTypeEnum } from '@entities/Article';
 import { EMPTY_STRING } from '@shared/constants/common';

@@ -1,6 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
+// eslint-disable-next-line egoreq-plugin/layer-imports
 import '@app/styles/index.scss';
 
 export const StyleDecorator = (StoryComponent: StoryFn): JSX.Element => (

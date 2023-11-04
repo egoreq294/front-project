@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { FC, memo } from 'react';
 
-import { useTheme } from '@app/providers';
-import { Theme } from '@app/providers/ThemeProvider';
 import DarkIcon from '@shared/assets/icons/moon.svg';
 import OrangeIcon from '@shared/assets/icons/orange.svg';
 import LightIcon from '@shared/assets/icons/sun.svg';
+import { Theme } from '@shared/lib/constants/theme';
+import { useTheme } from '@shared/lib/hooks/useTheme';
 import { Button } from '@shared/ui/Button/Button';
 
 import styles from './styles.module.scss';

@@ -1,13 +1,15 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
+// eslint-disable-next-line egoreq-plugin/layer-imports
 import { loginReducer } from '@features/AuthByUsername';
+// eslint-disable-next-line egoreq-plugin/layer-imports
 import { profileReducer } from '@features/EditableProfileCard';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   StateSchema,
   StoreProvider,
-} from '../../../../app/providers/StorePovider';
+} from '../../../../app/providers/StoreProvider';
 
 const DEFAULT_ASYNC_REDUCERS: ReducerList = {
   loginForm: loginReducer,

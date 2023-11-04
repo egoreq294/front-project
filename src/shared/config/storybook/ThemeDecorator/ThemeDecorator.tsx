@@ -1,7 +1,9 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Theme, ThemeProvider } from '../../../../app/providers/ThemeProvider';
+// eslint-disable-next-line egoreq-plugin/layer-imports
+import { ThemeProvider } from '@app/providers';
+import { Theme } from '@shared/lib/constants/theme';
 
 export const ThemeDecorator =
   (theme: Theme): ((StoryComponent: StoryFn) => JSX.Element) =>

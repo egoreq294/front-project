@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from '@app/providers';
 import { ErrorBoundary } from '@app/providers/ErrorBoundary';
-import { StoreProvider } from '@app/providers/StorePovider';
+import { StoreProvider } from '@app/providers/StoreProvider';
 import { App } from './app/App';
 
 const root = ReactDOM.createRoot(

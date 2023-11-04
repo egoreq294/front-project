@@ -4,7 +4,7 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit';
 
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { Article, ArticleViewMode } from '@entities/Article';
 import { ArticleSortField, ArticleTypeEnum } from '@entities/Article';
 import { EMPTY_STRING } from '@shared/constants/common';

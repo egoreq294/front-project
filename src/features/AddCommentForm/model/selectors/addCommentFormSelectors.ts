@@ -1,4 +1,4 @@
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { EMPTY_STRING } from '@shared/constants/common';
 
 export const getCommentFormText = (state: StateSchema): string =>

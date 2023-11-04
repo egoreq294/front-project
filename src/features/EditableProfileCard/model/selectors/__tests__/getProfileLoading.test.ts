@@ -1,4 +1,4 @@
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { getProfileLoading } from '../getProfileLoading';
 
 describe('getProfileLoading test suite', () => {

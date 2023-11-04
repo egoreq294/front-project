@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { Scroll } from '../types/scrollSchema';
 
 export const getScroll = (state: StateSchema): Scroll => state.scroll.scroll;

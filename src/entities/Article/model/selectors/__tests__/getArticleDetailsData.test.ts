@@ -1,4 +1,4 @@
-import { StateSchema } from '@app/providers/StorePovider';
+import { StateSchema } from '@app/providers/StoreProvider';
 import { getArticleDetailsData } from '../getArticleDetailsData';
 
 describe('getArticleDetailsData test suite', () => {
