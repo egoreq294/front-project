@@ -1,6 +1,6 @@
 import { Listbox as ListBoxImpl } from '@headlessui/react';
 import cn from 'classnames';
-import React, { FC, Fragment, ReactNode } from 'react';
+import React, { Fragment, ReactElement, ReactNode } from 'react';
 
 import { DropdownDirection } from '@shared/types/ui';
 import { Button } from '../Button/Button';
@@ -8,19 +8,19 @@ import { HStack } from '../Stack';
 
 import styles from './styles.module.scss';
 
-export interface ListBoxItem {
-  value: string;
+export interface ListBoxItem<T extends string> {
+  value: T;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
   className?: string;
-  items: ListBoxItem[];
+  items: ListBoxItem<T>[];
   label?: string;
-  value?: string;
-  defaultValue?: string;
-  onChange: (value: string) => void;
+  value?: T;
+  defaultValue?: T;
+  onChange: (value: T) => void;
   readOnly?: boolean;
   direction?: DropdownDirection;
 }
@@ -32,7 +32,7 @@ const DROPDOWN_DIRECTION_MAP: Record<DropdownDirection, string> = {
   'top-left': styles.TopLeft,
 };
 
-export const ListBox: FC<ListBoxProps> = ({
+export const ListBox = <T extends string>({
   className,
   items,
   label,
@@ -41,7 +41,7 @@ export const ListBox: FC<ListBoxProps> = ({
   onChange,
   readOnly,
   direction = 'bottom-right',
-}) => {
+}: ListBoxProps<T>): ReactElement => {
   const selectedContent = items.find((item) => item.value === value)?.content;
 
   return (
