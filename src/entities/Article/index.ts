@@ -8,6 +8,3 @@ export {
   articleDetailsReducer,
 } from './model/slice/articleDetailsSlice';
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
-export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
-export { ArticleSortSelect } from './ui/ArticleSortSelect/ArticleSortSelect';
-export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

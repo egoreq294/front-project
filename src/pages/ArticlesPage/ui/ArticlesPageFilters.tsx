@@ -3,14 +3,11 @@ import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-  ArticleSortField,
-  ArticleSortSelect,
-  ArticleTypeTabs,
-  ArticleViewMode,
-  ArticleViewSelector,
-} from '@entities/Article';
+import { ArticleSortField, ArticleViewMode } from '@entities/Article';
 import { ArticleTypeEnum } from '@entities/Article';
+import { ArticleSortSelect } from '@features/ArticleSortSelect';
+import { ArticleTypeTabs } from '@features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@features/ArticleViewSelector';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
