@@ -1,8 +1,8 @@
-import React from 'react';
+import { IconName } from '@shared/ui/Icon/types';
 
 export interface SidebarItemType {
   path: string;
   text: string;
-  Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconName?: IconName;
   authOnly?: boolean;
 }

@@ -1,10 +1,9 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CalendarIcon from '@shared/assets/icons/calendar.svg';
-import EyeIcon from '@shared/assets/icons/eye.svg';
 import { Avatar } from '@shared/ui/Avatar';
 import { Caption } from '@shared/ui/Caption';
+import { Icon } from '@shared/ui/Icon';
 import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import { Article } from '../../model/types/article';
@@ -49,11 +48,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
           size="M"
         />
         <div className={styles.ArticleInfo}>
-          <EyeIcon />
+          <Icon name="Eye" />
           <Typography>{String(article?.views)}</Typography>
         </div>
         <div className={styles.ArticleInfo}>
-          <CalendarIcon />
+          <Icon name="Calendar" />
           <Typography>{article?.createdAt}</Typography>
         </div>
         <div className={styles.Blocks}>

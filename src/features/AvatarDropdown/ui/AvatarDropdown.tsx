@@ -49,7 +49,12 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
         { id: '3', content: t('logout'), onClick: onLogout },
       ]}
       trigger={
-        <Avatar className={styles.Avatar} size={50} src={authData.avatar} />
+        <Avatar
+          fallbackInverted
+          className={styles.Avatar}
+          size={50}
+          src={authData.avatar}
+        />
       }
     />
   );

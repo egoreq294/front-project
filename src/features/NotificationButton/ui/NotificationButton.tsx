@@ -2,9 +2,9 @@ import React, { FC, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@entities/Notification';
-import NotificationIcon from '@shared/assets/icons/notification.svg';
 import { Button } from '@shared/ui/Button';
 import { Drawer } from '@shared/ui/Drawer';
+import { Icon } from '@shared/ui/Icon';
 import { Popover } from '@shared/ui/Popover';
 
 import styles from './styles.module.scss';
@@ -28,7 +28,7 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
 
   const trigger = (
     <Button onClick={onOpenDrawer} variant="GhostInverted">
-      <NotificationIcon />
+      <Icon name="Notification" />
     </Button>
   );
 

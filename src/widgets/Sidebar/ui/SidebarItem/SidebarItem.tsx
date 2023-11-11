@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
 import { AppLink } from '@shared/ui/AppLink';
+import { Icon } from '@shared/ui/Icon';
 import { SidebarItemType } from '../../model/types/sidebar';
 
 import styles from './styles.module.scss';
@@ -25,7 +26,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
   return (
     <AppLink theme="Inverted" to={item.path}>
       <div className={styles.Item}>
-        {item.Icon && <item.Icon className={styles.Icon} />}
+        {item.iconName && <Icon name={item.iconName} className={styles.Icon} />}
         {!collapsed && t(item.text)}
       </div>
     </AppLink>

@@ -1,12 +1,10 @@
 import cn from 'classnames';
 import React, { FC, memo } from 'react';
 
-import DarkIcon from '@shared/assets/icons/moon.svg';
-import OrangeIcon from '@shared/assets/icons/orange.svg';
-import LightIcon from '@shared/assets/icons/sun.svg';
 import { Theme } from '@shared/lib/constants/theme';
 import { useTheme } from '@shared/lib/hooks/useTheme';
 import { Button } from '@shared/ui/Button';
+import { Icon } from '@shared/ui/Icon';
 
 import styles from './styles.module.scss';
 
@@ -24,9 +22,9 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       onClick={toggleTheme}
     >
       <div className={styles.IconContainer}>
-        {theme === Theme.LIGHT && <LightIcon />}
-        {theme === Theme.DARK && <DarkIcon />}
-        {theme === Theme.ORANGE && <OrangeIcon />}
+        {theme === Theme.LIGHT && <Icon name="Sun" />}
+        {theme === Theme.DARK && <Icon name="Moon" />}
+        {theme === Theme.ORANGE && <Icon name="Orange" />}
       </div>
     </Button>
   );

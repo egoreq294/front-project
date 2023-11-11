@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { FC, useCallback } from 'react';
 
-import CopyIcon from '@shared/assets/icons/copy.svg';
 import { Button } from '../Button/Button';
+import { Icon } from '../Icon';
 
 import styles from './styles.module.scss';
 
@@ -19,7 +19,7 @@ export const Code: FC<CodeProps> = ({ className, text }) => {
   return (
     <pre className={cn(styles.Code, className)}>
       <Button variant="Ghost" className={styles.CopyButton} onClick={onCopy}>
-        <CopyIcon />
+        <Icon name="Copy" />
       </Button>
       <code>{text}</code>
     </pre>

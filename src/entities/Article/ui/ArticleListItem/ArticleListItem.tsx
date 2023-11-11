@@ -2,11 +2,13 @@ import cn from 'classnames';
 import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import EyeIcon from '@shared/assets/icons/eye.svg';
+import { AppImage } from '@shared/ui/AppImage';
 import { AppLink } from '@shared/ui/AppLink';
 import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { Card } from '@shared/ui/Card';
+import { Icon } from '@shared/ui/Icon';
+import { Skeleton } from '@shared/ui/Skeleton';
 import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import {
@@ -52,7 +54,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           <Typography className={styles.Types}>
             {article.type.join(', ')}
           </Typography>
-          <img src={article.img} className={styles.Image} alt={article.title} />
+          <AppImage
+            fallback={<Skeleton width="100%" height="250px" />}
+            src={article.img}
+            className={styles.Image}
+            alt={article.title}
+          />
           {textBlock && (
             <ArticleTextBlock block={textBlock} className={styles.TextBlock} />
           )}
@@ -63,7 +70,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <Typography className={styles.Views}>
               {String(article.views)}
             </Typography>
-            <EyeIcon />
+            <Icon name="Eye" />
           </div>
         </Card>
       </div>
@@ -78,7 +85,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     >
       <Card>
         <div className={styles.ImageWrapper}>
-          <img src={article.img} className={styles.Image} alt={article.title} />
+          <AppImage
+            src={article.img}
+            className={styles.Image}
+            alt={article.title}
+            fallback={<Skeleton width="200px" height="200px" />}
+          />
           <Typography className={styles.Date}>{article.createdAt}</Typography>
         </div>
         <div className={styles.InfoWrapper}>
@@ -88,7 +100,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           <Typography className={styles.Views}>
             {String(article.views)}
           </Typography>
-          <EyeIcon />
+          <Icon name="Eye" />
         </div>
         <Typography className={styles.Title}>{article.title}</Typography>
       </Card>

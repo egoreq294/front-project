@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { FC, useState } from 'react';
 
-import Star from '@shared/assets/icons/star.svg';
+import { Icon } from '../Icon';
 import { HStack } from '../Stack';
 
 import styles from './styles.module.scss';
@@ -45,7 +45,8 @@ export const StarRating: FC<StarRatingProps> = ({
   return (
     <HStack gap="4" className={className}>
       {stars.map((item) => (
-        <Star
+        <Icon
+          name="Star"
           onMouseLeave={onLeave}
           onMouseEnter={onHover(item)}
           className={cn(styles.Icon, {
