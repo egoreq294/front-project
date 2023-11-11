@@ -11,8 +11,6 @@ export const ThemeDecorator =
   (StoryComponent: StoryFn): JSX.Element =>
     (
       <ThemeProvider initialTheme={theme}>
-        <div className={theme}>
-          <StoryComponent />
-        </div>
+        <StoryComponent />
       </ThemeProvider>
     );
