@@ -1,28 +1,28 @@
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
 
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Button } from '@shared/ui/Button';
-import { getCounterValue } from '../model/selectors/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue';
+import { useCounterActions } from '../model/slice/counterSlice';
 
 export const Counter: FC = () => {
-  const dispatch = useAppDispatch();
-  const counterValue = useSelector(getCounterValue);
+  const counterValue = useCounterValue();
 
-  const increment = (): void => {
-    dispatch(counterActions.increment());
+  const { increment, decrement } = useCounterActions();
+
+  const handleIncrement = (): void => {
+    increment();
   };
-  const decrement = (): void => {
-    dispatch(counterActions.decrement());
+  const handleDecrement = (): void => {
+    decrement();
   };
+
   return (
     <div data-testid="counter">
       <h1 data-testid="counter-value">{counterValue}</h1>
-      <Button data-testid="increment-button" onClick={increment}>
+      <Button data-testid="increment-button" onClick={handleIncrement}>
         +
       </Button>
-      <Button data-testid="decrement-button" onClick={decrement}>
+      <Button data-testid="decrement-button" onClick={handleDecrement}>
         -
       </Button>
     </div>
