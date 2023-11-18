@@ -63,7 +63,7 @@
     "eslint": "8.3.0",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-egoreq-plugin": "0.0.13",
+    "eslint-plugin-egoreq-plugin": "0.0.19",
     "eslint-plugin-i18next": "6.0.3",
     "eslint-plugin-import": "'2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
