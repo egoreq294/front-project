@@ -106,5 +106,7 @@ module.exports = {
     '/typings',
     '/build',
     '/scripts',
+    'cypress.config.ts',
+    'cypress',
   ],
 };

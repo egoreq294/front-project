@@ -21,7 +21,7 @@
       "@widgets/*": ["src/widgets/*"]
     }
   },
-  "exclude": ["scripts"],
+  "exclude": ["scripts", "cypress.config.ts", "cypress"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
