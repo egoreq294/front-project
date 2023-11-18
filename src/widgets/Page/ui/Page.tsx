@@ -15,16 +15,22 @@ import { getScrollByPath, scrollActions } from '@features/Scroll';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@shared/lib/hooks/useInfiniteScroll';
 import { useThrottle } from '@shared/lib/hooks/useThrottle';
+import { TestingComponent } from '@shared/types/tests';
 
 import styles from './styles.module.scss';
 
-interface PageProps {
+interface PageProps extends TestingComponent {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
 }
 
-export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
+export const Page: FC<PageProps> = ({
+  className,
+  children,
+  onScrollEnd,
+  testId,
+}) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -55,6 +61,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
       ref={wrapperRef}
       className={cn(styles.Page, className)}
       onScroll={onScroll}
+      data-testid={testId && `Page_${testId}`}
     >
       {children}
       {!!onScrollEnd && <div className={styles.Trigger} ref={triggerRef} />}

@@ -6,7 +6,7 @@ import { Page } from '@widgets/Page';
 const AdminPanelPage: FC = () => {
   const { t } = useTranslation();
 
-  return <Page>{t('admin-panel-page')}</Page>;
+  return <Page testId="AdminPanel">{t('admin-panel-page')}</Page>;
 };
 
 export default AdminPanelPage;

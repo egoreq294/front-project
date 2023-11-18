@@ -8,5 +8,9 @@ import styles from './styles.module.scss';
 export const NotFoundPage: FC = () => {
   const { t } = useTranslation();
 
-  return <Page className={styles.NotFound}>{t('not-found')}</Page>;
+  return (
+    <Page testId="NotFound" className={styles.NotFound}>
+      {t('not-found')}
+    </Page>
+  );
 };
