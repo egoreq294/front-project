@@ -22,8 +22,7 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint",
-    "**/*.scss": "stylelint",
-    "**/*.test.{ts,tsx}": "test"
+    "**/*.scss": "stylelint"
   },
   "keywords": [],
   "author": "",
