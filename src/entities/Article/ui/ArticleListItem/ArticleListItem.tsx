@@ -41,7 +41,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     ) as ArticleTextBlockType;
 
     return (
-      <div className={cn(styles.ArticleListItem, styles.List, className)}>
+      <div
+        className={cn(styles.ArticleListItem, styles.List, className)}
+        data-testid="ArticleListItem"
+      >
         <Card>
           <div className={styles.Header}>
             <Avatar size={30} src={article.user.avatar} />
@@ -82,6 +85,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       target={target}
       to={`/articles/${article.id}`}
       className={cn(styles.ArticleListItem, styles.Plate, className)}
+      data-testid="ArticleListItem"
     >
       <Card>
         <div className={styles.ImageWrapper}>

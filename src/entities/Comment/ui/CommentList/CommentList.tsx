@@ -27,7 +27,10 @@ export const CommentList: FC<CommentListProps> = ({
   }
 
   return (
-    <div className={cn(styles.CommentList, className)}>
+    <div
+      className={cn(styles.CommentList, className)}
+      data-testid="CommentList"
+    >
       {comments?.length || isLoading ? (
         comments?.map((comment) => (
           <CommentItem key={comment.id} comment={comment} />

@@ -20,7 +20,11 @@ export const ArticleRecommendationsList: FC<
   const { data: articles, isLoading } = useArticleRecommendationsList(8);
 
   return (
-    <VStack gap="16" className={className}>
+    <VStack
+      gap="16"
+      className={className}
+      data-testid="ArticleRecommendationsList"
+    >
       <Typography variant="M">{t('recommendations')}</Typography>
       <ArticleList
         className={styles.Recommendations}

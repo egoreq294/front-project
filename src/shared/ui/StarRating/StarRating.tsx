@@ -55,6 +55,8 @@ export const StarRating: FC<StarRatingProps> = ({
           })}
           key={item}
           onClick={onClick(item)}
+          data-testid={`StarRating_${item}`}
+          data-selected={currentStarCount >= item}
         />
       ))}
     </HStack>

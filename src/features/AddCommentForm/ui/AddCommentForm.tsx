@@ -50,14 +50,18 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={cn(styles.AddCommentForm, className)}>
+      <div
+        className={cn(styles.AddCommentForm, className)}
+        data-testid="CommentForm"
+      >
         <Input
           className={styles.Input}
           placeholder={t('enter-comment-text')}
           value={text}
           onChange={onTextChange}
+          testId="Comment"
         />
-        <Button variant="Primary" onClick={onSendHandler}>
+        <Button variant="Primary" onClick={onSendHandler} testId="Send">
           {t('send')}
         </Button>
       </div>

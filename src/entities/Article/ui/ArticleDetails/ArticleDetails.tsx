@@ -45,6 +45,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
           className={styles.Title}
           label={article?.title}
           value={article?.subtitle}
+          testId="ArticleDetailsTitle"
           size="M"
         />
         <div className={styles.ArticleInfo}>

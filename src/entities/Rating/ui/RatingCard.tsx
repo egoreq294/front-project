@@ -60,12 +60,20 @@ export const RatingCard: FC<RatingCardProps> = ({
   const modalContent = (
     <VStack fullWidth gap="32">
       <Typography variant="M">{feedbackTitle}</Typography>
-      <Input placeholder={t('your-feedback')} onChange={setFeedback} />
+      <Input
+        placeholder={t('your-feedback')}
+        onChange={setFeedback}
+        testId="Feedback"
+      />
       <HStack fullWidth gap="16" justify="end">
-        <Button variant="Danger" onClick={onCancelModal}>
+        <Button variant="Danger" onClick={onCancelModal} testId="CancelRating">
           {t('cancel')}
         </Button>
-        <Button variant="Secondary" onClick={onAcceptModal}>
+        <Button
+          variant="Secondary"
+          onClick={onAcceptModal}
+          testId="SendFeedback"
+        >
           {t('send')}
         </Button>
       </HStack>
@@ -73,7 +81,7 @@ export const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card className={className}>
+    <Card className={className} data-testid="RatingCard">
       <VStack align="center" gap="8">
         {title && (
           <Typography variant="M">

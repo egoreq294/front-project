@@ -79,6 +79,16 @@
         "USER"
       ],
       "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+    },
+    {
+      "id": "3",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
     }
   ],
   "profile": [
@@ -98,6 +108,17 @@
       "firstName": "Кирилл",
       "lastName": "Петрович",
       "age": "58",
+      "country": "UnitedStates",
+      "city": "Томск",
+      "username": "user",
+      "currency": "USD",
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+    },
+    {
+      "id": "3",
+      "firstName": "Тестовый",
+      "lastName": "Пользователь",
+      "age": "35",
       "country": "UnitedStates",
       "city": "Томск",
       "username": "user",

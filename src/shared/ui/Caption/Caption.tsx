@@ -1,13 +1,15 @@
 import cn from 'classnames';
 import React, { FC, memo } from 'react';
 
+import { TestingComponent } from '@shared/types/tests';
+
 import styles from './styles.module.scss';
 
 type CaptionVariant = 'Default' | 'Error';
 type CaptionTextAlign = 'Right' | 'Left' | 'Center';
 type CaptionSize = 'XS' | 'S' | 'M';
 
-interface CaptionProps {
+interface CaptionProps extends TestingComponent {
   className?: string;
   label?: string;
   value?: string;
@@ -32,6 +34,7 @@ export const Caption: FC<CaptionProps> = memo(
     variant = 'Default',
     align = 'Left',
     size = 'S',
+    testId,
   }) => {
     const HeaderTag = LABEL_COMPONENT_MAP[size];
 
@@ -44,6 +47,7 @@ export const Caption: FC<CaptionProps> = memo(
           styles[size],
           className,
         )}
+        data-testid={testId && `Caption_${testId}`}
       >
         {label && <HeaderTag className={styles.Label}>{label}</HeaderTag>}
         {value && <p className={styles.Value}>{value}</p>}

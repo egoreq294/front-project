@@ -31,7 +31,10 @@ export const ArticleList: FC<ArticleListProps> = ({
   }
 
   return (
-    <div className={cn(styles.ArticleList, className)}>
+    <div
+      className={cn(styles.ArticleList, className)}
+      data-testid="ArticleList"
+    >
       {articles.map((article) => (
         <ArticleListItem
           key={article.id}

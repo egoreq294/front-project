@@ -20,7 +20,7 @@ export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
         {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
         <Typography variant="M">{comment.user.username}</Typography>
       </AppLink>
-      <Typography>{comment.text} </Typography>
+      <Typography testId={`Comment${comment.id}`}>{comment.text}</Typography>
     </div>
   );
 };
