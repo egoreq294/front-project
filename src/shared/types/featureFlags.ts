@@ -1,3 +1,3 @@
 export interface FeatureFlags {
-  testFeature?: boolean;
+  redesignedCounter?: boolean;
 }

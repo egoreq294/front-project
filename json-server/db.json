@@ -69,7 +69,10 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg",
+      "features": {
+        "redesignedCounter": true
+      }
     },
     {
       "id": "2",
