@@ -2,15 +2,19 @@ import { useSelector } from 'react-redux';
 
 import { StateSchema } from '@app/providers/StoreProvider';
 
-type Selector<T> = (state: StateSchema) => T;
+type Selector<T, Args extends any[]> = (state: StateSchema, ...args: Args) => T;
+type Hook<T, Args extends any[]> = (...args: Args) => T;
 
-type BuildSelectorResult<T> = [() => T, Selector<T>];
+type BuildSelectorResult<T, Args extends any[]> = [
+  Hook<T, Args>,
+  Selector<T, Args>,
+];
 
-export const buildSelector = <T>(
-  selector: Selector<T>,
-): BuildSelectorResult<T> => {
-  const useSelectorHook = (): T => {
-    return useSelector(selector);
+export const buildSelector = <T, Args extends any[]>(
+  selector: Selector<T, Args>,
+): BuildSelectorResult<T, Args> => {
+  const useSelectorHook: Hook<T, Args> = (...args) => {
+    return useSelector((state: StateSchema) => selector(state, ...args));
   };
 
   return [useSelectorHook, selector];
