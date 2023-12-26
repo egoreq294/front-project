@@ -1,3 +1,4 @@
+import { FeatureFlags } from '@shared/types/featureFlags';
 import { UserRoleEnum } from '../constants/constants';
 
 export interface User {
@@ -5,6 +6,7 @@ export interface User {
   username: string;
   avatar?: string;
   roles?: UserRoleEnum[];
+  features?: FeatureFlags;
 }
 
 export interface UserSchema {
