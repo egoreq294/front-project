@@ -52,7 +52,10 @@ export const buildPlugins = ({
     );
     plugins.push(
       new CopyPlugin({
-        patterns: [{ from: paths.locales, to: paths.buildLocales }],
+        patterns: [
+          { from: paths.locales, to: paths.buildLocales },
+          { from: paths.static, to: paths.build },
+        ],
       }),
     );
   }
