@@ -21,12 +21,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   const [isThemeInited, setIsThemeInited] = useState(false);
 
   useEffect(() => {
-    console.log(defaultTheme);
     if (isThemeInited || !defaultTheme) {
       return;
     }
-
-    console.log('hello');
 
     setTheme(defaultTheme);
     setIsThemeInited(true);

@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from 'react';
 
+import { ArticlePageGreeting } from '@features/ArticlePageGreeting';
 import {
   DynamicModuleLoader,
   ReducerList,
@@ -27,6 +28,7 @@ const ArticlesPage: FC = () => {
       <Page testId="Articles" onScrollEnd={onLoadNextPart}>
         <ArticlesPageFilters />
         <ArticleInfiniteList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
