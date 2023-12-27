@@ -11,7 +11,7 @@ export const AppRouter: FC = () => {
     <Routes>
       {routeConfig.map(({ path, element, authOnly, roles }) => {
         const wrappedElement = (
-          <Suspense fallback={<PageLoader />}> {element}</Suspense>
+          <Suspense fallback={<PageLoader />}>{element}</Suspense>
         );
 
         return (

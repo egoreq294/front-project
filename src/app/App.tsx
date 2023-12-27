@@ -2,9 +2,11 @@ import cn from 'classnames';
 import React, { FC, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUserInited, userActions } from '@entities/User';
+import { getUserInited } from '@entities/User';
+import { initAuthData } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@widgets/Navbar';
+import { PageLoader } from '@widgets/PageLoader';
 import { Sidebar } from '@widgets/Sidebar';
 import { AppRouter } from './providers/router';
 
@@ -16,8 +18,12 @@ export const App: FC = () => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!inited) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={cn(styles.App)}>
@@ -25,7 +31,7 @@ export const App: FC = () => {
         <Navbar />
         <div className={styles.Content}>
           <Sidebar />
-          {inited && <AppRouter />}
+          <AppRouter />
         </div>
       </Suspense>
     </div>

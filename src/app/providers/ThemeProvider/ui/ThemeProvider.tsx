@@ -13,19 +13,28 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   initialTheme,
 }) => {
-  const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
+  const { theme: defaultTheme } = useJsonSettings();
 
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme || defaultTheme || Theme.LIGHT,
+  );
   const [isThemeInited, setIsThemeInited] = useState(false);
 
   useEffect(() => {
-    if (isThemeInited) {
+    console.log(defaultTheme);
+    if (isThemeInited || !defaultTheme) {
       return;
     }
+
+    console.log('hello');
 
     setTheme(defaultTheme);
     setIsThemeInited(true);
   }, [defaultTheme, isThemeInited]);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
