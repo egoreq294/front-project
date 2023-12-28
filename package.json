@@ -19,6 +19,7 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "generate:slice": "node ./scripts/createSlice/index.js",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts",
     "prepare": "husky install"
   },
   "lint-staged": {
