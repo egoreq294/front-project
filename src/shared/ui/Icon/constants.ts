@@ -7,6 +7,7 @@ import { Done } from './assets/Done';
 import { Eye } from './assets/Eye';
 import { Home } from './assets/Home';
 import { List } from './assets/List';
+import { Logo } from './assets/Logo';
 import { Moon } from './assets/Moon';
 import { Notification } from './assets/Notification';
 import { Orange } from './assets/Orange';
@@ -32,4 +33,5 @@ export const ICON_MAP = {
   Sun,
   Star,
   Notification,
+  Logo,
 };

@@ -7,6 +7,17 @@
   flex-shrink: 0;
 }
 
+.SidebarRedesigned {
+  background: var(--color-background-light);
+  width: 220px;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+
+.AppLogo {
+  padding-top: var(--gutter-m);
+}
+
 .Switchers {
   position: absolute;
   bottom: 20px;

@@ -9,5 +9,5 @@ export const setFeatureFlags = (newFeatureFlags?: FeatureFlags): void => {
 };
 
 export const getFeatureFlag = (flag: keyof FeatureFlags): boolean => {
-  return !!featureFlags[flag];
+  return !!featureFlags?.[flag];
 };

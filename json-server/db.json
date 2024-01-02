@@ -71,7 +71,8 @@
       ],
       "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg",
       "features": {
-        "redesignedCounter": true
+        "redesignedCounter": true,
+        "redesignedApp": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
@@ -85,7 +86,10 @@
       "roles": [
         "USER"
       ],
-      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg",
+      "jsonSettings": {
+        "theme": "app_orange_theme"
+      }
     },
     {
       "id": "3",

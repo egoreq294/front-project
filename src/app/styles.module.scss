@@ -1,6 +1,15 @@
 .App {
-  background: var(--bg-color);
   min-height: 100vh;
+  color: var(--primary-color);
+  background: var(--bg-color);
+  font: var(--font-s);
+}
+
+.AppRedesigned {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font: var(--new-font-s);
 }
 
 .Content {

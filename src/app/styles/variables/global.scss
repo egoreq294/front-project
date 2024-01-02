@@ -14,12 +14,44 @@
   --font-line-l: 40px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-  // Размеры
+  // redesigned
+  --new-font-family-text: 'Nunito Sans', sans-serif;
+  --new-font-family-title: 'Roboto', sans-serif;
+  --new-font-size-xs: 12px;
+  --new-font-line-xs: 20px;
+  --new-font-xs: var(--new-font-size-xs) / var(--new-font-line-xs)
+    var(--new-font-family-text);
+  --new-font-size-s: 16px;
+  --new-font-line-s: 24px;
+  --new-font-s: var(--new-font-size-s) / var(--new-font-line-s)
+    var(--new-font-family-text);
+  --new-font-size-m: 24px;
+  --new-font-line-m: 32px;
+  --new-font-m: var(--new-font-size-m) / var(--new-font-line-m)
+    var(--new-font-family-title);
+  --new-font-size-l: 32px;
+  --new-font-line-l: 40px;
+  --new-font-l: var(--new-font-size-l) / var(--new-font-line-l)
+    var(--new-font-family-title);
+
+  // Отступы
+  --gutter-xxxs: 4px;
+  --gutter-xxs: 8px;
+  --gutter-xs: 12px;
+  --gutter-s: 16px;
+  --gutter-m: 20px;
+  --gutter-l: 24px;
+  --gutter-xl: 28px;
+  --gutter-xxl: 32px;
+  --gutter-xxxl: 36px;
+
+  /* Размеры */
   --navbar-height: 70px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
+  --border-radius: 6px;
 
-  // z - Индескы
+  /* z - Индескы */
   --modal-z-index: 10000;
   --overlay-z-index: 1000;
   --popup-z-index: 100;

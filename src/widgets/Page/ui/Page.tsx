@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 
 import { StateSchema } from '@app/providers/StoreProvider';
 import { getScrollByPath, scrollActions } from '@features/Scroll';
+import { toggleFeatures } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@shared/lib/hooks/useInfiniteScroll';
 import { useThrottle } from '@shared/lib/hooks/useThrottle';
@@ -59,7 +60,14 @@ export const Page: FC<PageProps> = ({
   return (
     <section
       ref={wrapperRef}
-      className={cn(styles.Page, className)}
+      className={cn(
+        toggleFeatures({
+          name: 'redesignedApp',
+          on: () => styles.PageRedesigned,
+          off: () => styles.Page,
+        }),
+        className,
+      )}
       onScroll={onScroll}
       data-testid={testId && `Page_${testId}`}
     >
