@@ -1,19 +1,18 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 
-import { Icon } from '../../Icon';
-import { HStack } from '../Stack';
+import { HStack } from '../deprecated/Stack';
+import { Icon } from '../Icon';
 
 import styles from './styles.module.scss';
 
 interface AppLogoProps {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-/**
- * @deprecated
- */
-export const AppLogo: FC<AppLogoProps> = ({ className }) => {
+export const AppLogo: FC<AppLogoProps> = ({ className, width, height }) => {
   return (
     <HStack
       fullWidth
@@ -22,7 +21,7 @@ export const AppLogo: FC<AppLogoProps> = ({ className }) => {
     >
       <div className={styles.SmallGradient} />
       <div className={styles.BigGradient} />
-      <Icon name="Logo" />
+      <Icon name="Logo" width={width} height={height} />
     </HStack>
   );
 };

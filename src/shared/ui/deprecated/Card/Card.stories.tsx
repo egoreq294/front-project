@@ -5,7 +5,7 @@ import { Caption } from '../Caption/Caption';
 import { Card } from './Card';
 
 const meta: Meta<typeof Card> = {
-  title: 'shared/Card',
+  title: 'shared/deprecated/Card',
   component: Card,
   argTypes: {},
 };

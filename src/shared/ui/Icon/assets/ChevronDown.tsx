@@ -21,4 +21,4 @@ const SvgComponent = (
 );
 
 const ForwardRef = forwardRef(SvgComponent);
-export const Arrow = memo(ForwardRef);
+export const ChevronDown = memo(ForwardRef);

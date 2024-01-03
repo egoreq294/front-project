@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@shared/ui/deprecated/Button';
+import { Button } from '@shared/ui/Button';
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -20,7 +20,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo(
     };
 
     return (
-      <Button className={className} variant="GhostInverted" onClick={toggle}>
+      <Button className={className} variant="Ghost" onClick={toggle}>
         {isShort ? t('short-language') : t('language')}
       </Button>
     );

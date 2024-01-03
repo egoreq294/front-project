@@ -1,0 +1,17 @@
+.IconButton {
+  display: flex;
+  cursor: pointer;
+  color: var(--color-icon);
+  background: none;
+  outline: none;
+  border: none;
+
+  &:disabled {
+    color: var(--color-hint);
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    color: var(--color-accent);
+  }
+}

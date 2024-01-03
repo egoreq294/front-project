@@ -5,7 +5,7 @@ import { Theme } from '@shared/lib/constants/theme';
 import { Caption } from './Caption';
 
 const meta: Meta<typeof Caption> = {
-  title: 'shared/Caption',
+  title: 'shared/deprecated/Caption',
   component: Caption,
   argTypes: {},
 };

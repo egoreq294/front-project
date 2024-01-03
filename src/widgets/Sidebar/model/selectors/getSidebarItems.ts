@@ -9,23 +9,23 @@ export const getSidebarItems = createSelector(
     {
       path: '/',
       text: 'home-link',
-      iconName: 'Home',
+      iconName: 'HomeNew',
     },
     {
       path: '/about',
       text: 'about-link',
-      iconName: 'About',
+      iconName: 'Info',
     },
     {
       path: `/profile/${userData?.id}`,
       text: 'profile-link',
-      iconName: 'Profile',
+      iconName: 'AvatarNew',
       authOnly: true,
     },
     {
       path: '/articles',
       text: 'article-link',
-      iconName: 'Article',
+      iconName: 'ArticleNew',
       authOnly: true,
     },
   ],

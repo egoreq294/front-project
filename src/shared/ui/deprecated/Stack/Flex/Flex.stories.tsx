@@ -5,7 +5,7 @@ import React from 'react';
 import { Flex } from './Flex';
 
 const meta: Meta<typeof Flex> = {
-  title: 'shared/Flex',
+  title: 'shared/deprecated/Flex',
   component: Flex,
   argTypes: {},
 };

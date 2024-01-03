@@ -8,7 +8,7 @@ import { LoginModal } from '@features/AuthByUsername';
 import { AvatarDropdown } from '@features/AvatarDropdown';
 import { NotificationButton } from '@features/NotificationButton';
 import { ToggleFeatures } from '@shared/lib/features';
-import { AppLink } from '@shared/ui/deprecated/AppLink';
+import { AppLink } from '@shared/ui/AppLink';
 import { Button } from '@shared/ui/deprecated/Button';
 import { HStack } from '@shared/ui/deprecated/Stack';
 import { Typography } from '@shared/ui/deprecated/Typography';
@@ -49,9 +49,7 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 
             {authData && (
               <>
-                <AppLink theme="Inverted" to={'/articles/create'}>
-                  {t('create-article')}
-                </AppLink>
+                <AppLink to={'/articles/create'}>{t('create-article')}</AppLink>
                 <HStack gap="16" className={styles.Actions}>
                   <NotificationButton />
                   <AvatarDropdown />

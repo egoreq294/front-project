@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Typography } from './Typography';
 
 const meta: Meta<typeof Typography> = {
-  title: 'shared/Typography',
+  title: 'shared/deprecated/Typography',
   component: Typography,
   argTypes: {},
 };

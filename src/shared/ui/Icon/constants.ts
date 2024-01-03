@@ -1,10 +1,12 @@
 import { About } from './assets/About';
-import { Arrow } from './assets/Arrow';
 import { Article } from './assets/Artice';
 import { ArticleNew } from './assets/ArticleNew';
 import { Avatar } from './assets/Avatar';
 import { AvatarNew } from './assets/AvatarNew';
 import { Calendar } from './assets/Calendar';
+import { ChevronDown } from './assets/ChevronDown';
+import { ChevronLeft } from './assets/ChevronLeft';
+import { ChevronRight } from './assets/ChevronRight';
 import { Copy } from './assets/Copy';
 import { CopyNew } from './assets/CopyNew';
 import { Done } from './assets/Done';
@@ -49,7 +51,7 @@ export const ICON_MAP = {
   Star,
   Notification,
   Logo,
-  Arrow,
+  ChevronDown,
   ArticleNew,
   AvatarNew,
   CopyNew,
@@ -64,4 +66,6 @@ export const ICON_MAP = {
   Theme,
   StarNew,
   Send,
+  ChevronLeft,
+  ChevronRight,
 };

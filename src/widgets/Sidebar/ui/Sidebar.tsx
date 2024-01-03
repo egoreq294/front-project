@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { LanguageSwitcher } from '@features/LanguageSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
-import { ToggleFeatures } from '@shared/lib/features';
-import { AppLogo } from '@shared/ui/deprecated/AppLogo';
-import { Button } from '@shared/ui/deprecated/Button';
+import { AppLogo } from '@shared/ui/AppLogo';
 import { VStack } from '@shared/ui/deprecated/Stack';
+import { IconButton } from '@shared/ui/IconButton/IconButton';
 import { getSidebarItems } from '../model/selectors/getSidebarItems';
 import { SidebarItem } from './SidebarItem/SidebarItem';
 
@@ -27,53 +26,40 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
   const sidebarItems = useSelector(getSidebarItems);
 
   return (
-    <ToggleFeatures
-      feature="redesignedApp"
-      on={
-        <aside
-          data-testid="sidebar"
-          className={cn(
-            styles.SidebarRedesigned,
-            { [styles.Collapsed]: collapsed },
-            className,
-          )}
-        >
-          <AppLogo className={styles.AppLogo} />
-        </aside>
-      }
-      off={
-        <aside
-          data-testid="sidebar"
-          className={cn(
-            { [styles.Collapsed]: collapsed },
-            styles.Sidebar,
-            className,
-          )}
-        >
-          <Button
-            data-testid="sidebar_toggle"
-            className={styles.CollapseButton}
-            onClick={onToggle}
-            variant="PrimaryInverted"
-          >
-            {collapsed ? '>' : '<'}
-          </Button>
-          <VStack
-            role="navigation"
-            gap="16"
-            align={collapsed ? 'center' : 'start'}
-            className={styles.Items}
-          >
-            {sidebarItems.map((item) => (
-              <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-            ))}
-          </VStack>
-          <div className={styles.Switchers}>
-            <ThemeSwitcher />
-            <LanguageSwitcher isShort={collapsed} />
-          </div>
-        </aside>
-      }
-    />
+    <aside
+      data-testid="sidebar"
+      className={cn(
+        styles.Sidebar,
+        { [styles.Collapsed]: collapsed },
+        className,
+      )}
+    >
+      <AppLogo
+        className={styles.AppLogo}
+        width={collapsed ? 60 : 100}
+        height={collapsed ? 24 : 40}
+      />
+      <VStack
+        role="navigation"
+        align={collapsed ? 'center' : 'start'}
+        className={styles.Items}
+      >
+        {sidebarItems.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
+      </VStack>
+      <IconButton
+        data-testid="sidebar_toggle"
+        className={styles.CollapseButton}
+        onClick={onToggle}
+        name={collapsed ? 'ChevronRight' : 'ChevronLeft'}
+        width={20}
+        height={20}
+      />
+      <div className={styles.Switchers}>
+        <ThemeSwitcher />
+        <LanguageSwitcher isShort={collapsed} />
+      </div>
+    </aside>
   );
 });

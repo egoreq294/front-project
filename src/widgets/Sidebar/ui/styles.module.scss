@@ -1,17 +1,10 @@
 .Sidebar {
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
-  background-color: var(--inverted-bg-color);
-  position: relative;
-  transition: width 0.3s;
-  flex-shrink: 0;
-}
-
-.SidebarRedesigned {
   background: var(--color-background-light);
   width: 220px;
   height: 100%;
   border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
 }
 
 .AppLogo {
@@ -20,29 +13,38 @@
 
 .Switchers {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   display: flex;
   width: 100%;
-  gap: 20px;
+  gap: var(--gutter-xxs);
   justify-content: center;
   align-items: center;
 }
 
 .Items {
-  padding: 20px;
-}
-
-.Collapsed {
-  width: var(--sidebar-width-collapsed);
-
-  .Switchers {
-    flex-direction: column;
-  }
+  margin-top: var(--gutter-m);
 }
 
 .CollapseButton {
   position: absolute;
-  right: -32px;
-  bottom: 32px;
+  top: 50%;
   z-index: 10;
+  right: var(--gutter-xs);
+}
+
+.Collapsed {
+  width: 70px;
+
+  .Switchers {
+    flex-direction: column;
+  }
+
+  .Items {
+    margin-top: var(--gutter-m);
+    padding: 0;
+  }
+
+  .CollapseButton {
+    right: var(--gutter-l);
+  }
 }
