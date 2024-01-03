@@ -10,8 +10,8 @@ import { NotificationButton } from '@features/NotificationButton';
 import { ToggleFeatures } from '@shared/lib/features';
 import { AppLink } from '@shared/ui/AppLink';
 import { Button } from '@shared/ui/deprecated/Button';
-import { HStack } from '@shared/ui/deprecated/Stack';
 import { Typography } from '@shared/ui/deprecated/Typography';
+import { HStack } from '@shared/ui/Stack';
 
 import styles from './styles.module.scss';
 

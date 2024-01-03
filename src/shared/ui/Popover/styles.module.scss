@@ -1,0 +1,40 @@
+.Popover {
+  position: relative;
+}
+
+.TriggerButton {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Panel {
+  background-color: var(--color-background-dark);
+  position: absolute;
+  z-index: var(--popup-z-index);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: var(--gutter-s);
+}
+
+.BottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.BottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.TopLeft {
+  bottom: 100%;
+  right: 0;
+}
+
+.TopRight {
+  bottom: 100%;
+  left: 0;
+}

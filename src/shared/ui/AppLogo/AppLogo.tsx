@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 
-import { HStack } from '../deprecated/Stack';
 import { Icon } from '../Icon';
+import { HStack } from '../Stack';
 
 import styles from './styles.module.scss';
 

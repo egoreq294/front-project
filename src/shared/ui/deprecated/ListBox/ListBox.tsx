@@ -3,8 +3,8 @@ import cn from 'classnames';
 import React, { Fragment, ReactElement, ReactNode } from 'react';
 
 import { DropdownDirection } from '@shared/types/ui';
+import { HStack } from '../../Stack';
 import { Button } from '../Button/Button';
-import { HStack } from '../Stack';
 
 import styles from './styles.module.scss';
 

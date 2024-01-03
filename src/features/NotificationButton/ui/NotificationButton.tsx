@@ -2,10 +2,9 @@ import React, { FC, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@entities/Notification';
-import { Button } from '@shared/ui/deprecated/Button';
 import { Drawer } from '@shared/ui/deprecated/Drawer';
-import { Popover } from '@shared/ui/deprecated/Popover';
-import { Icon } from '@shared/ui/Icon';
+import { IconButton } from '@shared/ui/IconButton';
+import { Popover } from '@shared/ui/Popover';
 
 import styles from './styles.module.scss';
 
@@ -26,11 +25,7 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
     setIsOpen(false);
   }, [setIsOpen]);
 
-  const trigger = (
-    <Button onClick={onOpenDrawer} variant="GhostInverted">
-      <Icon name="Notification" />
-    </Button>
-  );
+  const trigger = <IconButton name="NotificationNew" onClick={onOpenDrawer} />;
 
   return (
     <div>

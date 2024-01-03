@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 
-import { Caption } from '@shared/ui/deprecated/Caption';
-import { Card } from '@shared/ui/deprecated/Card';
+import { Caption } from '@shared/ui/Caption';
+import { Card } from '@shared/ui/Card';
 import { Notification as NotificationType } from '../model/types/notification';
 
 import styles from './styles.module.scss';

@@ -6,19 +6,18 @@ import React, {
   useState,
 } from 'react';
 
+import { EMPTY_STRING } from '@shared/constants/common';
+
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
   errorFallback?: ReactElement;
 }
 
-/**
- * @deprecated
- */
 export const AppImage: FC<AppImageProps> = ({
   className,
   src,
-  alt = '',
+  alt = EMPTY_STRING,
   fallback,
   errorFallback,
   ...props
@@ -28,7 +27,7 @@ export const AppImage: FC<AppImageProps> = ({
 
   useLayoutEffect(() => {
     const img = new Image();
-    img.src = src ?? '';
+    img.src = src ?? EMPTY_STRING;
 
     img.onload = (): void => {
       setIsLoading(false);

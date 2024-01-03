@@ -7,8 +7,8 @@ import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { Avatar } from '@shared/ui/deprecated/Avatar';
 import { Input } from '@shared/ui/deprecated/Input';
 import { Loader } from '@shared/ui/deprecated/Loader';
-import { HStack, VStack } from '@shared/ui/deprecated/Stack';
 import { Typography } from '@shared/ui/deprecated/Typography';
+import { HStack, VStack } from '@shared/ui/Stack';
 import { Profile } from '../model/types/profile';
 
 import styles from './styles.module.scss';

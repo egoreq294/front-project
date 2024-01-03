@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { LanguageSwitcher } from '@features/LanguageSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
 import { AppLogo } from '@shared/ui/AppLogo';
-import { VStack } from '@shared/ui/deprecated/Stack';
-import { IconButton } from '@shared/ui/IconButton/IconButton';
+import { IconButton } from '@shared/ui/IconButton';
+import { VStack } from '@shared/ui/Stack';
 import { getSidebarItems } from '../model/selectors/getSidebarItems';
 import { SidebarItem } from './SidebarItem/SidebarItem';
 

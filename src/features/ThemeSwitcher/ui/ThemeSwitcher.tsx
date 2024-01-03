@@ -3,7 +3,7 @@ import React, { FC, memo, useCallback } from 'react';
 import { saveJsonSettings } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@shared/lib/hooks/useTheme';
-import { IconButton } from '@shared/ui/IconButton/IconButton';
+import { IconButton } from '@shared/ui/IconButton';
 
 interface ThemeSwitcherProps {
   className?: string;

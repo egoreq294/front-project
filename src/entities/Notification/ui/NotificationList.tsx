@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card } from '@shared/ui/deprecated/Card';
+import { Card } from '@shared/ui/Card';
 import { Skeleton } from '@shared/ui/deprecated/Skeleton';
-import { VStack } from '@shared/ui/deprecated/Stack';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { useNotifications } from '../api/notificationApi';
 import { Notification } from './Notification';
-
-import styles from './styles.module.scss';
 
 interface NotificationListProps {
   className?: string;
@@ -30,7 +28,7 @@ export const NotificationList: FC<NotificationListProps> = ({ className }) => {
 
   if (!data?.length) {
     return (
-      <Card variant="Secondary" className={styles.EmptyNotifications}>
+      <Card variant="Secondary" fullWidth>
         <Typography variant="M">{t('empty-notofications')}</Typography>
       </Card>
     );

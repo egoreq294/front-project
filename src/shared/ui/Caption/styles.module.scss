@@ -1,0 +1,70 @@
+.Label {
+  color: var(--color-text);
+}
+
+.Value {
+  font: var(--new-font-s);
+  color: var(--color-text);
+}
+
+.Error {
+  .Label {
+    color: var(--color-cancel);
+  }
+
+  .Value {
+    color: var(--color-cancel);
+  }
+}
+
+.Accent {
+  .Label {
+    color: var(--color-accent);
+  }
+
+  .Value {
+    color: var(--color-accent);
+  }
+}
+
+.Left {
+  text-align: left;
+}
+
+.Right {
+  text-align: right;
+}
+
+.Center {
+  text-align: center;
+}
+
+.XS {
+  .Label {
+    font: var(--new-font-s);
+  }
+
+  .Value {
+    font: var(--new-font-xs);
+  }
+}
+
+.S {
+  .Label {
+    font: var(--new-font-m);
+  }
+
+  .Value {
+    font: var(--new-font-s);
+  }
+}
+
+.M {
+  .Label {
+    font: var(--new-font-l);
+  }
+
+  .Value {
+    font: var(--new-font-m);
+  }
+}

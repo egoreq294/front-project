@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@shared/ui/deprecated/Avatar';
-import { Dropdown } from '@shared/ui/deprecated/Dropdown';
+import { Avatar } from '@shared/ui/Avatar';
+import { Dropdown } from '@shared/ui/Dropdown';
 
 import styles from './styles.module.scss';
 
@@ -49,12 +49,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
         { id: '3', content: t('logout'), onClick: onLogout },
       ]}
       trigger={
-        <Avatar
-          fallbackInverted
-          className={styles.Avatar}
-          size={50}
-          src={authData.avatar}
-        />
+        <Avatar className={styles.Avatar} size={48} src={authData.avatar} />
       }
     />
   );

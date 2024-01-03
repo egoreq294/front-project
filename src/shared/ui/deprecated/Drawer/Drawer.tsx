@@ -5,8 +5,8 @@ import {
   AnimationProvider,
   useAnimationModules,
 } from '@shared/lib/components/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../../Overlay';
+import { Portal } from '../../Portal';
 
 import styles from './styles.module.scss';
 

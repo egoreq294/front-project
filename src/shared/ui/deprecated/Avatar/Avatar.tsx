@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { CSSProperties, FC, useMemo } from 'react';
 
+import { AppImage } from '../../AppImage';
 import { Icon } from '../../Icon';
-import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
 
 import styles from './styles.module.scss';

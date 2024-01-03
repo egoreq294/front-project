@@ -48,9 +48,6 @@ const GAP_MAP: Record<FlexGap, string> = {
   32: styles.Gap32,
 };
 
-/**
- * @deprecated
- */
 export const Flex: FC<FlexProps> = ({
   className,
   children,
