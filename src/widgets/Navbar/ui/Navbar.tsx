@@ -8,10 +8,10 @@ import { LoginModal } from '@features/AuthByUsername';
 import { AvatarDropdown } from '@features/AvatarDropdown';
 import { NotificationButton } from '@features/NotificationButton';
 import { ToggleFeatures } from '@shared/lib/features';
-import { AppLink } from '@shared/ui/AppLink';
-import { Button } from '@shared/ui/Button';
-import { HStack } from '@shared/ui/Stack';
-import { Typography } from '@shared/ui/Typography';
+import { AppLink } from '@shared/ui/deprecated/AppLink';
+import { Button } from '@shared/ui/deprecated/Button';
+import { HStack } from '@shared/ui/deprecated/Stack';
+import { Typography } from '@shared/ui/deprecated/Typography';
 
 import styles from './styles.module.scss';
 

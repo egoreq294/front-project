@@ -5,7 +5,7 @@ import { saveJsonSettings } from '@entities/User';
 import { Theme } from '@shared/lib/constants/theme';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@shared/lib/hooks/useTheme';
-import { Button } from '@shared/ui/Button';
+import { Button } from '@shared/ui/deprecated/Button';
 import { Icon } from '@shared/ui/Icon';
 
 import styles from './styles.module.scss';

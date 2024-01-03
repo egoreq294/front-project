@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleSortField } from '@entities/Article';
 import { SortOrder } from '@shared/types';
-import { Option, Select } from '@shared/ui/Select';
+import { Option, Select } from '@shared/ui/deprecated/Select';
 
 import styles from './styles.module.scss';
 

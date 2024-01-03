@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@shared/ui/Button';
+import { Button } from '@shared/ui/deprecated/Button';
 
 import styles from './styles.module.scss';
 

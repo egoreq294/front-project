@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
-import { AppLink } from '@shared/ui/AppLink';
+import { AppLink } from '@shared/ui/deprecated/AppLink';
 import { Icon } from '@shared/ui/Icon';
 import { SidebarItemType } from '../../model/types/sidebar';
 

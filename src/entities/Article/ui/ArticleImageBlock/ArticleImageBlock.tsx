@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { Typography } from '@shared/ui/Typography';
+import { Typography } from '@shared/ui/deprecated/Typography';
 import { ArticleImageBlock as ArticleImageBlockType } from '../../model/types/article';
 
 import styles from './styles.module.scss';

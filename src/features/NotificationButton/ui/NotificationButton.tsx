@@ -2,10 +2,10 @@ import React, { FC, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@entities/Notification';
-import { Button } from '@shared/ui/Button';
-import { Drawer } from '@shared/ui/Drawer';
+import { Button } from '@shared/ui/deprecated/Button';
+import { Drawer } from '@shared/ui/deprecated/Drawer';
+import { Popover } from '@shared/ui/deprecated/Popover';
 import { Icon } from '@shared/ui/Icon';
-import { Popover } from '@shared/ui/Popover';
 
 import styles from './styles.module.scss';
 

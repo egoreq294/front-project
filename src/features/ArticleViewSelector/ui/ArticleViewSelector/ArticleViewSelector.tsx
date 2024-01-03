@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { ArticleViewMode } from '@entities/Article';
-import { Button } from '@shared/ui/Button';
+import { Button } from '@shared/ui/deprecated/Button';
 import { Icon } from '@shared/ui/Icon';
 
 interface ArticleViewSelectorProps {

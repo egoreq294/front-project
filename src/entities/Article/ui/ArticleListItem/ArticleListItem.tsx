@@ -2,14 +2,14 @@ import cn from 'classnames';
 import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AppImage } from '@shared/ui/AppImage';
-import { AppLink } from '@shared/ui/AppLink';
-import { Avatar } from '@shared/ui/Avatar';
-import { Button } from '@shared/ui/Button';
-import { Card } from '@shared/ui/Card';
+import { AppImage } from '@shared/ui/deprecated/AppImage';
+import { AppLink } from '@shared/ui/deprecated/AppLink';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Button } from '@shared/ui/deprecated/Button';
+import { Card } from '@shared/ui/deprecated/Card';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { Typography } from '@shared/ui/deprecated/Typography';
 import { Icon } from '@shared/ui/Icon';
-import { Skeleton } from '@shared/ui/Skeleton';
-import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import {
   Article,

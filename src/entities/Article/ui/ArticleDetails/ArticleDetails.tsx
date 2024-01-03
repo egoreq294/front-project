@@ -1,10 +1,10 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Avatar } from '@shared/ui/Avatar';
-import { Caption } from '@shared/ui/Caption';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Caption } from '@shared/ui/deprecated/Caption';
+import { Typography } from '@shared/ui/deprecated/Typography';
 import { Icon } from '@shared/ui/Icon';
-import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import { Article } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Skeleton } from '@shared/ui/Skeleton';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
 
 import styles from './styles.module.scss';
 
