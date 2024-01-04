@@ -8,6 +8,9 @@ import React, {
   useState,
 } from 'react';
 
+import { HStack } from '../Stack';
+import { Typography } from '../Typography';
+
 import styles from './styles.module.scss';
 
 type HTMLInputProps = Omit<
@@ -18,6 +21,7 @@ type HTMLInputProps = Omit<
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
+  label?: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;
   addonLeft?: ReactNode;
@@ -29,6 +33,7 @@ export const Input: FC<InputProps> = memo(
   ({
     className,
     value,
+    label,
     onChange,
     type = 'text',
     disabled,
@@ -54,30 +59,37 @@ export const Input: FC<InputProps> = memo(
     };
 
     return (
-      <div
-        className={cn(
-          styles.InputWrapper,
-          isFocused && styles.Focused,
-          !!addonLeft && styles.WithAddonLeft,
-          !!addonRight && styles.WithAddonRight,
-          className,
+      <HStack fullWidth gap="8">
+        {!!label && (
+          <Typography variant="S" className={styles.Label}>
+            {label}
+          </Typography>
         )}
-      >
-        <div className={styles.AddonLeft}>{addonLeft}</div>
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          className={cn(styles.Input)}
-          disabled={disabled}
-          data-testid={testId ? `Input_${testId}` : undefined}
-          {...props}
-        />
-        <div className={styles.AddonRight}>{addonRight}</div>
-      </div>
+        <div
+          className={cn(
+            styles.InputWrapper,
+            isFocused && styles.Focused,
+            !!addonLeft && styles.WithAddonLeft,
+            !!addonRight && styles.WithAddonRight,
+            className,
+          )}
+        >
+          <div className={styles.AddonLeft}>{addonLeft}</div>
+          <input
+            ref={ref}
+            type={type}
+            value={value}
+            onChange={onChangeHandler}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            className={cn(styles.Input)}
+            disabled={disabled}
+            data-testid={testId ? `Input_${testId}` : undefined}
+            {...props}
+          />
+          <div className={styles.AddonRight}>{addonRight}</div>
+        </div>
+      </HStack>
     );
   },
 );

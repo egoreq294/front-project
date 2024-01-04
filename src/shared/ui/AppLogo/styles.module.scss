@@ -2,6 +2,11 @@
   position: relative;
 }
 
+.Logo {
+  position: relative;
+  z-index: 10;
+}
+
 .BigGradient {
   position: absolute;
   background: radial-gradient(

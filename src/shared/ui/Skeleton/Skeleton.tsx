@@ -14,7 +14,7 @@ export const Skeleton: FC<SkeletonProps> = ({
   className,
   height,
   width,
-  borderRadius,
+  borderRadius = 6,
 }) => {
   const style: CSSProperties = {
     height,

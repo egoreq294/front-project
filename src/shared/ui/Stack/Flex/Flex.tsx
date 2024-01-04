@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 export type FlexJusify = 'start' | 'center' | 'end' | 'spaceBetween';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDiraction = 'column' | 'row';
-export type FlexGap = '4' | '8' | '16' | '32';
+export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -45,6 +45,7 @@ const GAP_MAP: Record<FlexGap, string> = {
   4: styles.Gap4,
   8: styles.Gap8,
   16: styles.Gap16,
+  24: styles.Gap24,
   32: styles.Gap32,
 };
 

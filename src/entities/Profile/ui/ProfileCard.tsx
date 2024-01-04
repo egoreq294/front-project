@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import { CountryEnum, CountrySelect } from '@entities/Country';
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
-import { Avatar } from '@shared/ui/deprecated/Avatar';
-import { Input } from '@shared/ui/deprecated/Input';
-import { Loader } from '@shared/ui/deprecated/Loader';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { Avatar } from '@shared/ui/Avatar';
+import { Card } from '@shared/ui/Card';
+import { Input } from '@shared/ui/Input';
+import { Skeleton } from '@shared/ui/Skeleton';
 import { HStack, VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { Profile } from '../model/types/profile';
 
 import styles from './styles.module.scss';
@@ -48,96 +49,102 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   if (loading) {
     return (
-      <HStack
+      <Card
         fullWidth
-        justify="center"
         className={cn(styles.ProfileCard, styles.Loader, className)}
+        padding="24"
       >
-        <Loader testId="Dgt38bx1" />
-      </HStack>
+        <Skeleton height={300} />
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <HStack
+      <Card
         fullWidth
-        justify="center"
         className={cn(styles.ProfileCard, styles.Error, className)}
+        padding="24"
       >
         <Typography variant="M">{t('technical-error')}</Typography>
-      </HStack>
+      </Card>
     );
   }
 
   return (
-    <VStack
+    <Card
       data-testid="ProfileCardContent"
       fullWidth
-      gap="8"
       className={cn(
         styles.ProfileCard,
         { [styles.Editing]: !readonly },
         className,
       )}
+      padding="24"
     >
       {formData?.avatar && (
         <HStack fullWidth justify="center">
-          <Avatar src={formData?.avatar} alt="Avatar" size={150} />
+          <Avatar src={formData?.avatar} alt="Avatar" size={128} />
         </HStack>
       )}
-      <Input
-        value={formData?.firstName}
-        placeholder={t('first-name')}
-        onChange={onChangeFirstName}
-        readOnly={readonly}
-        testId="FirstName"
-      />
-      <Input
-        value={formData?.lastName}
-        placeholder={t('last-name')}
-        onChange={onChangeLastName}
-        readOnly={readonly}
-        testId="LastName"
-      />
-      <Input
-        value={formData?.age}
-        placeholder={t('age')}
-        onChange={onChangeAge}
-        readOnly={readonly}
-        testId="Age"
-      />
-      <Input
-        value={formData?.city}
-        placeholder={t('city')}
-        onChange={onChangeCity}
-        readOnly={readonly}
-        testId="City"
-      />
-      <Input
-        value={formData?.username}
-        placeholder={t('username')}
-        onChange={onChangeUsername}
-        readOnly={readonly}
-        testId="Username"
-      />
-      <Input
-        value={formData?.avatar}
-        placeholder={t('avatar')}
-        onChange={onChangeAvatar}
-        readOnly={readonly}
-        testId="Avatar"
-      />
-      <CurrencySelect
-        value={formData?.currency}
-        onChange={onChangeCurrency}
-        readOnly={readonly}
-      />
-      <CountrySelect
-        value={formData?.country}
-        onChange={onChangeCountry}
-        readOnly={readonly}
-      />
-    </VStack>
+      <HStack gap="24" fullWidth align="start">
+        <VStack gap="16" fullWidth>
+          <Input
+            value={formData?.firstName}
+            label={`${t('first-name')}:`}
+            onChange={onChangeFirstName}
+            disabled={readonly}
+            testId="FirstName"
+          />
+          <Input
+            value={formData?.lastName}
+            label={`${t('last-name')}:`}
+            onChange={onChangeLastName}
+            disabled={readonly}
+            testId="LastName"
+          />
+          <Input
+            value={formData?.age}
+            label={`${t('age')}:`}
+            onChange={onChangeAge}
+            disabled={readonly}
+            testId="Age"
+          />
+          <Input
+            value={formData?.city}
+            label={`${t('city')}:`}
+            onChange={onChangeCity}
+            disabled={readonly}
+            testId="City"
+          />
+        </VStack>
+        <VStack gap="16" fullWidth>
+          <Input
+            value={formData?.username}
+            label={`${t('username')}:`}
+            onChange={onChangeUsername}
+            disabled={readonly}
+            testId="Username"
+          />
+          <Input
+            value={formData?.avatar}
+            label={`${t('avatar-link')}:`}
+            onChange={onChangeAvatar}
+            disabled={readonly}
+            testId="Avatar"
+          />
+          <CurrencySelect
+            value={formData?.currency}
+            onChange={onChangeCurrency}
+            readOnly={readonly}
+          />
+          <CountrySelect
+            value={formData?.country}
+            onChange={onChangeCountry}
+            readOnly={readonly}
+          />
+        </VStack>
+      </HStack>
+    </Card>
   );
 };

@@ -16,5 +16,6 @@
   "server-error": "Ошибка сервера",
   "username-error": "Заполните имя пользователя",
   "fio-error": "Заполните имя и фамилию",
-  "profile-not-found": "Профиль не найден"
+  "profile-not-found": "Профиль не найден",
+  "avatar-link": "Ссылка на аватар"
 }

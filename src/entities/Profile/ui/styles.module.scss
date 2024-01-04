@@ -1,6 +1,9 @@
 .ProfileCard {
-  padding: 20px;
-  border: 2px solid var(--inverted-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gutter-xxl);
 }
 
 .Loader,
@@ -10,8 +13,4 @@
 
 .Error {
   color: var(--red-light);
-}
-
-.Editing {
-  border: 2px solid var(--inverted-primary-color);
 }

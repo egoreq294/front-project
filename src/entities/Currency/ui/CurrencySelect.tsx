@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ListBox } from '@shared/ui/deprecated/ListBox';
+import { ListBox } from '@shared/ui/ListBox';
 import { CurrencyEnum } from '../model/types/currency';
 
 interface CurrencySelectProps {
@@ -28,7 +28,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(
     return (
       <ListBox
         className={className}
-        label={t('currency')}
+        label={`${t('currency')}:`}
         value={value}
         onChange={onChangeHandler}
         items={CURRENCY_OPTIONS}

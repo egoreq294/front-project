@@ -19,9 +19,9 @@ export const AppLogo: FC<AppLogoProps> = ({ className, width, height }) => {
       justify="center"
       className={cn(styles.AppLogo, className)}
     >
+      <Icon name="Logo" width={width} height={height} className={styles.Logo} />
       <div className={styles.SmallGradient} />
       <div className={styles.BigGradient} />
-      <Icon name="Logo" width={width} height={height} />
     </HStack>
   );
 };

@@ -16,5 +16,6 @@
   "server-error": "Server error",
   "username-error": "Fill username",
   "fio-error": "Fill firstname and lastname",
-  "profile-not-found": "Profile not found"
+  "profile-not-found": "Profile not found",
+  "avatar-link": "Avatar link"
 }

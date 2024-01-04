@@ -47,7 +47,7 @@ export const ListBox = <T extends string>({
 
   return (
     <HStack gap="8">
-      {label && <span className={styles.Label}>{`${label}>`}</span>}
+      {label && <span className={styles.Label}>{label}</span>}
       <ListBoxImpl
         as="div"
         className={cn(
@@ -61,7 +61,7 @@ export const ListBox = <T extends string>({
       >
         <ListBoxImpl.Button className={styles.TriggerButton} as="div">
           {({ open }): JSX.Element => (
-            <Button variant="Filled">
+            <Button variant="Filled" disabled={readOnly}>
               <span>{selectedContent || defaultValue}</span>
               <Icon name={open ? 'ChevronUp' : 'ChevronDown'} />
             </Button>

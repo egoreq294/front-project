@@ -22,6 +22,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    color: var(--color-hint);
   }
 }
 
@@ -46,4 +47,8 @@
   .AddonRight {
     color: var(--color-accent);
   }
+}
+
+.Label {
+  white-space: pre;
 }
