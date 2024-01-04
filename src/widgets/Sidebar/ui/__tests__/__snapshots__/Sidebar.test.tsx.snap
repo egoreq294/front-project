@@ -9,13 +9,8 @@ exports[`Sidebar test suite should render correctly 1`] = `
     <div
       class="Flex JustifyCenter AlignCenter DirectionRow FullWidth AppLogo AppLogo"
     >
-      <div
-        class="SmallGradient"
-      />
-      <div
-        class="BigGradient"
-      />
       <svg
+        class="Logo"
         fill="currentColor"
         height="40"
         viewBox="0 0 100 40"
@@ -27,6 +22,12 @@ exports[`Sidebar test suite should render correctly 1`] = `
           fill="currentColor"
         />
       </svg>
+      <div
+        class="SmallGradient"
+      />
+      <div
+        class="BigGradient"
+      />
     </div>
     <div
       class="Flex JustifyStart AlignStart DirectionColumn Items"
