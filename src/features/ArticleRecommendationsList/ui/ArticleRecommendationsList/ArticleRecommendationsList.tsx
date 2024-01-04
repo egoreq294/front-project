@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@entities/Article';
-import { Typography } from '@shared/ui/deprecated/Typography';
 import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 import styles from './styles.module.scss';

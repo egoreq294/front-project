@@ -1,103 +1,53 @@
 .List {
-  width: 100%;
-
-  .Header {
-    display: flex;
-    align-items: center;
-  }
-
-  .Username {
-    margin-left: 8px;
-  }
-
-  .Date {
-    margin-left: auto;
-  }
-
-  .Title {
-    margin-top: 8px;
-  }
+  flex-shrink: 0;
 
   .Image {
     width: 100%;
-    max-height: 250px;
+    max-height: 420px;
     object-fit: cover;
-    margin: 16px 0;
-  }
-
-  .Footer {
-    display: flex;
-    align-items: center;
-  }
-
-  .Views {
-    margin-left: auto;
-    margin-right: 8px;
   }
 
   .TextBlock {
-    max-height: 200px;
+    max-height: 72px;
     overflow-y: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 16px;
   }
 }
 
 .Plate {
-  width: 232px;
   transition: 0.2s;
   cursor: pointer;
+  width: 244px;
+  flex-shrink: 0;
 
-  .ImageWrapper {
-    width: 200px;
-    height: 200px;
-    position: relative;
+  .Card {
+    overflow: hidden;
   }
 
   .Image {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 140px;
     object-fit: cover;
-  }
-
-  .Date {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 
   &:hover {
     opacity: 0.8;
     transform: scale(1.01);
-
-    .Date {
-      display: block;
-    }
-  }
-
-  .InfoWrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-  }
-
-  .Types > p {
-    width: 120px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .Views {
-    margin-left: auto;
-    margin-right: 8px;
   }
 
   .Title {
-    margin-top: 8px;
-    white-space: nowrap;
-    overflow: hidden;
+    height: 96px;
+    overflow-y: hidden;
     text-overflow: ellipsis;
   }
+
+  .Content {
+    width: 100%;
+    padding: var(--gutter-xxs) var(--gutter-xxs) var(--gutter-s)
+      var(--gutter-xxs);
+  }
+}
+
+.Icon {
+  color: var(--color-icon);
 }

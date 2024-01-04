@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { Typography } from '@shared/ui/Typography';
 import { Article, ArticleViewMode } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListSkeleton } from './ArticleListSkeleton';

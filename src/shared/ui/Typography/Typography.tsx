@@ -9,14 +9,20 @@ interface TypographyProps {
   className?: string;
   children: ReactNode;
   variant?: TypographyVariant;
+  bold?: boolean;
   testId?: string;
 }
 
 export const Typography: FC<TypographyProps> = memo(
-  ({ className, variant = 'S', children, testId }) => {
+  ({ className, variant = 'S', children, testId, bold }) => {
     return (
       <p
-        className={cn(styles.Typography, styles[variant], className)}
+        className={cn(
+          styles.Typography,
+          styles[variant],
+          bold && styles.Bold,
+          className,
+        )}
         data-testid={testId ? `Typography_${testId}` : undefined}
       >
         {children}

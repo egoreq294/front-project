@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@shared/ui/Skeleton';
 import { ArticleViewMode } from '../../model/types/article';
 
 import styles from './styles.module.scss';
@@ -22,7 +22,6 @@ export const ArticleListSkeleton: FC<ArticleListItemProps> = ({ viewMode }) => {
 
   return (
     <>
-      <Skeleton className={styles.PlateSkeleton} />
       <Skeleton className={styles.PlateSkeleton} />
       <Skeleton className={styles.PlateSkeleton} />
       <Skeleton className={styles.PlateSkeleton} />
