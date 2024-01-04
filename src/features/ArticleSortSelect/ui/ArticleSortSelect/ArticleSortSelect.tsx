@@ -1,12 +1,11 @@
-import cn from 'classnames';
 import React, { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleSortField } from '@entities/Article';
 import { SortOrder } from '@shared/types';
-import { Option, Select } from '@shared/ui/deprecated/Select';
-
-import styles from './styles.module.scss';
+import { ListBox, ListBoxItem } from '@shared/ui/ListBox';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 
 interface ArticleSortSelectProps {
   className?: string;
@@ -25,37 +24,36 @@ export const ArticleSortSelect: FC<ArticleSortSelectProps> = ({
 }) => {
   const { t } = useTranslation('article');
 
-  const orderOptions = useMemo<Option<SortOrder>[]>(
+  const orderOptions = useMemo<ListBoxItem<SortOrder>[]>(
     () => [
-      { value: 'asc', label: t('asc') },
-      { value: 'desc', label: t('desc') },
+      { value: 'asc', content: t('asc') },
+      { value: 'desc', content: t('desc') },
     ],
     [t],
   );
 
-  const sortFieldOptions = useMemo<Option<ArticleSortField>[]>(
+  const sortFieldOptions = useMemo<ListBoxItem<ArticleSortField>[]>(
     () => [
-      { value: ArticleSortField.CREATED, label: t('created-at') },
-      { value: ArticleSortField.TITLE, label: t('title') },
-      { value: ArticleSortField.VIEWS, label: t('views') },
+      { value: ArticleSortField.CREATED, content: t('created-at') },
+      { value: ArticleSortField.TITLE, content: t('title') },
+      { value: ArticleSortField.VIEWS, content: t('views') },
     ],
     [t],
   );
 
   return (
-    <div className={cn(styles.SelectWrapper, className)}>
-      <Select
-        label={t('sort-by')}
-        options={sortFieldOptions}
+    <VStack className={className} gap="8">
+      <Typography variant="S">{t('sort-by')}</Typography>
+      <ListBox<ArticleSortField>
+        items={sortFieldOptions}
         value={sort}
         onChange={onChangeSort}
       />
-      <Select
-        label={t('sort-by')}
-        options={orderOptions}
+      <ListBox<SortOrder>
+        items={orderOptions}
         value={order}
         onChange={onChangeOrder}
       />
-    </div>
+    </VStack>
   );
 };

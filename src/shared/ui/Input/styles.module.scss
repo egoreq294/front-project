@@ -1,0 +1,49 @@
+.InputWrapper {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  padding: var(--gutter-xxs) var(--gutter-s);
+  border: 1px solid var(--color-icon);
+  width: 100%;
+  height: 38px;
+}
+
+.Input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  color: var(--color-text);
+
+  &::placeholder {
+    color: var(--color-hint);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.AddonLeft,
+.AddonRight {
+  display: flex;
+  color: var(--color-icon);
+}
+
+.WithAddonLeft {
+  padding-left: var(--gutter-xxs);
+}
+
+.WithAddonRight {
+  padding-right: var(--gutter-xxs);
+}
+
+.Focused {
+  border: 1px solid var(--color-accent);
+
+  .AddonLeft,
+  .AddonRight {
+    color: var(--color-accent);
+  }
+}

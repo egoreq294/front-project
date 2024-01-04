@@ -3,10 +3,10 @@ import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
 
 import styles from './styles.module.scss';
 
-type FlexJusify = 'start' | 'center' | 'end' | 'spaceBetween';
-type FlexAlign = 'start' | 'center' | 'end';
-type FlexDiraction = 'column' | 'row';
-type FlexGap = '4' | '8' | '16' | '32';
+export type FlexJusify = 'start' | 'center' | 'end' | 'spaceBetween';
+export type FlexAlign = 'start' | 'center' | 'end';
+export type FlexDiraction = 'column' | 'row';
+export type FlexGap = '4' | '8' | '16' | '32';
 
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,

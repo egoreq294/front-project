@@ -41,7 +41,7 @@ export const Page: FC<PageProps> = ({
     getScrollByPath(state, pathname),
   );
 
-  useInfiniteScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
+  useInfiniteScroll({ triggerRef, callback: onScrollEnd });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>): void => {
     dispatch(

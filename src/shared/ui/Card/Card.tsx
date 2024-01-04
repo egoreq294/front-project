@@ -3,7 +3,7 @@ import React, { FC, HTMLAttributes, ReactNode } from 'react';
 
 import styles from './styles.module.scss';
 
-type CardVariant = 'Primary' | 'Secondary';
+type CardVariant = 'Primary' | 'Secondary' | 'Light';
 type CardPadding = '0' | '8' | '16' | '24';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {

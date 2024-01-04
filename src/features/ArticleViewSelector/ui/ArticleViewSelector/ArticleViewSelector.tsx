@@ -1,8 +1,11 @@
+import cn from 'classnames';
 import React, { FC } from 'react';
 
 import { ArticleViewMode } from '@entities/Article';
-import { Button } from '@shared/ui/deprecated/Button';
-import { Icon } from '@shared/ui/Icon';
+import { Card } from '@shared/ui/Card';
+import { IconButton } from '@shared/ui/IconButton';
+
+import styles from './styles.module.scss';
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -16,18 +19,21 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
   selectedViewMode,
 }) => {
   return (
-    <Button
-      variant="Ghost"
-      onClick={(): void => {
-        onViewModeClick(selectedViewMode === 'List' ? 'Plate' : 'List');
-      }}
-      className={className}
-    >
-      {selectedViewMode === 'List' ? (
-        <Icon name="Plate" />
-      ) : (
-        <Icon name="List" />
-      )}
-    </Button>
+    <Card className={cn(styles.ArticleViewSelector, className)}>
+      <IconButton
+        name="ListNew"
+        className={cn(selectedViewMode !== 'List' && styles.NotActive)}
+        onClick={(): void => {
+          onViewModeClick('List');
+        }}
+      />
+      <IconButton
+        name="PlateNew"
+        className={cn(selectedViewMode !== 'Plate' && styles.NotActive)}
+        onClick={(): void => {
+          onViewModeClick('Plate');
+        }}
+      />
+    </Card>
   );
 };

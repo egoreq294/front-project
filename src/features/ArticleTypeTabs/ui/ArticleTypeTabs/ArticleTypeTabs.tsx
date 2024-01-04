@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleTypeEnum } from '@entities/Article';
-import { TabItem, Tabs } from '@shared/ui/deprecated/Tabs';
+import { TabItem, Tabs } from '@shared/ui/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -45,6 +45,7 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
       tabs={tabs}
       value={type}
       onChange={onChangeType}
+      direction="column"
     />
   );
 };

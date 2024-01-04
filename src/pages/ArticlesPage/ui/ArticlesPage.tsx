@@ -1,6 +1,7 @@
 import React, { FC, useCallback } from 'react';
 
 import { ArticlePageGreeting } from '@features/ArticlePageGreeting';
+import { StickyContentLayout } from '@shared/layouts';
 import {
   DynamicModuleLoader,
   ReducerList,
@@ -10,7 +11,9 @@ import { Page } from '@widgets/Page';
 import { fetchNextArticles } from '../model/services/fetchNextArticles';
 import { articlesPageReducer } from '../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
-import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { Filters } from './Filters';
+// import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { ViewSelector } from './ViewSelector';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer,
@@ -25,11 +28,16 @@ const ArticlesPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page testId="Articles" onScrollEnd={onLoadNextPart}>
-        <ArticlesPageFilters />
-        <ArticleInfiniteList />
-        <ArticlePageGreeting />
-      </Page>
+      <StickyContentLayout
+        left={<ViewSelector />}
+        content={
+          <Page testId="Articles" onScrollEnd={onLoadNextPart}>
+            <ArticleInfiniteList />
+            <ArticlePageGreeting />
+          </Page>
+        }
+        right={<Filters />}
+      />
     </DynamicModuleLoader>
   );
 };

@@ -24,6 +24,13 @@ export const Ghost: Story = {
   },
 };
 
+export const Filled: Story = {
+  args: {
+    variant: 'Filled',
+    children: 'Button',
+  },
+};
+
 export const PrimaryDisabled: Story = {
   args: {
     children: 'Button',
@@ -34,6 +41,14 @@ export const PrimaryDisabled: Story = {
 export const GhostDisabled: Story = {
   args: {
     variant: 'Ghost',
+    children: 'Button',
+    disabled: true,
+  },
+};
+
+export const FilledDisabled: Story = {
+  args: {
+    variant: 'Filled',
     children: 'Button',
     disabled: true,
   },

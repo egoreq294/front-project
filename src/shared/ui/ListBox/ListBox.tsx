@@ -4,6 +4,7 @@ import React, { Fragment, ReactElement, ReactNode } from 'react';
 
 import { DropdownDirection } from '@shared/types/ui';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import { HStack } from '../Stack';
 
 import styles from './styles.module.scss';
@@ -59,7 +60,12 @@ export const ListBox = <T extends string>({
         disabled={readOnly}
       >
         <ListBoxImpl.Button className={styles.TriggerButton} as="div">
-          <Button variant="Ghost">{selectedContent || defaultValue}</Button>
+          {({ open }): JSX.Element => (
+            <Button variant="Filled">
+              <span>{selectedContent || defaultValue}</span>
+              <Icon name={open ? 'ChevronUp' : 'ChevronDown'} />
+            </Button>
+          )}
         </ListBoxImpl.Button>
         <ListBoxImpl.Options
           className={cn(styles.Options, DROPDOWN_DIRECTION_MAP[direction])}
@@ -71,15 +77,13 @@ export const ListBox = <T extends string>({
               value={item.value}
               disabled={item.disabled}
             >
-              {({ active }): JSX.Element => (
+              {({ active, selected }): JSX.Element => (
                 <li
-                  className={cn(
-                    {
-                      [styles.ActiveItem]: active,
-                      [styles.DisabledItem]: item.disabled,
-                    },
-                    styles.Item,
-                  )}
+                  className={cn(styles.Item, {
+                    [styles.ActiveItem]: active,
+                    [styles.DisabledItem]: item.disabled,
+                    [styles.SelectedItem]: selected,
+                  })}
                 >
                   {item.content}
                 </li>

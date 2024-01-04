@@ -4,6 +4,9 @@
   background: none;
   outline: none;
   border: none;
+  display: flex;
+  gap: var(--gutter-xxs);
+  align-items: center;
 
   &:disabled {
     color: var(--color-hint);
@@ -32,5 +35,10 @@
 
 .Primary {
   border: 1px solid var(--color-icon);
+  border-radius: var(--border-radius);
+}
+
+.Filled {
+  background: var(--color-background-light);
   border-radius: var(--border-radius);
 }

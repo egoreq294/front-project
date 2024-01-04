@@ -8,8 +8,13 @@ interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   ref?: Ref<SVGSVGElement>;
 }
 
-export const Icon: FC<IconProps> = ({ name, ...props }) => {
+export const Icon: FC<IconProps> = ({
+  name,
+  width = '20',
+  height = '20',
+  ...props
+}) => {
   const IconComponent = ICON_MAP[name];
 
-  return <IconComponent {...props} />;
+  return <IconComponent width={width} height={height} {...props} />;
 };

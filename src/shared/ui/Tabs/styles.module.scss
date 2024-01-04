@@ -1,0 +1,8 @@
+.TabItem {
+  cursor: pointer;
+  color: var(--color-text);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}

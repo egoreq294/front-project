@@ -1,0 +1,8 @@
+.ArticleViewSelector {
+  display: flex;
+  gap: var(--gutter-xs);
+}
+
+.NotActive {
+  color: var(--color-background-light);
+}

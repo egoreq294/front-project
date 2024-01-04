@@ -7,6 +7,7 @@ import { Calendar } from './assets/Calendar';
 import { ChevronDown } from './assets/ChevronDown';
 import { ChevronLeft } from './assets/ChevronLeft';
 import { ChevronRight } from './assets/ChevronRight';
+import { ChevronUp } from './assets/ChevronUp';
 import { Copy } from './assets/Copy';
 import { CopyNew } from './assets/CopyNew';
 import { Done } from './assets/Done';
@@ -27,6 +28,7 @@ import { Orange } from './assets/Orange';
 import { Plate } from './assets/Plate';
 import { PlateNew } from './assets/PlateNew';
 import { Profile } from './assets/Profile';
+import { Search } from './assets/Search';
 import { Send } from './assets/Send';
 import { Star } from './assets/Star';
 import { StarNew } from './assets/StarNew';
@@ -68,4 +70,6 @@ export const ICON_MAP = {
   Send,
   ChevronLeft,
   ChevronRight,
+  ChevronUp,
+  Search,
 };
