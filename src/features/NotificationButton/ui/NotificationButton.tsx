@@ -2,7 +2,7 @@ import React, { FC, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@entities/Notification';
-import { Drawer } from '@shared/ui/deprecated/Drawer';
+import { Drawer } from '@shared/ui/Drawer';
 import { IconButton } from '@shared/ui/IconButton';
 import { Popover } from '@shared/ui/Popover';
 

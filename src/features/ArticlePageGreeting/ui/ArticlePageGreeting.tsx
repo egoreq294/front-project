@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { saveJsonSettings, useJsonSettings } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Caption } from '@shared/ui/deprecated/Caption';
-import { Modal } from '@shared/ui/deprecated/Modal';
+import { Modal } from '@shared/ui/Modal';
 
 export const ArticlePageGreeting: FC = () => {
   const dispatch = useAppDispatch();

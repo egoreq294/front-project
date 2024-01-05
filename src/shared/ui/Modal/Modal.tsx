@@ -2,8 +2,8 @@ import cn from 'classnames';
 import React, { FC, ReactNode } from 'react';
 
 import { useModal } from '@shared/lib/hooks/useModal';
-import { Overlay } from '../../Overlay';
-import { Portal } from '../../Portal';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 
 import styles from './styles.module.scss';
 
@@ -15,9 +15,6 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Modal: FC<ModalProps> = ({
   className,
   isOpen,
