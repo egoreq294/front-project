@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { getUserInited } from '@entities/User';
 import { initAuthData } from '@entities/User';
+import { EMPTY_STRING } from '@shared/constants/common';
 import { MainLayout } from '@shared/layouts';
+import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Loader } from '@shared/ui/Loader';
 import { Navbar } from '@widgets/Navbar';
-import { PageLoader } from '@widgets/PageLoader';
 import { Sidebar } from '@widgets/Sidebar';
 import { AppRouter } from './providers/router';
 
@@ -23,12 +23,16 @@ export const App: FC = () => {
   }, [dispatch]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <div className={styles.App}>
+        <AppLoaderLayout />
+      </div>
+    );
   }
 
   return (
     <div className={styles.App}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={EMPTY_STRING}>
         <MainLayout
           header={<Navbar />}
           sidebar={<Sidebar />}

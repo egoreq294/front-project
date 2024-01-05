@@ -1,6 +1,6 @@
 import React, { FC, Suspense } from 'react';
 
-import { Loader } from '@shared/ui/Loader';
+import { EMPTY_STRING } from '@shared/constants/common';
 import { Modal } from '@shared/ui/Modal';
 import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
 
@@ -17,7 +17,7 @@ export const LoginModal: FC<LoginModalProps> = ({
 }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} className={className} lazy>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={EMPTY_STRING}>
         <LoginForm onSuccess={onClose} />
       </Suspense>
     </Modal>

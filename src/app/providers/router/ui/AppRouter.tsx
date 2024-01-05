@@ -1,7 +1,7 @@
 import React, { FC, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { PageLoader } from '@widgets/PageLoader';
+import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { routeConfig } from '../config/routeConfig';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
@@ -11,7 +11,7 @@ export const AppRouter: FC = () => {
     <Routes>
       {routeConfig.map(({ path, element, authOnly, roles }) => {
         const wrappedElement = (
-          <Suspense fallback={<PageLoader />}>{element}</Suspense>
+          <Suspense fallback={<AppLoaderLayout />}>{element}</Suspense>
         );
 
         return (
