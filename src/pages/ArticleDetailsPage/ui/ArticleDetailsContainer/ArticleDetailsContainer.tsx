@@ -22,13 +22,19 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = ({
   }
 
   return (
-    <Card fullWidth className={className} padding="24">
-      <VStack gap="24">
+    <VStack gap="24" className={className}>
+      <Card fullWidth className={className} padding="24">
         <ArticleDetails articleId={id} />
+      </Card>
+      <Card fullWidth className={className} padding="24">
         <ArticleRating articleId={id} />
+      </Card>
+      <Card fullWidth className={className} padding="24">
         <ArticleRecommendationsList />
+      </Card>
+      <Card fullWidth className={className} padding="24">
         <ArticleDetailsComments id={id} />
-      </VStack>
-    </Card>
+      </Card>
+    </VStack>
   );
 };

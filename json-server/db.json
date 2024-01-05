@@ -77,6 +77,12 @@
       "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod animi assumenda reprehenderit aut tempora vero aperiam ea non possimus! Ipsam sit, pariatur molestiae rem est qui quia incidunt velit fuga. Accusamus sunt neque labore iure quas et reiciendis repellendus dolorem magni eveniet dicta temporibus voluptates debitis maiores, modi obcaecati impedit veniam fugit nobis quod. Impedit voluptatem totam quae ex adipisci? Dolor nulla suscipit porro non facilis explicabo, molestiae sapiente provident culpa in voluptas praesentium recusandae? Ea rerum saepe, non reiciendis quo aut sequi facere fuga incidunt magnam aspernatur possimus architecto. Quaerat, incidunt tempora laboriosam est officia, illum deleniti dolor facilis pariatur ex facere temporibus a omnis ab quidem et ut nulla exercitationem dolorem quas odio ea, sequi officiis! Nobis, a. Ipsam quisquam ipsum architecto. Temporibus corrupti praesentium porro quas quam dignissimos? Consequatur, doloribus et architecto facilis minima hic labore provident iure, ea porro eum dolor sint iste atque voluptatum aperiam. Consequatur debitis ipsa odit deserunt quidem ipsum vero quas voluptate aut, sint labore dolor distinctio nesciunt consequuntur vitae veniam sit sequi eligendi quia laboriosam ipsam aperiam, voluptatibus soluta. Voluptas, impedit. Neque quidem eius natus harum assumenda consequatur corrupti minus ducimus dolores vero, perferendis necessitatibus obcaecati odio, maiores, numquam molestias repudiandae praesentium iusto perspiciatis alias! Distinctio aspernatur quibusdam temporibus deserunt maiores. Maxime fugit animi hic id reprehenderit quam. Suscipit ex ipsa fuga eaque dicta assumenda a tenetur dolorem beatae mollitia illum, et excepturi tempora esse quasi est. Quasi harum nulla deleniti. Ut totam quos magni deleniti sequi. Officia, ab nesciunt numquam ducimus qui adipisci nobis, dignissimos dolore id aspernatur eius temporibus modi saepe quis eos culpa veritatis praesentium doloremque laboriosam optio. Blanditiis accusamus incidunt illo molestiae dolorem dolorum provident. Eaque ipsam rem quos eos, deleniti consequuntur? Illum ducimus consequuntur at atque quod qui incidunt, sed, eaque quidem autem esse. Odio, optio.",
       "userId": "1",
       "id": "ygBEJDf"
+    },
+    {
+      "articleId": "9",
+      "text": "Ну тут нужно оставить коммент",
+      "userId": "1",
+      "id": "Cx_P7JE"
     }
   ],
   "users": [
@@ -93,7 +99,7 @@
         "redesignedApp": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlePageWasOpened": true
       }
     },
@@ -733,6 +739,12 @@
       "userId": "1",
       "rate": 3,
       "id": "TuaazBh"
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 4,
+      "id": "2yYpdHY"
     }
   ]
 }

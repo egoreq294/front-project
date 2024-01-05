@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button } from '@shared/ui/deprecated/Button';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { Button } from '@shared/ui/Button';
+import { Card } from '@shared/ui/Card';
 import { HStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData';
@@ -40,33 +41,39 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <HStack
-      role="heading"
-      fullWidth
-      justify="spaceBetween"
-      className={className}
-    >
-      <Typography variant="M">{t('profile')}</Typography>
-      <HStack gap="16">
-        {canEdit && (
-          <>
-            {readonly ? (
-              <Button variant="Secondary" onClick={onEdit} testId="Edit">
-                {t('edit')}
-              </Button>
-            ) : (
-              <>
-                <Button variant="Danger" onClick={onCancelEdit} testId="Cancel">
-                  {t('cancel')}
+    <Card fullWidth padding="24">
+      <HStack
+        role="heading"
+        fullWidth
+        justify="spaceBetween"
+        className={className}
+      >
+        <Typography variant="M">{t('profile')}</Typography>
+        <HStack gap="16">
+          {canEdit && (
+            <>
+              {readonly ? (
+                <Button onClick={onEdit} testId="Edit">
+                  {t('edit')}
                 </Button>
-                <Button variant="Secondary" onClick={onSaveEdit} testId="Save">
-                  {t('save')}
-                </Button>
-              </>
-            )}
-          </>
-        )}
+              ) : (
+                <>
+                  <Button
+                    variant="Danger"
+                    onClick={onCancelEdit}
+                    testId="Cancel"
+                  >
+                    {t('cancel')}
+                  </Button>
+                  <Button variant="Success" onClick={onSaveEdit} testId="Save">
+                    {t('save')}
+                  </Button>
+                </>
+              )}
+            </>
+          )}
+        </HStack>
       </HStack>
-    </HStack>
+    </Card>
   );
 };

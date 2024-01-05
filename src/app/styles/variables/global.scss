@@ -1,20 +1,4 @@
 :root {
-  // Шрифты
-  --font-family-main: consolas, 'Times New Roman', serif;
-  --font-size-xs: 12px;
-  --font-line-xs: 20px;
-  --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
-  --font-size-s: 16px;
-  --font-line-s: 24px;
-  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
-  --font-size-m: 24px;
-  --font-line-m: 32px;
-  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-  --font-size-l: 32px;
-  --font-line-l: 40px;
-  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-
-  // redesigned
   --new-font-family-text: 'Nunito Sans', sans-serif;
   --new-font-family-title: 'Roboto', sans-serif;
   --new-font-size-xs: 12px;
@@ -46,9 +30,6 @@
   --gutter-xxxl: 36px;
 
   /* Размеры */
-  --navbar-height: 70px;
-  --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
   --border-radius: 6px;
 
   /* z - Индескы */
@@ -58,6 +39,4 @@
 
   /* Цвета */
   --color-overlay: rgba(0 0 0 / 60%);
-  --red-light: #f00;
-  --red-dark: #ce0505;
 }

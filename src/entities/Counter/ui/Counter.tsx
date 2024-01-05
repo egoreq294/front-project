@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Button } from '@shared/ui/deprecated/Button';
+import { Button } from '@shared/ui/Button';
 import { useCounterValue } from '../model/selectors/getCounterValue';
 import { useCounterActions } from '../model/slice/counterSlice';
 

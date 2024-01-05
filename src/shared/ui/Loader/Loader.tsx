@@ -8,9 +8,6 @@ interface LoaderProps {
   className?: string;
 }
 
-/**
- * @deprecated
- */
 export const Loader: FC<LoaderProps> = memo(({ className, testId }) => {
   return (
     <div

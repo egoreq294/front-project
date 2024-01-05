@@ -5,6 +5,7 @@ import { getUserInited } from '@entities/User';
 import { initAuthData } from '@entities/User';
 import { MainLayout } from '@shared/layouts';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Loader } from '@shared/ui/Loader';
 import { Navbar } from '@widgets/Navbar';
 import { PageLoader } from '@widgets/PageLoader';
 import { Sidebar } from '@widgets/Sidebar';
@@ -27,7 +28,7 @@ export const App: FC = () => {
 
   return (
     <div className={styles.App}>
-      <Suspense fallback="">
+      <Suspense fallback={<Loader />}>
         <MainLayout
           header={<Navbar />}
           sidebar={<Sidebar />}

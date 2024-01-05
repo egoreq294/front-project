@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button } from '@shared/ui/deprecated/Button';
-import { Input } from '@shared/ui/deprecated/Input';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { Button } from '@shared/ui/Button';
+import { Input } from '@shared/ui/Input';
+import { Typography } from '@shared/ui/Typography';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
@@ -65,17 +65,17 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
           value={username}
           onChange={onChangeUsername}
           autoFocus
-          placeholder={t('enter-username')}
+          label={t('enter-username')}
         />
         <Input
           value={password}
           onChange={onChangePassword}
-          placeholder={t('enter-password')}
+          label={t('enter-password')}
         />
         {error && (
-          <div className={styles.Error}>
-            <Typography>{t('incorrect-login-or-password')}</Typography>
-          </div>
+          <Typography className={styles.Error}>
+            {t('incorrect-login-or-password')}
+          </Typography>
         )}
         <Button
           variant="Primary"

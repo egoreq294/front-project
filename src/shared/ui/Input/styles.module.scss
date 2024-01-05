@@ -15,6 +15,7 @@
   background: none;
   padding: 0;
   color: var(--color-text);
+  font-family: var(--new-font-family-text);
 
   &::placeholder {
     color: var(--color-hint);

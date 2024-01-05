@@ -7,7 +7,7 @@ import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
 import { SortOrder } from '@shared/types';
-import { TabItem } from '@shared/ui/deprecated/Tabs';
+import { TabItem } from '@shared/ui/Tabs';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
