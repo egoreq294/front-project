@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import React, { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -6,14 +5,12 @@ import { useSelector } from 'react-redux';
 import { CommentList } from '@entities/Comment';
 import { AddCommentForm } from '@features/AddCommentForm';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Typography } from '@shared/ui/deprecated/Typography';
 import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/commentsSelectors';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
-
-import styles from './styles.module.scss';
 
 interface ArticleDetailsCommentsProps {
   id: string;
@@ -47,7 +44,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
   }, [dispatch, id]);
 
   return (
-    <VStack gap="16" className={cn(className, styles.Wrapper)}>
+    <VStack gap="16" fullWidth className={className}>
       <Typography variant="M">{t('comments')}</Typography>
       <AddCommentForm onSendComment={onSendComment} />
       <CommentList comments={comments} isLoading={isCommentsLoading} />

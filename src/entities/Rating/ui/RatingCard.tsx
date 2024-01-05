@@ -3,14 +3,14 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
 import { EMPTY_STRING } from '@shared/constants/common';
-import { Button } from '@shared/ui/deprecated/Button';
-import { Card } from '@shared/ui/deprecated/Card';
-import { Input } from '@shared/ui/deprecated/Input';
-import { StarRating } from '@shared/ui/deprecated/StarRating';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { Button } from '@shared/ui/Button';
+import { Card } from '@shared/ui/Card';
 import { Drawer } from '@shared/ui/Drawer';
+import { Input } from '@shared/ui/Input';
 import { Modal } from '@shared/ui/Modal';
 import { HStack, VStack } from '@shared/ui/Stack';
+import { StarRating } from '@shared/ui/StarRating';
+import { Typography } from '@shared/ui/Typography';
 
 interface RatingCardProps {
   className?: string;
@@ -61,7 +61,7 @@ export const RatingCard: FC<RatingCardProps> = ({
     <VStack fullWidth gap="32">
       <Typography variant="M">{feedbackTitle}</Typography>
       <Input
-        placeholder={t('your-feedback')}
+        label={t('your-feedback')}
         onChange={setFeedback}
         testId="Feedback"
       />
@@ -69,11 +69,7 @@ export const RatingCard: FC<RatingCardProps> = ({
         <Button variant="Danger" onClick={onCancelModal} testId="CancelRating">
           {t('cancel')}
         </Button>
-        <Button
-          variant="Secondary"
-          onClick={onAcceptModal}
-          testId="SendFeedback"
-        >
+        <Button variant="Success" onClick={onAcceptModal} testId="SendFeedback">
           {t('send')}
         </Button>
       </HStack>
@@ -81,7 +77,7 @@ export const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card className={className} data-testid="RatingCard">
+    <Card className={className} data-testid="RatingCard" fullWidth>
       <VStack align="center" gap="8">
         {title && (
           <Typography variant="M">

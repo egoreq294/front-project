@@ -1,9 +1,9 @@
-import cn from 'classnames';
 import React, { FC } from 'react';
 
-import { AppLink } from '@shared/ui/deprecated/AppLink';
-import { Avatar } from '@shared/ui/deprecated/Avatar';
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { AppLink } from '@shared/ui/AppLink';
+import { Avatar } from '@shared/ui/Avatar';
+import { HStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { CommentType } from '../../model/types/comment';
 
 import styles from './styles.module.scss';
@@ -15,12 +15,11 @@ interface CommentItemProps {
 
 export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
   return (
-    <div className={cn(styles.CommentItem, className)}>
-      <AppLink to={`/profile/${comment.user.id}`} className={styles.UserInfo}>
-        {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
-        <Typography variant="M">{comment.user.username}</Typography>
+    <HStack fullWidth gap="32" className={className} align="start">
+      <AppLink to={`/profile/${comment.user.id}`} className={styles.Avatar}>
+        {comment.user.avatar && <Avatar size={32} src={comment.user.avatar} />}
       </AppLink>
       <Typography testId={`Comment${comment.id}`}>{comment.text}</Typography>
-    </div>
+    </HStack>
   );
 };

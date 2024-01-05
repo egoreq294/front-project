@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { RatingCard } from '@entities/Rating';
 import { getUserAuthData } from '@entities/User';
 import { EMPTY_STRING } from '@shared/constants/common';
-import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@shared/ui/Skeleton';
 import { useArticleRating, useRateArticle } from '../api/articleRatingApi';
 
 interface ArticleRatingProps {
@@ -51,23 +51,18 @@ export const ArticleRating: FC<ArticleRatingProps> = ({
   };
 
   if (isLoading) {
-    return (
-      <div className={className}>
-        <Skeleton width="100%" height="120px" />
-      </div>
-    );
+    return <Skeleton width="100%" height="120px" className={className} />;
   }
 
   return (
-    <div className={className}>
-      <RatingCard
-        title={t('rate-the-article')}
-        feedbackTitle={t('feedback-article')}
-        hasFeedback
-        selectedStars={rating?.rate}
-        onAccept={onAccept}
-        onCancel={onCancel}
-      />
-    </div>
+    <RatingCard
+      title={t('rate-the-article')}
+      feedbackTitle={t('feedback-article')}
+      hasFeedback
+      selectedStars={rating?.rate}
+      onAccept={onAccept}
+      onCancel={onCancel}
+      className={className}
+    />
   );
 };

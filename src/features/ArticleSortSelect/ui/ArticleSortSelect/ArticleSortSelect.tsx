@@ -36,7 +36,7 @@ export const ArticleSortSelect: FC<ArticleSortSelectProps> = ({
     () => [
       { value: ArticleSortField.CREATED, content: t('created-at') },
       { value: ArticleSortField.TITLE, content: t('title') },
-      { value: ArticleSortField.VIEWS, content: t('views') },
+      { value: ArticleSortField.VIEWS, content: t('by-views') },
     ],
     [t],
   );

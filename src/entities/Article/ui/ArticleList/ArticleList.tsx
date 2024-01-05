@@ -26,13 +26,15 @@ export const ArticleList: FC<ArticleListProps> = ({
 }) => {
   const { t } = useTranslation('article');
 
+  const isPlate = viewMode === 'Plate';
+
   if (!isLoading && !articles.length) {
     return <Typography variant="M">{t('empty-articles')}</Typography>;
   }
 
   return (
     <div
-      className={cn(styles.ArticleList, className)}
+      className={cn(isPlate ? styles.Plate : styles.List, className)}
       data-testid="ArticleList"
     >
       {articles.map((article) => (

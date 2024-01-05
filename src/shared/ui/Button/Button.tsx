@@ -3,7 +3,7 @@ import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 import styles from './styles.module.scss';
 
-type ButtonVariant = 'Primary' | 'Ghost' | 'Filled';
+type ButtonVariant = 'Primary' | 'Ghost' | 'Filled' | 'Danger' | 'Success';
 
 type Size = 'S' | 'M' | 'L';
 

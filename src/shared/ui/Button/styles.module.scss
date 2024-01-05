@@ -42,3 +42,13 @@
   background: var(--color-background-light);
   border-radius: var(--border-radius);
 }
+
+.Danger {
+  border: 1px solid var(--color-cancel);
+  border-radius: var(--border-radius);
+}
+
+.Success {
+  border: 1px solid var(--color-save);
+  border-radius: var(--border-radius);
+}

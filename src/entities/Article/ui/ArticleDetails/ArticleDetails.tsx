@@ -1,10 +1,9 @@
-import React, { FC, memo } from 'react';
+import React, { FC, Fragment, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Avatar } from '@shared/ui/deprecated/Avatar';
-import { Caption } from '@shared/ui/deprecated/Caption';
-import { Typography } from '@shared/ui/deprecated/Typography';
-import { Icon } from '@shared/ui/Icon';
+import { AppImage } from '@shared/ui/AppImage';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { ArticleBlockTypeEnum } from '../../model/constants/article';
 import { Article } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
@@ -30,48 +29,33 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
 
     if (error) {
       return (
-        <div className={styles.Error}>
+        <VStack fullWidth className={styles.Error}>
           <Typography variant="M">{t('technical-error')}</Typography>
-        </div>
+        </VStack>
       );
     }
 
     return (
-      <>
-        <div className={styles.AvatarWrapper}>
-          <Avatar size={200} src={article?.img} className={styles.Avatar} />
-        </div>
-        <Caption
-          className={styles.Title}
-          label={article?.title}
-          value={article?.subtitle}
-          testId="ArticleDetailsTitle"
-          size="M"
-        />
-        <div className={styles.ArticleInfo}>
-          <Icon name="Eye" />
-          <Typography>{String(article?.views)}</Typography>
-        </div>
-        <div className={styles.ArticleInfo}>
-          <Icon name="Calendar" />
-          <Typography>{article?.createdAt}</Typography>
-        </div>
-        <div className={styles.Blocks}>
-          {article?.blocks.map((block) => (
-            <div key={block.id}>
-              {block.type === ArticleBlockTypeEnum.CODE && (
-                <ArticleCodeBlock block={block} />
-              )}
-              {block.type === ArticleBlockTypeEnum.IMAGE && (
-                <ArticleImageBlock block={block} />
-              )}
-              {block.type === ArticleBlockTypeEnum.TEXT && (
-                <ArticleTextBlock block={block} />
-              )}
-            </div>
-          ))}
-        </div>
-      </>
+      <VStack gap="24" fullWidth>
+        <Typography variant="L" bold>
+          {article?.title}
+        </Typography>
+        <Typography variant="M">{article?.subtitle}</Typography>
+        <AppImage src={article?.img} className={styles.Image} />
+        {article?.blocks.map((block) => (
+          <Fragment key={block.id}>
+            {block.type === ArticleBlockTypeEnum.CODE && (
+              <ArticleCodeBlock block={block} />
+            )}
+            {block.type === ArticleBlockTypeEnum.IMAGE && (
+              <ArticleImageBlock block={block} />
+            )}
+            {block.type === ArticleBlockTypeEnum.TEXT && (
+              <ArticleTextBlock block={block} />
+            )}
+          </Fragment>
+        ))}
+      </VStack>
     );
   },
 );

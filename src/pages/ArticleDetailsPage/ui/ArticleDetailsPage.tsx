@@ -2,17 +2,13 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { ArticleDetails } from '@entities/Article';
-import { ArticleRating } from '@features/ArticleRating';
-import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
+import { StickyContentLayout } from '@shared/layouts';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@widgets/Page';
 import { articleDetailsPageReducer } from '../model/slices';
-import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
-import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-
-import styles from './styles.module.scss';
+import { AdditionalInfoContainer } from './AdditionalInfoContainer/AdditionalInfoContainer';
+import { ArticleDetailsContainer } from './ArticleDetailsContainer/ArticleDetailsContainer';
 
 const reducers: ReducerList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -28,13 +24,14 @@ const ArticleDetailsPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Page>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails articleId={id} />
-        <ArticleRating articleId={id} className={styles.Rating} />
-        <ArticleRecommendationsList className={styles.Recommendations} />
-        <ArticleDetailsComments id={id} className={styles.Comments} />
-      </Page>
+      <StickyContentLayout
+        content={
+          <Page>
+            <ArticleDetailsContainer />
+          </Page>
+        }
+        right={<AdditionalInfoContainer />}
+      />
     </DynamicModuleLoader>
   );
 };

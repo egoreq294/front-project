@@ -1,7 +1,10 @@
+import cn from 'classnames';
 import React, { FC, memo } from 'react';
 
-import { Code } from '@shared/ui/deprecated/Code';
+import { Code } from '@shared/ui/Code';
 import { ArticleCodeBlock as ArticleCodeBlockType } from '../../model/types/article';
+
+import styles from './styles.module.scss';
 
 interface ArticleCodeBlockProps {
   className?: string;
@@ -10,10 +13,6 @@ interface ArticleCodeBlockProps {
 
 export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo(
   ({ className, block }) => {
-    return (
-      <div className={className}>
-        <Code text={block.code} />
-      </div>
-    );
+    return <Code text={block.code} className={cn(styles.Code, className)} />;
   },
 );

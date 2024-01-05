@@ -13,7 +13,6 @@
   "desc": "Убыванию",
   "created-at": "Дате создания",
   "title": "Заголовку",
-  "views": "Просмотрам",
   "it": "IT",
   "economics": "Экономика",
   "all": "Все",
@@ -23,5 +22,10 @@
   "rate-the-article": "Оцените статью",
   "feedback-article": "Оставьте свой отзыв о статье, это поможет улучшить качество",
   "welcome-to-article-page": "Добро пожаловать на страницу статей",
-  "you-can-search-and-read-articles": "Здесь вы можете искать статьи и читать их."
+  "you-can-search-and-read-articles": "Здесь вы можете искать статьи и читать их.",
+  "by-views": "Просмотрам",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотра",
+  "{{count}} views_many": "{{count}} просмотров"
 }

@@ -14,7 +14,6 @@
   "desc": "Desc",
   "created-at": "Created at",
   "title": "Title",
-  "views": "Views",
   "it": "IT",
   "economics": "Ecomonics",
   "all": "All",
@@ -24,5 +23,8 @@
   "rate-the-article": "Rate the article",
   "feedback-article": "Leave your feedback on the article, this will help improve the quality",
   "welcome-to-article-page": "Welcome to the Articles Page",
-  "you-can-search-and-read-articles": "Here you can search articles and read them"
+  "you-can-search-and-read-articles": "Here you can search articles and read them",
+  "by-views": "Views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

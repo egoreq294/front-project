@@ -1,13 +1,11 @@
-import cn from 'classnames';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Typography } from '@shared/ui/deprecated/Typography';
+import { VStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { CommentType } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentListSkeleton } from './CommentListSkeleton/CommentListSkeleton';
-
-import styles from './styles.module.scss';
 
 interface CommentListProps {
   className?: string;
@@ -27,10 +25,7 @@ export const CommentList: FC<CommentListProps> = ({
   }
 
   return (
-    <div
-      className={cn(styles.CommentList, className)}
-      data-testid="CommentList"
-    >
+    <VStack gap="32" className={className} fullWidth data-testid="CommentList">
       {comments?.length || isLoading ? (
         comments?.map((comment) => (
           <CommentItem key={comment.id} comment={comment} />
@@ -38,6 +33,6 @@ export const CommentList: FC<CommentListProps> = ({
       ) : (
         <Typography>{t('empty-comments')}</Typography>
       )}
-    </div>
+    </VStack>
   );
 };

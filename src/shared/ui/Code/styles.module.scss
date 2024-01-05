@@ -1,0 +1,13 @@
+.Code {
+  position: relative;
+  border: 1px solid var(--color-accent);
+  padding: var(--gutter-m);
+  background: var(--color-background-light);
+  overflow: auto;
+}
+
+.CopyButton {
+  position: absolute;
+  right: var(--gutter-m);
+  top: var(--gutter-m);
+}
