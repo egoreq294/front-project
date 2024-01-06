@@ -23,3 +23,15 @@ export const routePath: Record<AppRoutes, string> = {
   [AppRoutes.FORBIDDEN]: '/forbidden',
   [AppRoutes.NOT_FOUND]: '*',
 };
+
+export const appRouteByPath: Record<string, AppRoutes> = {
+  '/': AppRoutes.MAIN,
+  '/about': AppRoutes.ABOUT,
+  '/profile/:id': AppRoutes.PROFILE,
+  '/articles': AppRoutes.ARTICLES,
+  '/articles/:id': AppRoutes.ARTICLE_DETAILS,
+  '/articles/create': AppRoutes.ARTICLE_CREATE,
+  '/articles/:id/edit': AppRoutes.ARTICLE_EDIT,
+  '/admin': AppRoutes.ADMIN_PANEL,
+  '/forbidden': AppRoutes.FORBIDDEN,
+};

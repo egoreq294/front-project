@@ -112,7 +112,7 @@
       ],
       "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlePageWasOpened": true
       }
     },

@@ -1,4 +1,5 @@
 import { About } from './assets/About';
+import { ArrowUp } from './assets/ArrowUp';
 import { Article } from './assets/Artice';
 import { ArticleNew } from './assets/ArticleNew';
 import { Avatar } from './assets/Avatar';
@@ -72,4 +73,5 @@ export const ICON_MAP = {
   ChevronRight,
   ChevronUp,
   Search,
+  ArrowUp,
 };

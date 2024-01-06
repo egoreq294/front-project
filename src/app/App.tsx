@@ -9,6 +9,7 @@ import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@widgets/Navbar';
 import { Sidebar } from '@widgets/Sidebar';
+import { useAppToolbar } from './lib/hooks/useAppToolbar';
 import { AppRouter } from './providers/router';
 
 import './styles/index.scss';
@@ -17,6 +18,8 @@ import styles from './styles.module.scss';
 export const App: FC = () => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -37,6 +40,7 @@ export const App: FC = () => {
           header={<Navbar />}
           sidebar={<Sidebar />}
           content={<AppRouter />}
+          toolbar={toolbar}
         />
       </Suspense>
     </div>
