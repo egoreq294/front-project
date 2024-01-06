@@ -37,7 +37,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
 
     return (
       <VStack gap="24" fullWidth>
-        <Typography variant="L" bold>
+        <Typography variant="L" bold testId="ArticleDetailsTitle">
           {article?.title}
         </Typography>
         <Typography variant="M">{article?.subtitle}</Typography>

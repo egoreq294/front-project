@@ -1,6 +1,6 @@
 export const addComment = (comment?: string) => {
   cy.getByTestId('Input_Comment').type(comment);
-  cy.getByTestId('Button_Send').click();
+  cy.getByTestId('IconButton_Send').click();
 };
 
 declare global {

@@ -15,7 +15,7 @@ export const login = (
       },
     })
     .then(({ body }) => {
-      window.localStorage.setItem('user', JSON.stringify(body));
+      window.localStorage.setItem('user', body.id);
       return body;
     });
 };

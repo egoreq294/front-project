@@ -14,8 +14,8 @@ describe('Страница статьи', () => {
     cy.removeArticle(currentArticleId);
   });
 
-  it('Просмотр содержимоого статьи', () => {
-    cy.getByTestId('Caption_ArticleDetailsTitle').should('exist');
+  it('Просмотр содержимого статьи', () => {
+    cy.getByTestId('Typography_ArticleDetailsTitle').should('exist');
   });
 
   it('Просмотр рекоммендаций', () => {
@@ -23,7 +23,7 @@ describe('Страница статьи', () => {
   });
 
   it('Оставляем комментарий', () => {
-    cy.getByTestId('Caption_ArticleDetailsTitle').should('exist');
+    cy.getByTestId('Typography_ArticleDetailsTitle').should('exist');
     cy.getByTestId('CommentForm').scrollIntoView();
     cy.addComment('New Comment');
     cy.getArticleComments(currentArticleId).then((comments) => {
@@ -34,7 +34,7 @@ describe('Страница статьи', () => {
   });
 
   it('Оцениваем статью', () => {
-    cy.getByTestId('Caption_ArticleDetailsTitle').should('exist');
+    cy.getByTestId('Typography_ArticleDetailsTitle').should('exist');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRating(4, 'feedback');
     cy.get('[data-selected=true]').should('have.length', 4);

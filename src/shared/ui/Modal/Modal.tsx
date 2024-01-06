@@ -13,6 +13,7 @@ interface ModalProps {
   onClose: () => void;
   className?: string;
   lazy?: boolean;
+  testId?: string;
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -21,6 +22,7 @@ export const Modal: FC<ModalProps> = ({
   onClose,
   lazy,
   children,
+  testId,
 }) => {
   const { isClosing, isMounted, closeHandler } = useModal({
     isOpen,
@@ -40,6 +42,7 @@ export const Modal: FC<ModalProps> = ({
           { [styles.Opened]: isOpen, [styles.IsClosing]: isClosing },
           className,
         )}
+        data-testid={testId ? `Modal_${testId}` : undefined}
       >
         <Overlay onClick={closeHandler} />
         <div className={styles.Content}>{children}</div>

@@ -124,7 +124,10 @@
         "USER",
         "ADMIN"
       ],
-      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg"
+      "avatar": "http://www.lookmi.ru/cartoons/draw-shrek.jpg",
+      "jsonSettings": {
+        "isArticlePageWasOpened": true
+      }
     }
   ],
   "profile": [
@@ -709,43 +712,6 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "1"
-    },
-    {
-      "id": "1",
-      "rate": 5,
-      "feedback": "Хорошая статья",
-      "userId": "1",
-      "articleId": "2"
-    },
-    {
-      "articleId": "3",
-      "userId": "1",
-      "rate": 3,
-      "id": "qIX2XIo"
-    },
-    {
-      "articleId": "5",
-      "userId": "1",
-      "rate": 3,
-      "id": "WWRetqs"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "rate": 3,
-      "id": "T6U2P_A"
-    },
-    {
-      "articleId": "1123",
-      "userId": "1",
-      "rate": 3,
-      "id": "TuaazBh"
-    },
-    {
-      "articleId": "9",
-      "userId": "1",
-      "rate": 4,
-      "id": "2yYpdHY"
     }
   ]
 }

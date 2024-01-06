@@ -30,6 +30,7 @@ export const ArticlePageGreeting: FC = () => {
       onClose={(): void => {
         setIsOpen(false);
       }}
+      testId="ArticlePageGreeting"
     >
       <Caption
         label={t('welcome-to-article-page')}
