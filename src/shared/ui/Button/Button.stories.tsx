@@ -31,24 +31,22 @@ export const Filled: Story = {
   },
 };
 
+export const Success: Story = {
+  args: {
+    variant: 'Success',
+    children: 'Button',
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    variant: 'Danger',
+    children: 'Button',
+  },
+};
+
 export const PrimaryDisabled: Story = {
   args: {
-    children: 'Button',
-    disabled: true,
-  },
-};
-
-export const GhostDisabled: Story = {
-  args: {
-    variant: 'Ghost',
-    children: 'Button',
-    disabled: true,
-  },
-};
-
-export const FilledDisabled: Story = {
-  args: {
-    variant: 'Filled',
     children: 'Button',
     disabled: true,
   },

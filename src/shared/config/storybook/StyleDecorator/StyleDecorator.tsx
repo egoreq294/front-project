@@ -3,17 +3,10 @@ import React from 'react';
 
 // eslint-disable-next-line egoreq-plugin/layer-imports
 import '@app/styles/index.scss';
+import styles from './styles.module.scss';
 
 export const StyleDecorator = (StoryComponent: StoryFn): JSX.Element => (
-  <div
-    style={{
-      background: '#dedbd5',
-      height: '90vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
+  <div className={styles.Decorator}>
     <StoryComponent />
   </div>
 );
