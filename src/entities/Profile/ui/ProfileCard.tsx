@@ -133,16 +133,18 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             disabled={readonly}
             testId="Avatar"
           />
-          <CurrencySelect
-            value={formData?.currency}
-            onChange={onChangeCurrency}
-            readOnly={readonly}
-          />
-          <CountrySelect
-            value={formData?.country}
-            onChange={onChangeCountry}
-            readOnly={readonly}
-          />
+          <HStack gap="16">
+            <CurrencySelect
+              value={formData?.currency}
+              onChange={onChangeCurrency}
+              readOnly={readonly}
+            />
+            <CountrySelect
+              value={formData?.country}
+              onChange={onChangeCountry}
+              readOnly={readonly}
+            />
+          </HStack>
         </VStack>
       </HStack>
     </Card>

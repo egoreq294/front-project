@@ -3,11 +3,7 @@
 }
 
 .TriggerButton {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
+  padding: 6px var(--gutter-xs);
 }
 
 .Options {
@@ -23,7 +19,7 @@
 
 .Item {
   cursor: pointer;
-  padding: var(--gutter-xs) var(--gutter-m);
+  padding: var(--gutter-xxs) var(--gutter-m);
 }
 
 .ActiveItem {

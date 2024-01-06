@@ -5,7 +5,7 @@ import React, { Fragment, ReactElement, ReactNode } from 'react';
 import { DropdownDirection } from '@shared/types/ui';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { HStack } from '../Stack';
+import { VStack } from '../Stack';
 
 import styles from './styles.module.scss';
 
@@ -46,7 +46,7 @@ export const ListBox = <T extends string>({
   const selectedContent = items.find((item) => item.value === value)?.content;
 
   return (
-    <HStack gap="8">
+    <VStack gap="8">
       {label && <span className={styles.Label}>{label}</span>}
       <ListBoxImpl
         as="div"
@@ -59,9 +59,13 @@ export const ListBox = <T extends string>({
         onChange={onChange}
         disabled={readOnly}
       >
-        <ListBoxImpl.Button className={styles.TriggerButton} as="div">
+        <ListBoxImpl.Button as="div">
           {({ open }): JSX.Element => (
-            <Button variant="Filled" disabled={readOnly}>
+            <Button
+              variant="Filled"
+              disabled={readOnly}
+              className={styles.TriggerButton}
+            >
               <span>{selectedContent || defaultValue}</span>
               <Icon name={open ? 'ChevronUp' : 'ChevronDown'} />
             </Button>
@@ -92,6 +96,6 @@ export const ListBox = <T extends string>({
           ))}
         </ListBoxImpl.Options>
       </ListBoxImpl>
-    </HStack>
+    </VStack>
   );
 };

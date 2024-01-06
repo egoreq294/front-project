@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 
-import { HStack } from '../Stack';
+import { VStack } from '../Stack';
 import { Typography } from '../Typography';
 
 import styles from './styles.module.scss';
@@ -59,7 +59,7 @@ export const Input: FC<InputProps> = memo(
     };
 
     return (
-      <HStack fullWidth gap="8">
+      <VStack fullWidth gap="8">
         {!!label && (
           <Typography variant="S" className={styles.Label}>
             {label}
@@ -89,7 +89,7 @@ export const Input: FC<InputProps> = memo(
           />
           <div className={styles.AddonRight}>{addonRight}</div>
         </div>
-      </HStack>
+      </VStack>
     );
   },
 );

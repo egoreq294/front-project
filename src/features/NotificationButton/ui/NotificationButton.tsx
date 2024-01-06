@@ -25,7 +25,13 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
     setIsOpen(false);
   }, [setIsOpen]);
 
-  const trigger = <IconButton name="NotificationNew" onClick={onOpenDrawer} />;
+  const trigger = (
+    <IconButton
+      name="NotificationNew"
+      onClick={onOpenDrawer}
+      className={styles.TriggerButton}
+    />
+  );
 
   return (
     <div>
