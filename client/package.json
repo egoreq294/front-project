@@ -20,7 +20,7 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "remove-feature": "ts-node ./scripts/remove-feature.ts",
-    "prepare": "husky install"
+    "prepare": "husky install || exit 0"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint",
