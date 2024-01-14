@@ -1,12 +1,14 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import {
-  getUsers,
   register,
   login,
   logout,
   refresh,
-  getUserById,
+  getUser,
+  updateUser,
+  getProfileById,
+  updateProfile,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
@@ -20,6 +22,8 @@ router.post(
 );
 router.post("/login", login);
 router.post("/logout", logout);
-router.post("/refresh", refresh);
-router.get("/users", authMiddleware, getUsers);
-router.get("/user/:id", authMiddleware, getUserById);
+router.get("/refresh", refresh);
+router.get("/user", authMiddleware, getUser);
+router.patch("/user", authMiddleware, updateUser);
+router.get("/profile/:id", getProfileById);
+router.put("/profile", authMiddleware, updateProfile);

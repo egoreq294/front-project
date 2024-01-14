@@ -7,7 +7,7 @@ describe('counterSlice test suite', () => {
       userReducer(
         { _inited: true },
         userActions.setAuthData({
-          username: 'test',
+          email: 'test@test.test',
           id: '1',
         }),
       ),
@@ -22,7 +22,7 @@ describe('counterSlice test suite', () => {
   test('logout should return empty auth data ', () => {
     const state: UserSchema = {
       authData: {
-        username: 'test',
+        email: 'test@test.test',
         id: '1',
       },
       _inited: true,

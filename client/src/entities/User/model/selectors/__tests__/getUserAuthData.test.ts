@@ -6,14 +6,14 @@ describe('getUserAuthData test suite', () => {
     const state: DeepPartial<StateSchema> = {
       user: {
         authData: {
-          username: 'test test test',
+          email: 'test test test',
           id: '1',
         },
       },
     };
 
     expect(getUserAuthData(state as StateSchema)).toEqual({
-      username: 'test test test',
+      email: 'test test test',
       id: '1',
     });
   });

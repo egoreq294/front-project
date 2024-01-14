@@ -8,7 +8,7 @@ import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { Profile } from '@entities/Profile';
 import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
-import { profileReducer } from '../../../model/slice/profileSlice';
+import { editableCardProfileReducer } from '../../../model/slice/editableCardProfileSlice';
 import { EditableProfileCard } from '../EditableProfileCard';
 
 const profile: Profile = {
@@ -19,12 +19,11 @@ const profile: Profile = {
   currency: CurrencyEnum.RUB,
   country: CountryEnum.UnitedStates,
   city: 'New York',
-  username: 'admin',
 };
 
 const options = {
   initialState: {
-    profile: {
+    editableCardProfile: {
       readonly: true,
     },
     user: {
@@ -33,7 +32,7 @@ const options = {
       },
     },
   },
-  asyncReducers: { profile: profileReducer },
+  asyncReducers: { editableCardProfile: editableCardProfileReducer },
 };
 
 export const handlers = [

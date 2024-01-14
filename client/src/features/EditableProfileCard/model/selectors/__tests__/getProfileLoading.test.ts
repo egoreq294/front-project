@@ -4,7 +4,7 @@ import { getProfileLoading } from '../getProfileLoading';
 describe('getProfileLoading test suite', () => {
   test('should return profile loading', () => {
     const state: DeepPartial<StateSchema> = {
-      profile: {
+      editableCardProfile: {
         loading: true,
       },
     };

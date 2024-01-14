@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@entities/Article';
 import { User } from '@entities/User';
-import { Avatar } from '@shared/ui/Avatar';
+// import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { HStack, VStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
@@ -17,6 +17,8 @@ interface ArticleAdditionalInfoProps {
   createdAt: string;
   views: number;
 }
+
+// TODO
 
 export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   className,
@@ -37,8 +39,8 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   return (
     <VStack gap="32" className={className}>
       <HStack gap="8">
-        <Avatar src={author.avatar} size={32} />
-        <Typography bold>{author.username}</Typography>
+        {/* <Avatar src={author.avatar} size={32} /> */}
+        <Typography bold>{author.email}</Typography>
         <Typography>{createdAt}</Typography>
       </HStack>
       {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}

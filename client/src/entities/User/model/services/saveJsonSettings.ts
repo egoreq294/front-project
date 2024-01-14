@@ -22,10 +22,7 @@ export const saveJsonSettings = createAsyncThunk<
 
     try {
       const response = await dispatch(
-        setJsonSettingsMutation({
-          userId: userData.id,
-          jsonSettings: { ...currentSettings, ...newJsonSettings },
-        }),
+        setJsonSettingsMutation({ ...currentSettings, ...newJsonSettings }),
       ).unwrap();
 
       if (!response.jsonSettings) {

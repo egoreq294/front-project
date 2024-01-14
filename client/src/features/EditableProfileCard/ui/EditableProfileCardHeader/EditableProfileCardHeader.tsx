@@ -11,7 +11,7 @@ import { Typography } from '@shared/ui/Typography';
 import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData';
-import { profileActions } from '../../model/slice/profileSlice';
+import { editableCardProfileActions } from '../../model/slice/editableCardProfileSlice';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -26,14 +26,14 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
 
-  const canEdit = authData?.id === profileData?.id;
+  const canEdit = authData?.profile?.id === profileData?.id;
 
   const onEdit = useCallback((): void => {
-    dispatch(profileActions.setReadonly(false));
+    dispatch(editableCardProfileActions.setReadonly(false));
   }, [dispatch]);
 
   const onCancelEdit = useCallback((): void => {
-    dispatch(profileActions.cancelEdit());
+    dispatch(editableCardProfileActions.cancelEdit());
   }, [dispatch]);
 
   const onSaveEdit = useCallback((): void => {

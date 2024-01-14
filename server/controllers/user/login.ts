@@ -1,5 +1,6 @@
 import { login as loginService } from "../../services/user";
 import { Request, Response, NextFunction } from "express";
+import { getProfileDTO, getUserDTO } from "../../utils";
 
 export const login = async (
   req: Request,
@@ -9,14 +10,24 @@ export const login = async (
   try {
     const { email, password } = req.body;
 
-    const userData = await loginService({ email, password });
+    const { accessToken, refreshToken, user, profile } = await loginService({
+      email,
+      password,
+    });
 
-    res.cookie("refreshToken", userData.refreshToken, {
+    res.cookie("refreshToken", refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     });
 
-    return res.json(userData);
+    const userDTO = getUserDTO(user);
+    const profileDTO = getProfileDTO(profile);
+
+    return res.json({
+      accessToken,
+      refreshToken,
+      user: { ...userDTO, profile: profileDTO },
+    });
   } catch (e) {
     next(e);
   }

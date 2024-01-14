@@ -9,14 +9,14 @@ export const refresh = async (
   try {
     const { refreshToken } = req.cookies;
 
-    const userData = await refreshService(refreshToken);
+    const refreshData = await refreshService(refreshToken);
 
-    res.cookie("refreshToken", userData.refreshToken, {
+    res.cookie("refreshToken", refreshData.refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     });
 
-    return res.json(userData);
+    return res.json(refreshData);
   } catch (e) {
     next(e);
   }

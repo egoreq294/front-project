@@ -25,6 +25,7 @@ export interface BuildOptions {
   isDev: boolean;
   alias: AliasOptions;
   apiUrl: string;
+  apiNewUrl: string;
 }
 
 export interface BuildEnv {

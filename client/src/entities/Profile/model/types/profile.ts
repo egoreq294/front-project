@@ -9,6 +9,5 @@ export interface Profile {
   country?: CountryEnum;
   city?: string;
   currency?: CurrencyEnum;
-  username?: string;
   avatar?: string;
 }

@@ -11,20 +11,21 @@ import { ArticleDetailsSchema } from '@entities/Article';
 import { CounterSchema } from '@entities/Counter';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
-import { LoginSchema } from '@features/AuthByUsername';
-import { ProfileSchema } from '@features/EditableProfileCard';
+import { LoginSchema } from '@features/AuthByEmail';
+import { EditableCardProfileSchema } from '@features/EditableProfileCard';
 import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@pages/ArticlesPage';
-import { rtkApi } from '@shared/api/rtkApi';
+import { rtkApi, rtkNewApi } from '@shared/api/rtkApi';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+  [rtkNewApi.reducerPath]: ReturnType<typeof rtkNewApi.reducer>;
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollSchema;
   loginForm?: LoginSchema;
-  profile?: ProfileSchema;
+  editableCardProfile?: EditableCardProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
@@ -46,6 +47,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
+  apiNew: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {

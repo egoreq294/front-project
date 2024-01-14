@@ -17,7 +17,7 @@ export const getSidebarItems = createSelector(
       iconName: 'Info',
     },
     {
-      path: `/profile/${userData?.id}`,
+      path: `/profile/${userData?.profile?.id}`,
       text: 'profile-link',
       iconName: 'AvatarNew',
       authOnly: true,

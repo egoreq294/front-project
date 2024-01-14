@@ -3,4 +3,5 @@ import { ValidateProfileErrorEnum } from '../constants/constants';
 
 export const getProfileValidationErrors = (
   state: StateSchema,
-): ValidateProfileErrorEnum[] => state.profile?.validationErrors || [];
+): ValidateProfileErrorEnum[] =>
+  state.editableCardProfile?.validationErrors || [];

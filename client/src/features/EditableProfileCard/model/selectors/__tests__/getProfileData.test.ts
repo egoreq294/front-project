@@ -6,9 +6,8 @@ import { getProfileData } from '../getProfileData';
 describe('getProfileData test suite', () => {
   test('should return profile data', () => {
     const state: DeepPartial<StateSchema> = {
-      profile: {
+      editableCardProfile: {
         data: {
-          username: 'admin',
           age: '22',
           country: CountryEnum.Russia,
           firstName: 'first name',
@@ -20,7 +19,6 @@ describe('getProfileData test suite', () => {
     };
 
     expect(getProfileData(state as StateSchema)).toEqual({
-      username: 'admin',
       age: '22',
       country: CountryEnum.Russia,
       firstName: 'first name',

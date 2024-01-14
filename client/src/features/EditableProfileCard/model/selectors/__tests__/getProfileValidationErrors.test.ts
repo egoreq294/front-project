@@ -5,7 +5,7 @@ import { getProfileValidationErrors } from '../getProfileValidationErrors';
 describe('getProfileValidationErrors test suite', () => {
   test('should return profile validation errors', () => {
     const state: DeepPartial<StateSchema> = {
-      profile: {
+      editableCardProfile: {
         validationErrors: [
           ValidateProfileErrorEnum.INCORRECT_AGE,
           ValidateProfileErrorEnum.INCORRECT_USERNAME,

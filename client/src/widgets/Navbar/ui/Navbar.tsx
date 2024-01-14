@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
-import { LoginModal } from '@features/AuthByUsername';
+import { LoginModal } from '@features/AuthByEmail';
 import { AvatarDropdown } from '@features/AvatarDropdown';
 import { NotificationButton } from '@features/NotificationButton';
 import { Button } from '@shared/ui/Button';

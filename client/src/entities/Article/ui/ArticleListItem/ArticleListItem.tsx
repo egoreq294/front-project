@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AppImage } from '@shared/ui/AppImage';
 import { AppLink } from '@shared/ui/AppLink';
-import { Avatar } from '@shared/ui/Avatar';
+// import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { Card } from '@shared/ui/Card';
 import { Icon } from '@shared/ui/Icon';
@@ -27,6 +27,8 @@ interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
+// TODO
+
 export const ArticleListItem: FC<ArticleListItemProps> = ({
   article,
   viewMode,
@@ -45,8 +47,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         <Card padding="24">
           <VStack gap="16">
             <HStack gap="8">
-              <Avatar size={32} src={article.user?.avatar} />
-              <Typography bold>{article.user?.username}</Typography>
+              {/* <Avatar size={32} src={article.user?.avatar} /> */}
+              <Typography bold>{article.user?.email}</Typography>
               <Typography>{article.createdAt}</Typography>
             </HStack>
             <Typography variant="L" bold>
@@ -108,8 +110,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
               </HStack>
             </HStack>
             <HStack gap="8">
-              <Avatar size={32} src={article.user?.avatar} />
-              <Typography bold>{article.user?.username}</Typography>
+              {/* <Avatar size={32} src={article.user?.avatar} /> */}
+              <Typography bold>{article.user?.email}</Typography>
             </HStack>
           </VStack>
         </VStack>

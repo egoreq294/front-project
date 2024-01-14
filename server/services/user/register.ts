@@ -2,14 +2,28 @@ import bcrypt from "bcrypt";
 import { UserModel } from "../../models/User";
 import { ApiError } from "../../exceptions";
 import { generateTokens, saveToken } from "../token";
-import { getUserDTO } from "../../utils";
+import { UserRoleEnum } from "../../types/user";
+import { createProfile } from "../profile";
 
 type RegisterArgs = {
   email: string;
   password: string;
+  username?: string;
+  avatar?: string;
+  roles?: UserRoleEnum[];
+  features: Record<string, string>;
+  jsonSettings: Record<string, string>;
 };
 
-export const register = async ({ email, password }: RegisterArgs) => {
+export const register = async ({
+  email,
+  password,
+  username,
+  avatar,
+  roles,
+  features,
+  jsonSettings,
+}: RegisterArgs) => {
   const alreadyRegistered = await UserModel.findOne({ email });
 
   if (alreadyRegistered) {
@@ -19,9 +33,18 @@ export const register = async ({ email, password }: RegisterArgs) => {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
 
-  const user = await UserModel.create({ email, passwordHash });
+  const profile = await createProfile();
 
-  const userDTO = getUserDTO(user);
+  const user = await UserModel.create({
+    email,
+    passwordHash,
+    username,
+    avatar,
+    roles,
+    features,
+    jsonSettings,
+    profile: profile._id,
+  });
 
   const tokens = generateTokens({ _id: user._id });
 
@@ -31,5 +54,5 @@ export const register = async ({ email, password }: RegisterArgs) => {
 
   await saveToken({ userId: user._id, refreshToken: tokens.refreshToken });
 
-  return { ...tokens, user: userDTO };
+  return { ...tokens, user };
 };

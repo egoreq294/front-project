@@ -17,7 +17,7 @@ const USER_DATA = {
 describe('updateProfileData test suite', () => {
   test('should update data with success', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
-      profile: {
+      editableCardProfile: {
         form: USER_DATA,
       },
     });
@@ -36,7 +36,7 @@ describe('updateProfileData test suite', () => {
 
   test('should update data with error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
-      profile: {
+      editableCardProfile: {
         form: USER_DATA,
       },
     });
@@ -49,7 +49,7 @@ describe('updateProfileData test suite', () => {
 
   test('should update data with validation error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
-      profile: {
+      editableCardProfile: {
         form: { ...USER_DATA, firstName: EMPTY_STRING },
       },
     });

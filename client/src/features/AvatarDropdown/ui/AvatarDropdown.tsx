@@ -6,6 +6,7 @@ import { getUserAuthData, isAdminRole, userActions } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Avatar } from '@shared/ui/Avatar';
 import { Dropdown } from '@shared/ui/Dropdown';
+import { useLogout } from '../model/api/logoutApi';
 
 import styles from './styles.module.scss';
 
@@ -19,9 +20,12 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
   const authData = useSelector(getUserAuthData);
   const isAdmin = useSelector(isAdminRole);
 
-  const onLogout = useCallback((): void => {
+  const [logout] = useLogout();
+
+  const onLogout = useCallback(async (): Promise<void> => {
+    await logout();
     dispatch(userActions.logout());
-  }, [dispatch]);
+  }, [dispatch, logout]);
 
   if (!authData) {
     return null;
@@ -35,7 +39,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
         {
           id: '1',
           content: t('my-profile'),
-          href: `/profile/${authData.id}`,
+          href: `/profile/${authData.profile?.id}`,
         },
         ...(isAdmin
           ? [
@@ -49,7 +53,11 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
         { id: '3', content: t('logout'), onClick: onLogout },
       ]}
       trigger={
-        <Avatar className={styles.Avatar} size={48} src={authData.avatar} />
+        <Avatar
+          className={styles.Avatar}
+          size={48}
+          src={authData.profile?.avatar}
+        />
       }
     />
   );
