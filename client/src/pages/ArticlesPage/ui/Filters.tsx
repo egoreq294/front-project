@@ -30,7 +30,7 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
   const type = useSelector(getArticlesPageType);
 
   const fetchData = useCallback(() => {
-    dispatch(fetchArticles({ page: 1, replace: true }));
+    dispatch(fetchArticles({ page: 0, replace: true }));
   }, []);
 
   const debouncedFetchData = useDebounce(fetchData, 1000);

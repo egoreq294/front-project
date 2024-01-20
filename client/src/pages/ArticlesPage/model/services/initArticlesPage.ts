@@ -43,6 +43,6 @@ export const initArticlesPage = createAsyncThunk<
     }
 
     dispatch(articlesPageActions.initState());
-    dispatch(fetchArticles({ page: 1 }));
+    dispatch(fetchArticles({ page: 0 }));
   },
 );

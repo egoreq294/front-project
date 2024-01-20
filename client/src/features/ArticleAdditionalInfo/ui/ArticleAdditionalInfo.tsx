@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@entities/Article';
-import { User } from '@entities/User';
+import { Profile } from '@entities/Profile';
 // import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { HStack, VStack } from '@shared/ui/Stack';
@@ -13,7 +13,7 @@ import { canEditArticle } from '../model/selectors/canEditArticle';
 
 interface ArticleAdditionalInfoProps {
   className?: string;
-  author: User;
+  author: Profile;
   createdAt: string;
   views: number;
 }
@@ -40,7 +40,9 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
     <VStack gap="32" className={className}>
       <HStack gap="8">
         {/* <Avatar src={author.avatar} size={32} /> */}
-        <Typography bold>{author.email}</Typography>
+        <Typography bold>
+          {author.lastName} {author.firstName}
+        </Typography>
         <Typography>{createdAt}</Typography>
       </HStack>
       {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}

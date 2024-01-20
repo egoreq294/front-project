@@ -7,12 +7,8 @@ export type ProfileDTO = {
 } & Profile;
 
 export const getProfileDTO = (
-  profileModel: InstanceType<typeof ProfileModel> | null
-): ProfileDTO | null => {
-  if (!profileModel) {
-    return null;
-  }
-
+  profileModel: InstanceType<typeof ProfileModel>
+): ProfileDTO => {
   return {
     id: profileModel._id,
     firstName: profileModel.firstName,

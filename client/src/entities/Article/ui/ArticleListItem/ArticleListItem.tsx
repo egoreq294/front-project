@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AppImage } from '@shared/ui/AppImage';
 import { AppLink } from '@shared/ui/AppLink';
-// import { Avatar } from '@shared/ui/Avatar';
+import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { Card } from '@shared/ui/Card';
 import { Icon } from '@shared/ui/Icon';
@@ -47,8 +47,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         <Card padding="24">
           <VStack gap="16">
             <HStack gap="8">
-              {/* <Avatar size={32} src={article.user?.avatar} /> */}
-              <Typography bold>{article.user?.email}</Typography>
+              <Avatar size={32} src={article.profile?.avatar} />
+              <Typography bold>
+                {article.profile?.lastName} {article.profile?.firstName}
+              </Typography>
               <Typography>{article.createdAt}</Typography>
             </HStack>
             <Typography variant="L" bold>
@@ -57,7 +59,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <Typography variant="M">{article.subtitle}</Typography>
             <AppImage
               fallback={<Skeleton width="100%" height="420px" />}
-              src={article.img}
+              src={article.image}
               className={styles.Image}
               alt={article.title}
             />
@@ -91,7 +93,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       <Card padding="0" className={styles.Card}>
         <VStack gap="4">
           <AppImage
-            src={article.img}
+            src={article.image}
             className={styles.Image}
             alt={article.title}
             fallback={<Skeleton width="100%" height="140px" />}
@@ -110,8 +112,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
               </HStack>
             </HStack>
             <HStack gap="8">
-              {/* <Avatar size={32} src={article.user?.avatar} /> */}
-              <Typography bold>{article.user?.email}</Typography>
+              <Avatar size={32} src={article.profile?.avatar} />
+              <Typography bold>
+                {article.profile?.lastName} {article.profile?.firstName}
+              </Typography>
             </HStack>
           </VStack>
         </VStack>

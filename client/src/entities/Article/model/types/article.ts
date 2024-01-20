@@ -1,4 +1,4 @@
-import { User } from '@entities/User';
+import { Profile } from '@entities/Profile';
 import { ArticleBlockTypeEnum, ArticleTypeEnum } from '../constants/article';
 
 export interface ArticleBlockBase {
@@ -31,13 +31,14 @@ export type ArticleBlock =
 export interface Article {
   id: string;
   title: string;
-  user: User;
+  profile: Profile;
   subtitle: string;
-  img: string;
+  image: string;
   views: number;
   createdAt: string;
   type: ArticleTypeEnum[];
   blocks: ArticleBlock[];
+  rating: number;
 }
 
 export type ArticleViewMode = 'List' | 'Plate';

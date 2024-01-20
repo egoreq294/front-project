@@ -12,7 +12,6 @@ import { fetchNextArticles } from '../model/services/fetchNextArticles';
 import { articlesPageReducer } from '../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { Filters } from './Filters';
-// import { ArticlesPageFilters } from './ArticlesPageFilters';
 import { ViewSelector } from './ViewSelector';
 
 const reducers: ReducerList = {

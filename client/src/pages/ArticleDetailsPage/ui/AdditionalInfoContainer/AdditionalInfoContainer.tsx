@@ -37,7 +37,7 @@ export const AdditionalInfoContainer: FC<AdditionalInfoContainerProps> = ({
   return (
     <Card className={cn(styles.Card, className)} padding="24">
       <ArticleAdditionalInfo
-        author={article.user}
+        author={article.profile}
         createdAt={article.createdAt}
         views={article.views}
       />

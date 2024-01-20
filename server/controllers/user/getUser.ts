@@ -26,7 +26,7 @@ export const getUser = async (
     }
 
     const userDTO = getUserDTO(user);
-    const profileDTO = getProfileDTO(profile);
+    const profileDTO = profile ? getProfileDTO(profile) : null;
 
     return res.json({ ...userDTO, ...(!!profile && { profile: profileDTO }) });
   } catch (e) {

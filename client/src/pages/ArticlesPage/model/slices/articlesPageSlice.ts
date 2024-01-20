@@ -28,7 +28,7 @@ const articlesPageSlice = createSlice({
     view: 'List',
     ids: [],
     entities: {},
-    page: 1,
+    page: 0,
     hasMore: true,
     sort: ArticleSortField.CREATED,
     search: EMPTY_STRING,

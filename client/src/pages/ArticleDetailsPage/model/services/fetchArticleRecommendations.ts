@@ -11,9 +11,9 @@ export const fetchArticleRecommendaions = createAsyncThunk<
   'articleDetails/fetchArticleRecommendaions',
   async (_, { extra, rejectWithValue }) => {
     try {
-      const response = await extra.api.get<Article[]>('/articles', {
+      const response = await extra.apiNew.get<Article[]>('/article', {
         params: {
-          _expand: 'user',
+          _expand: 'profile',
           _limit: 8,
         },
       });

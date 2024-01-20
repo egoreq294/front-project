@@ -23,7 +23,7 @@ export const fetchArticles = createAsyncThunk<
   ThunkConfig<string>
 >(
   'articlesPage/fetchArticles',
-  async ({ page = 1 }, { extra, rejectWithValue, getState }) => {
+  async ({ page = 0 }, { extra, rejectWithValue, getState }) => {
     const limit = getArticlesPageLimit(getState());
     const order = getArticlesPageOrder(getState());
     const sort = getArticlesPageSort(getState());
@@ -32,14 +32,14 @@ export const fetchArticles = createAsyncThunk<
 
     try {
       addQueryParams({ order, sort, search, type });
-      const response = await extra.api.get<Article[]>('/articles', {
+      const response = await extra.apiNew.get<Article[]>('/article', {
         params: {
-          _expand: 'user',
+          _expand: 'profile',
           _limit: limit,
           _page: page,
           _sort: sort,
           _order: order,
-          q: search,
+          search: search,
           type: type === ArticleTypeEnum.ALL ? undefined : type,
         },
       });

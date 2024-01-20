@@ -10,6 +10,6 @@ export const canEditArticle = createSelector(
     if (!article || !user) {
       return false;
     }
-    return article.user.id === user.id;
+    return article.profile.id === user?.profile?.id;
   },
 );

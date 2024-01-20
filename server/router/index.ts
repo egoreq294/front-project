@@ -9,11 +9,15 @@ import {
   updateUser,
   getProfileById,
   updateProfile,
+  createArticle,
+  getArticleById,
+  getArticles,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
 export const router = Router();
 
+// user
 router.post(
   "/register",
   body("email").isEmail(),
@@ -25,5 +29,12 @@ router.post("/logout", logout);
 router.get("/refresh", refresh);
 router.get("/user", authMiddleware, getUser);
 router.patch("/user", authMiddleware, updateUser);
+
+// profile
 router.get("/profile/:id", getProfileById);
 router.put("/profile", authMiddleware, updateProfile);
+
+// article
+router.post("/article", authMiddleware, createArticle);
+router.get("/article/:id", authMiddleware, getArticleById);
+router.get("/article", authMiddleware, getArticles);
