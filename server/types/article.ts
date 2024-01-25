@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { BlockModel, CommentModel } from "../models/Article";
+import { BlockModel, CommentModel, RatingModel } from "../models/Article";
 
 export enum ArticleTypeEnum {
   ALL = "ALL",
@@ -12,6 +12,11 @@ export enum BlockTypeEnum {
   TEXT = "TEXT",
   CODE = "CODE",
   IMAGE = "IMAGE",
+}
+
+export enum RatingActionEnum {
+  LIKE = "LIKE",
+  DISLIKE = "DISLIKE",
 }
 
 export type TextBlock = {
@@ -36,6 +41,16 @@ export type Comment = {
   profileId: ObjectId;
 };
 
+export type RatedProfiles = {
+  profileId: ObjectId;
+  action: RatingActionEnum;
+};
+
+export type Rating = {
+  rating: number;
+  ratedProfiles: RatedProfiles[];
+};
+
 export type Article = {
   title: string;
   subtitle?: string;
@@ -46,5 +61,5 @@ export type Article = {
   type: ArticleTypeEnum[];
   blocks: InstanceType<typeof BlockModel>[];
   comments: InstanceType<typeof CommentModel>[];
-  rating: number;
+  rating: InstanceType<typeof RatingModel>;
 };

@@ -19,7 +19,10 @@ export const createArticle = async (args: CreateArticleArgs) => {
     createdAt,
     views: 0,
     comments: [],
-    rating: 0,
+    rating: {
+      rating: 0,
+      ratedProfiles: [],
+    },
   });
 
   return article;

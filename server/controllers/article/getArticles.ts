@@ -2,9 +2,12 @@ import { Request, Response, NextFunction } from "express";
 import {
   getProfileById as getProfileByIdService,
   getArticles as getArticlesService,
+  getUserById as getUserByIdService,
+  canRateArticle as canRateArticleService,
 } from "../../services";
 import { getProfileDTO, getArticleDTO } from "../../utils";
 import { ArticleTypeEnum } from "../../types/article";
+import { TokenPayload } from "../../types/token";
 
 interface GetArticlesQueryParams {
   _expand?: string;
@@ -17,12 +20,17 @@ interface GetArticlesQueryParams {
 }
 
 export const getArticles = async (
-  req: Request<{}, {}, {}, GetArticlesQueryParams>,
+  req: Request<{}, {}, { user: TokenPayload }, GetArticlesQueryParams>,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const { _expand, _limit, _page, _sort, _order, search, type } = req.query;
+    const {
+      user: { _id: userId },
+    } = req.body;
+
+    const currentUser = await getUserByIdService(userId);
 
     const articles = await getArticlesService({
       limit: _limit,
@@ -41,7 +49,12 @@ export const getArticles = async (
           profile = await getProfileByIdService(article.profileId);
         }
 
-        const articleDTO = getArticleDTO(article);
+        const canRateArticle = await canRateArticleService({
+          articleId: article._id,
+          profileId: currentUser.profile,
+        });
+
+        const articleDTO = getArticleDTO(article, { canRateArticle });
         const profileDTO = profile ? getProfileDTO(profile) : null;
 
         return {

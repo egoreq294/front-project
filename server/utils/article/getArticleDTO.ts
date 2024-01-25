@@ -3,16 +3,26 @@ import { Article } from "../../types/article";
 import { ArticleModel, CommentModel } from "../../models/Article";
 import { CommentDTO, getCommentsDTO } from "./getCommentsDTO";
 import { BlocksDTO, getBlocksDTO } from "./getBlocksDTO";
+import { RatingDTO, getRatingDTO } from "./getRatingDTO";
 
-export type ArticleDTO = Omit<Article, "comments" | "blocks" | "createdAt"> & {
+export type ArticleDTO = Omit<
+  Article,
+  "comments" | "blocks" | "createdAt" | "rating"
+> & {
   id: ObjectId;
   createdAt: string;
   comments: CommentDTO[];
   blocks: BlocksDTO[];
+  rating: RatingDTO;
+};
+
+type Options = {
+  canRateArticle?: boolean;
 };
 
 export const getArticleDTO = (
-  articleModel: InstanceType<typeof ArticleModel>
+  articleModel: InstanceType<typeof ArticleModel>,
+  options?: Options
 ): ArticleDTO => {
   return {
     id: articleModel._id,
@@ -25,6 +35,6 @@ export const getArticleDTO = (
     type: articleModel.type,
     blocks: getBlocksDTO(articleModel.blocks),
     comments: getCommentsDTO(articleModel.comments),
-    rating: articleModel.rating,
+    rating: getRatingDTO(articleModel.rating, options?.canRateArticle),
   };
 };
