@@ -11,6 +11,7 @@ import { ChevronRight } from './assets/ChevronRight';
 import { ChevronUp } from './assets/ChevronUp';
 import { Copy } from './assets/Copy';
 import { CopyNew } from './assets/CopyNew';
+import { Dislike } from './assets/Dislike';
 import { Done } from './assets/Done';
 import { Edit } from './assets/Edit';
 import { Etc } from './assets/Etc';
@@ -19,6 +20,7 @@ import { EyeNew } from './assets/EyeNew';
 import { Home } from './assets/Home';
 import { HomeNew } from './assets/HomeNew';
 import { Info } from './assets/Info';
+import { Like } from './assets/Like';
 import { List } from './assets/List';
 import { ListNew } from './assets/ListNew';
 import { Logo } from './assets/Logo';
@@ -74,4 +76,6 @@ export const ICON_MAP = {
   ChevronUp,
   Search,
   ArrowUp,
+  Like,
+  Dislike,
 };

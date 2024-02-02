@@ -4,7 +4,6 @@ import {
   rateArticleById as rateArticleByIdService,
   getUserById as getUserByIdService,
 } from "../../services";
-import { ObjectId } from "mongodb";
 import { getArticleDTO } from "../../utils";
 
 export const rateArticleById = async (
@@ -15,10 +14,9 @@ export const rateArticleById = async (
   try {
     const {
       user: { _id: userId },
+      articleId,
       action,
     } = req.body;
-
-    const { id: articleId } = req.params;
 
     const user = await getUserByIdService(userId);
 

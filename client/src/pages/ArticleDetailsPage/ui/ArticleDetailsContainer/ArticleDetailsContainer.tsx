@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@entities/Article';
-import { ArticleRating } from '@features/ArticleRating';
 import { ArticleRecommendationsList } from '@features/ArticleRecommendationsList';
 import { Card } from '@shared/ui/Card';
 import { VStack } from '@shared/ui/Stack';
@@ -25,9 +24,6 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = ({
     <VStack gap="24" className={className}>
       <Card fullWidth className={className} padding="24">
         <ArticleDetails articleId={id} />
-      </Card>
-      <Card fullWidth className={className} padding="24">
-        <ArticleRating articleId={id} />
       </Card>
       <Card fullWidth className={className} padding="24">
         <ArticleRecommendationsList />

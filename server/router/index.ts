@@ -39,4 +39,4 @@ router.put("/profile", authMiddleware, updateProfile);
 router.post("/article", authMiddleware, createArticle);
 router.get("/article/:id", authMiddleware, getArticleById);
 router.get("/article", authMiddleware, getArticles);
-router.post("/article/rate/:id", authMiddleware, rateArticleById);
+router.post("/article/rate", authMiddleware, rateArticleById);

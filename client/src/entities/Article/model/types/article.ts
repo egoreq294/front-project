@@ -28,6 +28,11 @@ export type ArticleBlock =
   | ArticleImageBlock
   | ArticleTextBlock;
 
+export type ArticleRating = {
+  value: number;
+  canRateArticle: boolean;
+};
+
 export interface Article {
   id: string;
   title: string;
@@ -38,7 +43,7 @@ export interface Article {
   createdAt: string;
   type: ArticleTypeEnum[];
   blocks: ArticleBlock[];
-  rating: number;
+  rating: ArticleRating;
 }
 
 export type ArticleViewMode = 'List' | 'Plate';
