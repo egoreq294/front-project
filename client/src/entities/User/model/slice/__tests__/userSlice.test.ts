@@ -13,7 +13,7 @@ describe('counterSlice test suite', () => {
       ),
     ).toEqual({
       authData: {
-        username: 'test',
+        email: 'test@test.test',
         id: '1',
       },
       _inited: true,

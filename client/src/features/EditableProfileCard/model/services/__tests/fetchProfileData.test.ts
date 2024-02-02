@@ -7,10 +7,10 @@ describe('fetchProfileData test suite', () => {
   test('should fetch data with success', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
 
-    thunk.api.get.mockReturnValue(
+    thunk.apiNew.get.mockReturnValue(
       Promise.resolve({
         data: {
-          username: 'admin',
+          email: 'admin',
           age: '22',
           country: CountryEnum.Russia,
           firstName: 'first name',
@@ -20,12 +20,12 @@ describe('fetchProfileData test suite', () => {
         },
       }),
     );
-    const result = await thunk.callThunk('1');
+    const result = await thunk.callThunkNew('1');
 
-    expect(thunk.api.get).toHaveBeenCalled();
+    expect(thunk.apiNew.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual({
-      username: 'admin',
+      email: 'admin',
       age: '22',
       country: CountryEnum.Russia,
       firstName: 'first name',
@@ -38,7 +38,7 @@ describe('fetchProfileData test suite', () => {
   test('should fetch data with error', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk('1');
+    const result = await thunk.callThunkNew('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
   });

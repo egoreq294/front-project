@@ -2,7 +2,7 @@ import { LoginSchema } from '../../types/loginSchema';
 import { loginActions, loginReducer } from '../loginSlice';
 
 describe('loginSlice test suite', () => {
-  test('should return login state with username', () => {
+  test('should return login state with email', () => {
     const state: DeepPartial<LoginSchema> = {
       email: '',
     };
@@ -13,7 +13,7 @@ describe('loginSlice test suite', () => {
         loginActions.setEmail('test@test.test'),
       ),
     ).toEqual({
-      username: 'test@test.test',
+      email: 'test@test.test',
     });
   });
 

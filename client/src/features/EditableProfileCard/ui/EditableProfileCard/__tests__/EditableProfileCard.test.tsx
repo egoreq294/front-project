@@ -28,6 +28,9 @@ const options = {
     },
     user: {
       authData: {
+        profile: {
+          id: '1',
+        },
         id: '1',
       },
     },
@@ -39,7 +42,7 @@ export const handlers = [
   rest.get('/profile/1', (req, res, ctx) => {
     return res(ctx.json(profile));
   }),
-  rest.put('/profile/1', (req, res, ctx) => {
+  rest.put('/profile', (req, res, ctx) => {
     return res(ctx.json({ ...profile, firstName: 'new value' }));
   }),
 ];

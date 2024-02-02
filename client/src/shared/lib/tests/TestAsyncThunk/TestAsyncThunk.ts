@@ -20,6 +20,8 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
 
   api: jest.MockedFunctionDeep<AxiosStatic>;
 
+  apiNew: jest.MockedFunctionDeep<AxiosStatic>;
+
   constructor(
     actionCreator: ActionCreator<Return, Arg, RejectValue>,
     state?: DeepPartial<StateSchema>,
@@ -28,6 +30,7 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
     this.dispatch = jest.fn();
     this.getState = jest.fn(() => state as StateSchema);
     this.api = mockedAxios;
+    this.apiNew = mockedAxios;
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -35,6 +38,16 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
     const action = this.actionCreator(arg);
     const result = await action(this.dispatch, this.getState, {
       api: this.api,
+    });
+
+    return result;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  async callThunkNew(arg: Arg) {
+    const action = this.actionCreator(arg);
+    const result = await action(this.dispatch, this.getState, {
+      apiNew: this.apiNew,
     });
 
     return result;
