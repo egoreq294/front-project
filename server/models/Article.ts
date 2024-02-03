@@ -53,5 +53,3 @@ ArticleSchema.index({ "$**": "text" });
 
 export const ArticleModel = model("Article", ArticleSchema);
 export const CommentModel = model("Comment", CommentSchema);
-export const BlockModel = model("Block", BlockSchema);
-export const RatingModel = model("Rating", RatingSchema);

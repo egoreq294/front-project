@@ -5,16 +5,16 @@ import {
   ImageBlock,
   TextBlock,
 } from "../../types/article";
-import { BlockModel } from "../../models/Article";
+import { ArticleModel } from "../../models/Article";
 
 export type BlocksDTO = (TextBlock | CodeBlock | ImageBlock) & {
   id: ObjectId;
 };
 
 export const getBlocksDTO = (
-  blocksModel: InstanceType<typeof BlockModel>[]
+  articleModel: InstanceType<typeof ArticleModel>
 ): Array<BlocksDTO> => {
-  const blocks = blocksModel?.map((item) => {
+  const blocks = articleModel.blocks.map((item) => {
     if (item.type === BlockTypeEnum.CODE) {
       return {
         id: item._id,

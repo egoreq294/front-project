@@ -28,7 +28,7 @@ export const getArticleDTO = (
     createdAt: articleModel.createdAt.toISOString().split("T")[0],
     profileId: articleModel.profileId,
     type: articleModel.type,
-    blocks: getBlocksDTO(articleModel.blocks),
-    rating: getRatingDTO(articleModel.rating, options?.canRateArticle),
+    blocks: getBlocksDTO(articleModel),
+    rating: getRatingDTO(articleModel, options?.canRateArticle),
   };
 };

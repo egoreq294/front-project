@@ -1,4 +1,4 @@
-import { RatingModel } from "../../models/Article";
+import { ArticleModel } from "../../models/Article";
 
 export type RatingDTO = {
   value: number;
@@ -6,11 +6,11 @@ export type RatingDTO = {
 };
 
 export const getRatingDTO = (
-  ratingModel: InstanceType<typeof RatingModel>,
+  articleModel: InstanceType<typeof ArticleModel>,
   canRateArticle?: boolean
 ): RatingDTO => {
   return {
-    value: ratingModel.rating,
+    value: articleModel.rating.rating,
     canRateArticle: !!canRateArticle,
   };
 };
