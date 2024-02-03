@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@entities/Article';
 import { Profile } from '@entities/Profile';
+import { formatDate } from '@shared/lib/formatters';
 import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { HStack, VStack } from '@shared/ui/Stack';
@@ -36,15 +37,13 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   }, [navigate, article]);
 
   return (
-    <VStack gap="32" className={className}>
+    <VStack gap="16" className={className}>
+      {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}
       <HStack gap="8">
         <Avatar src={author.avatar} size={32} />
-        <Typography bold>
-          {author.lastName} {author.firstName}
-        </Typography>
-        <Typography>{createdAt}</Typography>
+        <Typography bold>{`${author.lastName} ${author.firstName}`}</Typography>
       </HStack>
-      {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}
+      <Typography>{formatDate(createdAt)}</Typography>
       <HStack justify="spaceBetween" fullWidth>
         <Typography>{t('{{count}} views', { count: views })}</Typography>
         <ArticleRating article={article} />

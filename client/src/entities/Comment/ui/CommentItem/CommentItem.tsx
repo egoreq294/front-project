@@ -21,9 +21,9 @@ export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
           {comment.profile?.avatar && (
             <Avatar size={32} src={comment.profile.avatar} />
           )}
-          <div>
-            {comment.profile?.lastName} {comment.profile?.firstName}
-          </div>
+          <Typography>
+            {`${comment.profile?.lastName} ${comment.profile?.firstName}`}
+          </Typography>
         </HStack>
       </AppLink>
       <Typography testId={`Comment${comment.id}`}>{comment.text}</Typography>

@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { formatDate } from '@shared/lib/formatters';
 import { AppImage } from '@shared/ui/AppImage';
 import { AppLink } from '@shared/ui/AppLink';
 import { Avatar } from '@shared/ui/Avatar';
@@ -49,9 +50,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <HStack gap="8">
               <Avatar size={32} src={article.profile?.avatar} />
               <Typography bold>
-                {article.profile?.lastName} {article.profile?.firstName}
+                {`${article.profile?.lastName} ${article.profile?.firstName}`}
               </Typography>
-              <Typography>{article.createdAt}</Typography>
+              <Typography>{formatDate(article.createdAt)}</Typography>
             </HStack>
             <Typography variant="L" bold>
               {article.title}
@@ -103,7 +104,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
               {article.title}
             </Typography>
             <HStack fullWidth justify="spaceBetween">
-              <Typography>{article.createdAt}</Typography>
+              <Typography>{formatDate(article.createdAt)}</Typography>
               <HStack gap="4">
                 <Icon name="Eye" className={styles.Icon} />
                 <Typography className={styles.Views}>
@@ -114,7 +115,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             <HStack gap="8">
               <Avatar size={32} src={article.profile?.avatar} />
               <Typography bold>
-                {article.profile?.lastName} {article.profile?.firstName}
+                {`${article.profile?.lastName} ${article.profile?.firstName}`}
               </Typography>
             </HStack>
           </VStack>
