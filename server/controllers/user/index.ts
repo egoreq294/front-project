@@ -4,3 +4,6 @@ export { logout } from "./logout";
 export { refresh } from "./refresh";
 export { getUser } from "./getUser";
 export { updateUser } from "./updateUser";
+export { getNotifications } from "./getNotifications";
+export { createNotification } from "./createNotification";
+export { deleteNotificationById } from "./deleteNotificationById";

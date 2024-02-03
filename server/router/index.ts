@@ -15,6 +15,9 @@ import {
   rateArticleById,
   addCommentByArticleId,
   getCommentsByArticleId,
+  getNotifications,
+  createNotification,
+  deleteNotificationById,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
@@ -32,6 +35,9 @@ router.post("/logout", logout);
 router.get("/refresh", refresh);
 router.get("/user", authMiddleware, getUser);
 router.patch("/user", authMiddleware, updateUser);
+router.get("/user/notifications", authMiddleware, getNotifications);
+router.post("/user/notifications/create", authMiddleware, createNotification);
+router.delete("/user/notifications", authMiddleware, deleteNotificationById);
 
 // profile
 router.get("/profiles/:id", getProfileById);

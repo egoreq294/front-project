@@ -1,10 +1,17 @@
 import { ObjectId } from "mongodb";
-import { Profile } from "./profile";
 
 export enum UserRoleEnum {
   ADMIN = "ADMIN",
   USER = "USER",
 }
+
+export type Notification = {
+  _id: ObjectId;
+  title: string;
+  profileId: ObjectId;
+  description?: string;
+  href?: string;
+};
 
 export type User = {
   passwordHash: string;
@@ -13,4 +20,5 @@ export type User = {
   roles?: UserRoleEnum[];
   features?: Record<string, boolean>;
   jsonSettings?: Record<string, any>;
+  notifications: Notification[];
 };

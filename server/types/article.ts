@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { BlockModel, CommentModel, RatingModel } from "../models/Article";
+import { BlockModel, RatingModel } from "../models/Article";
 
 export enum ArticleTypeEnum {
   ALL = "ALL",
