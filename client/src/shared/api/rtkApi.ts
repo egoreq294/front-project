@@ -8,34 +8,14 @@ import {
 import { Mutex } from 'async-mutex';
 
 import { EMPTY_STRING } from '@shared/constants/common';
-import {
-  ACCESS_TOKEN_LOCALSTORAGE_KEY,
-  USER_LOCALSTORAGE_KEY,
-} from '@shared/constants/localstorage';
+import { ACCESS_TOKEN_LOCALSTORAGE_KEY } from '@shared/constants/localstorage';
 
 type Tokens = { refreshToken: string; accessToken: string };
 
 const mutex = new Mutex();
 
-export const rtkApi = createApi({
-  reducerPath: 'rtkApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: __API__,
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || EMPTY_STRING;
-
-      if (token) {
-        headers.set('Authorization', token);
-      }
-
-      return headers;
-    },
-  }),
-  endpoints: () => ({}),
-});
-
 const baseQuery = fetchBaseQuery({
-  baseUrl: __API_NEW__,
+  baseUrl: __API__,
   credentials: 'include',
   prepareHeaders: (headers) => {
     const token =
@@ -85,8 +65,8 @@ const baseQueryWithReauth: BaseQueryFn<
   return result;
 };
 
-export const rtkNewApi = createApi({
-  reducerPath: 'rtkNewApi',
+export const rtkApi = createApi({
+  reducerPath: 'rtkApi',
   baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
 });

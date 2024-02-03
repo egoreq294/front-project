@@ -17,7 +17,7 @@ export const loginByEmail = createAsyncThunk<
   'login/loginByUsername',
   async ({ email, password }, { dispatch, extra, rejectWithValue }) => {
     try {
-      const response = await extra.apiNew.post('/login', {
+      const response = await extra.api.post('/login', {
         email,
         password,
       });

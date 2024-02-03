@@ -1,7 +1,9 @@
+import { Profile } from '@entities/Profile';
+
 export interface Notification {
   id: string;
   title: string;
-  description: string;
-  userId: string;
-  href?: string;
+  profile: Profile;
+  description: string | null;
+  href: string | null;
 }

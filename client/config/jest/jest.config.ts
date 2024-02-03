@@ -31,6 +31,5 @@ export default {
   globals: {
     __IS_DEV__: 'true',
     __API__: '',
-    __API_NEW__: '',
   },
 };

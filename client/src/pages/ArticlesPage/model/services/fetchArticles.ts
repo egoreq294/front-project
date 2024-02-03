@@ -32,7 +32,7 @@ export const fetchArticles = createAsyncThunk<
 
     try {
       addQueryParams({ order, sort, search, type });
-      const response = await extra.apiNew.get<Article[]>('/articles', {
+      const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'profile',
           _limit: limit,

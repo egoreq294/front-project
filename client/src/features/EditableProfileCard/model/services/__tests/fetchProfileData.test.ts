@@ -7,7 +7,7 @@ describe('fetchProfileData test suite', () => {
   test('should fetch data with success', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
 
-    thunk.apiNew.get.mockReturnValue(
+    thunk.api.get.mockReturnValue(
       Promise.resolve({
         data: {
           email: 'admin',
@@ -20,9 +20,9 @@ describe('fetchProfileData test suite', () => {
         },
       }),
     );
-    const result = await thunk.callThunkNew('1');
+    const result = await thunk.callThunk('1');
 
-    expect(thunk.apiNew.get).toHaveBeenCalled();
+    expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual({
       email: 'admin',
@@ -38,7 +38,7 @@ describe('fetchProfileData test suite', () => {
   test('should fetch data with error', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunkNew('1');
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
   });

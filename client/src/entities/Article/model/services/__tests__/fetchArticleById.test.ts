@@ -5,7 +5,7 @@ describe('fetchArticleById test suite', () => {
   test('should fetch data with success', async () => {
     const thunk = new TestAsyncThunk(fetchArticleById);
 
-    thunk.apiNew.get.mockReturnValue(
+    thunk.api.get.mockReturnValue(
       Promise.resolve({
         data: {
           id: '1',
@@ -13,9 +13,9 @@ describe('fetchArticleById test suite', () => {
         },
       }),
     );
-    const result = await thunk.callThunkNew('1');
+    const result = await thunk.callThunk('1');
 
-    expect(thunk.apiNew.get).toHaveBeenCalled();
+    expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual({
       id: '1',
@@ -25,8 +25,8 @@ describe('fetchArticleById test suite', () => {
 
   test('should fetch data with error', async () => {
     const thunk = new TestAsyncThunk(fetchArticleById);
-    thunk.apiNew.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunkNew('1');
+    thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
   });

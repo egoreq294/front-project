@@ -1,4 +1,4 @@
-import { rtkNewApi } from '@shared/api/rtkApi';
+import { rtkApi } from '@shared/api/rtkApi';
 import { ArticleRateActionEnum } from '../model/constants/article';
 import { Article } from '../model/types/article';
 
@@ -7,7 +7,7 @@ export type RateArticleProps = {
   articleId: string;
 };
 
-const articleRatingApi = rtkNewApi.injectEndpoints({
+const articleRatingApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     rateArticle: build.mutation<Article, RateArticleProps>({
       query: (args) => ({

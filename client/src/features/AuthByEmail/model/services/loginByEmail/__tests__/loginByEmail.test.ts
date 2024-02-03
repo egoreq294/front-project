@@ -6,15 +6,15 @@ describe('loginByUsername test suite', () => {
   test('should login success', async () => {
     const thunk = new TestAsyncThunk(loginByEmail);
 
-    thunk.apiNew.post.mockReturnValue(
+    thunk.api.post.mockReturnValue(
       Promise.resolve({ data: { user: { email: 'test@test.test', id: '1' } } }),
     );
-    const result = await thunk.callThunkNew({
+    const result = await thunk.callThunk({
       email: 'test@test.test',
       password: '123',
     });
 
-    expect(thunk.apiNew.post).toHaveBeenCalled();
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledWith(
       userActions.setAuthData({ email: 'test@test.test', id: '1' }),
     );
@@ -24,13 +24,13 @@ describe('loginByUsername test suite', () => {
   test('should login error', async () => {
     const thunk = new TestAsyncThunk(loginByEmail);
 
-    thunk.apiNew.post.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunkNew({
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk({
       email: 'test@test.test',
       password: '123',
     });
 
-    expect(thunk.apiNew.post).toHaveBeenCalled();
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
   });
 });

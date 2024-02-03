@@ -22,14 +22,14 @@ describe('updateProfileData test suite', () => {
       },
     });
 
-    thunk.apiNew.put.mockReturnValue(
+    thunk.api.put.mockReturnValue(
       Promise.resolve({
         data: USER_DATA,
       }),
     );
-    const result = await thunk.callThunkNew();
+    const result = await thunk.callThunk();
 
-    expect(thunk.apiNew.put).toHaveBeenCalled();
+    expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(USER_DATA);
   });
@@ -40,8 +40,8 @@ describe('updateProfileData test suite', () => {
         form: USER_DATA,
       },
     });
-    thunk.apiNew.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunkNew();
+    thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileErrorEnum.SERVER_ERROR]);
@@ -53,7 +53,7 @@ describe('updateProfileData test suite', () => {
         form: { ...USER_DATA, firstName: EMPTY_STRING },
       },
     });
-    const result = await thunk.callThunkNew();
+    const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileErrorEnum.INCORRECT_FIO]);

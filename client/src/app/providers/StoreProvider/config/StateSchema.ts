@@ -16,11 +16,10 @@ import { EditableCardProfileSchema } from '@features/EditableProfileCard';
 import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@pages/ArticlesPage';
-import { rtkApi, rtkNewApi } from '@shared/api/rtkApi';
+import { rtkApi } from '@shared/api/rtkApi';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
-  [rtkNewApi.reducerPath]: ReturnType<typeof rtkNewApi.reducer>;
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollSchema;
@@ -47,7 +46,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  apiNew: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {

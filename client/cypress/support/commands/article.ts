@@ -16,7 +16,7 @@ export const createArticle = (article?: Article) => {
   return cy
     .request({
       method: 'POST',
-      url: `http://localhost:8000/articles`,
+      url: `http://localhost:5000/api/articles`,
       headers: {
         Authorization: 'token',
       },
@@ -28,7 +28,7 @@ export const createArticle = (article?: Article) => {
 export const removeArticle = (articleId: string) => {
   return cy.request({
     method: 'DELETE',
-    url: `http://localhost:8000/articles/${articleId}`,
+    url: `http://localhost:5000/api/articles/${articleId}`,
     headers: {
       Authorization: 'token',
     },
@@ -39,7 +39,7 @@ export const getArticleComments = (articleId: string) => {
   return cy
     .request({
       method: 'GET',
-      url: `http://localhost:8000/comments?articleId=${articleId}`,
+      url: `http://localhost:5000/api/comments?articleId=${articleId}`,
       headers: {
         Authorization: 'token',
       },

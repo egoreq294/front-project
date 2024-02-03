@@ -20,8 +20,7 @@ export default (env: BuildEnv) => {
   const mode = env.mode || 'development';
 
   const isDev = mode === 'development';
-  const apiUrl = env.apiUrl || 'http://localhost:8000';
-  const apiNewUrl = env.apiUrl || 'http://localhost:5000/api';
+  const apiUrl = env.apiUrl || 'http://localhost:5000/api';
 
   const alias: AliasOptions = {
     '@app': path.resolve(__dirname, 'src/app/'),
@@ -38,7 +37,6 @@ export default (env: BuildEnv) => {
     isDev,
     alias,
     apiUrl,
-    apiNewUrl,
   });
 
   return config;

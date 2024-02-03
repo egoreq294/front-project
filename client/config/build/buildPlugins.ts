@@ -13,7 +13,6 @@ export const buildPlugins = ({
   paths,
   isDev,
   apiUrl,
-  apiNewUrl,
 }: BuildOptions): WebpackPluginInstance[] => {
   const plugins = [
     new HTMLWebpackPlugin({
@@ -23,7 +22,6 @@ export const buildPlugins = ({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
-      __API_NEW__: JSON.stringify(apiNewUrl),
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,

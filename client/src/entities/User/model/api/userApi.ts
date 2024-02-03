@@ -1,8 +1,8 @@
-import { rtkNewApi } from '@shared/api/rtkApi';
+import { rtkApi } from '@shared/api/rtkApi';
 import { JsonSettings } from '../types/jsonSettings';
 import { User } from '../types/user';
 
-const userApi = rtkNewApi.injectEndpoints({
+const userApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     setJsonSettings: build.mutation<User, JsonSettings>({
       query: (jsonSettings) => ({
