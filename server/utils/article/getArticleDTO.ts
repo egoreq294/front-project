@@ -1,17 +1,12 @@
 import { ObjectId } from "mongodb";
 import { Article } from "../../types/article";
-import { ArticleModel, CommentModel } from "../../models/Article";
-import { CommentDTO, getCommentsDTO } from "./getCommentsDTO";
+import { ArticleModel } from "../../models/Article";
 import { BlocksDTO, getBlocksDTO } from "./getBlocksDTO";
 import { RatingDTO, getRatingDTO } from "./getRatingDTO";
 
-export type ArticleDTO = Omit<
-  Article,
-  "comments" | "blocks" | "createdAt" | "rating"
-> & {
+export type ArticleDTO = Omit<Article, "blocks" | "createdAt" | "rating"> & {
   id: ObjectId;
   createdAt: string;
-  comments: CommentDTO[];
   blocks: BlocksDTO[];
   rating: RatingDTO;
 };
@@ -34,7 +29,6 @@ export const getArticleDTO = (
     profileId: articleModel.profileId,
     type: articleModel.type,
     blocks: getBlocksDTO(articleModel.blocks),
-    comments: getCommentsDTO(articleModel.comments),
     rating: getRatingDTO(articleModel.rating, options?.canRateArticle),
   };
 };

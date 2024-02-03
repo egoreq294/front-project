@@ -13,6 +13,8 @@ import {
   getArticleById,
   getArticles,
   rateArticleById,
+  addCommentByArticleId,
+  getCommentsByArticleId,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
@@ -32,11 +34,13 @@ router.get("/user", authMiddleware, getUser);
 router.patch("/user", authMiddleware, updateUser);
 
 // profile
-router.get("/profile/:id", getProfileById);
-router.put("/profile", authMiddleware, updateProfile);
+router.get("/profiles/:id", getProfileById);
+router.put("/profiles/update", authMiddleware, updateProfile);
 
 // article
-router.post("/article", authMiddleware, createArticle);
-router.get("/article/:id", authMiddleware, getArticleById);
-router.get("/article", authMiddleware, getArticles);
-router.post("/article/rate", authMiddleware, rateArticleById);
+router.get("/articles/:id", authMiddleware, getArticleById);
+router.get("/articles", authMiddleware, getArticles);
+router.get("/articles/:id/comments", authMiddleware, getCommentsByArticleId);
+router.post("/articles/create", authMiddleware, createArticle);
+router.post("/articles/rate", authMiddleware, rateArticleById);
+router.post("/articles/add-comment", authMiddleware, addCommentByArticleId);

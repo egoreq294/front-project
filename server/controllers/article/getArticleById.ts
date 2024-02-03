@@ -4,6 +4,7 @@ import {
   getArticleById as getArticleByIdService,
   getUserById as getUserByIdService,
   canRateArticle as canRateArticleService,
+  updateViewsByArticleId,
 } from "../../services";
 import { getProfileDTO, getArticleDTO } from "../../utils";
 
@@ -22,6 +23,8 @@ export const getArticleById = async (
     const { _expand } = req.query;
 
     const currentUser = await getUserByIdService(userId);
+
+    await updateViewsByArticleId(id);
 
     const article = await getArticleByIdService(id);
 

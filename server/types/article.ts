@@ -39,6 +39,7 @@ export type ImageBlock = {
 export type Comment = {
   text: string;
   profileId: ObjectId;
+  articleId: ObjectId;
 };
 
 export type RatedProfiles = {
@@ -60,6 +61,5 @@ export type Article = {
   profileId: ObjectId;
   type: ArticleTypeEnum[];
   blocks: InstanceType<typeof BlockModel>[];
-  comments: InstanceType<typeof CommentModel>[];
   rating: InstanceType<typeof RatingModel>;
 };

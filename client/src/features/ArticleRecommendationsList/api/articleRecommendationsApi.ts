@@ -5,7 +5,7 @@ const recommendationsApi = rtkNewApi.injectEndpoints({
   endpoints: (build) => ({
     getArticleRecommendationsList: build.query<Article[], number>({
       query: (limit) => ({
-        url: '/article',
+        url: '/articles',
         params: {
           _page: 0,
           _limit: limit,

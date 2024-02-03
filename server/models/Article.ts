@@ -20,6 +20,7 @@ const BlockSchema = new Schema<TextBlock | CodeBlock | ImageBlock>({
 const CommentSchema = new Schema<Comment>({
   text: { type: String },
   profileId: { type: Schema.Types.ObjectId, ref: "Profile" },
+  articleId: { type: Schema.Types.ObjectId, ref: "Article" },
 });
 
 const RatedProfiles = new Schema<RatedProfiles>({
@@ -45,7 +46,6 @@ const ArticleSchema = new Schema<Article>({
     required: true,
   },
   blocks: { type: [BlockSchema], required: true },
-  comments: { type: [CommentSchema], required: true },
   rating: { type: RatingSchema, required: true },
 });
 

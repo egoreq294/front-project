@@ -13,16 +13,18 @@ interface CommentItemProps {
   className?: string;
 }
 
-// TODO: add avatar, remove email
-
 export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
   return (
     <HStack fullWidth gap="32" className={className} align="start">
-      <AppLink to={`/profile/${comment.user.id}`} className={styles.Avatar}>
-        {comment.user.profile?.avatar && (
-          <Avatar size={32} src={comment.user.profile.avatar} />
-        )}
-        {comment.user.profile?.lastName} {comment.user.profile?.firstName}
+      <AppLink to={`/profile/${comment.profile.id}`} className={styles.Avatar}>
+        <HStack gap="8">
+          {comment.profile?.avatar && (
+            <Avatar size={32} src={comment.profile.avatar} />
+          )}
+          <div>
+            {comment.profile?.lastName} {comment.profile?.firstName}
+          </div>
+        </HStack>
       </AppLink>
       <Typography testId={`Comment${comment.id}`}>{comment.text}</Typography>
     </HStack>

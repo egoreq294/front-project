@@ -39,10 +39,10 @@ const options = {
 };
 
 export const handlers = [
-  rest.get('/profile/1', (req, res, ctx) => {
+  rest.get('/profiles/1', (req, res, ctx) => {
     return res(ctx.json(profile));
   }),
-  rest.put('/profile', (req, res, ctx) => {
+  rest.put('/profiles/update', (req, res, ctx) => {
     return res(ctx.json({ ...profile, firstName: 'new value' }));
   }),
 ];
