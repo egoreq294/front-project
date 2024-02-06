@@ -19,3 +19,4 @@ export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
 export { getArticleDetailsLoading } from './model/selectors/getArticleDetailsLoading';
 export { rateArticle } from './model/services/rateArticle';
 export { ArticleBlockTypeEnum } from './model/constants/article';
+export { fetchArticleById } from './model/services/fetchArticleById';

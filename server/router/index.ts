@@ -18,6 +18,7 @@ import {
   getNotifications,
   createNotification,
   deleteNotificationById,
+  updateArticle,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
@@ -50,3 +51,4 @@ router.get("/articles/:id/comments", authMiddleware, getCommentsByArticleId);
 router.post("/articles/create", authMiddleware, createArticle);
 router.post("/articles/rate", authMiddleware, rateArticleById);
 router.post("/articles/add-comment", authMiddleware, addCommentByArticleId);
+router.put("/articles/update", authMiddleware, updateArticle);

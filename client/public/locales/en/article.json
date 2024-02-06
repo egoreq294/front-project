@@ -54,5 +54,6 @@
   "paragraphs-text": "Text (Skip the line for new paragraph)",
   "can-not-be-empty": "Can not be empty",
   "error": "Error!",
-  "create-article-error": "An error occurred while creating this article, please try again later"
+  "create-article-error": "An error occurred while creating this article, please try again later",
+  "save": "Save"
 }

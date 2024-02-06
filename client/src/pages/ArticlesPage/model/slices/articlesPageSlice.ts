@@ -13,6 +13,19 @@ import { SortOrder } from '@shared/types';
 import { fetchArticles } from '../services/fetchArticles';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
+const DEFAULT_STATE: ArticlesPageSchema = {
+  isLoading: false,
+  view: 'List',
+  ids: [],
+  entities: {},
+  page: 0,
+  hasMore: true,
+  sort: ArticleSortField.CREATED,
+  search: EMPTY_STRING,
+  type: [ArticleTypeEnum.ALL],
+  order: 'asc',
+};
+
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
 });
@@ -23,19 +36,8 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
 
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
-  initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
-    isLoading: false,
-    view: 'List',
-    ids: [],
-    entities: {},
-    page: 0,
-    hasMore: true,
-    sort: ArticleSortField.CREATED,
-    search: EMPTY_STRING,
-    type: [ArticleTypeEnum.ALL],
-    order: 'asc',
-    _inited: false,
-  }),
+  initialState:
+    articlesAdapter.getInitialState<ArticlesPageSchema>(DEFAULT_STATE),
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewMode>) => {
       state.view = action.payload;
@@ -66,7 +68,6 @@ const articlesPageSlice = createSlice({
 
       state.view = view;
       state.limit = view === 'List' ? 4 : 20;
-      state._inited = true;
     },
   },
   extraReducers: (builder) => {
@@ -79,6 +80,7 @@ const articlesPageSlice = createSlice({
     });
     builder.addCase(fetchArticles.fulfilled, (state, { payload, meta }) => {
       state.isLoading = false;
+
       state.hasMore = payload.length >= (state.limit ?? 0);
 
       if (meta.arg.replace) {

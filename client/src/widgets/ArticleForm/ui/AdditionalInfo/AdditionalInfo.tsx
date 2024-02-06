@@ -63,7 +63,7 @@ export const AdditionalInfo: FC<AdditionalInfoProps> = ({
           variant="Success"
           disabled={areFieldsDisabled}
         >
-          {t('create-article')}
+          {t('save')}
         </Button>
       </VStack>
     </Card>

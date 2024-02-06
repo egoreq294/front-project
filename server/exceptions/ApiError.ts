@@ -10,6 +10,10 @@ export class ApiError extends Error {
     this.errors = errors;
   }
 
+  static ForbiddenError() {
+    return new ApiError(403, "У вас нет прав на выполнение этой операции");
+  }
+
   static UnauthorizedError() {
     return new ApiError(401, "Пользователь не авторизован");
   }
