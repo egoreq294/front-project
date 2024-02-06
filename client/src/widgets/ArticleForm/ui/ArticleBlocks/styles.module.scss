@@ -1,0 +1,9 @@
+.ArticleBlockContainer {
+  position: relative;
+}
+
+.CloseButton {
+  position: absolute;
+  top: var(--gutter-xxs);
+  right: var(--gutter-xxs);
+}

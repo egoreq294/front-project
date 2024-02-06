@@ -31,7 +31,7 @@ export const fetchArticles = createAsyncThunk<
     const type = getArticlesPageType(getState());
 
     try {
-      addQueryParams({ order, sort, search, type });
+      addQueryParams({ order, sort, search, type: type.join(',') });
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'profile',
@@ -40,7 +40,7 @@ export const fetchArticles = createAsyncThunk<
           _sort: sort,
           _order: order,
           search: search,
-          type: type === ArticleTypeEnum.ALL ? undefined : type,
+          type: type.includes(ArticleTypeEnum.ALL) ? undefined : type.join(','),
         },
       });
 

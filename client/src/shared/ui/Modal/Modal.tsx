@@ -14,6 +14,7 @@ interface ModalProps {
   className?: string;
   lazy?: boolean;
   testId?: string;
+  withAnimation?: boolean;
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -23,11 +24,13 @@ export const Modal: FC<ModalProps> = ({
   lazy,
   children,
   testId,
+  withAnimation = true,
 }) => {
   const { isClosing, isMounted, closeHandler } = useModal({
     isOpen,
     onClose,
     animationDelay: 200,
+    withAnimation,
   });
 
   if (lazy && !isMounted) {

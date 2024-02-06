@@ -7,6 +7,7 @@
   display: flex;
   gap: var(--gutter-xxs);
   align-items: center;
+  justify-content: center;
 
   &:disabled {
     color: var(--color-hint);
@@ -51,4 +52,8 @@
 .Success {
   border: 1px solid var(--color-save);
   border-radius: var(--border-radius);
+}
+
+.FullWidth {
+  width: 100%;
 }

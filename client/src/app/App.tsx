@@ -9,6 +9,7 @@ import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@widgets/Navbar';
 import { Sidebar } from '@widgets/Sidebar';
+import { Popups } from './components/Popups';
 import { useAppToolbar } from './lib/hooks/useAppToolbar';
 import { AppRouter } from './providers/router';
 import { ThemeProvider } from './providers/ThemeProvider';
@@ -48,6 +49,7 @@ export const App: FC = () => {
           />
         </Suspense>
       </div>
+      <Popups />
     </ThemeProvider>
   );
 };

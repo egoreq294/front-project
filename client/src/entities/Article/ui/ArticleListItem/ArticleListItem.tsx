@@ -28,8 +28,6 @@ interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-// TODO
-
 export const ArticleListItem: FC<ArticleListItemProps> = ({
   article,
   viewMode,

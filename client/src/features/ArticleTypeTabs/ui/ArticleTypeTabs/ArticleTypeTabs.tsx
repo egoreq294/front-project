@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleTypeEnum } from '@entities/Article';
@@ -6,8 +6,8 @@ import { TabItem, Tabs } from '@shared/ui/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
-  type: ArticleTypeEnum;
-  onChangeType: (newTab: TabItem<ArticleTypeEnum>) => void;
+  type: ArticleTypeEnum[];
+  onChangeType: (newTypes: ArticleTypeEnum[]) => void;
 }
 
 export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
@@ -39,12 +39,51 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
     [t],
   );
 
+  const onSelectTab = useCallback(
+    (newTab: TabItem<ArticleTypeEnum>) => {
+      let newTabs = [];
+
+      if (newTab.value === ArticleTypeEnum.ALL) {
+        newTabs = [ArticleTypeEnum.ALL];
+      } else {
+        newTabs = [
+          ...type.filter((tab) => tab !== ArticleTypeEnum.ALL),
+          newTab.value,
+        ];
+      }
+
+      onChangeType(newTabs);
+    },
+    [onChangeType, type],
+  );
+
+  const onRemoveTab = useCallback(
+    (newTab: TabItem<ArticleTypeEnum>) => {
+      let newTabs = [];
+
+      if (newTab.value === ArticleTypeEnum.ALL) {
+        newTabs = tabs
+          .filter((tab) => tab.value !== ArticleTypeEnum.ALL)
+          .map((tab) => tab.value);
+      } else {
+        newTabs =
+          type.length !== 1
+            ? type.filter((tab) => tab !== newTab.value)
+            : [ArticleTypeEnum.ALL];
+      }
+
+      onChangeType(newTabs);
+    },
+    [type, onChangeType, tabs],
+  );
+
   return (
     <Tabs
       className={className}
       tabs={tabs}
-      value={type}
-      onChange={onChangeType}
+      selectedTabs={type}
+      onSelectTab={onSelectTab}
+      onRemoveTab={onRemoveTab}
       direction="column"
     />
   );

@@ -24,6 +24,7 @@ interface ListBoxProps<T extends string> {
   onChange: (value: T) => void;
   readOnly?: boolean;
   direction?: DropdownDirection;
+  fullWidth?: boolean;
 }
 
 const DROPDOWN_DIRECTION_MAP: Record<DropdownDirection, string> = {
@@ -42,17 +43,18 @@ export const ListBox = <T extends string>({
   onChange,
   readOnly,
   direction = 'bottom-right',
+  fullWidth,
 }: ListBoxProps<T>): ReactElement => {
   const selectedContent = items.find((item) => item.value === value)?.content;
 
   return (
-    <VStack gap="8">
+    <VStack gap="8" fullWidth={fullWidth}>
       {label && <span className={styles.Label}>{label}</span>}
       <ListBoxImpl
         as="div"
         className={cn(
           styles.ListBox,
-          { [styles.ReadOnly]: readOnly },
+          { [styles.ReadOnly]: readOnly, [styles.FullWidth]: fullWidth },
           className,
         )}
         value={value}
@@ -65,6 +67,7 @@ export const ListBox = <T extends string>({
               variant="Filled"
               disabled={readOnly}
               className={styles.TriggerButton}
+              fullWidth
             >
               <span>{selectedContent || defaultValue}</span>
               <Icon name={open ? 'ChevronUp' : 'ChevronDown'} />

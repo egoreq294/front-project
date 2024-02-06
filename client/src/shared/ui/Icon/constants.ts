@@ -1,10 +1,12 @@
 import { About } from './assets/About';
+import { Add } from './assets/Add';
 import { ArrowUp } from './assets/ArrowUp';
 import { Article } from './assets/Artice';
 import { ArticleNew } from './assets/ArticleNew';
 import { Avatar } from './assets/Avatar';
 import { AvatarNew } from './assets/AvatarNew';
 import { Calendar } from './assets/Calendar';
+import { Cancel } from './assets/Cancel';
 import { ChevronDown } from './assets/ChevronDown';
 import { ChevronLeft } from './assets/ChevronLeft';
 import { ChevronRight } from './assets/ChevronRight';
@@ -78,4 +80,6 @@ export const ICON_MAP = {
   ArrowUp,
   Like,
   Dislike,
+  Cancel,
+  Add,
 };

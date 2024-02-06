@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React, {
   FC,
+  forwardRef,
   InputHTMLAttributes,
-  memo,
   ReactNode,
-  useRef,
+  Ref,
   useState,
 } from 'react';
 
@@ -26,23 +26,25 @@ interface InputProps extends HTMLInputProps {
   readOnly?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  error?: string | null;
   testId?: string;
 }
 
-export const Input: FC<InputProps> = memo(
-  ({
-    className,
-    value,
-    label,
-    onChange,
-    type = 'text',
-    disabled,
-    testId,
-    addonLeft,
-    addonRight,
-    ...props
-  }) => {
-    const ref = useRef<HTMLInputElement | null>(null);
+export const Input: FC<InputProps> = forwardRef(
+  (props: InputProps, ref: Ref<HTMLInputElement> | undefined) => {
+    const {
+      className,
+      value,
+      label,
+      onChange,
+      type = 'text',
+      disabled,
+      testId,
+      addonLeft,
+      addonRight,
+      error,
+      ...restProps
+    } = props;
 
     const [isFocused, setIsFocused] = useState(false);
 
@@ -59,36 +61,42 @@ export const Input: FC<InputProps> = memo(
     };
 
     return (
-      <VStack fullWidth gap="8">
+      <VStack fullWidth gap="8" className={className}>
         {!!label && (
           <Typography variant="S" className={styles.Label}>
             {label}
           </Typography>
         )}
-        <div
-          className={cn(
-            styles.InputWrapper,
-            isFocused && styles.Focused,
-            !!addonLeft && styles.WithAddonLeft,
-            !!addonRight && styles.WithAddonRight,
-            className,
+        <VStack fullWidth gap="4">
+          <div
+            className={cn(
+              styles.InputWrapper,
+              isFocused && styles.Focused,
+              !!addonLeft && styles.WithAddonLeft,
+              !!addonRight && styles.WithAddonRight,
+            )}
+          >
+            <div className={styles.AddonLeft}>{addonLeft}</div>
+            <input
+              ref={ref}
+              type={type}
+              value={value}
+              onChange={onChangeHandler}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              className={cn(styles.Input)}
+              disabled={disabled}
+              data-testid={testId ? `Input_${testId}` : undefined}
+              {...restProps}
+            />
+            <div className={styles.AddonRight}>{addonRight}</div>
+          </div>
+          {!!error && (
+            <Typography variant="XS" className={styles.Error}>
+              {error}
+            </Typography>
           )}
-        >
-          <div className={styles.AddonLeft}>{addonLeft}</div>
-          <input
-            ref={ref}
-            type={type}
-            value={value}
-            onChange={onChangeHandler}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            className={cn(styles.Input)}
-            disabled={disabled}
-            data-testid={testId ? `Input_${testId}` : undefined}
-            {...props}
-          />
-          <div className={styles.AddonRight}>{addonRight}</div>
-        </div>
+        </VStack>
       </VStack>
     );
   },

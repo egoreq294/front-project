@@ -32,7 +32,7 @@ const articlesPageSlice = createSlice({
     hasMore: true,
     sort: ArticleSortField.CREATED,
     search: EMPTY_STRING,
-    type: ArticleTypeEnum.ALL,
+    type: [ArticleTypeEnum.ALL],
     order: 'asc',
     _inited: false,
   }),
@@ -56,7 +56,7 @@ const articlesPageSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-    setType: (state, action: PayloadAction<ArticleTypeEnum>) => {
+    setType: (state, action: PayloadAction<ArticleTypeEnum[]>) => {
       state.type = action.payload;
     },
     initState: (state) => {

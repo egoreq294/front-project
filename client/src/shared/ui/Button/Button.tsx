@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: Size;
   variant?: ButtonVariant;
   disabled?: boolean;
+  fullWidth?: boolean;
   testId?: string;
 }
 
@@ -22,13 +23,20 @@ export const Button: FC<ButtonProps> = ({
   size = 'S',
   children,
   disabled,
+  fullWidth,
   testId,
   ...props
 }) => (
   <button
     type="button"
     data-testid={testId ? `Button_${testId}` : undefined}
-    className={cn(styles.Button, styles[variant], styles[size], className)}
+    className={cn(
+      styles.Button,
+      styles[variant],
+      styles[size],
+      { [styles.FullWidth]: fullWidth },
+      className,
+    )}
     disabled={disabled}
     {...props}
   >

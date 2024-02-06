@@ -17,10 +17,12 @@ import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@pages/ArticlesPage';
 import { rtkApi } from '@shared/api/rtkApi';
+import { PopupSchema } from '@shared/lib/popups/types';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   counter: CounterSchema;
+  popup: PopupSchema;
   user: UserSchema;
   scroll: ScrollSchema;
   loginForm?: LoginSchema;

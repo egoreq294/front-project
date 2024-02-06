@@ -18,7 +18,8 @@ export const Normal: Story = {
       { label: 'tab 2', value: 'tab 2' },
       { label: 'tab 3', value: 'tab 3' },
     ],
-    value: 'tab 2',
-    onChange: () => {},
+    selectedTabs: ['tab 2'],
+    onSelectTab: () => {},
+    onRemoveTab: () => {},
   },
 };

@@ -1,6 +1,10 @@
 export { ArticleDetailsContainer as ArticleDetails } from './ui/ArticleDetails/ArticleDetailsContainer';
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export type { Article, ArticleViewMode } from './model/types/article';
+export type {
+  Article,
+  ArticleViewMode,
+  ArticleBlock,
+} from './model/types/article';
 export {
   ArticleTypeEnum,
   ArticleSortField,
@@ -14,3 +18,4 @@ export {
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
 export { getArticleDetailsLoading } from './model/selectors/getArticleDetailsLoading';
 export { rateArticle } from './model/services/rateArticle';
+export { ArticleBlockTypeEnum } from './model/constants/article';

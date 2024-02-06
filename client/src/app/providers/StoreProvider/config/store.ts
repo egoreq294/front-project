@@ -10,6 +10,7 @@ import { userReducer } from '@entities/User';
 import { scrollReducer } from '@features/Scroll';
 import { $api } from '@shared/api/api';
 import { rtkApi } from '@shared/api/rtkApi';
+import { popupReducer } from '@shared/lib/popups/popupSlice';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
@@ -23,6 +24,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scroll: scrollReducer,
+    popup: popupReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   };
 

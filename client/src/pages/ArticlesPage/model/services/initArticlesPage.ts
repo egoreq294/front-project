@@ -39,7 +39,11 @@ export const initArticlesPage = createAsyncThunk<
     }
 
     if (typeFromUrl) {
-      dispatch(articlesPageActions.setType(typeFromUrl));
+      dispatch(
+        articlesPageActions.setType(
+          typeFromUrl.split(',') as ArticleTypeEnum[],
+        ),
+      );
     }
 
     dispatch(articlesPageActions.initState());

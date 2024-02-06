@@ -34,5 +34,5 @@ export const getArticlesPageSort = (state: StateSchema): ArticleSortField =>
 export const getArticlesPageSearch = (state: StateSchema): string =>
   state.articlesPage?.search || EMPTY_STRING;
 
-export const getArticlesPageType = (state: StateSchema): ArticleTypeEnum =>
-  state.articlesPage?.type || ArticleTypeEnum.ALL;
+export const getArticlesPageType = (state: StateSchema): ArticleTypeEnum[] =>
+  state.articlesPage?.type || [ArticleTypeEnum.ALL];

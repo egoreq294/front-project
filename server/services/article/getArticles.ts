@@ -27,8 +27,10 @@ export const getArticles = async ({
   }
 
   if (type && type !== ArticleTypeEnum.ALL) {
+    const types = type.split(",");
+
     query.find({
-      type,
+      type: { $in: types },
     });
   }
 

@@ -34,8 +34,8 @@ export const ArticleSortSelect: FC<ArticleSortSelectProps> = ({
 
   const sortFieldOptions = useMemo<ListBoxItem<ArticleSortField>[]>(
     () => [
-      { value: ArticleSortField.CREATED, content: t('created-at') },
-      { value: ArticleSortField.TITLE, content: t('title') },
+      { value: ArticleSortField.CREATED, content: t('by-created-at') },
+      { value: ArticleSortField.TITLE, content: t('by-title') },
       { value: ArticleSortField.VIEWS, content: t('by-views') },
     ],
     [t],

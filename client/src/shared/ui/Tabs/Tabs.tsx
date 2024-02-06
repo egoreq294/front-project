@@ -13,32 +13,45 @@ export interface TabItem<T extends string> {
 interface TabsProps<T extends string> {
   className?: string;
   tabs: TabItem<T>[];
-  value: string;
-  onChange: (newTab: TabItem<T>) => void;
+  selectedTabs: T[];
+  onSelectTab: (newTab: TabItem<T>) => void;
+  onRemoveTab: (newTab: TabItem<T>) => void;
   direction?: FlexDiraction;
 }
 
 export const Tabs = <T extends string>({
   className,
   tabs,
-  value,
-  onChange,
+  selectedTabs,
+  onSelectTab,
+  onRemoveTab,
   direction = 'row',
 }: TabsProps<T>): ReactElement => {
   return (
     <Flex className={className} direction={direction} gap="8" align="start">
-      {tabs.map((tab) => (
-        <Card
-          key={tab.value}
-          onClick={(): void => {
-            onChange(tab);
-          }}
-          variant={tab.value === value ? 'Light' : 'Primary'}
-          className={styles.TabItem}
-        >
-          {tab.label}
-        </Card>
-      ))}
+      {tabs.map((tab) => {
+        const isActive = selectedTabs.includes(tab.value);
+
+        const onChangeHandler = (): void => {
+          if (isActive) {
+            onRemoveTab(tab);
+            return;
+          }
+
+          onSelectTab(tab);
+        };
+
+        return (
+          <Card
+            key={tab.value}
+            onClick={onChangeHandler}
+            variant={isActive ? 'Light' : 'Primary'}
+            className={styles.TabItem}
+          >
+            {tab.label}
+          </Card>
+        );
+      })}
     </Flex>
   );
 };

@@ -15,7 +15,7 @@ interface CommentItemProps {
 
 export const CommentItem: FC<CommentItemProps> = ({ className, comment }) => {
   return (
-    <HStack fullWidth gap="32" className={className} align="start">
+    <HStack fullWidth gap="32" className={className} align="center">
       <AppLink to={`/profile/${comment.profile.id}`} className={styles.Avatar}>
         <HStack gap="8">
           {comment.profile?.avatar && (
