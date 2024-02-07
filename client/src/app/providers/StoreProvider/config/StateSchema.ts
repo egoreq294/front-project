@@ -11,7 +11,7 @@ import { ArticleDetailsSchema } from '@entities/Article';
 import { CounterSchema } from '@entities/Counter';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
-import { LoginSchema } from '@features/AuthByEmail';
+import { AuthSchema } from '@features/AuthByEmail';
 import { EditableCardProfileSchema } from '@features/EditableProfileCard';
 import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
@@ -25,7 +25,7 @@ export interface StateSchema {
   popup: PopupSchema;
   user: UserSchema;
   scroll: ScrollSchema;
-  loginForm?: LoginSchema;
+  authForm?: AuthSchema;
   editableCardProfile?: EditableCardProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   addCommentForm?: AddCommentFormSchema;

@@ -31,5 +31,8 @@
   "your-feedback": "Ваш отзыв",
   "cancel": "Отменить",
   "thank-you-for-rating": "Спасибо за оценку",
-  "enter-email": "Введите адрес электронной почты"
+  "enter-email": "Введите адрес электронной почты",
+  "change-to-login-button": "У вас уже есть аккаунт?",
+  "change-to-register-button": "У вас еще нет аккаунта?",
+  "register": "Зарегистрироваться"
 }

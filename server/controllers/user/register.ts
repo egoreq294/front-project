@@ -3,7 +3,7 @@ import { ApiError } from "../../exceptions";
 import { register as registerService } from "../../services/user";
 import { Request, Response, NextFunction } from "express";
 import { createProfile as createProfileService } from "../../services";
-import { getUserDTO } from "../../utils";
+import { getProfileDTO, getUserDTO } from "../../utils";
 
 export const register = async (
   req: Request,
@@ -22,14 +22,9 @@ export const register = async (
     const { email, password, username, avatar, roles, features, jsonSettings } =
       req.body;
 
-    const { accessToken, refreshToken, user } = await registerService({
+    const { accessToken, refreshToken, user, profile } = await registerService({
       email,
       password,
-      username,
-      avatar,
-      roles,
-      features,
-      jsonSettings,
     });
 
     res.cookie("refreshToken", refreshToken, {
@@ -38,8 +33,13 @@ export const register = async (
     });
 
     const userDTO = getUserDTO(user);
+    const profileDTO = getProfileDTO(profile);
 
-    return res.json({ accessToken, refreshToken, user: userDTO });
+    return res.json({
+      accessToken,
+      refreshToken,
+      user: { ...userDTO, profile: profileDTO },
+    });
   } catch (e) {
     next(e);
   }

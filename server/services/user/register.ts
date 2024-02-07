@@ -8,22 +8,9 @@ import { createProfile } from "../profile";
 type RegisterArgs = {
   email: string;
   password: string;
-  username?: string;
-  avatar?: string;
-  roles?: UserRoleEnum[];
-  features: Record<string, string>;
-  jsonSettings: Record<string, string>;
 };
 
-export const register = async ({
-  email,
-  password,
-  username,
-  avatar,
-  roles,
-  features,
-  jsonSettings,
-}: RegisterArgs) => {
+export const register = async ({ email, password }: RegisterArgs) => {
   const alreadyRegistered = await UserModel.findOne({ email });
 
   if (alreadyRegistered) {
@@ -38,12 +25,11 @@ export const register = async ({
   const user = await UserModel.create({
     email,
     passwordHash,
-    username,
-    avatar,
-    roles,
-    features,
-    jsonSettings,
     profile: profile._id,
+    roles: [UserRoleEnum.USER],
+    features: {},
+    jsonSettings: {},
+    notifications: [],
   });
 
   const tokens = generateTokens({ _id: user._id });
@@ -54,5 +40,5 @@ export const register = async ({
 
   await saveToken({ userId: user._id, refreshToken: tokens.refreshToken });
 
-  return { ...tokens, user };
+  return { ...tokens, user, profile };
 };

@@ -1,3 +1,3 @@
-export { LoginModal } from './ui/LoginModal/LoginModal';
-export type { LoginSchema } from './model/types/loginSchema';
-export { loginActions, loginReducer } from './model/slice/loginSlice';
+export { AuthModal } from './ui/AuthModal/AuthModal';
+export type { AuthSchema } from './model/types/authSchema';
+export { authActions, authReducer } from './model/slice/authSlice';

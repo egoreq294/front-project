@@ -2,16 +2,18 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { EMPTY_STRING } from '@shared/constants/common';
 import { loginByEmail } from '../services/loginByEmail/loginByEmail';
-import { LoginSchema } from '../types/loginSchema';
+import { registerByEmail } from '../services/loginByEmail/registerByEmail';
+import { AuthSchema } from '../types/authSchema';
 
-const initialState: LoginSchema = {
+const initialState: AuthSchema = {
   isLoading: false,
   email: EMPTY_STRING,
   password: EMPTY_STRING,
+  isRegisterModal: false,
 };
 
-const loginSlice = createSlice({
-  name: 'login',
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
     setEmail: (state, action: PayloadAction<string>) => {
@@ -19,6 +21,9 @@ const loginSlice = createSlice({
     },
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
+    },
+    setIsRegisterModal: (state, action: PayloadAction<boolean>) => {
+      state.isRegisterModal = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -33,8 +38,19 @@ const loginSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     });
+    builder.addCase(registerByEmail.pending, (state) => {
+      state.error = undefined;
+      state.isLoading = true;
+    });
+    builder.addCase(registerByEmail.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(registerByEmail.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    });
   },
 });
 
-export const { actions: loginActions } = loginSlice;
-export const { reducer: loginReducer } = loginSlice;
+export const { actions: authActions } = authSlice;
+export const { reducer: authReducer } = authSlice;

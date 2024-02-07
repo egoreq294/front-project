@@ -1,10 +1,10 @@
 import { StateSchema } from '@app/providers/StoreProvider';
-import { getLoginIsLoading } from '../getLoginIsLoading';
+import { getAuthIsLoading } from '../getAuthIsLoading';
 
-describe('getLoginIsLoading test suite', () => {
+describe('getAuthIsLoading test suite', () => {
   test('should return true', () => {
     const state: DeepPartial<StateSchema> = {
-      loginForm: {
+      authForm: {
         email: 'test',
         password: '123',
         isLoading: true,
@@ -12,12 +12,12 @@ describe('getLoginIsLoading test suite', () => {
       },
     };
 
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
+    expect(getAuthIsLoading(state as StateSchema)).toEqual(true);
   });
 
   test('should return false', () => {
     const state: DeepPartial<StateSchema> = {
-      loginForm: {
+      authForm: {
         email: 'test',
         password: '123',
         isLoading: false,
@@ -25,12 +25,12 @@ describe('getLoginIsLoading test suite', () => {
       },
     };
 
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
+    expect(getAuthIsLoading(state as StateSchema)).toEqual(false);
   });
 
   test('should return false for empty state', () => {
     const state: DeepPartial<StateSchema> = {};
 
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
+    expect(getAuthIsLoading(state as StateSchema)).toEqual(false);
   });
 });

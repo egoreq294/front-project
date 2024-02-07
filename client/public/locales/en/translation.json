@@ -31,5 +31,8 @@
   "your-feedback": "Your feedback",
   "cancel": "Cancel",
   "thank-you-for-rating": "Thank you for rating",
-  "enter-email": "Enter Email"
+  "enter-email": "Enter Email",
+  "change-to-login-button": "Do you have an account?",
+  "change-to-register-button": "Do not have an account?",
+  "register": "Register"
 }

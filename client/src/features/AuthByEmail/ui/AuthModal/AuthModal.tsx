@@ -2,15 +2,15 @@ import React, { FC, Suspense } from 'react';
 
 import { EMPTY_STRING } from '@shared/constants/common';
 import { Modal } from '@shared/ui/Modal';
-import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
+import { AuthFormLazy as AuthForm } from '../AuthForm/AuthForm.lazy';
 
-interface LoginModalProps {
+interface AuthModalProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const LoginModal: FC<LoginModalProps> = ({
+export const AuthModal: FC<AuthModalProps> = ({
   className,
   isOpen,
   onClose,
@@ -18,7 +18,7 @@ export const LoginModal: FC<LoginModalProps> = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} className={className} lazy>
       <Suspense fallback={EMPTY_STRING}>
-        <LoginForm onSuccess={onClose} />
+        <AuthForm onSuccess={onClose} />
       </Suspense>
     </Modal>
   );

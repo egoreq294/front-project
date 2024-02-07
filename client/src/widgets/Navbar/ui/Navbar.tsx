@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@entities/User';
-import { LoginModal } from '@features/AuthByEmail';
+import { AuthModal } from '@features/AuthByEmail';
 import { AvatarDropdown } from '@features/AvatarDropdown';
 import { NotificationButton } from '@features/NotificationButton';
 import { Button } from '@shared/ui/Button';
@@ -20,14 +20,14 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const authData = useSelector(getUserAuthData);
 
   const { t } = useTranslation();
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const onCloseModal = useCallback((): void => {
-    setIsLoginModalOpen(false);
+    setIsAuthModalOpen(false);
   }, []);
 
   const onOpenModal = useCallback((): void => {
-    setIsLoginModalOpen(true);
+    setIsAuthModalOpen(true);
   }, []);
 
   return (
@@ -45,8 +45,8 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
           </Button>
         )}
       </header>
-      {isLoginModalOpen && (
-        <LoginModal isOpen={isLoginModalOpen} onClose={onCloseModal} />
+      {isAuthModalOpen && (
+        <AuthModal isOpen={isAuthModalOpen} onClose={onCloseModal} />
       )}
     </>
   );
