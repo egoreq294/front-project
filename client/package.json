@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --env mode=development",
     "start:vite": "vite",
-    "build": "webpack --env mode=production apiUrl=https://front-project-server-5u6e9brhi-egoreqs-projects.vercel.app",
+    "build": "webpack --env mode=production apiUrl=hhttps://front-project-api.vercel.app/api",
     "eslint": "eslint \"**/*.{ts,tsx}\"",
     "eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "stylelint": "npx stylelint \"**/*.scss\"",

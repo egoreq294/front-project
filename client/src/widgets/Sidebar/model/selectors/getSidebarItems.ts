@@ -8,24 +8,13 @@ export const getSidebarItems = createSelector(
   (userData): SidebarItemType[] => [
     {
       path: '/',
-      text: 'home-link',
-      iconName: 'HomeNew',
-    },
-    {
-      path: '/about',
-      text: 'about-link',
-      iconName: 'Info',
+      text: 'article-link',
+      iconName: 'ArticleNew',
     },
     {
       path: `/profile/${userData?.profile?.id}`,
       text: 'profile-link',
       iconName: 'AvatarNew',
-      authOnly: true,
-    },
-    {
-      path: '/articles',
-      text: 'article-link',
-      iconName: 'ArticleNew',
       authOnly: true,
     },
   ],

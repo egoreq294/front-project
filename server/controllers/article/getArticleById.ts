@@ -5,6 +5,7 @@ import {
   getUserById as getUserByIdService,
   canRateArticle as canRateArticleService,
   updateViewsByArticleId,
+  validateAccessToken,
 } from "../../services";
 import { getProfileDTO, getArticleDTO } from "../../utils";
 
@@ -15,23 +16,26 @@ export const getArticleById = async (
 ) => {
   try {
     const { id } = req.params;
-
-    const {
-      user: { _id: userId },
-    } = req.body;
-
     const { _expand } = req.query;
+    const authorizationHeader = req.headers.authorization;
 
-    const currentUser = await getUserByIdService(userId);
+    let canRateArticle = false;
 
-    await updateViewsByArticleId(id);
+    const accessToken = authorizationHeader?.split(" ")[1];
+    const userData = accessToken ? validateAccessToken(accessToken) : null;
 
     const article = await getArticleByIdService(id);
 
-    const canRateArticle = await canRateArticleService({
-      articleId: article._id,
-      profileId: currentUser.profile,
-    });
+    if (userData) {
+      const currentUser = await getUserByIdService(userData._id);
+
+      canRateArticle = await canRateArticleService({
+        articleId: article._id,
+        profileId: currentUser.profile,
+      });
+    }
+
+    await updateViewsByArticleId(id);
 
     let profile = null;
 

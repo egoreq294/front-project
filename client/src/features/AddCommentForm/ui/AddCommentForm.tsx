@@ -10,6 +10,7 @@ import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Icon } from '@shared/ui/Icon';
 import { IconButton } from '@shared/ui/IconButton';
 import { Input } from '@shared/ui/Input';
+import { Popover } from '@shared/ui/Popover';
 import { HStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
 import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
@@ -56,6 +57,10 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
     [text, onSendComment, onTextChange],
   );
 
+  const canAddComment = !!(
+    authData?.profile?.firstName && authData?.profile?.lastName
+  );
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <form className={styles.Form}>
@@ -65,28 +70,43 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
           className={className}
           data-testid="CommentForm"
         >
-          {!authData?.profile?.lastName || !authData.profile?.firstName ? (
-            <Typography>
-              {t('fill-firstname-or-lastname-to-send-a-comment')}
-            </Typography>
+          <Input
+            placeholder={t('enter-comment-text')}
+            addonLeft={<Icon name="Search" width={32} height={32} />}
+            value={text}
+            onChange={onTextChange}
+            testId="Comment"
+            disabled={!canAddComment}
+          />
+          {!canAddComment ? (
+            <Popover
+              direction="top-left"
+              event="hover"
+              trigger={
+                <IconButton
+                  name="Send"
+                  width={32}
+                  height={32}
+                  testId="Send"
+                  disabled
+                />
+              }
+            >
+              <Typography className={styles.TooltipContent}>
+                {!authData
+                  ? t('auth-to-send-a-comment')
+                  : t('fill-firstname-or-lastname-to-send-a-comment')}
+              </Typography>
+            </Popover>
           ) : (
-            <>
-              <Input
-                placeholder={t('enter-comment-text')}
-                addonLeft={<Icon name="Search" width={32} height={32} />}
-                value={text}
-                onChange={onTextChange}
-                testId="Comment"
-              />
-              <IconButton
-                type="submit"
-                name="Send"
-                width={32}
-                height={32}
-                onClick={onSendHandler}
-                testId="Send"
-              />
-            </>
+            <IconButton
+              type="submit"
+              name="Send"
+              width={32}
+              height={32}
+              onClick={onSendHandler}
+              testId="Send"
+            />
           )}
         </HStack>
       </form>

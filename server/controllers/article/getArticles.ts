@@ -4,6 +4,7 @@ import {
   getArticles as getArticlesService,
   getUserById as getUserByIdService,
   canRateArticle as canRateArticleService,
+  validateAccessToken,
 } from "../../services";
 import { getProfileDTO, getArticleDTO } from "../../utils";
 import { ArticleTypeEnum } from "../../types/article";
@@ -26,11 +27,13 @@ export const getArticles = async (
 ) => {
   try {
     const { _expand, _limit, _page, _sort, _order, search, type } = req.query;
-    const {
-      user: { _id: userId },
-    } = req.body;
+    const authorizationHeader = req.headers.authorization;
 
-    const currentUser = await getUserByIdService(userId);
+    const accessToken = authorizationHeader?.split(" ")[1];
+    const userData = accessToken ? validateAccessToken(accessToken) : null;
+    const currentUser = userData
+      ? await getUserByIdService(userData._id)
+      : null;
 
     const articles = await getArticlesService({
       limit: _limit,
@@ -44,15 +47,18 @@ export const getArticles = async (
     const result = await Promise.all(
       articles.map(async (article) => {
         let profile = null;
+        let canRateArticle = false;
 
         if (_expand === "profile") {
           profile = await getProfileByIdService(article.profileId);
         }
 
-        const canRateArticle = await canRateArticleService({
-          articleId: article._id,
-          profileId: currentUser.profile,
-        });
+        if (currentUser) {
+          canRateArticle = await canRateArticleService({
+            articleId: article._id,
+            profileId: currentUser.profile,
+          });
+        }
 
         const articleDTO = getArticleDTO(article, { canRateArticle });
         const profileDTO = profile ? getProfileDTO(profile) : null;

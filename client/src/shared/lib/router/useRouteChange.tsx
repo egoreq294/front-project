@@ -5,7 +5,7 @@ import { appRouteByPath, AppRoutes } from '@shared/constants/router';
 
 export const useRouteChange = (): AppRoutes => {
   const location = useLocation();
-  const [appRoute, setAppRoute] = useState<AppRoutes>(AppRoutes.MAIN);
+  const [appRoute, setAppRoute] = useState<AppRoutes>(AppRoutes.ARTICLES);
 
   useEffect(() => {
     Object.entries(appRouteByPath).forEach(([pattern, route]) => {

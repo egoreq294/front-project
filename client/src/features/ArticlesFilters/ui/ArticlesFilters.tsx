@@ -10,6 +10,7 @@ import { Button } from '@shared/ui/Button';
 import { Card } from '@shared/ui/Card';
 import { Icon } from '@shared/ui/Icon';
 import { Input } from '@shared/ui/Input';
+import { Popover } from '@shared/ui/Popover';
 import { Typography } from '@shared/ui/Typography';
 import { ArticleSortSelect } from '../../ArticleSortSelect';
 import { ArticleTypeTabs } from '../../ArticleTypeTabs';
@@ -43,6 +44,9 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({
 }) => {
   const { t } = useTranslation('article');
   const authData = useSelector(getUserAuthData);
+  const canCreateArticle = !!(
+    authData?.profile?.firstName && authData?.profile?.lastName
+  );
 
   return (
     <Card className={cn(styles.ArticlesFilters, className)} padding="24">
@@ -61,12 +65,26 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({
         onChangeSort={onChangeSort}
       />
 
-      {!authData?.profile?.lastName || !authData.profile?.firstName ? (
-        <Typography>
-          {t('fill-firstname-or-lastname-to-create-ana-article')}
-        </Typography>
+      {!canCreateArticle ? (
+        <Popover
+          direction="top-left"
+          event="hover"
+          trigger={
+            <Button fullWidth disabled>
+              {t(`create-article`)}
+            </Button>
+          }
+        >
+          <Typography className={styles.TooltipContent}>
+            {!authData
+              ? t('auth-to-create-an-article')
+              : t('fill-firstname-or-lastname-to-create-ana-article')}
+          </Typography>
+        </Popover>
       ) : (
-        <Button onClick={onCreateArticle}>{t(`create-article`)}</Button>
+        <Button fullWidth onClick={onCreateArticle}>
+          {t(`create-article`)}
+        </Button>
       )}
     </Card>
   );

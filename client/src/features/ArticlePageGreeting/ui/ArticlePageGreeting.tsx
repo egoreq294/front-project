@@ -1,7 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
-import { saveJsonSettings, useJsonSettings } from '@entities/User';
+import {
+  getUserAuthData,
+  saveJsonSettings,
+  useJsonSettings,
+} from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Caption } from '@shared/ui/Caption';
 import { Modal } from '@shared/ui/Modal';
@@ -13,15 +18,16 @@ export const ArticlePageGreeting: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { isArticlePageWasOpened } = useJsonSettings();
+  const authData = useSelector(getUserAuthData);
 
   useEffect(() => {
-    if (isArticlePageWasOpened) {
+    if (isArticlePageWasOpened || !authData) {
       return;
     }
 
     setIsOpen(true);
     dispatch(saveJsonSettings({ isArticlePageWasOpened: true }));
-  }, [isArticlePageWasOpened, dispatch]);
+  }, [isArticlePageWasOpened, authData, dispatch]);
 
   return (
     <Modal

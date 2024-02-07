@@ -35,5 +35,6 @@
   "change-to-login-button": "У вас уже есть аккаунт?",
   "change-to-register-button": "У вас еще нет аккаунта?",
   "register": "Зарегистрироваться",
-  "fill-firstname-or-lastname-to-send-a-comment": "Чтобы оставить комментарий, вам необходимо указать свое имя и фамилию в профиле."
+  "fill-firstname-or-lastname-to-send-a-comment": "Чтобы оставить комментарий, вам необходимо указать свое имя и фамилию в профиле.",
+  "auth-to-send-a-comment": "Чтобы отправить комментарий, вы должны быть авторизованы"
 }

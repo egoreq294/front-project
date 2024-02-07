@@ -6,6 +6,9 @@
     "allowJs": true,
     "esModuleInterop": true,
     "strict": true,
-    "rootDir": "./"
+    "rootDir": "./",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "dist"
   }
 }
