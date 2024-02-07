@@ -1,13 +1,16 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import { ArticleSortField, ArticleTypeEnum } from '@entities/Article';
+import { getUserAuthData } from '@entities/User';
 import { SortOrder } from '@shared/types';
 import { Button } from '@shared/ui/Button';
 import { Card } from '@shared/ui/Card';
 import { Icon } from '@shared/ui/Icon';
 import { Input } from '@shared/ui/Input';
+import { Typography } from '@shared/ui/Typography';
 import { ArticleSortSelect } from '../../ArticleSortSelect';
 import { ArticleTypeTabs } from '../../ArticleTypeTabs';
 
@@ -39,6 +42,7 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({
   onCreateArticle,
 }) => {
   const { t } = useTranslation('article');
+  const authData = useSelector(getUserAuthData);
 
   return (
     <Card className={cn(styles.ArticlesFilters, className)} padding="24">
@@ -57,7 +61,13 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({
         onChangeSort={onChangeSort}
       />
 
-      <Button onClick={onCreateArticle}>{t(`create-article`)}</Button>
+      {!authData?.profile?.lastName || !authData.profile?.firstName ? (
+        <Typography>
+          {t('fill-firstname-or-lastname-to-create-ana-article')}
+        </Typography>
+      ) : (
+        <Button onClick={onCreateArticle}>{t(`create-article`)}</Button>
+      )}
     </Card>
   );
 };

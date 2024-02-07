@@ -56,5 +56,7 @@
   "error": "Error!",
   "create-article-error": "An error occurred while creating this article, please try again later",
   "save": "Save",
-  "translation.change-to-login-button": "Login?"
+  "translation.change-to-login-button": "Login?",
+  "translation.fill-firstname-or-lastname-to-send-a-comment": "To send a comment, you must fill in your first and last name.",
+  "fill-firstname-or-lastname-to-create-ana-article": "To create an article, you must fill in your first and last name in profile."
 }

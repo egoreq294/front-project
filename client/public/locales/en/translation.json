@@ -34,5 +34,6 @@
   "enter-email": "Enter Email",
   "change-to-login-button": "Do you have an account?",
   "change-to-register-button": "Do not have an account?",
-  "register": "Register"
+  "register": "Register",
+  "fill-firstname-or-lastname-to-send-a-comment": "To semd a comment, you must fill in your first and last name in profile."
 }

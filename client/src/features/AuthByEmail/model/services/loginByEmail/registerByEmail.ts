@@ -32,7 +32,7 @@ export const registerByEmail = createAsyncThunk<
         response.data.accessToken,
       );
 
-      return response.data;
+      return response.data.user;
     } catch (e) {
       return rejectWithValue('error');
     }

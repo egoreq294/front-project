@@ -34,5 +34,6 @@
   "enter-email": "Введите адрес электронной почты",
   "change-to-login-button": "У вас уже есть аккаунт?",
   "change-to-register-button": "У вас еще нет аккаунта?",
-  "register": "Зарегистрироваться"
+  "register": "Зарегистрироваться",
+  "fill-firstname-or-lastname-to-send-a-comment": "Чтобы оставить комментарий, вам необходимо указать свое имя и фамилию в профиле."
 }

@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { FC, memo, MouseEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -32,6 +33,8 @@ const reducers: ReducerList = {
 
 const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const email = useSelector(getAuthEmail);
   const password = useSelector(getAuthPassword);
   const isLoading = useSelector(getAuthIsLoading);
@@ -73,11 +76,15 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
     async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
       e.preventDefault();
       const result = await dispatch(registerByEmail({ email, password }));
-      if (result.meta.requestStatus === 'fulfilled') {
+      if (
+        result.meta.requestStatus === 'fulfilled' &&
+        typeof result.payload !== 'string'
+      ) {
+        navigate(`/profile/${result?.payload?.profile?.id}`);
         onSuccess();
       }
     },
-    [dispatch, password, email, onSuccess],
+    [dispatch, password, email, onSuccess, navigate],
   );
 
   return (
