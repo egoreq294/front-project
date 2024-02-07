@@ -7,8 +7,9 @@ const recommendationsApi = rtkApi.injectEndpoints({
       query: (limit) => ({
         url: '/articles',
         params: {
+          _page: 0,
           _limit: limit,
-          _expand: 'user',
+          _expand: 'profile',
         },
       }),
     }),

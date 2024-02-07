@@ -6,9 +6,8 @@ import { getProfileForm } from '../getProfileForm';
 describe('getProfileForm test suite', () => {
   test('should return profile form', () => {
     const state: DeepPartial<StateSchema> = {
-      profile: {
+      editableCardProfile: {
         form: {
-          username: 'admin',
           age: '22',
           country: CountryEnum.Russia,
           firstName: 'first name',
@@ -20,7 +19,6 @@ describe('getProfileForm test suite', () => {
     };
 
     expect(getProfileForm(state as StateSchema)).toEqual({
-      username: 'admin',
       age: '22',
       country: CountryEnum.Russia,
       firstName: 'first name',

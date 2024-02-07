@@ -2,6 +2,8 @@ import { validationResult } from "express-validator";
 import { ApiError } from "../../exceptions";
 import { register as registerService } from "../../services/user";
 import { Request, Response, NextFunction } from "express";
+import { createProfile as createProfileService } from "../../services";
+import { getProfileDTO, getUserDTO } from "../../utils";
 
 export const register = async (
   req: Request,
@@ -17,19 +19,27 @@ export const register = async (
       );
     }
 
-    const { email, password } = req.body;
+    const { email, password, username, avatar, roles, features, jsonSettings } =
+      req.body;
 
-    const userData = await registerService({
+    const { accessToken, refreshToken, user, profile } = await registerService({
       email,
       password,
     });
 
-    res.cookie("refreshToken", userData.refreshToken, {
+    res.cookie("refreshToken", refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     });
 
-    return res.json(userData);
+    const userDTO = getUserDTO(user);
+    const profileDTO = getProfileDTO(profile);
+
+    return res.json({
+      accessToken,
+      refreshToken,
+      user: { ...userDTO, profile: profileDTO },
+    });
   } catch (e) {
     next(e);
   }

@@ -24,7 +24,6 @@ interface ProfileCardProps {
   onChangeLastName?: (value: string) => void;
   onChangeAge?: (value: string) => void;
   onChangeCity?: (value: string) => void;
-  onChangeUsername?: (value: string) => void;
   onChangeAvatar?: (value: string) => void;
   onChangeCurrency?: (value: CurrencyEnum) => void;
   onChangeCountry?: (value: CountryEnum) => void;
@@ -40,7 +39,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeLastName,
   onChangeAge,
   onChangeCity,
-  onChangeUsername,
   onChangeAvatar,
   onChangeCurrency,
   onChangeCountry,
@@ -119,13 +117,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           />
         </VStack>
         <VStack gap="16" fullWidth>
-          <Input
-            value={formData?.username}
-            label={`${t('username')}:`}
-            onChange={onChangeUsername}
-            disabled={readonly}
-            testId="Username"
-          />
           <Input
             value={formData?.avatar}
             label={`${t('avatar-link')}:`}

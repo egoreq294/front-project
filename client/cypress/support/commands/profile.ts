@@ -10,7 +10,7 @@ export const updateProfile = (profile: Profile) => {
 export const resetProfile = (profileId: string) => {
   return cy.request({
     method: 'PUT',
-    url: `http://localhost:8000/profile/${profileId}`,
+    url: `http://localhost:5000/api/profile/${profileId}`,
     headers: {
       Authorization: 'token',
     },

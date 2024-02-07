@@ -6,7 +6,6 @@ import {
   generateTokens,
 } from "../token";
 import { UserModel } from "../../models/User";
-import { getUserDTO } from "../../utils";
 
 export const refresh = async (refreshToken: string) => {
   if (!refreshToken) {
@@ -26,8 +25,6 @@ export const refresh = async (refreshToken: string) => {
     throw ApiError.UnauthorizedError();
   }
 
-  const userDTO = getUserDTO(user);
-
   const tokens = generateTokens({ _id: user._id });
 
   if (!tokens?.refreshToken) {
@@ -36,5 +33,5 @@ export const refresh = async (refreshToken: string) => {
 
   await saveToken({ userId: user._id, refreshToken: tokens.refreshToken });
 
-  return { ...tokens, user: userDTO };
+  return { ...tokens };
 };

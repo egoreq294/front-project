@@ -6,29 +6,11 @@ import { componentRender } from '@shared/lib/tests/componentRender/componentRend
 import { AppRouter } from '../AppRouter';
 
 describe('AppRouter test suite', () => {
-  test('should render correctly', async () => {
-    componentRender(<AppRouter />, {
-      route: '/about',
-    });
-    const page = await screen.findByTestId('Page_About');
-
-    expect(page).toBeInTheDocument();
-  });
-
   test('should render NotFoundPage', async () => {
     componentRender(<AppRouter />, {
       route: '/dfgdfgfdg',
     });
     const page = await screen.findByTestId('Page_NotFound');
-
-    expect(page).toBeInTheDocument();
-  });
-
-  test('should redirect to MainPage for unauthorized user', async () => {
-    componentRender(<AppRouter />, {
-      route: '/Profile/1',
-    });
-    const page = await screen.findByTestId('Page_Main');
 
     expect(page).toBeInTheDocument();
   });

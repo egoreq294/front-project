@@ -4,7 +4,6 @@ import { ThunkConfig } from '@app/providers/StoreProvider';
 import { ArticleSortField } from '@entities/Article';
 import { ArticleTypeEnum } from '@entities/Article';
 import { SortOrder } from '@shared/types';
-import { getArticlesPageInited } from '../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../slices/articlesPageSlice';
 import { fetchArticles } from './fetchArticles';
 
@@ -12,37 +11,31 @@ export const initArticlesPage = createAsyncThunk<
   void,
   URLSearchParams,
   ThunkConfig<string>
->(
-  'articlesPage/initArticlesPage',
-  async (searchParams, { getState, dispatch }) => {
-    const inited = getArticlesPageInited(getState());
+>('articlesPage/initArticlesPage', async (searchParams, { dispatch }) => {
+  const orderFromUrl = searchParams.get('order') as SortOrder;
+  const sortFromUrl = searchParams.get('sort') as ArticleSortField;
+  const searchFromUrl = searchParams.get('search');
+  const typeFromUrl = searchParams.get('type') as ArticleTypeEnum;
 
-    if (inited) {
-      return;
-    }
+  if (orderFromUrl) {
+    dispatch(articlesPageActions.setOrder(orderFromUrl));
+  }
 
-    const orderFromUrl = searchParams.get('order') as SortOrder;
-    const sortFromUrl = searchParams.get('sort') as ArticleSortField;
-    const searchFromUrl = searchParams.get('search');
-    const typeFromUrl = searchParams.get('type') as ArticleTypeEnum;
+  if (sortFromUrl) {
+    dispatch(articlesPageActions.setSort(sortFromUrl));
+  }
 
-    if (orderFromUrl) {
-      dispatch(articlesPageActions.setOrder(orderFromUrl));
-    }
+  if (searchFromUrl) {
+    dispatch(articlesPageActions.setSearch(searchFromUrl));
+  }
 
-    if (sortFromUrl) {
-      dispatch(articlesPageActions.setSort(sortFromUrl));
-    }
+  if (typeFromUrl) {
+    dispatch(
+      articlesPageActions.setType(typeFromUrl.split(',') as ArticleTypeEnum[]),
+    );
+  }
 
-    if (searchFromUrl) {
-      dispatch(articlesPageActions.setSearch(searchFromUrl));
-    }
+  dispatch(articlesPageActions.initState());
 
-    if (typeFromUrl) {
-      dispatch(articlesPageActions.setType(typeFromUrl));
-    }
-
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticles({ page: 1 }));
-  },
-);
+  dispatch(fetchArticles({ page: 0 }));
+});

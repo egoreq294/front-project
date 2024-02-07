@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchArticleById } from '../services/fetchArticleById';
+import { rateArticle } from '../services/rateArticle';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const initialState: ArticleDetailsSchema = {
@@ -23,6 +24,12 @@ const articleDetailsSlice = createSlice({
     builder.addCase(fetchArticleById.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
+    });
+    builder.addCase(rateArticle.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      if (state.data?.rating) {
+        state.data.rating = payload.rating;
+      }
     });
   },
 });

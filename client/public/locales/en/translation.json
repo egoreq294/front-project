@@ -30,5 +30,11 @@
   "empty-notofications": "No notifications",
   "your-feedback": "Your feedback",
   "cancel": "Cancel",
-  "thank-you-for-rating": "Thank you for rating"
+  "thank-you-for-rating": "Thank you for rating",
+  "enter-email": "Enter Email",
+  "change-to-login-button": "Do you have an account?",
+  "change-to-register-button": "Do not have an account?",
+  "register": "Register",
+  "fill-firstname-or-lastname-to-send-a-comment": "To send a comment, you must fill in your first and last name in profile.",
+  "auth-to-send-a-comment": "To send a comment, you must be authorized"
 }

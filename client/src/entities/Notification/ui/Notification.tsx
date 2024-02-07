@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { FC } from 'react';
 
+import { EMPTY_STRING } from '@shared/constants/common';
 import { Caption } from '@shared/ui/Caption';
 import { Card } from '@shared/ui/Card';
 import { Notification as NotificationType } from '../model/types/notification';
@@ -18,7 +19,10 @@ export const Notification: FC<NotificationProps> = ({
 }) => {
   const content = (
     <Card variant="Secondary" className={cn(styles.Notification, className)}>
-      <Caption label={notification.title} value={notification.description} />
+      <Caption
+        label={notification.title}
+        value={notification.description || EMPTY_STRING}
+      />
     </Card>
   );
 

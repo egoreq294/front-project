@@ -1,7 +1,7 @@
 import { Profile } from '@entities/Profile';
 import { ValidateProfileErrorEnum } from '../constants/constants';
 
-export interface ProfileSchema {
+export interface EditableCardProfileSchema {
   data?: Profile;
   form?: Profile;
   loading: boolean;

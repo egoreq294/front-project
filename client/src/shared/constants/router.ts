@@ -1,6 +1,4 @@
 export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
   PROFILE = 'profile',
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'article_details',
@@ -12,10 +10,8 @@ export enum AppRoutes {
 }
 
 export const routePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.ARTICLES]: '/',
   [AppRoutes.PROFILE]: '/profile/:id',
-  [AppRoutes.ARTICLES]: '/articles',
   [AppRoutes.ARTICLE_DETAILS]: '/articles/:id',
   [AppRoutes.ARTICLE_CREATE]: '/articles/create',
   [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
@@ -25,10 +21,8 @@ export const routePath: Record<AppRoutes, string> = {
 };
 
 export const appRouteByPath: Record<string, AppRoutes> = {
-  '/': AppRoutes.MAIN,
-  '/about': AppRoutes.ABOUT,
+  '/': AppRoutes.ARTICLES,
   '/profile/:id': AppRoutes.PROFILE,
-  '/articles': AppRoutes.ARTICLES,
   '/articles/:id': AppRoutes.ARTICLE_DETAILS,
   '/articles/create': AppRoutes.ARTICLE_CREATE,
   '/articles/:id/edit': AppRoutes.ARTICLE_EDIT,

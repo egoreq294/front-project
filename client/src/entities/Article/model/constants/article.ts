@@ -16,3 +16,8 @@ export enum ArticleTypeEnum {
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
 }
+
+export enum ArticleRateActionEnum {
+  LIKE = 'LIKE',
+  DISLIKE = 'DISLIKE',
+}

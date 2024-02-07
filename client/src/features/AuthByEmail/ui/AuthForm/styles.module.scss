@@ -1,0 +1,14 @@
+.AuthForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 400px;
+}
+
+.Error {
+  color: var(--color-cancel);
+}
+
+.ChangeButton {
+  padding: 0;
+}

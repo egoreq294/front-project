@@ -8,7 +8,7 @@ import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { Profile } from '@entities/Profile';
 import { componentRender } from '@shared/lib/tests/componentRender/componentRender';
-import { profileReducer } from '../../../model/slice/profileSlice';
+import { editableCardProfileReducer } from '../../../model/slice/editableCardProfileSlice';
 import { EditableProfileCard } from '../EditableProfileCard';
 
 const profile: Profile = {
@@ -19,28 +19,30 @@ const profile: Profile = {
   currency: CurrencyEnum.RUB,
   country: CountryEnum.UnitedStates,
   city: 'New York',
-  username: 'admin',
 };
 
 const options = {
   initialState: {
-    profile: {
+    editableCardProfile: {
       readonly: true,
     },
     user: {
       authData: {
+        profile: {
+          id: '1',
+        },
         id: '1',
       },
     },
   },
-  asyncReducers: { profile: profileReducer },
+  asyncReducers: { editableCardProfile: editableCardProfileReducer },
 };
 
 export const handlers = [
-  rest.get('/profile/1', (req, res, ctx) => {
+  rest.get('/profiles/1', (req, res, ctx) => {
     return res(ctx.json(profile));
   }),
-  rest.put('/profile/1', (req, res, ctx) => {
+  rest.put('/profiles/update', (req, res, ctx) => {
     return res(ctx.json({ ...profile, firstName: 'new value' }));
   }),
 ];

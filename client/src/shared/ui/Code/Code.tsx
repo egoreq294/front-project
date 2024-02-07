@@ -16,13 +16,15 @@ export const Code: FC<CodeProps> = ({ className, text }) => {
   }, [text]);
 
   return (
-    <pre className={cn(styles.Code, className)}>
+    <div className={cn(styles.Container, className)}>
       <IconButton
         name="CopyNew"
         className={styles.CopyButton}
         onClick={onCopy}
       />
-      <code>{text}</code>
-    </pre>
+      <pre className={styles.Code}>
+        <code>{text}</code>
+      </pre>
+    </div>
   );
 };

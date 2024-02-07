@@ -1,17 +1,30 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import {
-  getUsers,
   register,
   login,
   logout,
   refresh,
-  getUserById,
+  getUser,
+  updateUser,
+  getProfileById,
+  updateProfile,
+  createArticle,
+  getArticleById,
+  getArticles,
+  rateArticleById,
+  addCommentByArticleId,
+  getCommentsByArticleId,
+  getNotifications,
+  createNotification,
+  deleteNotificationById,
+  updateArticle,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
 export const router = Router();
 
+// user
 router.post(
   "/register",
   body("email").isEmail(),
@@ -20,6 +33,22 @@ router.post(
 );
 router.post("/login", login);
 router.post("/logout", logout);
-router.post("/refresh", refresh);
-router.get("/users", authMiddleware, getUsers);
-router.get("/user/:id", authMiddleware, getUserById);
+router.get("/refresh", refresh);
+router.get("/user", authMiddleware, getUser);
+router.patch("/user", authMiddleware, updateUser);
+router.get("/user/notifications", authMiddleware, getNotifications);
+router.post("/user/notifications/create", authMiddleware, createNotification);
+router.delete("/user/notifications", authMiddleware, deleteNotificationById);
+
+// profile
+router.get("/profiles/:id", getProfileById);
+router.put("/profiles/update", authMiddleware, updateProfile);
+
+// article
+router.get("/articles/:id", getArticleById);
+router.get("/articles", getArticles);
+router.get("/articles/:id/comments", getCommentsByArticleId);
+router.post("/articles/create", authMiddleware, createArticle);
+router.post("/articles/rate", authMiddleware, rateArticleById);
+router.post("/articles/add-comment", authMiddleware, addCommentByArticleId);
+router.put("/articles/update", authMiddleware, updateArticle);

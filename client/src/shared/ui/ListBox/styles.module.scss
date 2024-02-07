@@ -4,6 +4,9 @@
 
 .TriggerButton {
   padding: 6px var(--gutter-xs);
+  display: flex;
+  justify-content: space-between;
+  white-space: pre;
 }
 
 .Options {
@@ -53,4 +56,8 @@
 .TopRight {
   bottom: 100%;
   left: 0;
+}
+
+.FullWidth {
+  width: 100%;
 }

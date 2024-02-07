@@ -1,7 +1,8 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, MouseEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import { getUserAuthData } from '@entities/User';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { DynamicModuleLoader } from '@shared/lib/components/DynamicModuleLoader';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -9,12 +10,16 @@ import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Icon } from '@shared/ui/Icon';
 import { IconButton } from '@shared/ui/IconButton';
 import { Input } from '@shared/ui/Input';
+import { Popover } from '@shared/ui/Popover';
 import { HStack } from '@shared/ui/Stack';
+import { Typography } from '@shared/ui/Typography';
 import { getCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../model/slices/addCommentFormSlice';
+
+import styles from './styles.module.scss';
 
 interface AddCommentFormProps {
   className?: string;
@@ -34,6 +39,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
   const dispatch = useAppDispatch();
 
   const text = useSelector(getCommentFormText);
+  const authData = useSelector(getUserAuthData);
 
   const onTextChange = useCallback(
     (value: string): void => {
@@ -42,34 +48,68 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
     [dispatch],
   );
 
-  const onSendHandler = useCallback(() => {
-    onSendComment(text);
-    onTextChange(EMPTY_STRING);
-  }, [text, onSendComment, onTextChange]);
+  const onSendHandler = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      onSendComment(text);
+      onTextChange(EMPTY_STRING);
+    },
+    [text, onSendComment, onTextChange],
+  );
+
+  const canAddComment = !!(
+    authData?.profile?.firstName && authData?.profile?.lastName
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack
-        fullWidth
-        gap="24"
-        className={className}
-        data-testid="CommentForm"
-      >
-        <Input
-          placeholder={t('enter-comment-text')}
-          addonLeft={<Icon name="Search" width={32} height={32} />}
-          value={text}
-          onChange={onTextChange}
-          testId="Comment"
-        />
-        <IconButton
-          name="Send"
-          width={32}
-          height={32}
-          onClick={onSendHandler}
-          testId="Send"
-        />
-      </HStack>
+      <form className={styles.Form}>
+        <HStack
+          fullWidth
+          gap="24"
+          className={className}
+          data-testid="CommentForm"
+        >
+          <Input
+            placeholder={t('enter-comment-text')}
+            addonLeft={<Icon name="Search" width={32} height={32} />}
+            value={text}
+            onChange={onTextChange}
+            testId="Comment"
+            disabled={!canAddComment}
+          />
+          {!canAddComment ? (
+            <Popover
+              direction="top-left"
+              event="hover"
+              trigger={
+                <IconButton
+                  name="Send"
+                  width={32}
+                  height={32}
+                  testId="Send"
+                  disabled
+                />
+              }
+            >
+              <Typography className={styles.TooltipContent}>
+                {!authData
+                  ? t('auth-to-send-a-comment')
+                  : t('fill-firstname-or-lastname-to-send-a-comment')}
+              </Typography>
+            </Popover>
+          ) : (
+            <IconButton
+              type="submit"
+              name="Send"
+              width={32}
+              height={32}
+              onClick={onSendHandler}
+              testId="Send"
+            />
+          )}
+        </HStack>
+      </form>
     </DynamicModuleLoader>
   );
 };

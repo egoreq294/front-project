@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { ArticleSortField, ArticleTypeEnum } from '@entities/Article';
 import { ArticlesFilters } from '@features/ArticlesFilters';
@@ -7,7 +8,6 @@ import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
 import { SortOrder } from '@shared/types';
-import { TabItem } from '@shared/ui/Tabs';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -23,6 +23,7 @@ interface FiltersProps {
 
 export const Filters: FC<FiltersProps> = ({ className }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const order = useSelector(getArticlesPageOrder);
   const sort = useSelector(getArticlesPageSort);
@@ -30,7 +31,7 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
   const type = useSelector(getArticlesPageType);
 
   const fetchData = useCallback(() => {
-    dispatch(fetchArticles({ page: 1, replace: true }));
+    dispatch(fetchArticles({ page: 0, replace: true }));
   }, []);
 
   const debouncedFetchData = useDebounce(fetchData, 1000);
@@ -63,13 +64,17 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
   );
 
   const onChangeType = useCallback(
-    (newTab: TabItem<ArticleTypeEnum>): void => {
-      dispatch(articlesPageActions.setType(newTab.value));
+    (newTabs: ArticleTypeEnum[]): void => {
+      dispatch(articlesPageActions.setType(newTabs));
       dispatch(articlesPageActions.setPage(1));
       fetchData();
     },
     [dispatch, fetchData],
   );
+
+  const onCreateArticle = useCallback(() => {
+    navigate('/articles/create');
+  }, [navigate]);
 
   return (
     <ArticlesFilters
@@ -82,6 +87,7 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
       onChangeSort={onChangeSort}
       onChangeSearch={onChangeSearch}
       onChangeType={onChangeType}
+      onCreateArticle={onCreateArticle}
     />
   );
 };

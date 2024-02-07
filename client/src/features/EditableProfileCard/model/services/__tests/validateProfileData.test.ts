@@ -36,9 +36,6 @@ describe('validateProfileData test suite', () => {
   test('should return incorrect username and incorrect fio errors', async () => {
     const result = validateProfileData({});
 
-    expect(result).toEqual([
-      ValidateProfileErrorEnum.INCORRECT_FIO,
-      ValidateProfileErrorEnum.INCORRECT_USERNAME,
-    ]);
+    expect(result).toEqual([ValidateProfileErrorEnum.INCORRECT_FIO]);
   });
 });

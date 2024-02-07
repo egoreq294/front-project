@@ -22,9 +22,6 @@ export const getArticlesPageLimit = (state: StateSchema): number =>
 export const getArticlesPageHasMore = (state: StateSchema): boolean =>
   !!state.articlesPage?.hasMore;
 
-export const getArticlesPageInited = (state: StateSchema): boolean =>
-  !!state.articlesPage?._inited;
-
 export const getArticlesPageOrder = (state: StateSchema): SortOrder =>
   state.articlesPage?.order || 'asc';
 
@@ -34,5 +31,5 @@ export const getArticlesPageSort = (state: StateSchema): ArticleSortField =>
 export const getArticlesPageSearch = (state: StateSchema): string =>
   state.articlesPage?.search || EMPTY_STRING;
 
-export const getArticlesPageType = (state: StateSchema): ArticleTypeEnum =>
-  state.articlesPage?.type || ArticleTypeEnum.ALL;
+export const getArticlesPageType = (state: StateSchema): ArticleTypeEnum[] =>
+  state.articlesPage?.type || [ArticleTypeEnum.ALL];

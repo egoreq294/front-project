@@ -2,9 +2,9 @@ import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 // eslint-disable-next-line egoreq-plugin/layer-imports
-import { loginReducer } from '@features/AuthByUsername';
+import { authReducer } from '@features/AuthByEmail';
 // eslint-disable-next-line egoreq-plugin/layer-imports
-import { profileReducer } from '@features/EditableProfileCard';
+import { editableCardProfileReducer } from '@features/EditableProfileCard';
 import { ReducerList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   StateSchema,
@@ -12,8 +12,8 @@ import {
 } from '../../../../app/providers/StoreProvider';
 
 const DEFAULT_ASYNC_REDUCERS: ReducerList = {
-  loginForm: loginReducer,
-  profile: profileReducer,
+  authForm: authReducer,
+  editableCardProfile: editableCardProfileReducer,
 };
 
 export const StoreDecorator =

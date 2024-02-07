@@ -41,7 +41,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
           {article?.title}
         </Typography>
         <Typography variant="M">{article?.subtitle}</Typography>
-        <AppImage src={article?.img} className={styles.Image} />
+        <AppImage src={article?.image} className={styles.Image} />
         {article?.blocks.map((block) => (
           <Fragment key={block.id}>
             {block.type === ArticleBlockTypeEnum.CODE && (

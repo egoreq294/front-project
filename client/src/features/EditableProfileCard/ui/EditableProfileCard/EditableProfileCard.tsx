@@ -17,13 +17,16 @@ import { getProfileLoading } from '../../model/selectors/getProfileLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { getProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import {
+  editableCardProfileActions,
+  editableCardProfileReducer,
+} from '../../model/slice/editableCardProfileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 import styles from './styles.module.scss';
 
 const reducers: ReducerList = {
-  profile: profileReducer,
+  editableCardProfile: editableCardProfileReducer,
 };
 
 interface EditableProfileCardProps {
@@ -54,49 +57,43 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({
 
   const onChangeFirstName = useCallback(
     (value: string) => {
-      dispatch(profileActions.updateProfile({ firstName: value }));
+      dispatch(editableCardProfileActions.updateProfile({ firstName: value }));
     },
     [dispatch],
   );
   const onChangeLastName = useCallback(
     (value: string) => {
-      dispatch(profileActions.updateProfile({ lastName: value }));
+      dispatch(editableCardProfileActions.updateProfile({ lastName: value }));
     },
     [dispatch],
   );
   const onChangeAge = useCallback(
     (value: string) => {
-      dispatch(profileActions.updateProfile({ age: value }));
+      dispatch(editableCardProfileActions.updateProfile({ age: value }));
     },
     [dispatch],
   );
   const onChangeCity = useCallback(
     (value: string) => {
-      dispatch(profileActions.updateProfile({ city: value }));
-    },
-    [dispatch],
-  );
-  const onChangeUsername = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ username: value }));
+      dispatch(editableCardProfileActions.updateProfile({ city: value }));
     },
     [dispatch],
   );
   const onChangeAvatar = useCallback(
     (value: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value }));
+      dispatch(editableCardProfileActions.updateProfile({ avatar: value }));
     },
     [dispatch],
   );
   const onChangeCurrency = useCallback(
     (value: CurrencyEnum) => {
-      dispatch(profileActions.updateProfile({ currency: value }));
+      dispatch(editableCardProfileActions.updateProfile({ currency: value }));
     },
     [dispatch],
   );
   const onChangeCountry = useCallback(
     (value: CountryEnum) => {
-      dispatch(profileActions.updateProfile({ country: value }));
+      dispatch(editableCardProfileActions.updateProfile({ country: value }));
     },
     [dispatch],
   );
@@ -126,7 +123,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({
           onChangeLastName={onChangeLastName}
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
           onChangeAvatar={onChangeAvatar}
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}

@@ -2,7 +2,8 @@ import bcrypt from "bcrypt";
 import { UserModel } from "../../models/User";
 import { ApiError } from "../../exceptions";
 import { generateTokens, saveToken } from "../token";
-import { getUserDTO } from "../../utils";
+import { UserRoleEnum } from "../../types/user";
+import { createProfile } from "../profile";
 
 type RegisterArgs = {
   email: string;
@@ -19,9 +20,17 @@ export const register = async ({ email, password }: RegisterArgs) => {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
 
-  const user = await UserModel.create({ email, passwordHash });
+  const profile = await createProfile();
 
-  const userDTO = getUserDTO(user);
+  const user = await UserModel.create({
+    email,
+    passwordHash,
+    profile: profile._id,
+    roles: [UserRoleEnum.USER],
+    features: {},
+    jsonSettings: {},
+    notifications: [],
+  });
 
   const tokens = generateTokens({ _id: user._id });
 
@@ -31,5 +40,5 @@ export const register = async ({ email, password }: RegisterArgs) => {
 
   await saveToken({ userId: user._id, refreshToken: tokens.refreshToken });
 
-  return { ...tokens, user: userDTO };
+  return { ...tokens, user, profile };
 };

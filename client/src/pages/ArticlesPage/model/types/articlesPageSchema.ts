@@ -16,7 +16,5 @@ export interface ArticlesPageSchema extends EntityState<Article> {
   order: SortOrder;
   sort: ArticleSortField;
   search: string;
-  type: ArticleTypeEnum;
-  // system field
-  _inited: boolean;
+  type: ArticleTypeEnum[];
 }

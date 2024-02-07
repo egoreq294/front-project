@@ -11,7 +11,7 @@ export const validateProfileData = (
     return [ValidateProfileErrorEnum.NO_DATA];
   }
 
-  const { firstName, lastName, age, username } = profile;
+  const { firstName, lastName, age } = profile;
 
   if (!firstName || !lastName) {
     errors.push(ValidateProfileErrorEnum.INCORRECT_FIO);
@@ -19,10 +19,6 @@ export const validateProfileData = (
 
   if (age && !NUMBER_REGEX.test(age)) {
     errors.push(ValidateProfileErrorEnum.INCORRECT_AGE);
-  }
-
-  if (!username) {
-    errors.push(ValidateProfileErrorEnum.INCORRECT_USERNAME);
   }
 
   return errors;

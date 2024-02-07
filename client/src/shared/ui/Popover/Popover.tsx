@@ -1,6 +1,6 @@
-import { Popover as PopoverImpl } from '@headlessui/react';
+import { Popover as PopoverImpl, Transition } from '@headlessui/react';
 import cn from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactElement, ReactNode, useState } from 'react';
 
 import { DropdownDirection } from '@shared/types/ui';
 
@@ -11,6 +11,7 @@ interface PopoverProps {
   trigger: ReactNode;
   children: ReactNode;
   direction?: DropdownDirection;
+  event?: 'click' | 'hover';
 }
 
 const DROPDOWN_DIRECTION_MAP: Record<DropdownDirection, string> = {
@@ -25,18 +26,35 @@ export const Popover: FC<PopoverProps> = ({
   trigger,
   direction = 'bottom-right',
   children,
+  event = 'click',
 }) => {
+  const [isHover, setIsHover] = useState(false);
+
+  const onMouseEnter = (): void => setIsHover(true);
+  const onMouseLeave = (): void => setIsHover(false);
+
   return (
     <PopoverImpl className={cn(styles.Popover, className)}>
-      <PopoverImpl.Button as="div" className={styles.TriggerButton}>
-        {trigger}
-      </PopoverImpl.Button>
+      {({ open }): ReactElement => (
+        <>
+          <PopoverImpl.Button
+            as="div"
+            className={styles.TriggerButton}
+            onMouseEnter={event === 'hover' ? onMouseEnter : undefined}
+            onMouseLeave={event === 'hover' ? onMouseLeave : undefined}
+          >
+            {trigger}
+          </PopoverImpl.Button>
 
-      <PopoverImpl.Panel
-        className={cn(styles.Panel, DROPDOWN_DIRECTION_MAP[direction])}
-      >
-        {children}
-      </PopoverImpl.Panel>
+          <Transition show={event === 'hover' ? isHover : open}>
+            <PopoverImpl.Panel
+              className={cn(styles.Panel, DROPDOWN_DIRECTION_MAP[direction])}
+            >
+              {children}
+            </PopoverImpl.Panel>
+          </Transition>
+        </>
+      )}
     </PopoverImpl>
   );
 };

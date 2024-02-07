@@ -10,7 +10,7 @@ describe('fetchProfileData test suite', () => {
     thunk.api.get.mockReturnValue(
       Promise.resolve({
         data: {
-          username: 'admin',
+          email: 'admin',
           age: '22',
           country: CountryEnum.Russia,
           firstName: 'first name',
@@ -25,7 +25,7 @@ describe('fetchProfileData test suite', () => {
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual({
-      username: 'admin',
+      email: 'admin',
       age: '22',
       country: CountryEnum.Russia,
       firstName: 'first name',

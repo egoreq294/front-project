@@ -20,3 +20,11 @@ export const Default: Story = {
     children: <span>Lorem Ipsum...</span>,
   },
 };
+
+export const Hovered: Story = {
+  args: {
+    trigger: <Button disabled>Open</Button>,
+    children: <span>Lorem Ipsum...</span>,
+    event: 'hover',
+  },
+};

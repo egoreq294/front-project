@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { ApiError } from "../../exceptions";
 import { generateTokens, saveToken } from "../token";
 import { UserModel } from "../../models/User";
-import { getUserDTO } from "../../utils";
+import { getProfileById } from "../profile";
 
 type LoginArgs = {
   email: string;
@@ -21,7 +21,7 @@ export const login = async ({ email, password }: LoginArgs) => {
     throw ApiError.BadRequest("Неверный логин или пароль");
   }
 
-  const userDTO = getUserDTO(user);
+  const profile = await getProfileById(user.profile);
 
   const tokens = generateTokens({ _id: user._id });
 
@@ -31,5 +31,5 @@ export const login = async ({ email, password }: LoginArgs) => {
 
   await saveToken({ userId: user._id, refreshToken: tokens.refreshToken });
 
-  return { ...tokens, user: userDTO };
+  return { ...tokens, user, profile };
 };

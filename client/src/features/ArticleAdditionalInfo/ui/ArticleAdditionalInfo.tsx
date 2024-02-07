@@ -4,16 +4,18 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@entities/Article';
-import { User } from '@entities/User';
+import { Profile } from '@entities/Profile';
+import { formatDate } from '@shared/lib/formatters';
 import { Avatar } from '@shared/ui/Avatar';
 import { Button } from '@shared/ui/Button';
 import { HStack, VStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
 import { canEditArticle } from '../model/selectors/canEditArticle';
+import { ArticleRating } from './ArticleRating';
 
 interface ArticleAdditionalInfoProps {
   className?: string;
-  author: User;
+  author: Profile;
   createdAt: string;
   views: number;
 }
@@ -35,14 +37,17 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   }, [navigate, article]);
 
   return (
-    <VStack gap="32" className={className}>
+    <VStack gap="16" className={className}>
+      {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}
       <HStack gap="8">
         <Avatar src={author.avatar} size={32} />
-        <Typography bold>{author.username}</Typography>
-        <Typography>{createdAt}</Typography>
+        <Typography bold>{`${author.lastName} ${author.firstName}`}</Typography>
       </HStack>
-      {canEdit && <Button onClick={onEditArticle}>{t('edit')}</Button>}
-      <Typography>{t('{{count}} views', { count: views })}</Typography>
+      <Typography>{formatDate(createdAt)}</Typography>
+      <HStack justify="spaceBetween" fullWidth>
+        <Typography>{t('{{count}} views', { count: views })}</Typography>
+        <ArticleRating article={article} />
+      </HStack>
     </VStack>
   );
 };

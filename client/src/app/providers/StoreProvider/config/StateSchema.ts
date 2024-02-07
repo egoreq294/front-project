@@ -11,20 +11,22 @@ import { ArticleDetailsSchema } from '@entities/Article';
 import { CounterSchema } from '@entities/Counter';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
-import { LoginSchema } from '@features/AuthByUsername';
-import { ProfileSchema } from '@features/EditableProfileCard';
+import { AuthSchema } from '@features/AuthByEmail';
+import { EditableCardProfileSchema } from '@features/EditableProfileCard';
 import { ScrollSchema } from '@features/Scroll';
 import { ArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@pages/ArticlesPage';
 import { rtkApi } from '@shared/api/rtkApi';
+import { PopupSchema } from '@shared/lib/popups/types';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   counter: CounterSchema;
+  popup: PopupSchema;
   user: UserSchema;
   scroll: ScrollSchema;
-  loginForm?: LoginSchema;
-  profile?: ProfileSchema;
+  authForm?: AuthSchema;
+  editableCardProfile?: EditableCardProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
