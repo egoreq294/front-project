@@ -5,7 +5,10 @@ import { Card } from '@shared/ui/Card';
 import { Skeleton } from '@shared/ui/Skeleton';
 import { VStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
-import { useNotifications } from '../api/notificationApi';
+import {
+  useDeleteNotification,
+  useNotifications,
+} from '../api/notificationApi';
 import { Notification } from './Notification';
 
 interface NotificationListProps {
@@ -13,10 +16,14 @@ interface NotificationListProps {
 }
 
 export const NotificationList: FC<NotificationListProps> = ({ className }) => {
-  const { data, isLoading } = useNotifications(null, { pollingInterval: 5000 });
+  const { data, isLoading, refetch } = useNotifications(null, {
+    pollingInterval: 5000,
+  });
+  const [deleteNotification, { isLoading: isDeleteNotificationLoading }] =
+    useDeleteNotification();
   const { t } = useTranslation();
 
-  if (isLoading) {
+  if (isLoading || isDeleteNotificationLoading) {
     return (
       <VStack gap="8" fullWidth className={className}>
         <Skeleton width="100%" borderRadius="8" height="80px" />
@@ -37,7 +44,14 @@ export const NotificationList: FC<NotificationListProps> = ({ className }) => {
   return (
     <VStack gap="8" fullWidth className={className}>
       {data?.map((item) => (
-        <Notification key={item.id} notification={item} />
+        <Notification
+          key={item.id}
+          notification={item}
+          onDeleteNotification={async (): Promise<void> => {
+            await deleteNotification(item.id);
+            refetch();
+          }}
+        />
       ))}
     </VStack>
   );

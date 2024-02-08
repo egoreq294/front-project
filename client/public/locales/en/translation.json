@@ -36,5 +36,7 @@
   "change-to-register-button": "Do not have an account?",
   "register": "Register",
   "fill-firstname-or-lastname-to-send-a-comment": "To send a comment, you must fill in your first and last name in profile.",
-  "auth-to-send-a-comment": "To send a comment, you must be authorized"
+  "auth-to-send-a-comment": "To send a comment, you must be authorized",
+  "invalid-email": "Invalid email",
+  "password-too-short": "Password length must be greater than or equal to 8 characters"
 }

@@ -4,4 +4,11 @@
 
 .Notification {
   width: 100%;
+  position: relative;
+}
+
+.DeleteButton {
+  position: absolute;
+  top: var(--gutter-xxs);
+  right: var(--gutter-xxs);
 }

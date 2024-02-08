@@ -8,7 +8,18 @@ const notificationApi = rtkApi.injectEndpoints({
         url: '/user/notifications',
       }),
     }),
+    deleteNotification: build.mutation<Notification[], string>({
+      query: (notificationId) => ({
+        url: '/user/notifications',
+        method: 'DELETE',
+        body: {
+          notificationId,
+        },
+      }),
+    }),
   }),
 });
 
 export const useNotifications = notificationApi.useGetNotificationsQuery;
+export const useDeleteNotification =
+  notificationApi.useDeleteNotificationMutation;

@@ -21,6 +21,7 @@ import {
   updateArticle,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
+import { optionalAuthMiddleware } from "../middlewares/optionalAuthMiddleware";
 
 export const router = Router();
 
@@ -45,8 +46,8 @@ router.get("/profiles/:id", getProfileById);
 router.put("/profiles/update", authMiddleware, updateProfile);
 
 // article
-router.get("/articles/:id", getArticleById);
-router.get("/articles", getArticles);
+router.get("/articles/:id", optionalAuthMiddleware, getArticleById);
+router.get("/articles", optionalAuthMiddleware, getArticles);
 router.get("/articles/:id/comments", getCommentsByArticleId);
 router.post("/articles/create", authMiddleware, createArticle);
 router.post("/articles/rate", authMiddleware, rateArticleById);

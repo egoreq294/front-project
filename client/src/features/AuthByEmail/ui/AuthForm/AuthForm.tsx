@@ -11,11 +11,15 @@ import { Button } from '@shared/ui/Button';
 import { Input } from '@shared/ui/Input';
 import { HStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
+import { validateEmail } from '../../model/lib/utils/validateEmail';
+import { validatePassword } from '../../model/lib/utils/validatePassword';
 import { getAuthEmail } from '../../model/selectors/getAuthEmail';
+import { getAuthEmailError } from '../../model/selectors/getAuthEmailError';
 import { getAuthError } from '../../model/selectors/getAuthError';
 import { getAuthIsLoading } from '../../model/selectors/getAuthIsLoading';
 import { getAuthIsRegisterModal } from '../../model/selectors/getAuthIsRegisterModal';
 import { getAuthPassword } from '../../model/selectors/getAuthPassword';
+import { getAuthPasswordError } from '../../model/selectors/getAuthPasswordError';
 import { loginByEmail } from '../../model/services/loginByEmail/loginByEmail';
 import { registerByEmail } from '../../model/services/loginByEmail/registerByEmail';
 import { authActions, authReducer } from '../../model/slice/authSlice';
@@ -40,12 +44,15 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
   const isLoading = useSelector(getAuthIsLoading);
   const error = useSelector(getAuthError);
   const isRegisterModal = useSelector(getAuthIsRegisterModal);
+  const emailError = useSelector(getAuthEmailError);
+  const passwordError = useSelector(getAuthPasswordError);
 
   const { t } = useTranslation();
 
   const onChangeEmail = useCallback(
     (value: string) => {
       dispatch(authActions.setEmail(value));
+      dispatch(authActions.setEmailError(validateEmail(value)));
     },
     [dispatch],
   );
@@ -53,6 +60,7 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
   const onChangePassword = useCallback(
     (value: string) => {
       dispatch(authActions.setPassword(value));
+      dispatch(authActions.setPasswordError(validatePassword(value)));
     },
     [dispatch],
   );
@@ -64,6 +72,17 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
   const onLoginClick = useCallback(
     async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
       e.preventDefault();
+
+      const emailValidationResult = validateEmail(email);
+      const passwordValidationResult = validatePassword(password);
+
+      dispatch(authActions.setEmailError(emailValidationResult));
+      dispatch(authActions.setPasswordError(passwordValidationResult));
+
+      if (emailValidationResult || passwordValidationResult) {
+        return;
+      }
+
       const result = await dispatch(loginByEmail({ email, password }));
       if (result.meta.requestStatus === 'fulfilled') {
         onSuccess();
@@ -75,6 +94,11 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
   const onRegisterClick = useCallback(
     async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
       e.preventDefault();
+
+      if (emailError || passwordError) {
+        return;
+      }
+
       const result = await dispatch(registerByEmail({ email, password }));
       if (
         result.meta.requestStatus === 'fulfilled' &&
@@ -84,7 +108,7 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
         onSuccess();
       }
     },
-    [dispatch, password, email, onSuccess, navigate],
+    [dispatch, password, email, onSuccess, navigate, emailError, passwordError],
   );
 
   return (
@@ -96,12 +120,14 @@ const AuthForm: FC<AuthFormProps> = memo(({ className, onSuccess }) => {
           onChange={onChangeEmail}
           autoFocus
           label={t('enter-email')}
+          error={emailError}
         />
         <Input
           type="password"
           value={password}
           onChange={onChangePassword}
           label={t('enter-password')}
+          error={passwordError}
         />
         {error && (
           <Typography className={styles.Error}>

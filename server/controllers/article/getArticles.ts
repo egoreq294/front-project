@@ -4,11 +4,11 @@ import {
   getArticles as getArticlesService,
   getUserById as getUserByIdService,
   canRateArticle as canRateArticleService,
-  validateAccessToken,
 } from "../../services";
 import { getProfileDTO, getArticleDTO } from "../../utils";
 import { ArticleTypeEnum } from "../../types/article";
 import { TokenPayload } from "../../types/token";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 interface GetArticlesQueryParams {
   _expand?: string;
@@ -21,19 +21,15 @@ interface GetArticlesQueryParams {
 }
 
 export const getArticles = async (
-  req: Request<{}, {}, { user: TokenPayload }, GetArticlesQueryParams>,
+  req: Request<{}, {}, { user: TokenPayload | null }, GetArticlesQueryParams>,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const { _expand, _limit, _page, _sort, _order, search, type } = req.query;
-    const authorizationHeader = req.headers.authorization;
+    const { user } = req.body;
 
-    const accessToken = authorizationHeader?.split(" ")[1];
-    const userData = accessToken ? validateAccessToken(accessToken) : null;
-    const currentUser = userData
-      ? await getUserByIdService(userData._id)
-      : null;
+    const currentUser = user ? await getUserByIdService(user._id) : null;
 
     const articles = await getArticlesService({
       limit: _limit,

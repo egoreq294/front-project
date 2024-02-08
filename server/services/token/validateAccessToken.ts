@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { ApiError } from "../../exceptions";
 
 export const validateAccessToken = (token: string) => {

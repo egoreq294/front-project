@@ -8,7 +8,9 @@ import { AuthSchema } from '../types/authSchema';
 const initialState: AuthSchema = {
   isLoading: false,
   email: EMPTY_STRING,
+  emailError: null,
   password: EMPTY_STRING,
+  passwordError: null,
   isRegisterModal: false,
 };
 
@@ -21,6 +23,12 @@ const authSlice = createSlice({
     },
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
+    },
+    setEmailError: (state, action: PayloadAction<string | null>) => {
+      state.emailError = action.payload;
+    },
+    setPasswordError: (state, action: PayloadAction<string | null>) => {
+      state.passwordError = action.payload;
     },
     setIsRegisterModal: (state, action: PayloadAction<boolean>) => {
       state.isRegisterModal = action.payload;
