@@ -1,0 +1,20 @@
+.MobileLayout {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-areas: 'header' 'content';
+  grid-template-rows: 80px 1fr;
+}
+
+.Header {
+  grid-area: header;
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
+.Content {
+  grid-area: content;
+  width: 100%;
+  padding: var(--gutter-xxl);
+}

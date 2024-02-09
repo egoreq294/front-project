@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useState } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@entities/Notification';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { Drawer } from '@shared/ui/Drawer';
 import { IconButton } from '@shared/ui/IconButton';
 import { Popover } from '@shared/ui/Popover';
@@ -16,6 +16,8 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
   className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { isDesktop } = useMediaQuery();
 
   const onOpenDrawer = useCallback(() => {
     setIsOpen(true);
@@ -35,14 +37,7 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
 
   return (
     <div>
-      <MobileView>
-        {trigger}
-        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-          <NotificationList />
-        </Drawer>
-      </MobileView>
-
-      <BrowserView>
+      {isDesktop ? (
         <Popover
           className={className}
           direction="bottom-left"
@@ -50,7 +45,20 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
         >
           <NotificationList className={styles.Notifications} />
         </Popover>
-      </BrowserView>
+      ) : (
+        <>
+          {trigger}
+          <Drawer
+            isOpen={isOpen}
+            onClose={onCloseDrawer}
+            size="80vh"
+            direction="bottom"
+            withCloseButton={false}
+          >
+            <NotificationList />
+          </Drawer>
+        </>
+      )}
     </div>
   );
 };

@@ -13,34 +13,38 @@ import styles from './styles.module.scss';
 interface SidebarItemProps {
   item: SidebarItemType;
   collapsed: boolean;
+  onClick?: () => void;
 }
 
-export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
-  const { t } = useTranslation();
+export const SidebarItem: FC<SidebarItemProps> = memo(
+  ({ item, collapsed, onClick }) => {
+    const { t } = useTranslation();
 
-  const isAuth = useSelector(getUserAuthData);
+    const isAuth = useSelector(getUserAuthData);
 
-  if (item.authOnly && !isAuth) {
-    return null;
-  }
+    if (item.authOnly && !isAuth) {
+      return null;
+    }
 
-  return (
-    <AppLink
-      to={item.path}
-      className={styles.Link}
-      activeClassName={styles.ActiveLink}
-    >
-      <div className={cn(styles.Item, { [styles.CollapsedItem]: collapsed })}>
-        {item.iconName && (
-          <Icon
-            name={item.iconName}
-            className={styles.Icon}
-            width={20}
-            height={20}
-          />
-        )}
-        {!collapsed && t(item.text)}
-      </div>
-    </AppLink>
-  );
-});
+    return (
+      <AppLink
+        to={item.path}
+        className={styles.Link}
+        activeClassName={styles.ActiveLink}
+        onClick={onClick}
+      >
+        <div className={cn(styles.Item, { [styles.CollapsedItem]: collapsed })}>
+          {item.iconName && (
+            <Icon
+              name={item.iconName}
+              className={styles.Icon}
+              width={20}
+              height={20}
+            />
+          )}
+          {!collapsed && t(item.text)}
+        </div>
+      </AppLink>
+    );
+  },
+);

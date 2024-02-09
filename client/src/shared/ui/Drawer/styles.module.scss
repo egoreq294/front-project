@@ -2,18 +2,25 @@
   position: fixed;
   inset: 0;
   z-index: var(--modal-z-index);
-  display: flex;
-  align-items: flex-end;
 }
 
-.Sheet {
-  z-index: var(--modal-z-index);
+.Wrapper {
   position: fixed;
-  left: 2vw;
-  height: calc(100vh + 100px);
-  width: 96vw;
-  border-radius: 12px 12px 0;
   background: var(--color-background-light);
-  touch-action: none;
-  padding: 15px;
+  width: 100%;
+  z-index: var(--modal-z-index);
+  transition: left 0.2s ease, right 0.2s ease, bottom 0.2s ease;
+}
+
+.Content {
+  position: relative;
+  padding: var(--gutter-m);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.CloseButton {
+  position: absolute;
+  top: var(--gutter-xxs);
+  right: var(--gutter-xxs);
 }

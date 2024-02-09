@@ -1,7 +1,15 @@
-.App {
+.App,
+.AppMobile {
   min-height: 100vh;
   background: var(--color-background);
   color: var(--color-text);
   font: var(--new-font-s);
+}
+
+.App {
   min-width: 1280px;
+}
+
+.AppMobile {
+  min-width: 320px;
 }

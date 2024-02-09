@@ -26,6 +26,7 @@ import { Like } from './assets/Like';
 import { List } from './assets/List';
 import { ListNew } from './assets/ListNew';
 import { Logo } from './assets/Logo';
+import { Menu } from './assets/Menu';
 import { Moon } from './assets/Moon';
 import { Notification } from './assets/Notification';
 import { NotificationNew } from './assets/NotificationNew';
@@ -82,4 +83,5 @@ export const ICON_MAP = {
   Dislike,
   Cancel,
   Add,
+  Menu,
 };

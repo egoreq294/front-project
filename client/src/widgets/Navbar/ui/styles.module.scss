@@ -1,8 +1,10 @@
 .NavbarRedesigned {
   padding: var(--gutter-s);
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.AuthButton,
-.Actions {
-  margin-left: auto;
+  @media (min-width: '1280px') {
+    justify-content: flex-end;
+  }
 }

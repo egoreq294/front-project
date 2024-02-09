@@ -1,10 +1,8 @@
 import cn from 'classnames';
-import React, { FC, ReactNode, useCallback, useEffect } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-import {
-  AnimationProvider,
-  useAnimationModules,
-} from '@shared/lib/components/AnimationProvider';
+import { useDrawer } from '@shared/lib/hooks/useDrawer';
+import { IconButton } from '../IconButton';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 
@@ -15,71 +13,29 @@ interface DrawerProps {
   isOpen: boolean;
   onClose: () => void;
   className?: string;
+  testId?: string;
+  size?: string | number;
+  direction?: 'left' | 'right' | 'bottom';
+  withCloseButton?: boolean;
 }
 
-const height = window.innerHeight - 100;
-
-/**
- * @deprecated
- */
-const DrawerContent: FC<DrawerProps> = ({
+export const Drawer: FC<DrawerProps> = ({
   className,
   isOpen,
   onClose,
   children,
+  testId,
+  size = '80vh',
+  direction = 'bottom',
+  withCloseButton = true,
 }) => {
-  const { Spring, Gesture } = useAnimationModules();
+  const { isClosing, isOpening, closeHandler } = useDrawer({
+    isOpen,
+    onClose,
+    animationDelay: 200,
+  });
 
-  const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
-
-  const openDrawer = useCallback(() => {
-    api.start({ y: 0, immediate: false });
-  }, [api]);
-
-  useEffect(() => {
-    if (isOpen) {
-      openDrawer();
-    }
-  }, [isOpen, openDrawer]);
-
-  const close = (velocity = 0): void => {
-    api.start({
-      y: height,
-      immediate: false,
-      config: { ...Spring.config.stiff, velocity },
-      onResolve: onClose,
-    });
-  };
-
-  const bind = Gesture.useDrag(
-    ({
-      last,
-      velocity: [, vy],
-      direction: [, dy],
-      movement: [, my],
-      cancel,
-    }) => {
-      if (my < -70) cancel();
-
-      if (last) {
-        if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
-          close();
-        } else {
-          openDrawer();
-        }
-      } else {
-        api.start({ y: my, immediate: true });
-      }
-    },
-    {
-      from: () => [0, y.get()],
-      filterTaps: true,
-      bounds: { top: 0 },
-      rubberband: true,
-    },
-  );
-
-  const display = y.to((py) => (py < height ? 'block' : 'none'));
+  const animationOffset = typeof size === 'number' ? -size : `-${size}`;
 
   if (!isOpen) {
     return null;
@@ -87,34 +43,58 @@ const DrawerContent: FC<DrawerProps> = ({
 
   return (
     <Portal>
-      <div className={cn(styles.Drawer, 'app_drawer', className)}>
-        <Overlay onClick={close} />
-        <Spring.a.div
-          className={styles.Sheet}
-          style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
-          {...bind()}
+      <div
+        className={cn(styles.Drawer, className)}
+        data-testid={testId ? `Drawer_${testId}` : undefined}
+      >
+        <Overlay onClick={closeHandler} />
+        <div
+          className={styles.Wrapper}
+          style={{
+            ...(direction === 'bottom' && {
+              bottom: isClosing || isOpening ? animationOffset : 0,
+              left: 0,
+              height: size,
+              width: '100vw',
+            }),
+            ...(direction === 'right' && {
+              right: isClosing || isOpening ? animationOffset : 0,
+              top: 0,
+              height: '100vh',
+              width: size,
+            }),
+            ...(direction === 'left' && {
+              left: isClosing || isOpening ? animationOffset : 0,
+              top: 0,
+              height: '100vh',
+              width: size,
+            }),
+          }}
         >
-          {children}
-        </Spring.a.div>
+          <div
+            className={styles.Content}
+            style={{
+              ...(direction === 'bottom' && {
+                height: size,
+              }),
+              ...((direction === 'right' || direction === 'left') && {
+                height: '100vh',
+              }),
+            }}
+          >
+            <>
+              {children}
+              {withCloseButton && (
+                <IconButton
+                  name="Cancel"
+                  onClick={closeHandler}
+                  className={styles.CloseButton}
+                />
+              )}
+            </>
+          </div>
+        </div>
       </div>
     </Portal>
-  );
-};
-
-const DrawerAsync: FC<DrawerProps> = (props) => {
-  const { isLoaded } = useAnimationModules();
-
-  if (!isLoaded) {
-    return null;
-  }
-
-  return <DrawerContent {...props} />;
-};
-
-export const Drawer: FC<DrawerProps> = (props) => {
-  return (
-    <AnimationProvider>
-      <DrawerAsync {...props} />
-    </AnimationProvider>
   );
 };

@@ -6,7 +6,9 @@ import { initAuthData } from '@entities/User';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { MainLayout } from '@shared/layouts';
 import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
+import { MobileLayout } from '@shared/layouts/MobileLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { Navbar } from '@widgets/Navbar';
 import { Sidebar } from '@widgets/Sidebar';
 import { Popups } from './components/Popups';
@@ -25,6 +27,8 @@ export const App: FC = () => {
 
   const toolbar = useAppToolbar();
 
+  const { isDesktop } = useMediaQuery();
+
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
@@ -39,16 +43,24 @@ export const App: FC = () => {
 
   return (
     <ThemeProvider initialTheme={theme}>
-      <div className={styles.App}>
-        <Suspense fallback={EMPTY_STRING}>
-          <MainLayout
-            header={<Navbar />}
-            sidebar={<Sidebar />}
-            content={<AppRouter />}
-            toolbar={toolbar}
-          />
-        </Suspense>
-      </div>
+      {isDesktop ? (
+        <div className={styles.App}>
+          <Suspense fallback={EMPTY_STRING}>
+            <MainLayout
+              header={<Navbar />}
+              sidebar={<Sidebar />}
+              content={<AppRouter />}
+              toolbar={toolbar}
+            />
+          </Suspense>
+        </div>
+      ) : (
+        <div className={styles.AppMobile}>
+          <Suspense fallback={EMPTY_STRING}>
+            <MobileLayout header={<Navbar />} content={<AppRouter />} />
+          </Suspense>
+        </div>
+      )}
       <Popups />
     </ThemeProvider>
   );
