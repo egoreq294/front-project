@@ -21,7 +21,7 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = ({
   }
 
   return (
-    <VStack gap="24" className={className}>
+    <VStack gap="24" fullWidth className={className}>
       <Card fullWidth className={className} padding="24">
         <ArticleDetails articleId={id} />
       </Card>
