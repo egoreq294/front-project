@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useEffect } from 'react';
 
 import { useDrawer } from '@shared/lib/hooks/useDrawer';
 import { IconButton } from '../IconButton';
@@ -34,6 +34,17 @@ export const Drawer: FC<DrawerProps> = ({
     onClose,
     animationDelay: 200,
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const animationOffset = typeof size === 'number' ? -size : `-${size}`;
 
