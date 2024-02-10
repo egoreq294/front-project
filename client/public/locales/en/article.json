@@ -59,5 +59,7 @@
   "translation.change-to-login-button": "Login?",
   "translation.fill-firstname-or-lastname-to-send-a-comment": "To send a comment, you must fill in your first and last name.",
   "fill-firstname-or-lastname-to-create-ana-article": "To create an article, you must fill in your first and last name in profile.",
-  "auth-to-create-an-article": "To create an article, you must be authorized"
+  "auth-to-create-an-article": "To create an article, you must be authorized",
+  "hide-filters": "Hide filters",
+  "show-filters": "Show filters"
 }

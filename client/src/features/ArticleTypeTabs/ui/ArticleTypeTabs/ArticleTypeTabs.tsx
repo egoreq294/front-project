@@ -1,8 +1,12 @@
+import cn from 'classnames';
 import React, { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleTypeEnum } from '@entities/Article';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { TabItem, Tabs } from '@shared/ui/Tabs';
+
+import styles from './styles.module.scss';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -16,6 +20,8 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
   onChangeType,
 }) => {
   const { t } = useTranslation('article');
+
+  const { isDesktop } = useMediaQuery();
 
   const tabs = useMemo<TabItem<ArticleTypeEnum>[]>(
     () => [
@@ -79,12 +85,12 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
 
   return (
     <Tabs
-      className={className}
+      className={cn(styles.Tabs, className)}
       tabs={tabs}
       selectedTabs={type}
       onSelectTab={onSelectTab}
       onRemoveTab={onRemoveTab}
-      direction="column"
+      direction={isDesktop ? 'column' : 'row'}
     />
   );
 };

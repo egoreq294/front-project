@@ -8,6 +8,8 @@ import {
   ReducerList,
 } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
+import { VStack } from '@shared/ui/Stack';
 import { Page } from '@widgets/Page';
 import { fetchNextArticles } from '../model/services/fetchNextArticles';
 import { initArticlesPage } from '../model/services/initArticlesPage';
@@ -24,6 +26,8 @@ const ArticlesPage: FC = () => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
 
+  const { isDesktop } = useMediaQuery();
+
   useEffect(() => {
     dispatch(initArticlesPage(searchParams));
   }, [dispatch, searchParams]);
@@ -34,16 +38,26 @@ const ArticlesPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <StickyContentLayout
-        left={<ViewSelector />}
-        content={
-          <Page testId="Articles" onScrollEnd={onLoadNextPart}>
+      {!isDesktop ? (
+        <Page testId="Articles" onScrollEnd={onLoadNextPart}>
+          <VStack gap="16" fullWidth>
+            <Filters />
             <ArticleInfiniteList />
-            <ArticlePageGreeting />
-          </Page>
-        }
-        right={<Filters />}
-      />
+          </VStack>
+          <ArticlePageGreeting />
+        </Page>
+      ) : (
+        <StickyContentLayout
+          left={<ViewSelector />}
+          content={
+            <Page testId="Articles" onScrollEnd={onLoadNextPart}>
+              <ArticleInfiniteList />
+              <ArticlePageGreeting />
+            </Page>
+          }
+          right={<Filters />}
+        />
+      )}
     </DynamicModuleLoader>
   );
 };

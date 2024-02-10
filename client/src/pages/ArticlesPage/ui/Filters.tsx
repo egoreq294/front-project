@@ -3,10 +3,14 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { ArticleSortField, ArticleTypeEnum } from '@entities/Article';
-import { ArticlesFilters } from '@features/ArticlesFilters';
+import {
+  ArticlesFilters,
+  ArticlesFiltersMobile,
+} from '@features/ArticlesFilters';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { SortOrder } from '@shared/types';
 import {
   getArticlesPageOrder,
@@ -24,6 +28,8 @@ interface FiltersProps {
 export const Filters: FC<FiltersProps> = ({ className }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const { isDesktop } = useMediaQuery();
 
   const order = useSelector(getArticlesPageOrder);
   const sort = useSelector(getArticlesPageSort);
@@ -75,6 +81,23 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
   const onCreateArticle = useCallback(() => {
     navigate('/articles/create');
   }, [navigate]);
+
+  if (!isDesktop) {
+    return (
+      <ArticlesFiltersMobile
+        className={className}
+        sort={sort}
+        order={order}
+        search={search}
+        type={type}
+        onChangeOrder={onChangeOrder}
+        onChangeSort={onChangeSort}
+        onChangeSearch={onChangeSearch}
+        onChangeType={onChangeType}
+        onCreateArticle={onCreateArticle}
+      />
+    );
+  }
 
   return (
     <ArticlesFilters

@@ -1,0 +1,7 @@
+.Tabs {
+  flex-wrap: wrap;
+
+  @media (min-width: '1280px') {
+    flex-wrap: nowrap;
+  }
+}

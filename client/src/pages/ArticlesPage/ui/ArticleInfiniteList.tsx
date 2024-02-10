@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ArticleList } from '@entities/Article';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import {
   getArticlesPageIsLoading,
   getArticlesPageView,
@@ -13,9 +14,11 @@ export const ArticleInfiniteList: FC = () => {
   const viewMode = useSelector(getArticlesPageView);
   const isLoading = useSelector(getArticlesPageIsLoading);
 
+  const { isDesktop } = useMediaQuery();
+
   return (
     <ArticleList
-      viewMode={viewMode}
+      viewMode={isDesktop ? viewMode : 'Plate'}
       articles={articles}
       isLoading={isLoading}
     />
