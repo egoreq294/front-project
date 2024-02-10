@@ -15,7 +15,11 @@
 .PlateSkeleton {
   display: flex;
   flex-shrink: 0;
-  width: 232px;
+  width: 100%;
   height: 300px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
+
+  @media (min-width: '1280px') {
+    width: 232px;
+  }
 }

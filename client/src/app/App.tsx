@@ -6,6 +6,7 @@ import { initAuthData } from '@entities/User';
 import { EMPTY_STRING } from '@shared/constants/common';
 import { MainLayout } from '@shared/layouts';
 import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
+import { AppLoaderMobileLayout } from '@shared/layouts/AppLoaderMobileLayout';
 import { MobileLayout } from '@shared/layouts/MobileLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useCustomViewportHeight } from '@shared/lib/hooks/useCustomViewportHeight';
@@ -38,9 +39,17 @@ export const App: FC = () => {
 
   if (!inited) {
     return (
-      <div className={styles.App}>
-        <AppLoaderLayout />
-      </div>
+      <>
+        {isDesktop ? (
+          <div className={styles.App}>
+            <AppLoaderLayout />
+          </div>
+        ) : (
+          <div className={styles.AppMobile}>
+            <AppLoaderMobileLayout />
+          </div>
+        )}
+      </>
     );
   }
 
