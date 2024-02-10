@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { Article } from '@entities/Article';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { addPopup } from '@shared/lib/popups/popupSlice';
 // eslint-disable-next-line egoreq-plugin/layer-imports
 import { ArticleForm, ArticleFormSchema } from '@widgets/ArticleForm';
 import { useEditArticle } from '../api/editArticleApi';
 import { getEditArticleInitialValues } from '../model/lib/getEditArticleInitialValues';
 import { getEditArticleInput } from '../model/lib/getEditArticleInput';
+import { EditArticleMobileSkeleton } from './EditArticleMobileSkeleton';
 import { EditArticleSkeleton } from './EditArticleSkeleton';
 
 interface EditArticleProps {
@@ -21,6 +23,8 @@ export const EditArticle: FC<EditArticleProps> = ({ article, loading }) => {
   const [createArticle, { isLoading }] = useEditArticle();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const { isDesktop } = useMediaQuery();
 
   const { t } = useTranslation('article');
 
@@ -51,7 +55,7 @@ export const EditArticle: FC<EditArticleProps> = ({ article, loading }) => {
   };
 
   if (loading) {
-    return <EditArticleSkeleton />;
+    return isDesktop ? <EditArticleSkeleton /> : <EditArticleMobileSkeleton />;
   }
 
   return (

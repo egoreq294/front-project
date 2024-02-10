@@ -62,11 +62,7 @@ export const Input: FC<InputProps> = forwardRef(
 
     return (
       <VStack fullWidth gap="8" className={className}>
-        {!!label && (
-          <Typography variant="S" className={styles.Label}>
-            {label}
-          </Typography>
-        )}
+        {!!label && <Typography variant="S">{label}</Typography>}
         <VStack fullWidth gap="4">
           <div
             className={cn(

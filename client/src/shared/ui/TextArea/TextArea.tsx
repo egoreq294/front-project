@@ -73,11 +73,7 @@ export const TextArea: FC<TextAreaProps> = forwardRef(
 
     return (
       <VStack fullWidth gap="8">
-        {!!label && (
-          <Typography variant="S" className={styles.Label}>
-            {label}
-          </Typography>
-        )}
+        {!!label && <Typography variant="S">{label}</Typography>}
         <VStack fullWidth gap="4">
           <div
             className={cn(
