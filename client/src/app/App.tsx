@@ -8,6 +8,7 @@ import { MainLayout } from '@shared/layouts';
 import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { MobileLayout } from '@shared/layouts/MobileLayout';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useCustomViewportHeight } from '@shared/lib/hooks/useCustomViewportHeight';
 import { useMediaQuery } from '@shared/lib/hooks/useMediaQuery';
 import { Navbar } from '@widgets/Navbar';
 import { Sidebar } from '@widgets/Sidebar';
@@ -32,6 +33,8 @@ export const App: FC = () => {
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
+
+  useCustomViewportHeight();
 
   if (!inited) {
     return (

@@ -60,13 +60,13 @@ export const Drawer: FC<DrawerProps> = ({
             ...(direction === 'right' && {
               right: isClosing || isOpening ? animationOffset : 0,
               top: 0,
-              height: '100vh',
+              height: window.innerHeight,
               width: size,
             }),
             ...(direction === 'left' && {
               left: isClosing || isOpening ? animationOffset : 0,
               top: 0,
-              height: '100vh',
+              height: window.innerHeight,
               width: size,
             }),
           }}
@@ -78,7 +78,7 @@ export const Drawer: FC<DrawerProps> = ({
                 height: size,
               }),
               ...((direction === 'right' || direction === 'left') && {
-                height: '100vh',
+                height: window.innerHeight,
               }),
             }}
           >

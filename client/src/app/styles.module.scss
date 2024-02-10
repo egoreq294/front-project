@@ -1,6 +1,6 @@
 .App,
 .AppMobile {
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background: var(--color-background);
   color: var(--color-text);
   font: var(--new-font-s);
