@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,6 +13,8 @@ import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData';
 import { editableCardProfileActions } from '../../model/slice/editableCardProfileSlice';
+
+import styles from './styles.module.scss';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -42,12 +45,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
 
   return (
     <Card fullWidth padding="24">
-      <HStack
-        role="heading"
-        fullWidth
-        justify="spaceBetween"
-        className={className}
-      >
+      <header className={cn(styles.Header, className)}>
         <Typography variant="M">{t('profile')}</Typography>
         <HStack gap="16">
           {canEdit && (
@@ -73,7 +71,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
             </>
           )}
         </HStack>
-      </HStack>
+      </header>
     </Card>
   );
 };

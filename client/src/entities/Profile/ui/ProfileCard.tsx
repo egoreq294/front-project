@@ -85,7 +85,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           <Avatar src={formData?.avatar} alt="Avatar" size={128} />
         </HStack>
       )}
-      <HStack gap="24" fullWidth align="start">
+      <div className={styles.Content}>
         <VStack gap="16" fullWidth>
           <Input
             value={formData?.firstName}
@@ -124,7 +124,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             disabled={readonly}
             testId="Avatar"
           />
-          <HStack gap="16">
+          <div className={styles.SelectsContainer}>
             <CurrencySelect
               value={formData?.currency}
               onChange={onChangeCurrency}
@@ -135,9 +135,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
               onChange={onChangeCountry}
               readOnly={readonly}
             />
-          </HStack>
+          </div>
         </VStack>
-      </HStack>
+      </div>
     </Card>
   );
 };

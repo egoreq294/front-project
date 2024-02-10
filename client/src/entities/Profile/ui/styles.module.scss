@@ -14,3 +14,24 @@
 .Error {
   color: var(--color-cancel);
 }
+
+.Content {
+  width: 100%;
+  display: flex;
+  gap: var(--gutter-s);
+  flex-direction: column;
+
+  @media (min-width: '768px') {
+    flex-direction: row;
+  }
+}
+
+.SelectsContainer {
+  display: flex;
+  gap: var(--gutter-s);
+  flex-direction: column;
+
+  @media (min-width: '768px') {
+    flex-direction: row;
+  }
+}
