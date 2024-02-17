@@ -9,6 +9,7 @@ import { AxiosInstance } from 'axios';
 
 import { ArticleDetailsSchema } from '@entities/Article';
 import { CounterSchema } from '@entities/Counter';
+import { NotificationSchema } from '@entities/Notification';
 import { UserSchema } from '@entities/User';
 import { AddCommentFormSchema } from '@features/AddCommentForm';
 import { AuthSchema } from '@features/AuthByEmail';
@@ -31,6 +32,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
+  notification?: NotificationSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -42,8 +44,14 @@ export interface ReducerManager {
   remove: (key: StateSchemaKey) => void;
 }
 
+export interface SagaManager {
+  add: (key: StateSchemaKey, saga: () => Generator) => void;
+  remove: (key: StateSchemaKey) => void;
+}
+
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
+  sagaManager: SagaManager;
 }
 
 export interface ThunkExtraArg {

@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Card } from '@shared/ui/Card';
 import { Skeleton } from '@shared/ui/Skeleton';
 import { VStack } from '@shared/ui/Stack';
 import { Typography } from '@shared/ui/Typography';
-import {
-  useDeleteNotification,
-  useNotifications,
-} from '../api/notificationApi';
+import { getNotificationsData } from '../model/selectors/getNotificationsData';
+import { getNotificationsIsLoading } from '../model/selectors/getNotificationsIsLoading';
+import { notificationActions } from '../model/slice/notificationSlice';
 import { Notification } from './Notification';
 
 interface NotificationListProps {
@@ -16,14 +17,17 @@ interface NotificationListProps {
 }
 
 export const NotificationList: FC<NotificationListProps> = ({ className }) => {
-  const { data, isLoading, refetch } = useNotifications(null, {
-    pollingInterval: 5000,
-  });
-  const [deleteNotification, { isLoading: isDeleteNotificationLoading }] =
-    useDeleteNotification();
+  const disaptch = useAppDispatch();
   const { t } = useTranslation();
 
-  if (isLoading || isDeleteNotificationLoading) {
+  const data = useSelector(getNotificationsData);
+  const isLoading = useSelector(getNotificationsIsLoading);
+
+  useEffect(() => {
+    disaptch(notificationActions.fetchNotifications());
+  }, [disaptch]);
+
+  if (isLoading) {
     return (
       <VStack gap="8" fullWidth className={className}>
         <Skeleton width="100%" borderRadius="8" height="80px" />
@@ -48,8 +52,7 @@ export const NotificationList: FC<NotificationListProps> = ({ className }) => {
           key={item.id}
           notification={item}
           onDeleteNotification={async (): Promise<void> => {
-            await deleteNotification(item.id);
-            refetch();
+            disaptch(notificationActions.deleteNotification(item.id));
           }}
         />
       ))}
