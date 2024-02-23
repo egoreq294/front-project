@@ -26,6 +26,9 @@ describe('Страница статьи', () => {
     cy.getByTestId('Typography_ArticleDetailsTitle').should('exist');
     cy.getByTestId('CommentForm').scrollIntoView();
     cy.addComment('New Comment');
+
+    cy.wait(2000);
+
     cy.getArticleComments(currentArticleId).then((comments) => {
       comments.forEach(({ id, text }) => {
         cy.getByTestId(`Typography_Comment${id}`).should('have.text', text);
@@ -35,8 +38,11 @@ describe('Страница статьи', () => {
 
   it('Оцениваем статью', () => {
     cy.getByTestId('Typography_ArticleDetailsTitle').should('exist');
-    cy.getByTestId('RatingCard').scrollIntoView();
-    cy.setRating(4, 'feedback');
-    cy.get('[data-selected=true]').should('have.length', 4);
+    cy.getByTestId('Typography_Rating').should('have.text', '0');
+    const likeButton = cy.getByTestId('IconButton_Like');
+    likeButton.scrollIntoView();
+    likeButton.click();
+    cy.wait(2000);
+    cy.getByTestId('Typography_Rating').should('have.text', '1');
   });
 });

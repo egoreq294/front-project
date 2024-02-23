@@ -2,21 +2,23 @@ import { User } from '../../../src/entities/User';
 import { selectByTestId } from '../../helpers/selectByTestId';
 
 export const login = (
-  username: string = 'testuser',
-  password: string = '123',
+  email: string = 'testuser@mail.ru',
+  password: string = '12345678',
 ) => {
   return cy
     .request({
       method: 'POST',
       url: `http://localhost:5000/api/login`,
       body: {
-        username,
+        email,
         password,
       },
     })
     .then(({ body }) => {
-      window.localStorage.setItem('user', body.id);
-      return body;
+      window.localStorage.setItem('user', body.user.id);
+      window.localStorage.setItem('access_token', body.accessToken);
+
+      return body.user;
     });
 };
 

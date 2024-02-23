@@ -5,3 +5,4 @@ export { rateArticleById } from "./rateArticleById";
 export { addCommentByArticleId } from "./addCommentByArticleId";
 export { getCommentsByArticleId } from "./getCommentsByArticleId";
 export { updateArticle } from "./updateArticle";
+export { removeArticleById } from "./removeArticleById";

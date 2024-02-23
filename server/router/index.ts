@@ -19,6 +19,7 @@ import {
   createNotification,
   deleteNotificationById,
   updateArticle,
+  removeArticleById,
 } from "../controllers";
 import { authMiddleware } from "../middlewares/authMiddleware";
 import { optionalAuthMiddleware } from "../middlewares/optionalAuthMiddleware";
@@ -53,3 +54,4 @@ router.post("/articles/create", authMiddleware, createArticle);
 router.post("/articles/rate", authMiddleware, rateArticleById);
 router.post("/articles/add-comment", authMiddleware, addCommentByArticleId);
 router.put("/articles/update", authMiddleware, updateArticle);
+router.delete("/articles/:id", authMiddleware, removeArticleById);

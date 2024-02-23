@@ -53,14 +53,18 @@ export const ArticleRating: FC<ArticleRatingProps> = ({
         disabled={!canRateArticle}
         width={22}
         height={22}
+        testId="Like"
       />
-      <Typography variant="M">{article?.rating.value}</Typography>
+      <Typography variant="M" testId="Rating">
+        {article?.rating.value}
+      </Typography>
       <IconButton
         name="Dislike"
         onClick={onDislikeClick}
         disabled={!canRateArticle}
         width={22}
         height={22}
+        testId="Dislike"
       />
     </HStack>
   );

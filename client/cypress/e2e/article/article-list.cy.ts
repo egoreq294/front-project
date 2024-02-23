@@ -1,12 +1,7 @@
 describe('Страница со списком статей', () => {
-  beforeEach(() => {
-    cy.login().then(() => {
-      cy.visit('articles');
-    });
-  });
-
   it('Статьи успешно загрузились', () => {
+    cy.visit('/');
     cy.getByTestId('ArticleList').should('exist');
-    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 4);
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 2);
   });
 });

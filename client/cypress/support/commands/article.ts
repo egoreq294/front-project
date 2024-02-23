@@ -4,10 +4,8 @@ import { CommentType } from '../../../src/entities/Comment';
 const DEFAULT_ARTICLE = {
   title: 'Golang news',
   subtitle: 'Что нового в JS за 2022 год?',
-  img: 'https://bestprogrammer.ru/wp-content/uploads/2022/03/Vyzov-Golang-696x400.jpg',
-  views: 10222,
-  createdAt: '26.02.2020',
-  userId: '1',
+  image:
+    'https://bestprogrammer.ru/wp-content/uploads/2022/03/Vyzov-Golang-696x400.jpg',
   type: ['IT'],
   blocks: [],
 };
@@ -16,9 +14,9 @@ export const createArticle = (article?: Article) => {
   return cy
     .request({
       method: 'POST',
-      url: `http://localhost:5000/api/articles`,
+      url: `http://localhost:5000/api/articles/create`,
       headers: {
-        Authorization: 'token',
+        Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
       },
       body: article || DEFAULT_ARTICLE,
     })
@@ -30,7 +28,7 @@ export const removeArticle = (articleId: string) => {
     method: 'DELETE',
     url: `http://localhost:5000/api/articles/${articleId}`,
     headers: {
-      Authorization: 'token',
+      Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
     },
   });
 };
@@ -39,9 +37,9 @@ export const getArticleComments = (articleId: string) => {
   return cy
     .request({
       method: 'GET',
-      url: `http://localhost:5000/api/comments?articleId=${articleId}`,
+      url: `http://localhost:5000/api/articles/${articleId}/comments`,
       headers: {
-        Authorization: 'token',
+        Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
       },
     })
     .then(({ body }) => body);

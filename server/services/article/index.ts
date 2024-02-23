@@ -7,3 +7,4 @@ export { addCommentByArticleId } from "./addCommentByArticleId";
 export { getCommentsByArticleId } from "./getCommentsByArticleId";
 export { updateViewsByArticleId } from "./updateViewsByArticleId";
 export { updateArticle } from "./updateArticle";
+export { removeArticleById } from "./removeArticleById";
