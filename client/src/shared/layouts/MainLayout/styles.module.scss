@@ -1,5 +1,5 @@
 .MainLayout {
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100dvh;
   display: grid;
   grid-template-areas: 'sidebar content rightbar';
   grid-template-columns: min-content minmax(650px, 1fr) 100px;
@@ -10,7 +10,7 @@
   padding: var(--gutter-xxl);
   position: sticky;
   top: 0;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100dvh;
   max-width: 284px;
 }
 
@@ -26,7 +26,7 @@
   grid-area: rightbar;
   position: sticky;
   top: 0;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
